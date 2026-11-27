@@ -56,7 +56,8 @@ class PublicationHTML(HTMLParser):
         self.parts = []
         self.sources = {row["id"]: row for row in report["sources"]}
         self.prefix = "source-" if report["version"] == "1.3" else ""
-        ids = sorted(self.sources, key=lambda item: (-len(item), item))
+        self.gaps = {row["id"]: row for row in report.get("missing_information", []) if "id" in row}
+        ids = sorted(self.sources.keys() | self.gaps.keys(), key=lambda item: (-len(item), item))
         self.pattern = re.compile(r"(?<![\w-])(?:" + "|".join(map(re.escape, ids)) +
                                   r")(?![\w-])") if ids else None
         self.anchor = False
@@ -74,7 +75,7 @@ class PublicationHTML(HTMLParser):
             ref = href[len(prefix):] if href.startswith(prefix) else None
             if ref in self.sources and "title" not in dict(attrs):
                 source = self.sources[ref]
-                description = " | ".join(filter(None, (source.get("publisher"), source["title"], source["locator"])))
+                description = " | ".join(filter(None, (source.get("publisher"), source["title"], source["locator"]))).replace("\u2014", " - ")
                 original = original[:-1] + f' title="{esc(description)}">'
             self.anchor = True
         self.parts.append(original)
@@ -109,9 +110,15 @@ class PublicationHTML(HTMLParser):
         for match in self.pattern.finditer(data):
             self.parts.append(esc(data[start:match.start()]))
             ref = match.group()
-            source = self.sources[ref]
-            description = " | ".join(filter(None, (source.get("publisher"), source["title"], source["locator"])))
-            self.parts.append(f'<a href="#{self.prefix}{esc(ref)}" title="{esc(description)}">{esc(ref)}</a>')
+            if ref in self.sources:
+                source = self.sources[ref]
+                description = " | ".join(filter(None, (source.get("publisher"), source["title"], source["locator"])))
+                target = self.prefix + ref
+            else:
+                description = self.gaps[ref]["item"]
+                target = "gap-" + ref
+            description = description.replace("\u2014", " - ")
+            self.parts.append(f'<a href="#{esc(target)}" title="{esc(description)}">{esc(ref)}</a>')
             start = match.end()
         self.parts.append(esc(data[start:]))
 
@@ -443,7 +450,13 @@ def pdf_bytes(report):
     font_css = CSS(string="".join(rules), font_config=fonts, url_fetcher=fetch_font)
     options = {"pdf_variant": "pdf/ua-1"} if report["version"] == "1.3" else {}
     document = HTML(string=report_html(report, include_operands=False), url_fetcher=deny_fetch)
-    pdf = document.write_pdf(stylesheets=[font_css], font_config=fonts, **options)
+    rendered = document.render(stylesheets=[font_css], font_config=fonts)
+    anchors = {anchor for page in rendered.pages for anchor in page.anchors}
+    for page in rendered.pages:
+        for kind, target, *_ in page.links:
+            if kind == "internal" and target not in anchors:
+                raise ValueError(f"Unresolved PDF link target: {target}")
+    pdf = rendered.write_pdf(**options)
     if not pdf.startswith(b"%PDF-") or not pdf.rstrip().endswith(b"%%EOF"):
         raise RuntimeError("Invalid PDF output")
     return pdf
