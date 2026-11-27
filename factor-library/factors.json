@@ -1,0 +1,206 @@
+{
+  "version": "1.1",
+  "note": "Public analytical tests, not the hosted platform factor catalogue or scoring weights.",
+  "core": [
+    {
+      "id": "C01",
+      "title": "Entity and ownership",
+      "test": "Resolve legal identity, jurisdiction, ownership and instruments; distinguish operating entity from brand."
+    },
+    {
+      "id": "C02",
+      "title": "Customer problem and demand",
+      "test": "Test urgency, alternatives, willingness to pay and demonstrated adoption."
+    },
+    {
+      "id": "C03",
+      "title": "Product and execution",
+      "test": "Assess current readiness, delivery evidence, differentiation and critical dependencies."
+    },
+    {
+      "id": "C04",
+      "title": "Team and governance",
+      "test": "Verify relevant track record, responsibilities, key-person dependency, conflicts and governance."
+    },
+    {
+      "id": "C05",
+      "title": "Market and competition",
+      "test": "Test reachable market, competitors, substitutes, channels and pricing; distinguish top-down TAM from addressable sales."
+    },
+    {
+      "id": "C06",
+      "title": "Revenue and economics",
+      "test": "Reconcile actual revenue and cost structure, monetisation, contribution and repeatability."
+    },
+    {
+      "id": "C07",
+      "title": "Cash and capital",
+      "test": "Test cash availability, financing, burn, debt, working capital, runway and future funding needs."
+    },
+    {
+      "id": "C08",
+      "title": "Defensibility",
+      "test": "Test durability of differentiation, switching costs, IP rights, scale effects and replication risks."
+    },
+    {
+      "id": "C09",
+      "title": "Regulatory and operational risks",
+      "test": "Identify material licensing, compliance, operational, security and concentration dependencies."
+    },
+    {
+      "id": "C10",
+      "title": "Thesis and valuation drivers",
+      "test": "Identify evidence that would invalidate the thesis; determine valuation eligibility and key drivers."
+    }
+  ],
+  "models": {
+    "saas": [
+      {
+        "id": "SA01",
+        "title": "Recurring revenue quality",
+        "test": "Contracted recurring revenue versus bookings and one-off services; ARR bridge."
+      },
+      {
+        "id": "SA02",
+        "title": "Retention and acquisition",
+        "test": "Cohorts, GRR/NRR, churn, CAC and payback with consistent definitions."
+      },
+      {
+        "id": "SA03",
+        "title": "Scalability",
+        "test": "Hosting and service costs, contribution, support and enterprise sales cycle."
+      }
+    ],
+    "marketplace": [
+      {
+        "id": "MP01",
+        "title": "Liquidity and repeat usage",
+        "test": "Match rate, time to match, repeat demand and supply density by market."
+      },
+      {
+        "id": "MP02",
+        "title": "GMV and monetisation",
+        "test": "Recognised revenue versus GMV, take rate, incentives, refunds and fraud."
+      },
+      {
+        "id": "MP03",
+        "title": "Network resilience",
+        "test": "Concentration, multihoming, disintermediation and local-market economics."
+      }
+    ],
+    "manufacturing": [
+      {
+        "id": "MF01",
+        "title": "Capacity and yield",
+        "test": "Rated versus effective capacity, utilisation, throughput, scrap and quality."
+      },
+      {
+        "id": "MF02",
+        "title": "Capital and working capital",
+        "test": "Capex maintenance, inventory, receivables, payables and cash conversion."
+      },
+      {
+        "id": "MF03",
+        "title": "Supply and execution",
+        "test": "Supplier dependence, order quality, delivery, warranties and certifications."
+      }
+    ],
+    "consumer": [
+      {
+        "id": "CO01",
+        "title": "Repeat demand",
+        "test": "Repeat purchase cohorts, returns and channel concentration."
+      },
+      {
+        "id": "CO02",
+        "title": "Channel contribution",
+        "test": "Net selling price, promotions, fulfilment, marketplace fees and CAC."
+      },
+      {
+        "id": "CO03",
+        "title": "Inventory",
+        "test": "Stock turns, obsolescence, supply lead time and working capital."
+      }
+    ],
+    "lending": [
+      {
+        "id": "LE01",
+        "title": "Credit performance",
+        "test": "Vintage losses, delinquencies, recoveries and underwriting quality."
+      },
+      {
+        "id": "LE02",
+        "title": "Funding and capital",
+        "test": "Cost of funds, liquidity, mismatch, leverage and regulatory capital."
+      },
+      {
+        "id": "LE03",
+        "title": "Risk-adjusted economics",
+        "test": "Net interest, acquisition, servicing and expected losses; licensing."
+      }
+    ],
+    "biotech": [
+      {
+        "id": "BI01",
+        "title": "Clinical evidence",
+        "test": "Trial phase, endpoints, comparator, safety, independent scientific support."
+      },
+      {
+        "id": "BI02",
+        "title": "Regulatory and IP",
+        "test": "Approval path, patent scope, freedom to operate and milestone dependencies."
+      },
+      {
+        "id": "BI03",
+        "title": "Capital to milestones",
+        "test": "Trial/manufacturing costs, probability and timing assumptions, financing risk."
+      }
+    ],
+    "deeptech": [
+      {
+        "id": "DT01",
+        "title": "Technical validation",
+        "test": "Independent test results, reproducibility, readiness and scaling bottlenecks."
+      },
+      {
+        "id": "DT02",
+        "title": "Commercialisation",
+        "test": "Paid pilots versus signed interest, certification, integration and lead times."
+      },
+      {
+        "id": "DT03",
+        "title": "IP and capital",
+        "test": "Ownership, protectability, manufacturing transfer and milestone funding."
+      }
+    ],
+    "services": [
+      {
+        "id": "SV01",
+        "title": "Delivery economics",
+        "test": "Utilisation, effective billing rate, direct labour and project contribution."
+      },
+      {
+        "id": "SV02",
+        "title": "Repeat and concentration",
+        "test": "Backlog, contracted scope, renewals, collection and client dependency."
+      },
+      {
+        "id": "SV03",
+        "title": "Scalability",
+        "test": "Hiring, knowledge transfer, capacity constraints and quality control."
+      }
+    ],
+    "other": [
+      {
+        "id": "OT01",
+        "title": "Model-specific economics",
+        "test": "Describe unit of value, revenue recognition, variable costs and bottleneck."
+      },
+      {
+        "id": "OT02",
+        "title": "Model-specific risk",
+        "test": "Identify major dependencies and tests that standard categories do not capture."
+      }
+    ]
+  }
+}

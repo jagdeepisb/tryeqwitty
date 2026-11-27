@@ -9,3 +9,6 @@ Export integrity rules: preserve one frozen analysis snapshot through report gen
 
 ## Portable report-generation kit
 Use https://raw.githubusercontent.com/jagdeepisb/tryeqwitty/main/report-kit/README.md and the accompanying schema, renderer and example in the `tryeqwitty` repository to generate an independent PDF and missing-information CSV offline. Verify all pages and source references; if the required fonts or PDF tools are unavailable, explicitly report that PDF generation could not be completed.
+
+## v1.1 analytical bundle compatibility
+Use the validated v1.1 analysis bundle and [bridge](analysis-kit/README.md) to create the legacy v1.0 report JSON. The report includes the analytical version and commit plus the bundle hash. Renderer footer/schema remain v1.0 for compatibility; v1.1 is the analytical contract version, not a claim that the old renderer implements new typed tables or charts. Retain the original bundle as an audit artifact. A passing renderer is not proof of factual correctness.
