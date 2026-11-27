@@ -18,3 +18,7 @@ The release number identifies a reviewed set of instructions, executable contrac
 4. Retain both snapshots. Run `analysis-kit/conformance.py` on the new analytical bundle and same-bundle structured report. Export with the renderer's `--bundle` option. [Release procedure](v2.0.0/README.md)
 
 For future releases, a patch preserves accepted formats and intended behavior and documents corrections. A minor version can add backward-compatible capability. A breaking change needs a new major release, explicit migration instructions, and stated support for earlier contracts. Previously published releases retain their files and checksums.
+
+## v2.1 publication migration
+
+The v2.1 release keeps the same analytical, financial and report JSON versions. Review an existing bundle under the selected release, preserve the old snapshot, set the new reviewed source commit, and regenerate the reader-facing memo. The original v2.0 artifacts remain available. See the [v2.1 profile](v2.1.0/README.md).
