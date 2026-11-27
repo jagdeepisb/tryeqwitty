@@ -1,0 +1,39 @@
+{
+  "cases": {
+    "registry-uk": {
+      "answers": {
+        "entity": {"value": "Monzo Bank Limited", "confidence": "0.99", "citations": ["R1"]},
+        "incorporation": {"value": "2015-02-18", "confidence": "0.99", "citations": ["R1"]},
+        "company_status": {"value": "Active", "confidence": "0.99", "citations": ["R1"]},
+        "accounts_period": {"value": "2026-03-31", "confidence": "0.99", "citations": ["R1", "R2"]},
+        "accounts_filed": {"value": "2026-08-27", "confidence": "0.99", "citations": ["R2"]},
+        "filing_lag": {"value": "149", "confidence": "0.99", "citations": ["R2"]},
+        "licence_reference": {"value": null, "confidence": "0.99", "citations": ["R1", "R2"]}
+      },
+      "priorities": ["REGULATOR", "FINANCIALS"],
+      "decision": {
+        "status": "scope_only",
+        "rationale": "Companies House confirms the active legal entity and the latest full-accounts filing. A separate regulator record is needed to establish its licence reference and permissions.",
+        "next_request": "Obtain the official Financial Services Register entry matched to Monzo Bank Limited (09446231), showing its firm reference number, authorisation status, and permission to accept deposits as of 27 November 2026.",
+        "citations": ["R1", "R2"]
+      }
+    }
+  },
+  "search_log": [
+    {
+      "kind": "query",
+      "target": "site:find-and-update.company-information.service.gov.uk/company/09446231 Monzo Bank Limited filing history full accounts 2026",
+      "outcome": "success"
+    },
+    {
+      "kind": "open",
+      "target": "https://find-and-update.company-information.service.gov.uk/company/09446231",
+      "outcome": "success"
+    },
+    {
+      "kind": "open",
+      "target": "https://find-and-update.company-information.service.gov.uk/company/09446231/filing-history",
+      "outcome": "success"
+    }
+  ]
+}

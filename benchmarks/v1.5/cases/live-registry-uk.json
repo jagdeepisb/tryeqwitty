@@ -1,0 +1,55 @@
+{
+  "id": "registry-uk",
+  "model": "lending",
+  "stage": "unknown",
+  "objective": "Verify the scoped Companies House record for Monzo Bank Limited (09446231) as of 2026-11-27. Use only the Companies House overview and filing-history metadata for this case.",
+  "provenance": "public_corporate_metadata",
+  "questions": [
+    {
+      "id": "entity",
+      "question": "Give the legal entity for 09446231."
+    },
+    {
+      "id": "incorporation",
+      "question": "Give the incorporation date in YYYY-MM-DD."
+    },
+    {
+      "id": "company_status",
+      "question": "Give the company's register status."
+    },
+    {
+      "id": "accounts_period",
+      "question": "Give the latest full accounts period end in YYYY-MM-DD at the cut-off."
+    },
+    {
+      "id": "accounts_filed",
+      "question": "Give the Companies House filing date of those full accounts in YYYY-MM-DD."
+    },
+    {
+      "id": "filing_lag",
+      "question": "Give elapsed calendar days from accounts period end to filing date, excluding the period-end day."
+    },
+    {
+      "id": "licence_reference",
+      "question": "Give a regulatory licence reference established by the scoped registry metadata or null."
+    }
+  ],
+  "priority_options": {
+    "REGULATOR": "Entity-matched independent regulator authorisation record.",
+    "FINANCIALS": "Entity-matched accounts and capital/credit information.",
+    "LOGO": "Visual treatment of the company logo.",
+    "OFFICER_BIOS": "Personal biographies of individual officers."
+  },
+  "source_targets": [
+    {
+      "id": "R1",
+      "url": "https://find-and-update.company-information.service.gov.uk/company/09446231",
+      "title": "Companies House overview"
+    },
+    {
+      "id": "R2",
+      "url": "https://find-and-update.company-information.service.gov.uk/company/09446231/filing-history",
+      "title": "Companies House filing history"
+    }
+  ]
+}

@@ -24,3 +24,7 @@ Record per-case criterion findings, claim accuracy (correct/checked), material f
 ## v1.4 research checks
 
 Freeze the stated commercial stage, objective, model routes and resource allowance before comparing agents. Compare the selected factors and exclusions with the catalogue. Inspect the highest-priority questions, actual work by channel, independent origins, stopping conditions and unresolved items. For completed tasks, independently confirm the stated evidence requirement and counter-test. Trace corrections to the affected conclusions and calculations. Evaluate an offline packet and a live-search run as separate conditions.
+
+## v1.5 measured pilot
+
+Use the sealed solver brief, answer keys, evidence and blinded review criteria for each track. Track planned denominators, admitted citations, decision quality, separate hard failure flags, confidence-forecast coverage and agreement within each configuration. Archive original submissions and independently score outputs. Use seeded failure controls to check the scorer and report reconciliation while keeping the measured pilot inputs and outputs frozen. [Benchmark methodology](v1.5/README.md) · [Pilot results](v1.5/pilot-results.md)

@@ -1,0 +1,78 @@
+{
+  "case": "saas-early",
+  "answers": {
+    "entity": {
+      "category": "fact",
+      "value": "Fern Ledger Ltd",
+      "refs": [
+        "S1"
+      ],
+      "gate": "wrong_entity",
+      "aliases": [],
+      "tolerance": null,
+      "support": null
+    },
+    "grr": {
+      "category": "arithmetic",
+      "value": "85",
+      "refs": [
+        "S2"
+      ],
+      "gate": null,
+      "aliases": [],
+      "tolerance": "0.01",
+      "support": "(100000−5000−10000)/100000×100"
+    },
+    "nrr": {
+      "category": "arithmetic",
+      "value": "105",
+      "refs": [
+        "S2"
+      ],
+      "gate": null,
+      "aliases": [],
+      "tolerance": "0.01",
+      "support": "(100000+20000−5000−10000)/100000×100"
+    },
+    "arr_usd": {
+      "category": "arithmetic",
+      "value": "1380000",
+      "refs": [
+        "S2"
+      ],
+      "gate": null,
+      "aliases": [],
+      "tolerance": "0",
+      "support": "(100000+20000−5000−10000+10000)×12"
+    },
+    "arr_claim": {
+      "category": "contradiction",
+      "value": "contradicted",
+      "refs": [
+        "S1",
+        "S2"
+      ],
+      "gate": null,
+      "aliases": [],
+      "tolerance": null,
+      "support": null
+    },
+    "ev_usd": {
+      "category": "fact",
+      "value": null,
+      "refs": [
+        "S3"
+      ],
+      "gate": "unsupported_value",
+      "aliases": [],
+      "tolerance": null,
+      "support": null
+    }
+  },
+  "material": [
+    "CASH",
+    "COMPS"
+  ],
+  "decision": "hold",
+  "adjudication": "Advance only after cash and comparable terms are reconciled. Trace the discrepancy to implementation fees."
+}

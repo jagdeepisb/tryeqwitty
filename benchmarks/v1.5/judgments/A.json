@@ -1,0 +1,193 @@
+{
+  "reviews": [
+    {
+      "trial": "B8",
+      "case": "registry-uk",
+      "objective": true,
+      "evidence": true,
+      "next_step": true,
+      "reason": "Scope-only verifies the active entity and full-accounts filing from R1 and R2 while leaving authority and financial condition unverified. The requested regulator record matches the entity and cut-off.",
+      "hard_failures": []
+    },
+    {
+      "trial": "B8",
+      "case": "saas-early",
+      "objective": true,
+      "evidence": true,
+      "next_step": true,
+      "reason": "Hold is appropriate because S1 and S2 reconcile recurring ARR to $1.38 million after implementation fees and S3 identifies the comparable evidence gap. The request specifies dated enterprise values and a matched revenue basis.",
+      "hard_failures": []
+    },
+    {
+      "trial": "B8",
+      "case": "manufacturing-pilot",
+      "objective": true,
+      "evidence": true,
+      "next_step": true,
+      "reason": "Hold reflects the 81% first-pass and 90% final yield from one shift in S2 and the conditional customer interest and missing funding inputs in S3. The requested multi-shift logs test commercial capacity and acceptance.",
+      "hard_failures": []
+    },
+    {
+      "trial": "B8",
+      "case": "marketplace-growth",
+      "objective": true,
+      "evidence": true,
+      "next_step": true,
+      "reason": "Hold reflects S1’s $70,000 in fees and 10% calculated settled take rate alongside missing repeat activity and post-incentive contribution. The requested settled export supplies cohort and cost inputs.",
+      "hard_failures": []
+    },
+    {
+      "trial": "B8",
+      "case": "lending-operating",
+      "objective": true,
+      "evidence": true,
+      "next_step": true,
+      "reason": "Hold reflects the 12% versus 2% PAR30 conflict in S1 and S2 and the partner licence and contract gaps in S3. The request seeks Sedge-matched permissions and signed origination and risk-transfer terms.",
+      "hard_failures": []
+    },
+    {
+      "trial": "B8",
+      "case": "deeptech-sparse",
+      "objective": true,
+      "evidence": true,
+      "next_step": true,
+      "reason": "Hold follows the four-month runway and two-month test gap in S1 and the contingent letters in S2. The request seeks a dated cash bridge, executed commitments and a costed test schedule.",
+      "hard_failures": []
+    },
+    {
+      "trial": "H6",
+      "case": "registry-uk",
+      "objective": true,
+      "evidence": true,
+      "next_step": true,
+      "reason": "Scope-only matches the active entity, March period end and August filing date in R1 and R2, both opened successfully. The entity- and date-matched regulator record would address the outstanding authority question.",
+      "hard_failures": []
+    },
+    {
+      "trial": "J4",
+      "case": "saas-early",
+      "objective": true,
+      "evidence": true,
+      "next_step": true,
+      "reason": "Hold links S1 and S2 to the billed-versus-recurring difference and S3 to the missing comparable evidence. The request calls for dated peer terms and reconciled recurring-revenue definitions.",
+      "hard_failures": []
+    },
+    {
+      "trial": "J4",
+      "case": "manufacturing-pilot",
+      "objective": true,
+      "evidence": true,
+      "next_step": true,
+      "reason": "Hold distinguishes first-pass from post-rework yield on the single shift in S2 and identifies the conditional interest and missing funding records in S3. A representative commercial-volume multi-shift run tests repeatability.",
+      "hard_failures": []
+    },
+    {
+      "trial": "J4",
+      "case": "marketplace-growth",
+      "objective": true,
+      "evidence": true,
+      "next_step": true,
+      "reason": "Hold follows S1’s $70,000 fee and 10% settled take rate reconciliation and the absence of cohort retention and post-incentive contribution. Cohort-linked settled transactions and costs address those gaps.",
+      "hard_failures": []
+    },
+    {
+      "trial": "J4",
+      "case": "lending-operating",
+      "objective": true,
+      "evidence": true,
+      "next_step": true,
+      "reason": "Hold is supported by the 12% PAR30 and 5% net charge-off rate derived from S2 and the Bracken licence and unverified Sedge authority in S3. The request targets Sedge-matched authorisation and signed responsibility agreements.",
+      "hard_failures": []
+    },
+    {
+      "trial": "J4",
+      "case": "deeptech-sparse",
+      "objective": true,
+      "evidence": true,
+      "next_step": true,
+      "reason": "Hold follows the month-four cash limit and month-six test in S1 and the conditional, revocable $200,000 pipeline in S2. The requested cash forecast and signed bridge terms test whether funds arrive before cash runs out.",
+      "hard_failures": []
+    },
+    {
+      "trial": "J4",
+      "case": "registry-uk",
+      "objective": true,
+      "evidence": true,
+      "next_step": true,
+      "reason": "Scope-only explains the active status and full-accounts dates from R1 and R2 and limits the banking SIC to classification. An independent regulator record matched to the legal entity addresses the unverified authorisation.",
+      "hard_failures": []
+    },
+    {
+      "trial": "M3",
+      "case": "registry-uk",
+      "objective": true,
+      "evidence": true,
+      "next_step": true,
+      "reason": "Scope-only reports the active status and correct full-accounts dates from the two successful opens of R1 and R2. The requested entity-matched Financial Services Register entry addresses the unresolved licence and permissions.",
+      "hard_failures": []
+    },
+    {
+      "trial": "Q2",
+      "case": "saas-early",
+      "objective": true,
+      "evidence": true,
+      "next_step": true,
+      "reason": "Hold is justified by the fee-adjusted ARR in S2 and the lack of comparable transaction evidence in S1 and S3. The request specifies documented enterprise values and comparable recurring revenue.",
+      "hard_failures": []
+    },
+    {
+      "trial": "Q2",
+      "case": "manufacturing-pilot",
+      "objective": true,
+      "evidence": true,
+      "next_step": true,
+      "reason": "Hold is supported by S2’s single-shift yield and unverified throughput and S3’s customer condition and funding gap. The requested multi-shift logs would test throughput and quality against acceptance.",
+      "hard_failures": []
+    },
+    {
+      "trial": "Q2",
+      "case": "marketplace-growth",
+      "objective": true,
+      "evidence": true,
+      "next_step": true,
+      "reason": "Hold links S1’s settled take rate to the missing retention and contribution evidence needed for recurring unit economics. The proposed cohort schedules reconcile settled transactions, refunds, incentives and variable costs.",
+      "hard_failures": []
+    },
+    {
+      "trial": "Q2",
+      "case": "lending-operating",
+      "objective": true,
+      "evidence": true,
+      "next_step": true,
+      "reason": "Hold directly identifies the 12% versus 2% PAR30 conflict in S1 and S2 and S3’s unresolved Sedge authority and risk allocation. The request targets the actual originator’s authority and signed terms defining Sedge’s role.",
+      "hard_failures": []
+    },
+    {
+      "trial": "Q2",
+      "case": "deeptech-sparse",
+      "objective": true,
+      "evidence": true,
+      "next_step": true,
+      "reason": "Hold follows the two-month runway gap and lack of committed financing in S1 and the testing and withdrawal conditions in S2. The requested reconciled forecast and signed financing would test coverage through acceptance.",
+      "hard_failures": []
+    },
+    {
+      "trial": "Q2",
+      "case": "registry-uk",
+      "objective": true,
+      "evidence": true,
+      "next_step": true,
+      "reason": "Scope-only confirms active status and the full-accounts period from R1 and R2 while limiting the decision to registry metadata. If authorisation matters to a later decision, the requested entity-matched regulator record addresses it.",
+      "hard_failures": []
+    },
+    {
+      "trial": "X1",
+      "case": "registry-uk",
+      "objective": true,
+      "evidence": true,
+      "next_step": true,
+      "reason": "Scope-only confirms active entity and full-accounts filing facts from R1 and R2, both opened successfully. The requested entity- and date-matched register entry would address the licence and deposit-permission questions.",
+      "hard_failures": []
+    }
+  ]
+}

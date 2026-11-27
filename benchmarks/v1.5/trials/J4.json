@@ -1,0 +1,381 @@
+{
+  "cases": {
+    "saas-early": {
+      "answers": {
+        "entity": {
+          "value": "Fern Ledger Ltd",
+          "confidence": "1.00",
+          "citations": [
+            "S1",
+            "S3"
+          ]
+        },
+        "grr": {
+          "value": "85",
+          "confidence": "1.00",
+          "citations": [
+            "S2"
+          ]
+        },
+        "nrr": {
+          "value": "105",
+          "confidence": "1.00",
+          "citations": [
+            "S2"
+          ]
+        },
+        "arr_usd": {
+          "value": "1380000",
+          "confidence": "1.00",
+          "citations": [
+            "S2"
+          ]
+        },
+        "arr_claim": {
+          "value": "contradicted",
+          "confidence": "0.99",
+          "citations": [
+            "S1",
+            "S2"
+          ]
+        },
+        "ev_usd": {
+          "value": null,
+          "confidence": "0.99",
+          "citations": [
+            "S1",
+            "S3"
+          ]
+        }
+      },
+      "priorities": [
+        "COMPS",
+        "CASH"
+      ],
+      "decision": {
+        "status": "hold",
+        "rationale": "The subscription ledger supports $1.38 million in run-rate ARR after excluding $8,000 in monthly one-time fees. Management's $1.476 million claim annualises total billings. The packet lacks dated comparable transaction terms for a valuation.",
+        "next_request": "Provide dated peer transaction terms and the recurring-revenue definitions used to price those transactions, reconciled to Fern's recurring-revenue basis.",
+        "citations": [
+          "S1",
+          "S2",
+          "S3"
+        ]
+      }
+    },
+    "manufacturing-pilot": {
+      "answers": {
+        "entity": {
+          "value": "Vale Components Ltd",
+          "confidence": "1.00",
+          "citations": [
+            "S1"
+          ]
+        },
+        "first_pass_yield": {
+          "value": "81",
+          "confidence": "1.00",
+          "citations": [
+            "S2"
+          ]
+        },
+        "final_yield": {
+          "value": "90",
+          "confidence": "1.00",
+          "citations": [
+            "S2"
+          ]
+        },
+        "first_pass_claim": {
+          "value": "contradicted",
+          "confidence": "0.99",
+          "citations": [
+            "S1",
+            "S2"
+          ]
+        },
+        "customer_commitment": {
+          "value": "conditional",
+          "confidence": "1.00",
+          "citations": [
+            "S3"
+          ]
+        },
+        "funding_need_usd": {
+          "value": null,
+          "confidence": "0.99",
+          "citations": [
+            "S3"
+          ]
+        }
+      },
+      "priorities": [
+        "THROUGHPUT",
+        "CASH_CAPEX"
+      ],
+      "decision": {
+        "status": "hold",
+        "rationale": "The single-shift run achieved 81% first-pass yield and 90% final acceptance after rework. Repeatable commercial throughput remains unverified, and customer interest is conditional on multi-shift acceptance. Cash, capex and working-capital records are missing.",
+        "next_request": "Provide a representative multi-shift run at commercial volume with throughput, downtime, first-pass yield, rework totals and scrap by shift.",
+        "citations": [
+          "S1",
+          "S2",
+          "S3"
+        ]
+      }
+    },
+    "marketplace-growth": {
+      "answers": {
+        "entity": {
+          "value": "Pond Exchange Ltd",
+          "confidence": "1.00",
+          "citations": [
+            "S1"
+          ]
+        },
+        "recognised_revenue_usd": {
+          "value": "70000",
+          "confidence": "1.00",
+          "citations": [
+            "S1"
+          ]
+        },
+        "settled_take_rate": {
+          "value": "10",
+          "confidence": "1.00",
+          "citations": [
+            "S1"
+          ]
+        },
+        "gmv_revenue_claim": {
+          "value": "contradicted",
+          "confidence": "0.99",
+          "citations": [
+            "S1",
+            "S2"
+          ]
+        },
+        "placed_ratio_relation": {
+          "value": "different_basis",
+          "confidence": "1.00",
+          "citations": [
+            "S1",
+            "S2"
+          ]
+        },
+        "independent_origins": {
+          "value": "0",
+          "confidence": "1.00",
+          "citations": [
+            "S1",
+            "S2",
+            "S3"
+          ]
+        }
+      },
+      "priorities": [
+        "COHORT",
+        "CONTRIBUTION"
+      ],
+      "decision": {
+        "status": "hold",
+        "rationale": "Pond recognised $70,000 in fees on $700,000 of settled GMV, a 10% take rate. The packet lacks the cohort retention and post-incentive contribution needed to assess recurring unit economics.",
+        "next_request": "Provide settled transaction records by buyer and seller cohort, with repeat activity, recognised fees, refunds, incentives and other variable costs.",
+        "citations": [
+          "S1"
+        ]
+      }
+    },
+    "lending-operating": {
+      "answers": {
+        "entity": {
+          "value": "Sedge Credit Ltd",
+          "confidence": "1.00",
+          "citations": [
+            "S1",
+            "S3"
+          ]
+        },
+        "par30": {
+          "value": "12",
+          "confidence": "1.00",
+          "citations": [
+            "S2"
+          ]
+        },
+        "net_charge_off_rate": {
+          "value": "5",
+          "confidence": "1.00",
+          "citations": [
+            "S2"
+          ]
+        },
+        "par_claim": {
+          "value": "contradicted",
+          "confidence": "0.99",
+          "citations": [
+            "S1",
+            "S2"
+          ]
+        },
+        "self_licence": {
+          "value": null,
+          "confidence": "1.00",
+          "citations": [
+            "S3"
+          ]
+        },
+        "licence_holder": {
+          "value": "Bracken Finance PLC",
+          "confidence": "1.00",
+          "citations": [
+            "S3"
+          ]
+        }
+      },
+      "priorities": [
+        "AUTHORITY",
+        "VINTAGES"
+      ],
+      "decision": {
+        "status": "hold",
+        "rationale": "The portfolio schedule shows 12% PAR30 and a 5% net charge-off rate. The attached licence names Bracken Finance PLC. Sedge's origination authority and risk allocation remain unverified.",
+        "next_request": "Provide entity-matched authorisation evidence for Sedge in the stated jurisdiction and the signed origination and risk-transfer agreements identifying each party's obligations.",
+        "citations": [
+          "S1",
+          "S2",
+          "S3"
+        ]
+      }
+    },
+    "deeptech-sparse": {
+      "answers": {
+        "entity": {
+          "value": "Flint Sensor Ltd",
+          "confidence": "1.00",
+          "citations": [
+            "S1"
+          ]
+        },
+        "runway_months": {
+          "value": "4",
+          "confidence": "1.00",
+          "citations": [
+            "S1"
+          ]
+        },
+        "shortfall_months": {
+          "value": "2",
+          "confidence": "1.00",
+          "citations": [
+            "S1"
+          ]
+        },
+        "signed_sales_claim": {
+          "value": "contradicted",
+          "confidence": "0.99",
+          "citations": [
+            "S2"
+          ]
+        },
+        "recognised_revenue_usd": {
+          "value": null,
+          "confidence": "1.00",
+          "citations": [
+            "S2"
+          ]
+        },
+        "equity_value_usd": {
+          "value": null,
+          "confidence": "0.99",
+          "citations": [
+            "S1",
+            "S2"
+          ]
+        }
+      },
+      "priorities": [
+        "FUNDING",
+        "ACCEPTANCE"
+      ],
+      "decision": {
+        "status": "hold",
+        "rationale": "Unrestricted cash funds four months at the stated burn. The independent acceptance test is forecast for month six, and financing is uncommitted. The $200,000 pipeline consists of conditional, revocable letters of intent.",
+        "next_request": "Provide a dated cash forecast through independent acceptance and signed bridge financing terms showing that funds will be available before cash runs out.",
+        "citations": [
+          "S1",
+          "S2"
+        ]
+      }
+    },
+    "registry-uk": {
+      "answers": {
+        "entity": {
+          "value": "Monzo Bank Limited",
+          "confidence": "1.00",
+          "citations": [
+            "R1"
+          ]
+        },
+        "incorporation": {
+          "value": "2015-02-18",
+          "confidence": "1.00",
+          "citations": [
+            "R1"
+          ]
+        },
+        "company_status": {
+          "value": "active",
+          "confidence": "1.00",
+          "citations": [
+            "R1"
+          ]
+        },
+        "accounts_period": {
+          "value": "2026-03-31",
+          "confidence": "1.00",
+          "citations": [
+            "R1",
+            "R2"
+          ]
+        },
+        "accounts_filed": {
+          "value": "2026-08-27",
+          "confidence": "1.00",
+          "citations": [
+            "R2"
+          ]
+        },
+        "filing_lag": {
+          "value": "149",
+          "confidence": "1.00",
+          "citations": [
+            "R2"
+          ]
+        },
+        "licence_reference": {
+          "value": null,
+          "confidence": "1.00",
+          "citations": [
+            "R1",
+            "R2"
+          ]
+        }
+      },
+      "priorities": [
+        "REGULATOR",
+        "FINANCIALS"
+      ],
+      "decision": {
+        "status": "scope_only",
+        "rationale": "Companies House records Monzo Bank Limited as active and shows full accounts for the period ended 31 March 2026, filed on 27 August 2026. The banking SIC code identifies an industry classification. Regulatory authorisation remains unverified within this scope.",
+        "next_request": "Obtain an independent regulator authorisation record matching Monzo Bank Limited and company number 09446231 and stating the licence or authorisation reference.",
+        "citations": [
+          "R1",
+          "R2"
+        ]
+      }
+    }
+  },
+  "search_log": []
+}

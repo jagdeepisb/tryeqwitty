@@ -24,4 +24,5 @@ jobs:
       - run: python analysis-kit/validate.py benchmarks/sparse-manufacturing.json
       - run: python analysis-kit/validate.py benchmarks/conflicting-revenue.json
       - run: python analysis-kit/to_report.py benchmarks/reported-saas.json /tmp/report.json
-      - run: python report-kit/render.py /tmp/report.json --out /tmp/eqwitty-report --html-only
+      - run: python report-kit/render.py /tmp/report.json --out /tmp/eqwitty-report --html-only --bundle benchmarks/reported-saas.json
+      - run: python analysis-kit/benchmark.py > /tmp/benchmark-results.json && cmp benchmarks/v1.5/results.json /tmp/benchmark-results.json

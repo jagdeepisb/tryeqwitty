@@ -1,0 +1,89 @@
+{
+  "cases": {
+    "registry-uk": {
+      "answers": {
+        "entity": {
+          "value": "Monzo Bank Limited",
+          "confidence": "1.00",
+          "citations": [
+            "R1"
+          ]
+        },
+        "incorporation": {
+          "value": "2015-02-18",
+          "confidence": "1.00",
+          "citations": [
+            "R1"
+          ]
+        },
+        "company_status": {
+          "value": "Active",
+          "confidence": "1.00",
+          "citations": [
+            "R1"
+          ]
+        },
+        "accounts_period": {
+          "value": "2026-03-31",
+          "confidence": "1.00",
+          "citations": [
+            "R1",
+            "R2"
+          ]
+        },
+        "accounts_filed": {
+          "value": "2026-08-27",
+          "confidence": "1.00",
+          "citations": [
+            "R2"
+          ]
+        },
+        "filing_lag": {
+          "value": "149",
+          "confidence": "1.00",
+          "citations": [
+            "R2"
+          ]
+        },
+        "licence_reference": {
+          "value": null,
+          "confidence": "1.00",
+          "citations": [
+            "R1",
+            "R2"
+          ]
+        }
+      },
+      "priorities": [
+        "REGULATOR",
+        "FINANCIALS"
+      ],
+      "decision": {
+        "status": "scope_only",
+        "rationale": "Companies House records Monzo Bank Limited (09446231) as active and shows its latest full accounts were made up to 31 March 2026 and filed on 27 August 2026. The scoped metadata verifies those registry facts. Regulatory authorisation and creditworthiness require additional evidence.",
+        "next_request": "Obtain the independent regulator's authorisation record for Monzo Bank Limited, matched to company number 09446231, with the firm reference number, status and relevant permissions as of 27 November 2026.",
+        "citations": [
+          "R1",
+          "R2"
+        ]
+      }
+    }
+  },
+  "search_log": [
+    {
+      "kind": "query",
+      "target": "site:find-and-update.company-information.service.gov.uk/company/09446231 Monzo Bank Limited Companies House overview filing history full accounts",
+      "outcome": "success"
+    },
+    {
+      "kind": "open",
+      "target": "https://find-and-update.company-information.service.gov.uk/company/09446231",
+      "outcome": "success"
+    },
+    {
+      "kind": "open",
+      "target": "https://find-and-update.company-information.service.gov.uk/company/09446231/filing-history",
+      "outcome": "success"
+    }
+  ]
+}

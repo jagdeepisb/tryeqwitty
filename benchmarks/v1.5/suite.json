@@ -1,0 +1,34 @@
+{
+  "version": "1.5",
+  "suite_id": "eqwitty-pilot-2026-11-27",
+  "as_of": "2026-11-27",
+  "cases": [
+    "saas-early",
+    "manufacturing-pilot",
+    "marketplace-growth",
+    "lending-operating",
+    "deeptech-sparse",
+    "registry-uk"
+  ],
+  "tracks": {
+    "fixed": {
+      "cases": [
+        "saas-early",
+        "manufacturing-pilot",
+        "marketplace-growth",
+        "lending-operating",
+        "deeptech-sparse",
+        "registry-uk"
+      ],
+      "max_search_actions": 0,
+      "replicates": 3
+    },
+    "live": {
+      "cases": [
+        "registry-uk"
+      ],
+      "max_search_actions": 3,
+      "replicates": 3
+    }
+  }
+}

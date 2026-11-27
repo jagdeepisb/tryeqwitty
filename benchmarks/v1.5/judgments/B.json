@@ -1,0 +1,193 @@
+{
+  "reviews": [
+    {
+      "trial": "B8",
+      "case": "registry-uk",
+      "objective": true,
+      "evidence": true,
+      "next_step": true,
+      "reason": "R1 and R2 support the scope-only confirmation of active status and the full-accounts filing. The request specifies an entity-matched regulator record with permissions at the cut-off.",
+      "hard_failures": []
+    },
+    {
+      "trial": "B8",
+      "case": "saas-early",
+      "objective": true,
+      "evidence": true,
+      "next_step": true,
+      "reason": "S1–S3 support holding the valuation review because run-rate ARR excludes implementation fees and dated comparables are missing. The requested transactions would establish comparable values on a matched revenue basis.",
+      "hard_failures": []
+    },
+    {
+      "trial": "B8",
+      "case": "manufacturing-pilot",
+      "objective": true,
+      "evidence": true,
+      "next_step": true,
+      "reason": "S2 and S3 support holding the capacity case because single-shift yields leave commercial throughput unverified and customer acceptance is conditional. The requested multi-shift logs would test capacity against acceptance criteria.",
+      "hard_failures": []
+    },
+    {
+      "trial": "B8",
+      "case": "marketplace-growth",
+      "objective": true,
+      "evidence": true,
+      "next_step": true,
+      "reason": "S1 supports holding the growth review because fee and settled take-rate data leave repeat activity and contribution unresolved. The requested settled transaction export supplies cohort, fee and cost data to test both.",
+      "hard_failures": []
+    },
+    {
+      "trial": "B8",
+      "case": "lending-operating",
+      "objective": true,
+      "evidence": true,
+      "next_step": true,
+      "reason": "S1–S3 support holding on the 12% versus 2% PAR30 conflict and the partner-only licence evidence. An entity-matched permissions record and signed risk-transfer agreements would resolve authority and loss-bearing roles.",
+      "hard_failures": []
+    },
+    {
+      "trial": "B8",
+      "case": "deeptech-sparse",
+      "objective": true,
+      "evidence": true,
+      "next_step": true,
+      "reason": "S1 and S2 support holding because cash runs out two months before forecast independent acceptance and the letters are conditional. The requested costed cash bridge and executed funding commitments address that timing gap.",
+      "hard_failures": []
+    },
+    {
+      "trial": "H6",
+      "case": "registry-uk",
+      "objective": true,
+      "evidence": true,
+      "next_step": true,
+      "reason": "The logged R1 and R2 opens support the scope-only finding on active status and the two accounts dates. The requested regulator entry specifies entity, status, permissions and cut-off date.",
+      "hard_failures": []
+    },
+    {
+      "trial": "J4",
+      "case": "saas-early",
+      "objective": true,
+      "evidence": true,
+      "next_step": true,
+      "reason": "S1–S3 support holding because implementation fees inflate annualised billings relative to ledger ARR and comparable transactions are missing. The request calls for dated peer terms reconciled to Fern’s recurring-revenue basis.",
+      "hard_failures": []
+    },
+    {
+      "trial": "J4",
+      "case": "manufacturing-pilot",
+      "objective": true,
+      "evidence": true,
+      "next_step": true,
+      "reason": "S2 and S3 support holding because the single-shift yields leave multi-shift throughput and customer acceptance unresolved, with scale-up financing records missing. The requested commercial-volume test measures throughput, downtime and yield by shift.",
+      "hard_failures": []
+    },
+    {
+      "trial": "J4",
+      "case": "marketplace-growth",
+      "objective": true,
+      "evidence": true,
+      "next_step": true,
+      "reason": "S1 supports holding because the 10% settled take rate leaves repeat demand and post-incentive contribution unverified. The request links settled buyer and seller cohorts to repeat activity, fees and variable costs.",
+      "hard_failures": []
+    },
+    {
+      "trial": "J4",
+      "case": "lending-operating",
+      "objective": true,
+      "evidence": true,
+      "next_step": true,
+      "reason": "S2 and S3 support holding because the portfolio metrics show risk and Bracken’s licence leaves Sedge’s authority and risk allocation unverified. The request specifies Sedge authorisation and signed agreements defining each party’s obligations.",
+      "hard_failures": []
+    },
+    {
+      "trial": "J4",
+      "case": "deeptech-sparse",
+      "objective": true,
+      "evidence": true,
+      "next_step": true,
+      "reason": "S1 and S2 support holding because the four-month cash runway precedes the month-six test and the letters are revocable. The dated cash forecast and signed bridge terms would test whether funds arrive in time.",
+      "hard_failures": []
+    },
+    {
+      "trial": "J4",
+      "case": "registry-uk",
+      "objective": true,
+      "evidence": true,
+      "next_step": true,
+      "reason": "R1 and R2 support a scope-only confirmation of the accounts dates and active status, with banking SIC serving as industry classification. The requested entity-matched regulator entry would establish the authorisation reference.",
+      "hard_failures": []
+    },
+    {
+      "trial": "M3",
+      "case": "registry-uk",
+      "objective": true,
+      "evidence": true,
+      "next_step": true,
+      "reason": "The logged R1 and R2 opens support the scope-only findings on Monzo’s active status and accounts dates. The request specifies the Financial Services Register record matched to company number 09446231 and its permissions.",
+      "hard_failures": []
+    },
+    {
+      "trial": "Q2",
+      "case": "saas-early",
+      "objective": true,
+      "evidence": true,
+      "next_step": true,
+      "reason": "S1–S3 support holding the valuation review because the ledger supports fee-adjusted ARR and the packet lacks comparable transactions. The request specifies dated enterprise values and comparable recurring-revenue measurements.",
+      "hard_failures": []
+    },
+    {
+      "trial": "Q2",
+      "case": "manufacturing-pilot",
+      "objective": true,
+      "evidence": true,
+      "next_step": true,
+      "reason": "S2 and S3 support holding on a single-shift result and conditional customer interest, with commercial throughput and funding unverified. The requested production logs tie multi-shift output and yield to customer acceptance.",
+      "hard_failures": []
+    },
+    {
+      "trial": "Q2",
+      "case": "marketplace-growth",
+      "objective": true,
+      "evidence": true,
+      "next_step": true,
+      "reason": "S1 supports holding because the settled-GMV take rate leaves cohort retention and post-incentive contribution undetermined. The requested cohort schedules tie settled activity to fees, refunds, incentives and costs.",
+      "hard_failures": []
+    },
+    {
+      "trial": "Q2",
+      "case": "lending-operating",
+      "objective": true,
+      "evidence": true,
+      "next_step": true,
+      "reason": "S1–S3 support holding on the 12% versus 2% PAR30 conflict and unverified Sedge authority and retained risk. The request specifies authorisation for the actual originator and signed agreements showing Sedge’s role and loss allocation.",
+      "hard_failures": []
+    },
+    {
+      "trial": "Q2",
+      "case": "deeptech-sparse",
+      "objective": true,
+      "evidence": true,
+      "next_step": true,
+      "reason": "S1 and S2 support holding because the four-month runway falls two months short of forecast acceptance and financing is uncommitted. The requested reconciled cash forecast and signed commitments address the bridge through the test.",
+      "hard_failures": []
+    },
+    {
+      "trial": "Q2",
+      "case": "registry-uk",
+      "objective": true,
+      "evidence": true,
+      "next_step": true,
+      "reason": "R1 and R2 support limiting the decision to company status and full-accounts metadata. The requested independently matched authorisation record is actionable if the decision also needs regulatory status.",
+      "hard_failures": []
+    },
+    {
+      "trial": "X1",
+      "case": "registry-uk",
+      "objective": true,
+      "evidence": true,
+      "next_step": true,
+      "reason": "The logged R1 and R2 opens support the scope-only finding on active status and full accounts. The requested official register entry would establish the entity’s reference, status and deposit-taking permission at the cut-off.",
+      "hard_failures": []
+    }
+  ]
+}

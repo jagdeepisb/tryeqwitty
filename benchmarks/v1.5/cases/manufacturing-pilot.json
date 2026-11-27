@@ -1,0 +1,62 @@
+{
+  "id": "manufacturing-pilot",
+  "model": "manufacturing",
+  "stage": "pilot",
+  "objective": "Decide whether fictional Vale Components can support a capacity-based fundraising case.",
+  "provenance": "synthetic",
+  "sources": [
+    {
+      "id": "S1",
+      "origin": "vale",
+      "title": "Fundraising deck",
+      "extract": "Vale Components Ltd markets a 90% first-pass yield and says the test proves repeatable commercial production.",
+      "url": null
+    },
+    {
+      "id": "S2",
+      "origin": "test_lab",
+      "title": "Scoped QA run",
+      "extract": "The supervised single-shift trial processed 100 units. 81 passed on first inspection. Nine additional units passed after rework. Ten units were scrapped. No multiple-shift or commercial-volume records were reviewed.",
+      "url": null
+    },
+    {
+      "id": "S3",
+      "origin": "vale",
+      "title": "Funding file index",
+      "extract": "No dated equipment quote, cash ledger or working-capital schedule. A customer expression of interest is conditional on multi-shift acceptance and binds no purchaser.",
+      "url": null
+    }
+  ],
+  "questions": [
+    {
+      "id": "entity",
+      "question": "Give the legal entity."
+    },
+    {
+      "id": "first_pass_yield",
+      "question": "Give first-pass yield as a percentage number."
+    },
+    {
+      "id": "final_yield",
+      "question": "Give final acceptance yield after rework as a percentage number."
+    },
+    {
+      "id": "first_pass_claim",
+      "question": "Classify the 90% first-pass claim as supported, contradicted, different_basis, or unknown."
+    },
+    {
+      "id": "customer_commitment",
+      "question": "Classify the expression of interest as binding or conditional."
+    },
+    {
+      "id": "funding_need_usd",
+      "question": "Give a supported required raise in USD or null."
+    }
+  ],
+  "priority_options": {
+    "THROUGHPUT": "Representative multi-shift production, downtime and quality logs.",
+    "CASH_CAPEX": "Reconciled cash, equipment quotes and working capital.",
+    "BRAND": "Packaging mockups.",
+    "HISTORY": "Founding-year anecdotes."
+  }
+}

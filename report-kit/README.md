@@ -22,10 +22,12 @@ Run from the repository root.
 ```sh
 python -m pip install -r report-kit/requirements.txt
 python analysis-kit/to_report.py benchmarks/report-complete-v1.3.json report.json
-python report-kit/render.py report.json --out output
+python report-kit/render.py report.json --out output --bundle benchmarks/report-complete-v1.3.json
 ```
 
 The output contains `assessment.pdf`, `assessment.html` and `missing-information.csv`. Use a fresh output directory per assessment. Run with `--html-only` to produce the HTML and CSV without WeasyPrint or its platform dependencies. Use the analysis-kit requirements for this fallback. Keep real company input, report JSON and outputs private.
+
+Pass `--bundle` when the validated analytical bundle is available. The renderer checks the versioned projection and its disclosures against the original bundle before writing files. The bundle check uses the analysis kit from the same checkout. Standalone report input can still be rendered with schema validation.
 
 The structured report uses deterministic results from the validated bundle and preserves the exact decimal strings. Money displays up to two decimal places and ratios and percentages up to four. The report shows very small nonzero values in scientific notation. The HTML exposes raw exhibit values and retains the complete operand register, while the PDF shows the associated input IDs. For v1.1 and v1.2 bundles, `--report-version 1.3` opts into this format. [v1.3 schema](schema-v1.3.json) · [v1.0 schema](schema.json) · [Report specification](../report-spec.md)
 

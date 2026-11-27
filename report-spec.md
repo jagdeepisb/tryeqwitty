@@ -28,3 +28,7 @@ Review each rendered PDF page for legibility and verify the figures, references,
 ## v1.4 research disclosure
 
 The v1.3 renderer displays the v1.4 methodology version. The report records actual activity by channel, capabilities, question outcomes, distinct evidence origins, corrections and limitations. Planned research without an attempt is disclosed as such. The independent thesis shows its current evidence status. Keep the plan and attempt ledger with the analysis so readers can trace the disclosed work. [Research playbooks](methodology/research-playbooks.md)
+
+## v1.5 bundle reconciliation
+
+Use `report-kit/render.py --bundle <analysis.json>` with a same-revision analysis kit when the source bundle is available. The check revalidates the bundle, recomputes the versioned report projection and compares the supplied report with it. A material calculation or disclosure change triggers a diff location before PDF, HTML or CSV output is written. Record whether you ran bundle reconciliation or standalone schema validation. [Report kit](report-kit/README.md) · [Benchmark controls](benchmarks/v1.5/README.md#feedback-into-assessment-and-reporting)
