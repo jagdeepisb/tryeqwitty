@@ -41,3 +41,7 @@ pdffonts output/assessment.pdf
 pdfinfo -url output/assessment.pdf
 pdftoppm -png output/assessment.pdf /tmp/eqwitty-page
 ```
+
+## Publication quality
+
+The reader-facing HTML and PDF omit technical provenance blocks; the original report JSON and analytical bundle retain all contract metadata. Evidence references link to descriptive source records, including IDs embedded in prose. Display punctuation is normalised without changing the original record. Run the publication regression tests and verify extracted PDF text, clickable annotations and actual rendered pages. See the [mandatory editorial rules](../report-spec.md#reader-facing-publication-quality-mandatory). Historical release artifacts remain immutable.
