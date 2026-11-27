@@ -2,6 +2,7 @@
 Open, tool-agnostic methodology and offline report generation for private companies. Maintained by [Eqwitty](https://tryeqwitty.com), distinct from the hosted platform.
 
 ## Start here
+- [v2.0 release profile and conformance](release/v2.0.0/README.md), [compatibility and migration](release/COMPATIBILITY.md)
 - [Canonical agent prompt](prompts/evaluate.md) and [agent instructions](AGENT.md)
 - [Evaluation protocol](evaluation-protocol.md) and [detailed execution gates](methodology/execution.md)
 - [Evidence rules](methodology/evidence.md), [factor library](factor-library/factors.json), [financial guide](financial-analysis/guide.md), [valuation guide](valuation/guide.md)
@@ -26,3 +27,5 @@ python report-kit/render.py /tmp/eqwitty-report.json --out /tmp/eqwitty-report -
 The renderer bundles its licensed fonts. Install the platform dependencies in the report kit instructions to create PDFs. Both example assessments are fictional. To use a v1.1 or v1.2 bundle with the structured renderer, pass `--report-version 1.3` to the report bridge. [Report kit](report-kit/README.md)
 
 Recompute the stored v1.5 pilot results offline with `python analysis-kit/benchmark.py`. The pilot uses the existing v1.4 analytical contract.
+
+[Licensing and attribution](NOTICE.md) · [Contributing](CONTRIBUTING.md) · [Governance](GOVERNANCE.md)

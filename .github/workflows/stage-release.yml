@@ -1,0 +1,77 @@
+name: Stage the v2.0.0 release
+on:
+  push:
+    branches: [main]
+    paths: [release/v2.0.0/RELEASE-NOTES.md]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: eqwitty-v2.0.0-release
+  cancel-in-progress: false
+jobs:
+  accept:
+    if: github.ref == 'refs/heads/main'
+    uses: ./.github/workflows/validate.yml
+  draft:
+    needs: accept
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/download-artifact@v4
+        with:
+          name: eqwitty-v2.0.0-release-evidence
+          path: ${{ runner.temp }}/eqwitty-release
+      - name: Stage the verified assets for publication
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          test -s LICENSE
+          test -s NOTICE.md
+          tag=v2.0.0
+          assets="$RUNNER_TEMP/eqwitty-release"
+          (cd "$assets" && sha256sum --check SHA256SUMS.txt)
+          jq --exit-status --arg commit "$GITHUB_SHA" \
+            '.source_commit == $commit and .release == "2.0.0"' "$assets/release-manifest.json" >/dev/null
+          if ! current=$(gh release view "$tag" --json targetCommitish,isDraft,assets 2>"$RUNNER_TEMP/release-view-error"); then
+            cat "$RUNNER_TEMP/release-view-error"
+            grep -qiE 'release not found|HTTP 404' "$RUNNER_TEMP/release-view-error"
+            gh release create "$tag" --draft --target "$GITHUB_SHA" --title "Eqwitty Open Diligence Standard $tag" \
+              --notes-file release/v2.0.0/RELEASE-NOTES.md
+            current=$(gh release view "$tag" --json targetCommitish,isDraft,assets)
+          fi
+          jq --exit-status --arg commit "$GITHUB_SHA" '.targetCommitish == $commit' <<< "$current" >/dev/null
+          missing=()
+          downloaded="$RUNNER_TEMP/eqwitty-check"
+          for name in "eqwitty-$tag-reference.zip" release-manifest.json SHA256SUMS.txt; do
+            if jq --exit-status --arg name "$name" 'any(.assets[]; .name == $name)' <<< "$current" >/dev/null; then
+              gh release download "$tag" --pattern "$name" --dir "$downloaded"
+            else
+              missing+=("$assets/$name")
+            fi
+          done
+          if (( ${#missing[@]} )); then
+            jq --exit-status '.isDraft' <<< "$current" >/dev/null
+            # Recover a partial upload using the same workflow's tested assets.
+            for file in "$downloaded"/*; do
+              if [[ -f "$file" ]]; then cmp "$file" "$assets/${file##*/}"; fi
+            done
+            gh release upload "$tag" "${missing[@]}"
+            for file in "${missing[@]}"; do
+              gh release download "$tag" --pattern "${file##*/}" --dir "$downloaded"
+            done
+          fi
+          (cd "$downloaded" && sha256sum --check SHA256SUMS.txt)
+          # WeasyPrint generates fresh structure identifiers in tagged PDFs.
+          stable_manifest='del(.build_environment) | .files |= with_entries(select(.key | endswith(".pdf") | not))'
+          diff -u <(jq -S "$stable_manifest" "$assets/release-manifest.json") \
+            <(jq -S "$stable_manifest" "$downloaded/release-manifest.json")
+          gh release view "$tag" --json url,isDraft,targetCommitish,assets \
+            --jq '{url,isDraft,targetCommitish,assets:[.assets[].name]}'

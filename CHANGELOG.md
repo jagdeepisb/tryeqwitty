@@ -1,4 +1,8 @@
 # Changelog
+## 2.0.0 — stable standard and release conformance
+
+Pins the analytical, financial, research, reporting and evidence contracts in a release profile. Adds analytical-bundle and reconciled-report checks, compatibility and migration guidance, and an evidence package with reproducible reports, benchmark gates and source and artifact hashes. Records maintainer-approved MIT and CC BY 4.0 licensing, contribution procedures and governance. [Release profile](release/v2.0.0/README.md)
+
 ## 1.5 — benchmarks and independent cross-agent evaluation
 
 Adds closed, synthetic and public corporate-record cases with independently checked keys, raw trial outputs, a blinded review rubric and reproducible scores. The pilot runs fixed-evidence and live-retrieval tracks with separate denominators and stated limits. Adds seeded failure-gate tests and report-to-bundle reconciliation before rendering. The underlying analytical bundle remains v1.4.
