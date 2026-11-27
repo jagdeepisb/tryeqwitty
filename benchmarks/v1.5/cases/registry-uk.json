@@ -1,0 +1,59 @@
+{
+  "id": "registry-uk",
+  "model": "lending",
+  "stage": "unknown",
+  "objective": "Verify the scoped Companies House record for Monzo Bank Limited (09446231) as of 2026-11-27. Use only the Companies House overview and filing-history metadata for this case.",
+  "provenance": "public_corporate_metadata",
+  "sources": [
+    {
+      "id": "R1",
+      "origin": "companies_house",
+      "title": "Companies House overview",
+      "extract": "Corporate metadata captured on 2026-11-27. The named legal entity is Monzo Bank Limited, number 09446231, active, incorporated 18 February 2015. The latest accounts period on the overview ends 31 March 2026. The register lists a banking SIC classification.",
+      "url": "https://find-and-update.company-information.service.gov.uk/company/09446231"
+    },
+    {
+      "id": "R2",
+      "origin": "companies_house",
+      "title": "Companies House filing history",
+      "extract": "For Monzo Bank Limited (09446231), the most recent full-accounts entry at the cut-off was filed 27 August 2026 for the period ending 31 March 2026. A November confirmation statement is a different filing type.",
+      "url": "https://find-and-update.company-information.service.gov.uk/company/09446231/filing-history"
+    }
+  ],
+  "questions": [
+    {
+      "id": "entity",
+      "question": "Give the legal entity for 09446231."
+    },
+    {
+      "id": "incorporation",
+      "question": "Give the incorporation date in YYYY-MM-DD."
+    },
+    {
+      "id": "company_status",
+      "question": "Give the company's register status."
+    },
+    {
+      "id": "accounts_period",
+      "question": "Give the latest full accounts period end in YYYY-MM-DD at the cut-off."
+    },
+    {
+      "id": "accounts_filed",
+      "question": "Give the Companies House filing date of those full accounts in YYYY-MM-DD."
+    },
+    {
+      "id": "filing_lag",
+      "question": "Give elapsed calendar days from accounts period end to filing date, excluding the period-end day."
+    },
+    {
+      "id": "licence_reference",
+      "question": "Give a regulatory licence reference established by the scoped registry metadata or null."
+    }
+  ],
+  "priority_options": {
+    "REGULATOR": "Entity-matched independent regulator authorisation record.",
+    "FINANCIALS": "Entity-matched accounts and capital/credit information.",
+    "LOGO": "Visual treatment of the company logo.",
+    "OFFICER_BIOS": "Personal biographies of individual officers."
+  }
+}

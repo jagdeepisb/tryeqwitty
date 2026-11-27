@@ -1,0 +1,55 @@
+{
+  "id": "deeptech-sparse",
+  "model": "deeptech",
+  "stage": "development",
+  "objective": "Decide what evidence fictional Flint Sensor needs before an early financing decision.",
+  "provenance": "synthetic",
+  "sources": [
+    {
+      "id": "S1",
+      "origin": "flint",
+      "title": "Development and cash brief",
+      "extract": "Flint Sensor Ltd has a laboratory prototype and started the cut-off with USD 60,000 of unrestricted cash and USD 15,000 at constant monthly net burn. The next independent acceptance test is forecast in six months. There is no committed financing.",
+      "url": null
+    },
+    {
+      "id": "S2",
+      "origin": "flint",
+      "title": "Management pipeline",
+      "extract": "The pitch calls USD 200,000 in non-binding letters of intent signed sales. Those letters are explicitly contingent on a completed test and permit either party to withdraw. No revenue schedule, signed purchase contract, or eligible comparable set is supplied.",
+      "url": null
+    }
+  ],
+  "questions": [
+    {
+      "id": "entity",
+      "question": "Give the legal entity."
+    },
+    {
+      "id": "runway_months",
+      "question": "Give simple runway at the stated constant burn in months."
+    },
+    {
+      "id": "shortfall_months",
+      "question": "Give the gap in months between simple runway and the scheduled test."
+    },
+    {
+      "id": "signed_sales_claim",
+      "question": "Classify the claim of signed sales from the letters as supported, contradicted, different_basis, or unknown."
+    },
+    {
+      "id": "recognised_revenue_usd",
+      "question": "Give recognised revenue in USD if supplied, otherwise null."
+    },
+    {
+      "id": "equity_value_usd",
+      "question": "Give a defensible equity value in USD or null."
+    }
+  ],
+  "priority_options": {
+    "FUNDING": "Dated cash bridge and financing through the test.",
+    "ACCEPTANCE": "Independent acceptance criteria, timing and customer commitments.",
+    "PITCH": "Alternate logo for the deck.",
+    "EXPO": "List of trade-show attendance."
+  }
+}

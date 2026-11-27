@@ -1,0 +1,62 @@
+{
+  "id": "saas-early",
+  "model": "saas",
+  "stage": "early_revenue",
+  "objective": "Decide whether to advance a valuation review for fictional Fern Ledger Ltd as of 2026-11-27.",
+  "provenance": "synthetic",
+  "sources": [
+    {
+      "id": "S1",
+      "origin": "fern",
+      "title": "Management memo",
+      "extract": "Fern Ledger Ltd says monthly recurring revenue was USD 123,000 and claims ARR of USD 1,476,000. No peer evidence accompanied the asking valuation.",
+      "url": null
+    },
+    {
+      "id": "S2",
+      "origin": "fern",
+      "title": "Subscription ledger",
+      "extract": "Opening cohort recurring revenue USD 100,000. Expansion USD 20,000, contraction USD 5,000, churn USD 10,000. New cohort recurring revenue USD 10,000. The USD 123,000 billed total includes USD 8,000 one-time implementation fees.",
+      "url": null
+    },
+    {
+      "id": "S3",
+      "origin": "fern",
+      "title": "Packet inventory",
+      "extract": "No dated bank statement or comparable transaction data were supplied. Accounting and management use the same legal entity.",
+      "url": null
+    }
+  ],
+  "questions": [
+    {
+      "id": "entity",
+      "question": "Give the legal entity."
+    },
+    {
+      "id": "grr",
+      "question": "Give existing-cohort gross recurring revenue retention as a percentage number."
+    },
+    {
+      "id": "nrr",
+      "question": "Give existing-cohort net recurring revenue retention as a percentage number."
+    },
+    {
+      "id": "arr_usd",
+      "question": "Give run-rate ARR in whole USD using closing recurring revenue including the new cohort."
+    },
+    {
+      "id": "arr_claim",
+      "question": "Classify the USD 1,476,000 ARR claim as supported, contradicted, different_basis, or unknown."
+    },
+    {
+      "id": "ev_usd",
+      "question": "Give a defensible enterprise value in USD from this packet or null."
+    }
+  ],
+  "priority_options": {
+    "CASH": "Current unrestricted cash and reconciled balances.",
+    "COMPS": "Dated comparable terms and matched revenue basis.",
+    "COLOURS": "Brand colour preference.",
+    "HIRING": "Office headcount chart."
+  }
+}

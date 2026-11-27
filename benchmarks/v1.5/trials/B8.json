@@ -1,0 +1,380 @@
+{
+  "cases": {
+    "registry-uk": {
+      "answers": {
+        "entity": {
+          "value": "Monzo Bank Limited",
+          "confidence": "1.00",
+          "citations": [
+            "R1"
+          ]
+        },
+        "incorporation": {
+          "value": "2015-02-18",
+          "confidence": "1.00",
+          "citations": [
+            "R1"
+          ]
+        },
+        "company_status": {
+          "value": "active",
+          "confidence": "1.00",
+          "citations": [
+            "R1"
+          ]
+        },
+        "accounts_period": {
+          "value": "2026-03-31",
+          "confidence": "1.00",
+          "citations": [
+            "R1",
+            "R2"
+          ]
+        },
+        "accounts_filed": {
+          "value": "2026-08-27",
+          "confidence": "1.00",
+          "citations": [
+            "R2"
+          ]
+        },
+        "filing_lag": {
+          "value": "149",
+          "confidence": "1.00",
+          "citations": [
+            "R2"
+          ]
+        },
+        "licence_reference": {
+          "value": null,
+          "confidence": "1.00",
+          "citations": [
+            "R1",
+            "R2"
+          ]
+        }
+      },
+      "priorities": [
+        "REGULATOR",
+        "FINANCIALS"
+      ],
+      "decision": {
+        "status": "scope_only",
+        "rationale": "Companies House identifies Monzo Bank Limited as active and records its latest full accounts filing at the cut-off. Regulatory authorisation and financial condition require separate evidence.",
+        "next_request": "Obtain the regulator's authorisation record matching Monzo Bank Limited and company number 09446231, including its reference and permissions at the cut-off.",
+        "citations": [
+          "R1",
+          "R2"
+        ]
+      }
+    },
+    "saas-early": {
+      "answers": {
+        "entity": {
+          "value": "Fern Ledger Ltd",
+          "confidence": "1.00",
+          "citations": [
+            "S1"
+          ]
+        },
+        "grr": {
+          "value": "85",
+          "confidence": "1.00",
+          "citations": [
+            "S2"
+          ]
+        },
+        "nrr": {
+          "value": "105",
+          "confidence": "1.00",
+          "citations": [
+            "S2"
+          ]
+        },
+        "arr_usd": {
+          "value": "1380000",
+          "confidence": "1.00",
+          "citations": [
+            "S2"
+          ]
+        },
+        "arr_claim": {
+          "value": "contradicted",
+          "confidence": "0.99",
+          "citations": [
+            "S1",
+            "S2"
+          ]
+        },
+        "ev_usd": {
+          "value": null,
+          "confidence": "0.99",
+          "citations": [
+            "S1",
+            "S3"
+          ]
+        }
+      },
+      "priorities": [
+        "COMPS",
+        "CASH"
+      ],
+      "decision": {
+        "status": "hold",
+        "rationale": "The subscription ledger supports USD 1,380,000 in run-rate ARR. Management's higher figure annualises billings that include implementation fees. The packet contains no dated comparable transactions to support the asking valuation.",
+        "next_request": "Request dated comparable transactions with enterprise values and recurring-revenue definitions that can be matched to Fern Ledger's subscription ledger.",
+        "citations": [
+          "S1",
+          "S2",
+          "S3"
+        ]
+      }
+    },
+    "manufacturing-pilot": {
+      "answers": {
+        "entity": {
+          "value": "Vale Components Ltd",
+          "confidence": "1.00",
+          "citations": [
+            "S1"
+          ]
+        },
+        "first_pass_yield": {
+          "value": "81",
+          "confidence": "1.00",
+          "citations": [
+            "S2"
+          ]
+        },
+        "final_yield": {
+          "value": "90",
+          "confidence": "1.00",
+          "citations": [
+            "S2"
+          ]
+        },
+        "first_pass_claim": {
+          "value": "contradicted",
+          "confidence": "0.99",
+          "citations": [
+            "S1",
+            "S2"
+          ]
+        },
+        "customer_commitment": {
+          "value": "conditional",
+          "confidence": "1.00",
+          "citations": [
+            "S3"
+          ]
+        },
+        "funding_need_usd": {
+          "value": null,
+          "confidence": "0.99",
+          "citations": [
+            "S3"
+          ]
+        }
+      },
+      "priorities": [
+        "THROUGHPUT",
+        "CASH_CAPEX"
+      ],
+      "decision": {
+        "status": "hold",
+        "rationale": "The single-shift trial yielded 81% on first inspection and 90% after rework. Commercial throughput remains unverified, customer interest depends on multi-shift acceptance, and the funding requirement lacks supporting records.",
+        "next_request": "Request representative multi-shift commercial-volume production logs showing throughput, downtime, first-pass yield, rework and scrap against the customer's acceptance criteria.",
+        "citations": [
+          "S1",
+          "S2",
+          "S3"
+        ]
+      }
+    },
+    "marketplace-growth": {
+      "answers": {
+        "entity": {
+          "value": "Pond Exchange Ltd",
+          "confidence": "1.00",
+          "citations": [
+            "S1"
+          ]
+        },
+        "recognised_revenue_usd": {
+          "value": "70000",
+          "confidence": "1.00",
+          "citations": [
+            "S1"
+          ]
+        },
+        "settled_take_rate": {
+          "value": "10",
+          "confidence": "1.00",
+          "citations": [
+            "S1"
+          ]
+        },
+        "gmv_revenue_claim": {
+          "value": "contradicted",
+          "confidence": "0.99",
+          "citations": [
+            "S1",
+            "S2"
+          ]
+        },
+        "placed_ratio_relation": {
+          "value": "different_basis",
+          "confidence": "1.00",
+          "citations": [
+            "S1",
+            "S2"
+          ]
+        },
+        "independent_origins": {
+          "value": "0",
+          "confidence": "1.00",
+          "citations": [
+            "S1",
+            "S2",
+            "S3"
+          ]
+        }
+      },
+      "priorities": [
+        "COHORT",
+        "CONTRIBUTION"
+      ],
+      "decision": {
+        "status": "hold",
+        "rationale": "The reconciliation reports USD 70,000 in recognised fees and a 10% settled-GMV take rate. The packet lacks repeat settled activity and post-incentive contribution, both needed to assess recurring unit economics.",
+        "next_request": "Request a settled transaction export with buyer and seller cohort IDs, fees, refunds, incentives and variable costs to calculate repeat activity and post-incentive contribution.",
+        "citations": [
+          "S1"
+        ]
+      }
+    },
+    "lending-operating": {
+      "answers": {
+        "entity": {
+          "value": "Sedge Credit Ltd",
+          "confidence": "1.00",
+          "citations": [
+            "S1"
+          ]
+        },
+        "par30": {
+          "value": "12",
+          "confidence": "1.00",
+          "citations": [
+            "S2"
+          ]
+        },
+        "net_charge_off_rate": {
+          "value": "5",
+          "confidence": "1.00",
+          "citations": [
+            "S2"
+          ]
+        },
+        "par_claim": {
+          "value": "contradicted",
+          "confidence": "0.99",
+          "citations": [
+            "S1",
+            "S2"
+          ]
+        },
+        "self_licence": {
+          "value": null,
+          "confidence": "1.00",
+          "citations": [
+            "S1",
+            "S3"
+          ]
+        },
+        "licence_holder": {
+          "value": "Bracken Finance PLC",
+          "confidence": "1.00",
+          "citations": [
+            "S3"
+          ]
+        }
+      },
+      "priorities": [
+        "AUTHORITY",
+        "VINTAGES"
+      ],
+      "decision": {
+        "status": "hold",
+        "rationale": "The dated schedule puts PAR30 at 12% against the 2% claim. The licence names Bracken Finance PLC, and Sedge's own authority and contractual allocation of origination and credit risk remain unverified.",
+        "next_request": "Request a regulator record showing Sedge Credit Ltd's origination permissions in the stated jurisdiction and signed origination and risk-transfer agreements identifying the originator and who bears credit losses.",
+        "citations": [
+          "S1",
+          "S2",
+          "S3"
+        ]
+      }
+    },
+    "deeptech-sparse": {
+      "answers": {
+        "entity": {
+          "value": "Flint Sensor Ltd",
+          "confidence": "1.00",
+          "citations": [
+            "S1"
+          ]
+        },
+        "runway_months": {
+          "value": "4",
+          "confidence": "1.00",
+          "citations": [
+            "S1"
+          ]
+        },
+        "shortfall_months": {
+          "value": "2",
+          "confidence": "1.00",
+          "citations": [
+            "S1"
+          ]
+        },
+        "signed_sales_claim": {
+          "value": "contradicted",
+          "confidence": "0.99",
+          "citations": [
+            "S2"
+          ]
+        },
+        "recognised_revenue_usd": {
+          "value": null,
+          "confidence": "1.00",
+          "citations": [
+            "S2"
+          ]
+        },
+        "equity_value_usd": {
+          "value": null,
+          "confidence": "0.99",
+          "citations": [
+            "S1",
+            "S2"
+          ]
+        }
+      },
+      "priorities": [
+        "FUNDING",
+        "ACCEPTANCE"
+      ],
+      "decision": {
+        "status": "hold",
+        "rationale": "Unrestricted cash covers four months at stated burn, two months short of the forecast independent acceptance test. Financing is uncommitted and the contingent letters establish no binding sales.",
+        "next_request": "Request a dated cash-flow bridge supported by executed financing commitments and a costed schedule through the independent acceptance test.",
+        "citations": [
+          "S1",
+          "S2"
+        ]
+      }
+    }
+  },
+  "search_log": []
+}

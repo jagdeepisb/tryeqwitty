@@ -1,0 +1,80 @@
+{
+  "case": "marketplace-growth",
+  "answers": {
+    "entity": {
+      "category": "fact",
+      "value": "Pond Exchange Ltd",
+      "refs": [
+        "S1"
+      ],
+      "gate": "wrong_entity",
+      "aliases": [],
+      "tolerance": null,
+      "support": null
+    },
+    "recognised_revenue_usd": {
+      "category": "fact",
+      "value": "70000",
+      "refs": [
+        "S1"
+      ],
+      "gate": null,
+      "aliases": [],
+      "tolerance": null,
+      "support": null
+    },
+    "settled_take_rate": {
+      "category": "arithmetic",
+      "value": "10",
+      "refs": [
+        "S1"
+      ],
+      "gate": null,
+      "aliases": [],
+      "tolerance": "0.01",
+      "support": null
+    },
+    "gmv_revenue_claim": {
+      "category": "contradiction",
+      "value": "contradicted",
+      "refs": [
+        "S1",
+        "S2"
+      ],
+      "gate": null,
+      "aliases": [],
+      "tolerance": null,
+      "support": null
+    },
+    "placed_ratio_relation": {
+      "category": "fact",
+      "value": "different_basis",
+      "refs": [
+        "S1",
+        "S2"
+      ],
+      "gate": null,
+      "aliases": [],
+      "tolerance": null,
+      "support": null
+    },
+    "independent_origins": {
+      "category": "arithmetic",
+      "value": "0",
+      "refs": [
+        "S1",
+        "S3"
+      ],
+      "gate": null,
+      "aliases": [],
+      "tolerance": "0",
+      "support": "Pond is the sole origin for recognised fees. The reprint gives no independent corroboration."
+    }
+  },
+  "material": [
+    "COHORT",
+    "CONTRIBUTION"
+  ],
+  "decision": "hold",
+  "adjudication": "Distinguish GMV from recognised fees and keep the ratio denominators explicit. Test durable repeat demand and profitability before underwriting scale."
+}

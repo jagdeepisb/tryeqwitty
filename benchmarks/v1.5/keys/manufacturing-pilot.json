@@ -1,0 +1,81 @@
+{
+  "case": "manufacturing-pilot",
+  "answers": {
+    "entity": {
+      "category": "fact",
+      "value": "Vale Components Ltd",
+      "refs": [
+        "S1"
+      ],
+      "gate": "wrong_entity",
+      "aliases": [],
+      "tolerance": null,
+      "support": null
+    },
+    "first_pass_yield": {
+      "category": "arithmetic",
+      "value": "81",
+      "refs": [
+        "S2"
+      ],
+      "gate": null,
+      "aliases": [],
+      "tolerance": "0.01",
+      "support": null
+    },
+    "final_yield": {
+      "category": "arithmetic",
+      "value": "90",
+      "refs": [
+        "S2"
+      ],
+      "gate": null,
+      "aliases": [],
+      "tolerance": "0.01",
+      "support": null
+    },
+    "first_pass_claim": {
+      "category": "contradiction",
+      "value": "contradicted",
+      "refs": [
+        "S1",
+        "S2"
+      ],
+      "gate": null,
+      "aliases": [],
+      "tolerance": null,
+      "support": null
+    },
+    "customer_commitment": {
+      "category": "fact",
+      "value": "conditional",
+      "refs": [
+        "S3"
+      ],
+      "gate": null,
+      "aliases": [
+        "conditional_nonbinding",
+        "nonbinding"
+      ],
+      "tolerance": null,
+      "support": null
+    },
+    "funding_need_usd": {
+      "category": "fact",
+      "value": null,
+      "refs": [
+        "S3"
+      ],
+      "gate": "unsupported_value",
+      "aliases": [],
+      "tolerance": null,
+      "support": null
+    }
+  },
+  "material": [
+    "THROUGHPUT",
+    "CASH_CAPEX"
+  ],
+  "decision": "hold",
+  "adjudication": "Treat the single shift as pilot evidence. Request observed operating capacity and cash/capex details before a funded scale-up."
+}

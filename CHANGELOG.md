@@ -1,4 +1,8 @@
 # Changelog
+## 1.5 — benchmarks and independent cross-agent evaluation
+
+Adds closed, synthetic and public corporate-record cases with independently checked keys, raw trial outputs, a blinded review rubric and reproducible scores. The pilot runs fixed-evidence and live-retrieval tracks with separate denominators and stated limits. Adds seeded failure-gate tests and report-to-bundle reconciliation before rendering. The underlying analytical bundle remains v1.4.
+
 ## 1.4 — research playbooks and adaptive depth
 
 Adds mandatory factors routed by achieved stage, decision objective and business model, with evidence requirements and disconfirming tests. Adds a question graph, expected-information priorities, research allowances, actual attempt records, distinct-origin corroboration and correction routes. The validator and report now expose actual scope and material unresolved questions. Two synthetic cases demonstrate differentiated research and unavailable tool disclosure. Prior bundle versions retain their validation and rendering behaviour.

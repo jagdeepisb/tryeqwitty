@@ -1,0 +1,62 @@
+{
+  "id": "marketplace-growth",
+  "model": "marketplace",
+  "stage": "repeatable_growth",
+  "objective": "Assess recurring unit economics for fictional Pond Exchange under a growth review.",
+  "provenance": "synthetic",
+  "sources": [
+    {
+      "id": "S1",
+      "origin": "pond",
+      "title": "Operations reconciliation",
+      "extract": "Pond Exchange Ltd recorded USD 1,000,000 placed-order GMV before cancellations and refunds. Settled GMV was USD 700,000. Recognised fees were USD 70,000. Cohort retention and post-incentive contribution were absent.",
+      "url": null
+    },
+    {
+      "id": "S2",
+      "origin": "pond",
+      "title": "Founder announcement",
+      "extract": "Founder describes placed-order GMV as USD 1,000,000 of company revenue and reports a 7% fee-to-placed-GMV ratio.",
+      "url": null
+    },
+    {
+      "id": "S3",
+      "origin": "pond",
+      "title": "Trade outlet reprint",
+      "extract": "The outlet reprints the company announcement with no independent verification or additional source.",
+      "url": null
+    }
+  ],
+  "questions": [
+    {
+      "id": "entity",
+      "question": "Give the legal entity."
+    },
+    {
+      "id": "recognised_revenue_usd",
+      "question": "Give recognised fees in whole USD."
+    },
+    {
+      "id": "settled_take_rate",
+      "question": "Give recognised fees divided by settled GMV as a percentage number."
+    },
+    {
+      "id": "gmv_revenue_claim",
+      "question": "Classify the $1,000,000 company revenue claim as supported, contradicted, different_basis, or unknown."
+    },
+    {
+      "id": "placed_ratio_relation",
+      "question": "Compared with settled-GMV take rate, classify the founder's 7% placed-GMV ratio as supported, contradicted, different_basis, or unknown."
+    },
+    {
+      "id": "independent_origins",
+      "question": "How many source origins independent of Pond corroborate recognised fees in this packet?"
+    }
+  ],
+  "priority_options": {
+    "COHORT": "Buyer and seller cohorts and repeat settled activity.",
+    "CONTRIBUTION": "Transactions reconciled to incentives, refunds and contribution.",
+    "AWARDS": "Awards from trade publications.",
+    "ICONS": "Marketplace home page icons."
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "id": "lending-operating",
+  "model": "lending",
+  "stage": "mature",
+  "objective": "Qualify the risk basis for a diligence decision on fictional Sedge Credit.",
+  "provenance": "synthetic",
+  "sources": [
+    {
+      "id": "S1",
+      "origin": "sedge",
+      "title": "Origination materials",
+      "extract": "Sedge Credit Ltd says PAR30 is 2% and presents a partner's licence as proof that Sedge itself can originate credit in the stated jurisdiction.",
+      "url": null
+    },
+    {
+      "id": "S2",
+      "origin": "sedge",
+      "title": "Dated portfolio schedule",
+      "extract": "At the cut-off, gross outstanding principal is USD 1,000,000 and USD 120,000 in outstanding principal is on loans more than 30 days past due. That balance excludes fees. Year charge-offs USD 45,000, recoveries USD 5,000 and average gross principal USD 800,000.",
+      "url": null
+    },
+    {
+      "id": "S3",
+      "origin": "licence_extract",
+      "title": "Fictional public register excerpt",
+      "extract": "The attached licence names Bracken Finance PLC. The packet contains no register record authorising Sedge Credit Ltd, and no signed origination or risk-transfer agreement.",
+      "url": null
+    }
+  ],
+  "questions": [
+    {
+      "id": "entity",
+      "question": "Give the assessed legal entity."
+    },
+    {
+      "id": "par30",
+      "question": "Give portfolio-at-risk over 30 days as a percentage number."
+    },
+    {
+      "id": "net_charge_off_rate",
+      "question": "Give (charge-offs less recoveries) / average gross principal as a percentage number."
+    },
+    {
+      "id": "par_claim",
+      "question": "Classify the asserted 2% PAR30 as supported, contradicted, different_basis, or unknown."
+    },
+    {
+      "id": "self_licence",
+      "question": "Give the evidenced own-entity licence reference for Sedge Credit Ltd or null."
+    },
+    {
+      "id": "licence_holder",
+      "question": "Give the legal entity actually named on the attached licence."
+    }
+  ],
+  "priority_options": {
+    "AUTHORITY": "Own-entity authorisation evidence and signed origination/risk-transfer terms.",
+    "VINTAGES": "Matched age buckets and follow-up vintage cash collection.",
+    "OFFICE": "Office address layout.",
+    "PRESS": "Press kit photography."
+  }
+}

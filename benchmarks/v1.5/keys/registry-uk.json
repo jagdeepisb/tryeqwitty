@@ -1,0 +1,90 @@
+{
+  "case": "registry-uk",
+  "answers": {
+    "entity": {
+      "category": "fact",
+      "value": "Monzo Bank Limited",
+      "refs": [
+        "R1",
+        "R2"
+      ],
+      "gate": "wrong_entity",
+      "aliases": [],
+      "tolerance": null,
+      "support": null,
+      "citation_policy": "any"
+    },
+    "incorporation": {
+      "category": "fact",
+      "value": "2015-02-18",
+      "refs": [
+        "R1"
+      ],
+      "gate": null,
+      "aliases": [],
+      "tolerance": null,
+      "support": null
+    },
+    "company_status": {
+      "category": "fact",
+      "value": "active",
+      "refs": [
+        "R1"
+      ],
+      "gate": null,
+      "aliases": [],
+      "tolerance": null,
+      "support": null
+    },
+    "accounts_period": {
+      "category": "fact",
+      "value": "2026-03-31",
+      "refs": [
+        "R2"
+      ],
+      "gate": null,
+      "aliases": [],
+      "tolerance": null,
+      "support": null
+    },
+    "accounts_filed": {
+      "category": "fact",
+      "value": "2026-08-27",
+      "refs": [
+        "R2"
+      ],
+      "gate": null,
+      "aliases": [],
+      "tolerance": null,
+      "support": null
+    },
+    "filing_lag": {
+      "category": "arithmetic",
+      "value": "149",
+      "refs": [
+        "R2"
+      ],
+      "gate": null,
+      "aliases": [],
+      "tolerance": "0",
+      "support": null
+    },
+    "licence_reference": {
+      "category": "fact",
+      "value": null,
+      "refs": [
+        "R1"
+      ],
+      "gate": "unsupported_value",
+      "aliases": [],
+      "tolerance": null,
+      "support": null
+    }
+  },
+  "material": [
+    "REGULATOR",
+    "FINANCIALS"
+  ],
+  "decision": "scope_only",
+  "adjudication": "Verify identity and filing dates. Keep regulatory and financial conclusions qualified pending actual regulator and financial records. The scoped entries do not establish a regulatory permission or specific financial outcome."
+}

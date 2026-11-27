@@ -1,0 +1,1303 @@
+{
+  "suite_id": "eqwitty-pilot-2026-11-27",
+  "fingerprint": "3ed3884576ff4c45bfe0e1e05e6bddbb1beb68e6f1bc264676459cb7a3915138",
+  "reviewer_agreement": {
+    "count": 84,
+    "out_of": 84
+  },
+  "summaries": [
+    {
+      "track": "fixed",
+      "provider": "OpenAI",
+      "configuration": "Codex Work Mode, inherited configuration",
+      "model_version": null,
+      "trials": 3,
+      "trial_cases": 18,
+      "search_actions": 0,
+      "hard_gate_clear": {
+        "count": 3,
+        "out_of": 3
+      },
+      "metrics": {
+        "factual_accuracy": {
+          "count": 60,
+          "out_of": 60
+        },
+        "arithmetic_accuracy": {
+          "count": 36,
+          "out_of": 36
+        },
+        "contradiction_recall": {
+          "count": 15,
+          "out_of": 15
+        },
+        "answer_coverage": {
+          "count": 111,
+          "out_of": 111
+        },
+        "citation_accuracy": {
+          "count": 111,
+          "out_of": 111
+        },
+        "material_priorities": {
+          "count": 36,
+          "out_of": 36
+        },
+        "decision_match": {
+          "count": 18,
+          "out_of": 18
+        },
+        "decision_usefulness": {
+          "count": 54,
+          "out_of": 54
+        }
+      },
+      "calibration": {
+        "scored": 111,
+        "eligible": 111,
+        "squared_error_sum": "0.0053",
+        "brier_mean": "0.000048"
+      },
+      "answer_agreement": {
+        "count": 111,
+        "out_of": 111
+      },
+      "answers_present_in_both": 111,
+      "decision_agreement": {
+        "count": 18,
+        "out_of": 18
+      }
+    },
+    {
+      "track": "live",
+      "provider": "OpenAI",
+      "configuration": "Codex Work Mode, inherited configuration",
+      "model_version": null,
+      "trials": 3,
+      "trial_cases": 3,
+      "search_actions": 9,
+      "hard_gate_clear": {
+        "count": 3,
+        "out_of": 3
+      },
+      "metrics": {
+        "factual_accuracy": {
+          "count": 18,
+          "out_of": 18
+        },
+        "arithmetic_accuracy": {
+          "count": 3,
+          "out_of": 3
+        },
+        "contradiction_recall": {
+          "count": 0,
+          "out_of": 0
+        },
+        "answer_coverage": {
+          "count": 21,
+          "out_of": 21
+        },
+        "citation_accuracy": {
+          "count": 21,
+          "out_of": 21
+        },
+        "material_priorities": {
+          "count": 6,
+          "out_of": 6
+        },
+        "decision_match": {
+          "count": 3,
+          "out_of": 3
+        },
+        "decision_usefulness": {
+          "count": 9,
+          "out_of": 9
+        }
+      },
+      "calibration": {
+        "scored": 21,
+        "eligible": 21,
+        "squared_error_sum": "0.0008",
+        "brier_mean": "0.000038"
+      },
+      "answer_agreement": {
+        "count": 21,
+        "out_of": 21
+      },
+      "answers_present_in_both": 21,
+      "decision_agreement": {
+        "count": 3,
+        "out_of": 3
+      }
+    }
+  ],
+  "runs": [
+    {
+      "metadata": {
+        "id": "B8",
+        "track": "fixed",
+        "provider": "OpenAI",
+        "configuration": "Codex Work Mode, inherited configuration",
+        "model_version": null,
+        "execution_date": "2026-11-27",
+        "tools": "Frozen packet I/O; zero web actions",
+        "output_recorded_at": "2026-11-27T16:34:24+00:00",
+        "sha256": "b2ac16420f363a74734a5bedbe47dc61dee6e843bc3e51f299a4cabd68fe5267"
+      },
+      "cases": [
+        {
+          "case": "saas-early",
+          "metrics": {
+            "factual_accuracy": {
+              "count": 2,
+              "out_of": 2
+            },
+            "arithmetic_accuracy": {
+              "count": 3,
+              "out_of": 3
+            },
+            "contradiction_recall": {
+              "count": 1,
+              "out_of": 1
+            },
+            "answer_coverage": {
+              "count": 6,
+              "out_of": 6
+            },
+            "citation_accuracy": {
+              "count": 6,
+              "out_of": 6
+            },
+            "material_priorities": {
+              "count": 2,
+              "out_of": 2
+            },
+            "decision_match": {
+              "count": 1,
+              "out_of": 1
+            },
+            "decision_usefulness": {
+              "count": 3,
+              "out_of": 3
+            }
+          },
+          "brier_squared_error_sum": "0.0002",
+          "calibration_scored": 6,
+          "hard_failures": [],
+          "answer_errors": []
+        },
+        {
+          "case": "manufacturing-pilot",
+          "metrics": {
+            "factual_accuracy": {
+              "count": 3,
+              "out_of": 3
+            },
+            "arithmetic_accuracy": {
+              "count": 2,
+              "out_of": 2
+            },
+            "contradiction_recall": {
+              "count": 1,
+              "out_of": 1
+            },
+            "answer_coverage": {
+              "count": 6,
+              "out_of": 6
+            },
+            "citation_accuracy": {
+              "count": 6,
+              "out_of": 6
+            },
+            "material_priorities": {
+              "count": 2,
+              "out_of": 2
+            },
+            "decision_match": {
+              "count": 1,
+              "out_of": 1
+            },
+            "decision_usefulness": {
+              "count": 3,
+              "out_of": 3
+            }
+          },
+          "brier_squared_error_sum": "0.0002",
+          "calibration_scored": 6,
+          "hard_failures": [],
+          "answer_errors": []
+        },
+        {
+          "case": "marketplace-growth",
+          "metrics": {
+            "factual_accuracy": {
+              "count": 3,
+              "out_of": 3
+            },
+            "arithmetic_accuracy": {
+              "count": 2,
+              "out_of": 2
+            },
+            "contradiction_recall": {
+              "count": 1,
+              "out_of": 1
+            },
+            "answer_coverage": {
+              "count": 6,
+              "out_of": 6
+            },
+            "citation_accuracy": {
+              "count": 6,
+              "out_of": 6
+            },
+            "material_priorities": {
+              "count": 2,
+              "out_of": 2
+            },
+            "decision_match": {
+              "count": 1,
+              "out_of": 1
+            },
+            "decision_usefulness": {
+              "count": 3,
+              "out_of": 3
+            }
+          },
+          "brier_squared_error_sum": "0.0001",
+          "calibration_scored": 6,
+          "hard_failures": [],
+          "answer_errors": []
+        },
+        {
+          "case": "lending-operating",
+          "metrics": {
+            "factual_accuracy": {
+              "count": 3,
+              "out_of": 3
+            },
+            "arithmetic_accuracy": {
+              "count": 2,
+              "out_of": 2
+            },
+            "contradiction_recall": {
+              "count": 1,
+              "out_of": 1
+            },
+            "answer_coverage": {
+              "count": 6,
+              "out_of": 6
+            },
+            "citation_accuracy": {
+              "count": 6,
+              "out_of": 6
+            },
+            "material_priorities": {
+              "count": 2,
+              "out_of": 2
+            },
+            "decision_match": {
+              "count": 1,
+              "out_of": 1
+            },
+            "decision_usefulness": {
+              "count": 3,
+              "out_of": 3
+            }
+          },
+          "brier_squared_error_sum": "0.0001",
+          "calibration_scored": 6,
+          "hard_failures": [],
+          "answer_errors": []
+        },
+        {
+          "case": "deeptech-sparse",
+          "metrics": {
+            "factual_accuracy": {
+              "count": 3,
+              "out_of": 3
+            },
+            "arithmetic_accuracy": {
+              "count": 2,
+              "out_of": 2
+            },
+            "contradiction_recall": {
+              "count": 1,
+              "out_of": 1
+            },
+            "answer_coverage": {
+              "count": 6,
+              "out_of": 6
+            },
+            "citation_accuracy": {
+              "count": 6,
+              "out_of": 6
+            },
+            "material_priorities": {
+              "count": 2,
+              "out_of": 2
+            },
+            "decision_match": {
+              "count": 1,
+              "out_of": 1
+            },
+            "decision_usefulness": {
+              "count": 3,
+              "out_of": 3
+            }
+          },
+          "brier_squared_error_sum": "0.0002",
+          "calibration_scored": 6,
+          "hard_failures": [],
+          "answer_errors": []
+        },
+        {
+          "case": "registry-uk",
+          "metrics": {
+            "factual_accuracy": {
+              "count": 6,
+              "out_of": 6
+            },
+            "arithmetic_accuracy": {
+              "count": 1,
+              "out_of": 1
+            },
+            "contradiction_recall": {
+              "count": 0,
+              "out_of": 0
+            },
+            "answer_coverage": {
+              "count": 7,
+              "out_of": 7
+            },
+            "citation_accuracy": {
+              "count": 7,
+              "out_of": 7
+            },
+            "material_priorities": {
+              "count": 2,
+              "out_of": 2
+            },
+            "decision_match": {
+              "count": 1,
+              "out_of": 1
+            },
+            "decision_usefulness": {
+              "count": 3,
+              "out_of": 3
+            }
+          },
+          "brier_squared_error_sum": "0",
+          "calibration_scored": 7,
+          "hard_failures": [],
+          "answer_errors": []
+        }
+      ],
+      "metrics": {
+        "factual_accuracy": {
+          "count": 20,
+          "out_of": 20
+        },
+        "arithmetic_accuracy": {
+          "count": 12,
+          "out_of": 12
+        },
+        "contradiction_recall": {
+          "count": 5,
+          "out_of": 5
+        },
+        "answer_coverage": {
+          "count": 37,
+          "out_of": 37
+        },
+        "citation_accuracy": {
+          "count": 37,
+          "out_of": 37
+        },
+        "material_priorities": {
+          "count": 12,
+          "out_of": 12
+        },
+        "decision_match": {
+          "count": 6,
+          "out_of": 6
+        },
+        "decision_usefulness": {
+          "count": 18,
+          "out_of": 18
+        }
+      },
+      "search_actions": 0,
+      "hard_failures": []
+    },
+    {
+      "metadata": {
+        "id": "J4",
+        "track": "fixed",
+        "provider": "OpenAI",
+        "configuration": "Codex Work Mode, inherited configuration",
+        "model_version": null,
+        "execution_date": "2026-11-27",
+        "tools": "Frozen packet I/O; zero web actions",
+        "output_recorded_at": "2026-11-27T16:34:24+00:00",
+        "sha256": "adaf50f5c616c386fa564081b3a623a4eb932b7f8a704182d7fdfa361c1559a5"
+      },
+      "cases": [
+        {
+          "case": "saas-early",
+          "metrics": {
+            "factual_accuracy": {
+              "count": 2,
+              "out_of": 2
+            },
+            "arithmetic_accuracy": {
+              "count": 3,
+              "out_of": 3
+            },
+            "contradiction_recall": {
+              "count": 1,
+              "out_of": 1
+            },
+            "answer_coverage": {
+              "count": 6,
+              "out_of": 6
+            },
+            "citation_accuracy": {
+              "count": 6,
+              "out_of": 6
+            },
+            "material_priorities": {
+              "count": 2,
+              "out_of": 2
+            },
+            "decision_match": {
+              "count": 1,
+              "out_of": 1
+            },
+            "decision_usefulness": {
+              "count": 3,
+              "out_of": 3
+            }
+          },
+          "brier_squared_error_sum": "0.0002",
+          "calibration_scored": 6,
+          "hard_failures": [],
+          "answer_errors": []
+        },
+        {
+          "case": "manufacturing-pilot",
+          "metrics": {
+            "factual_accuracy": {
+              "count": 3,
+              "out_of": 3
+            },
+            "arithmetic_accuracy": {
+              "count": 2,
+              "out_of": 2
+            },
+            "contradiction_recall": {
+              "count": 1,
+              "out_of": 1
+            },
+            "answer_coverage": {
+              "count": 6,
+              "out_of": 6
+            },
+            "citation_accuracy": {
+              "count": 6,
+              "out_of": 6
+            },
+            "material_priorities": {
+              "count": 2,
+              "out_of": 2
+            },
+            "decision_match": {
+              "count": 1,
+              "out_of": 1
+            },
+            "decision_usefulness": {
+              "count": 3,
+              "out_of": 3
+            }
+          },
+          "brier_squared_error_sum": "0.0002",
+          "calibration_scored": 6,
+          "hard_failures": [],
+          "answer_errors": []
+        },
+        {
+          "case": "marketplace-growth",
+          "metrics": {
+            "factual_accuracy": {
+              "count": 3,
+              "out_of": 3
+            },
+            "arithmetic_accuracy": {
+              "count": 2,
+              "out_of": 2
+            },
+            "contradiction_recall": {
+              "count": 1,
+              "out_of": 1
+            },
+            "answer_coverage": {
+              "count": 6,
+              "out_of": 6
+            },
+            "citation_accuracy": {
+              "count": 6,
+              "out_of": 6
+            },
+            "material_priorities": {
+              "count": 2,
+              "out_of": 2
+            },
+            "decision_match": {
+              "count": 1,
+              "out_of": 1
+            },
+            "decision_usefulness": {
+              "count": 3,
+              "out_of": 3
+            }
+          },
+          "brier_squared_error_sum": "0.0001",
+          "calibration_scored": 6,
+          "hard_failures": [],
+          "answer_errors": []
+        },
+        {
+          "case": "lending-operating",
+          "metrics": {
+            "factual_accuracy": {
+              "count": 3,
+              "out_of": 3
+            },
+            "arithmetic_accuracy": {
+              "count": 2,
+              "out_of": 2
+            },
+            "contradiction_recall": {
+              "count": 1,
+              "out_of": 1
+            },
+            "answer_coverage": {
+              "count": 6,
+              "out_of": 6
+            },
+            "citation_accuracy": {
+              "count": 6,
+              "out_of": 6
+            },
+            "material_priorities": {
+              "count": 2,
+              "out_of": 2
+            },
+            "decision_match": {
+              "count": 1,
+              "out_of": 1
+            },
+            "decision_usefulness": {
+              "count": 3,
+              "out_of": 3
+            }
+          },
+          "brier_squared_error_sum": "0.0001",
+          "calibration_scored": 6,
+          "hard_failures": [],
+          "answer_errors": []
+        },
+        {
+          "case": "deeptech-sparse",
+          "metrics": {
+            "factual_accuracy": {
+              "count": 3,
+              "out_of": 3
+            },
+            "arithmetic_accuracy": {
+              "count": 2,
+              "out_of": 2
+            },
+            "contradiction_recall": {
+              "count": 1,
+              "out_of": 1
+            },
+            "answer_coverage": {
+              "count": 6,
+              "out_of": 6
+            },
+            "citation_accuracy": {
+              "count": 6,
+              "out_of": 6
+            },
+            "material_priorities": {
+              "count": 2,
+              "out_of": 2
+            },
+            "decision_match": {
+              "count": 1,
+              "out_of": 1
+            },
+            "decision_usefulness": {
+              "count": 3,
+              "out_of": 3
+            }
+          },
+          "brier_squared_error_sum": "0.0002",
+          "calibration_scored": 6,
+          "hard_failures": [],
+          "answer_errors": []
+        },
+        {
+          "case": "registry-uk",
+          "metrics": {
+            "factual_accuracy": {
+              "count": 6,
+              "out_of": 6
+            },
+            "arithmetic_accuracy": {
+              "count": 1,
+              "out_of": 1
+            },
+            "contradiction_recall": {
+              "count": 0,
+              "out_of": 0
+            },
+            "answer_coverage": {
+              "count": 7,
+              "out_of": 7
+            },
+            "citation_accuracy": {
+              "count": 7,
+              "out_of": 7
+            },
+            "material_priorities": {
+              "count": 2,
+              "out_of": 2
+            },
+            "decision_match": {
+              "count": 1,
+              "out_of": 1
+            },
+            "decision_usefulness": {
+              "count": 3,
+              "out_of": 3
+            }
+          },
+          "brier_squared_error_sum": "0",
+          "calibration_scored": 7,
+          "hard_failures": [],
+          "answer_errors": []
+        }
+      ],
+      "metrics": {
+        "factual_accuracy": {
+          "count": 20,
+          "out_of": 20
+        },
+        "arithmetic_accuracy": {
+          "count": 12,
+          "out_of": 12
+        },
+        "contradiction_recall": {
+          "count": 5,
+          "out_of": 5
+        },
+        "answer_coverage": {
+          "count": 37,
+          "out_of": 37
+        },
+        "citation_accuracy": {
+          "count": 37,
+          "out_of": 37
+        },
+        "material_priorities": {
+          "count": 12,
+          "out_of": 12
+        },
+        "decision_match": {
+          "count": 6,
+          "out_of": 6
+        },
+        "decision_usefulness": {
+          "count": 18,
+          "out_of": 18
+        }
+      },
+      "search_actions": 0,
+      "hard_failures": []
+    },
+    {
+      "metadata": {
+        "id": "Q2",
+        "track": "fixed",
+        "provider": "OpenAI",
+        "configuration": "Codex Work Mode, inherited configuration",
+        "model_version": null,
+        "execution_date": "2026-11-27",
+        "tools": "Frozen packet I/O; zero web actions",
+        "output_recorded_at": "2026-11-27T16:34:36+00:00",
+        "sha256": "da7e9e4a145d5a1466384586984a48a9fd0fca406388f0d56429348d6d50d033"
+      },
+      "cases": [
+        {
+          "case": "saas-early",
+          "metrics": {
+            "factual_accuracy": {
+              "count": 2,
+              "out_of": 2
+            },
+            "arithmetic_accuracy": {
+              "count": 3,
+              "out_of": 3
+            },
+            "contradiction_recall": {
+              "count": 1,
+              "out_of": 1
+            },
+            "answer_coverage": {
+              "count": 6,
+              "out_of": 6
+            },
+            "citation_accuracy": {
+              "count": 6,
+              "out_of": 6
+            },
+            "material_priorities": {
+              "count": 2,
+              "out_of": 2
+            },
+            "decision_match": {
+              "count": 1,
+              "out_of": 1
+            },
+            "decision_usefulness": {
+              "count": 3,
+              "out_of": 3
+            }
+          },
+          "brier_squared_error_sum": "0.0006",
+          "calibration_scored": 6,
+          "hard_failures": [],
+          "answer_errors": []
+        },
+        {
+          "case": "manufacturing-pilot",
+          "metrics": {
+            "factual_accuracy": {
+              "count": 3,
+              "out_of": 3
+            },
+            "arithmetic_accuracy": {
+              "count": 2,
+              "out_of": 2
+            },
+            "contradiction_recall": {
+              "count": 1,
+              "out_of": 1
+            },
+            "answer_coverage": {
+              "count": 6,
+              "out_of": 6
+            },
+            "citation_accuracy": {
+              "count": 6,
+              "out_of": 6
+            },
+            "material_priorities": {
+              "count": 2,
+              "out_of": 2
+            },
+            "decision_match": {
+              "count": 1,
+              "out_of": 1
+            },
+            "decision_usefulness": {
+              "count": 3,
+              "out_of": 3
+            }
+          },
+          "brier_squared_error_sum": "0.0006",
+          "calibration_scored": 6,
+          "hard_failures": [],
+          "answer_errors": []
+        },
+        {
+          "case": "marketplace-growth",
+          "metrics": {
+            "factual_accuracy": {
+              "count": 3,
+              "out_of": 3
+            },
+            "arithmetic_accuracy": {
+              "count": 2,
+              "out_of": 2
+            },
+            "contradiction_recall": {
+              "count": 1,
+              "out_of": 1
+            },
+            "answer_coverage": {
+              "count": 6,
+              "out_of": 6
+            },
+            "citation_accuracy": {
+              "count": 6,
+              "out_of": 6
+            },
+            "material_priorities": {
+              "count": 2,
+              "out_of": 2
+            },
+            "decision_match": {
+              "count": 1,
+              "out_of": 1
+            },
+            "decision_usefulness": {
+              "count": 3,
+              "out_of": 3
+            }
+          },
+          "brier_squared_error_sum": "0.0006",
+          "calibration_scored": 6,
+          "hard_failures": [],
+          "answer_errors": []
+        },
+        {
+          "case": "lending-operating",
+          "metrics": {
+            "factual_accuracy": {
+              "count": 3,
+              "out_of": 3
+            },
+            "arithmetic_accuracy": {
+              "count": 2,
+              "out_of": 2
+            },
+            "contradiction_recall": {
+              "count": 1,
+              "out_of": 1
+            },
+            "answer_coverage": {
+              "count": 6,
+              "out_of": 6
+            },
+            "citation_accuracy": {
+              "count": 6,
+              "out_of": 6
+            },
+            "material_priorities": {
+              "count": 2,
+              "out_of": 2
+            },
+            "decision_match": {
+              "count": 1,
+              "out_of": 1
+            },
+            "decision_usefulness": {
+              "count": 3,
+              "out_of": 3
+            }
+          },
+          "brier_squared_error_sum": "0.0006",
+          "calibration_scored": 6,
+          "hard_failures": [],
+          "answer_errors": []
+        },
+        {
+          "case": "deeptech-sparse",
+          "metrics": {
+            "factual_accuracy": {
+              "count": 3,
+              "out_of": 3
+            },
+            "arithmetic_accuracy": {
+              "count": 2,
+              "out_of": 2
+            },
+            "contradiction_recall": {
+              "count": 1,
+              "out_of": 1
+            },
+            "answer_coverage": {
+              "count": 6,
+              "out_of": 6
+            },
+            "citation_accuracy": {
+              "count": 6,
+              "out_of": 6
+            },
+            "material_priorities": {
+              "count": 2,
+              "out_of": 2
+            },
+            "decision_match": {
+              "count": 1,
+              "out_of": 1
+            },
+            "decision_usefulness": {
+              "count": 3,
+              "out_of": 3
+            }
+          },
+          "brier_squared_error_sum": "0.0006",
+          "calibration_scored": 6,
+          "hard_failures": [],
+          "answer_errors": []
+        },
+        {
+          "case": "registry-uk",
+          "metrics": {
+            "factual_accuracy": {
+              "count": 6,
+              "out_of": 6
+            },
+            "arithmetic_accuracy": {
+              "count": 1,
+              "out_of": 1
+            },
+            "contradiction_recall": {
+              "count": 0,
+              "out_of": 0
+            },
+            "answer_coverage": {
+              "count": 7,
+              "out_of": 7
+            },
+            "citation_accuracy": {
+              "count": 7,
+              "out_of": 7
+            },
+            "material_priorities": {
+              "count": 2,
+              "out_of": 2
+            },
+            "decision_match": {
+              "count": 1,
+              "out_of": 1
+            },
+            "decision_usefulness": {
+              "count": 3,
+              "out_of": 3
+            }
+          },
+          "brier_squared_error_sum": "0.0007",
+          "calibration_scored": 7,
+          "hard_failures": [],
+          "answer_errors": []
+        }
+      ],
+      "metrics": {
+        "factual_accuracy": {
+          "count": 20,
+          "out_of": 20
+        },
+        "arithmetic_accuracy": {
+          "count": 12,
+          "out_of": 12
+        },
+        "contradiction_recall": {
+          "count": 5,
+          "out_of": 5
+        },
+        "answer_coverage": {
+          "count": 37,
+          "out_of": 37
+        },
+        "citation_accuracy": {
+          "count": 37,
+          "out_of": 37
+        },
+        "material_priorities": {
+          "count": 12,
+          "out_of": 12
+        },
+        "decision_match": {
+          "count": 6,
+          "out_of": 6
+        },
+        "decision_usefulness": {
+          "count": 18,
+          "out_of": 18
+        }
+      },
+      "search_actions": 0,
+      "hard_failures": []
+    },
+    {
+      "metadata": {
+        "id": "H6",
+        "track": "live",
+        "provider": "OpenAI",
+        "configuration": "Codex Work Mode, inherited configuration",
+        "model_version": null,
+        "execution_date": "2026-11-27",
+        "tools": "Frozen brief I/O; public web search with at most one query and two official source opens",
+        "output_recorded_at": "2026-11-27T16:34:00+00:00",
+        "sha256": "acbaf5ad0cd4c2dfa94c9f0314cb4f4cb9277c1633c19f49326ac742f9b2e810"
+      },
+      "cases": [
+        {
+          "case": "registry-uk",
+          "metrics": {
+            "factual_accuracy": {
+              "count": 6,
+              "out_of": 6
+            },
+            "arithmetic_accuracy": {
+              "count": 1,
+              "out_of": 1
+            },
+            "contradiction_recall": {
+              "count": 0,
+              "out_of": 0
+            },
+            "answer_coverage": {
+              "count": 7,
+              "out_of": 7
+            },
+            "citation_accuracy": {
+              "count": 7,
+              "out_of": 7
+            },
+            "material_priorities": {
+              "count": 2,
+              "out_of": 2
+            },
+            "decision_match": {
+              "count": 1,
+              "out_of": 1
+            },
+            "decision_usefulness": {
+              "count": 3,
+              "out_of": 3
+            }
+          },
+          "brier_squared_error_sum": "0",
+          "calibration_scored": 7,
+          "hard_failures": [],
+          "answer_errors": []
+        }
+      ],
+      "metrics": {
+        "factual_accuracy": {
+          "count": 6,
+          "out_of": 6
+        },
+        "arithmetic_accuracy": {
+          "count": 1,
+          "out_of": 1
+        },
+        "contradiction_recall": {
+          "count": 0,
+          "out_of": 0
+        },
+        "answer_coverage": {
+          "count": 7,
+          "out_of": 7
+        },
+        "citation_accuracy": {
+          "count": 7,
+          "out_of": 7
+        },
+        "material_priorities": {
+          "count": 2,
+          "out_of": 2
+        },
+        "decision_match": {
+          "count": 1,
+          "out_of": 1
+        },
+        "decision_usefulness": {
+          "count": 3,
+          "out_of": 3
+        }
+      },
+      "search_actions": 3,
+      "hard_failures": []
+    },
+    {
+      "metadata": {
+        "id": "M3",
+        "track": "live",
+        "provider": "OpenAI",
+        "configuration": "Codex Work Mode, inherited configuration",
+        "model_version": null,
+        "execution_date": "2026-11-27",
+        "tools": "Frozen brief I/O; public web search with at most one query and two official source opens",
+        "output_recorded_at": "2026-11-27T16:34:06+00:00",
+        "sha256": "bda8d42a7fd8a967179ede9fa6c151ae4d8c1e640001278dab915d2455481313"
+      },
+      "cases": [
+        {
+          "case": "registry-uk",
+          "metrics": {
+            "factual_accuracy": {
+              "count": 6,
+              "out_of": 6
+            },
+            "arithmetic_accuracy": {
+              "count": 1,
+              "out_of": 1
+            },
+            "contradiction_recall": {
+              "count": 0,
+              "out_of": 0
+            },
+            "answer_coverage": {
+              "count": 7,
+              "out_of": 7
+            },
+            "citation_accuracy": {
+              "count": 7,
+              "out_of": 7
+            },
+            "material_priorities": {
+              "count": 2,
+              "out_of": 2
+            },
+            "decision_match": {
+              "count": 1,
+              "out_of": 1
+            },
+            "decision_usefulness": {
+              "count": 3,
+              "out_of": 3
+            }
+          },
+          "brier_squared_error_sum": "0.0001",
+          "calibration_scored": 7,
+          "hard_failures": [],
+          "answer_errors": []
+        }
+      ],
+      "metrics": {
+        "factual_accuracy": {
+          "count": 6,
+          "out_of": 6
+        },
+        "arithmetic_accuracy": {
+          "count": 1,
+          "out_of": 1
+        },
+        "contradiction_recall": {
+          "count": 0,
+          "out_of": 0
+        },
+        "answer_coverage": {
+          "count": 7,
+          "out_of": 7
+        },
+        "citation_accuracy": {
+          "count": 7,
+          "out_of": 7
+        },
+        "material_priorities": {
+          "count": 2,
+          "out_of": 2
+        },
+        "decision_match": {
+          "count": 1,
+          "out_of": 1
+        },
+        "decision_usefulness": {
+          "count": 3,
+          "out_of": 3
+        }
+      },
+      "search_actions": 3,
+      "hard_failures": []
+    },
+    {
+      "metadata": {
+        "id": "X1",
+        "track": "live",
+        "provider": "OpenAI",
+        "configuration": "Codex Work Mode, inherited configuration",
+        "model_version": null,
+        "execution_date": "2026-11-27",
+        "tools": "Frozen brief I/O; public web search with at most one query and two official source opens",
+        "output_recorded_at": "2026-11-27T16:34:18+00:00",
+        "sha256": "65c8a8c4f7593c8d7849f8edb27b1f8ed0e66e0d1d77ea4ffc22f62b5476f17b"
+      },
+      "cases": [
+        {
+          "case": "registry-uk",
+          "metrics": {
+            "factual_accuracy": {
+              "count": 6,
+              "out_of": 6
+            },
+            "arithmetic_accuracy": {
+              "count": 1,
+              "out_of": 1
+            },
+            "contradiction_recall": {
+              "count": 0,
+              "out_of": 0
+            },
+            "answer_coverage": {
+              "count": 7,
+              "out_of": 7
+            },
+            "citation_accuracy": {
+              "count": 7,
+              "out_of": 7
+            },
+            "material_priorities": {
+              "count": 2,
+              "out_of": 2
+            },
+            "decision_match": {
+              "count": 1,
+              "out_of": 1
+            },
+            "decision_usefulness": {
+              "count": 3,
+              "out_of": 3
+            }
+          },
+          "brier_squared_error_sum": "0.0007",
+          "calibration_scored": 7,
+          "hard_failures": [],
+          "answer_errors": []
+        }
+      ],
+      "metrics": {
+        "factual_accuracy": {
+          "count": 6,
+          "out_of": 6
+        },
+        "arithmetic_accuracy": {
+          "count": 1,
+          "out_of": 1
+        },
+        "contradiction_recall": {
+          "count": 0,
+          "out_of": 0
+        },
+        "answer_coverage": {
+          "count": 7,
+          "out_of": 7
+        },
+        "citation_accuracy": {
+          "count": 7,
+          "out_of": 7
+        },
+        "material_priorities": {
+          "count": 2,
+          "out_of": 2
+        },
+        "decision_match": {
+          "count": 1,
+          "out_of": 1
+        },
+        "decision_usefulness": {
+          "count": 3,
+          "out_of": 3
+        }
+      },
+      "search_actions": 3,
+      "hard_failures": []
+    }
+  ]
+}

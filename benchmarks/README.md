@@ -27,3 +27,7 @@ The complete fixture exercises a disputed claim, a partially known competitor co
 | [Manufacturing pilot fundraising](research-pilot-manufacturing-v1.4.json) | Prioritises pilot conditions, production readiness, capex and funding. Eight questions yield one completed, two partial, four blocked and one deferred. Independent inspection corroborates the scoped pilot. Cash and operating records remain open. |
 
 Both cases use frozen synthetic documents and disclose zero web searches. Tests cover stage changes within a model, hybrid routes, exact priorities, shared attempts, false completion, duplicate origins, prerequisite cycles and priority-matched information requests. These cases test the contract under fixed conditions. [Cross-agent evaluation rubric](acceptance-rubric.md)
+
+## v1.5 cross-agent evaluation
+
+Six sealed cases cover SaaS, manufacturing, marketplace, lending, deeptech and a public corporate-register check. The measured pilot records independent Codex sessions, raw answers and blinded judgments under fixed-evidence and live-retrieval conditions. [Methodology and cases](v1.5/README.md) · [Measured pilot](v1.5/pilot-results.md)

@@ -1,0 +1,78 @@
+{
+  "case": "lending-operating",
+  "answers": {
+    "entity": {
+      "category": "fact",
+      "value": "Sedge Credit Ltd",
+      "refs": [
+        "S1"
+      ],
+      "gate": "wrong_entity",
+      "aliases": [],
+      "tolerance": null,
+      "support": null
+    },
+    "par30": {
+      "category": "arithmetic",
+      "value": "12",
+      "refs": [
+        "S2"
+      ],
+      "gate": null,
+      "aliases": [],
+      "tolerance": "0.01",
+      "support": null
+    },
+    "net_charge_off_rate": {
+      "category": "arithmetic",
+      "value": "5",
+      "refs": [
+        "S2"
+      ],
+      "gate": null,
+      "aliases": [],
+      "tolerance": "0.01",
+      "support": null
+    },
+    "par_claim": {
+      "category": "contradiction",
+      "value": "contradicted",
+      "refs": [
+        "S1",
+        "S2"
+      ],
+      "gate": null,
+      "aliases": [],
+      "tolerance": null,
+      "support": null
+    },
+    "self_licence": {
+      "category": "fact",
+      "value": null,
+      "refs": [
+        "S3"
+      ],
+      "gate": "unsupported_value",
+      "aliases": [],
+      "tolerance": null,
+      "support": null
+    },
+    "licence_holder": {
+      "category": "fact",
+      "value": "Bracken Finance PLC",
+      "refs": [
+        "S3"
+      ],
+      "gate": null,
+      "aliases": [],
+      "tolerance": null,
+      "support": null
+    }
+  },
+  "material": [
+    "AUTHORITY",
+    "VINTAGES"
+  ],
+  "decision": "hold",
+  "adjudication": "Do not infer own-entity authority from the partner licence. Resolve responsibility and retained risk, then test portfolio vintages."
+}

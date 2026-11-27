@@ -1,0 +1,77 @@
+{
+  "case": "deeptech-sparse",
+  "answers": {
+    "entity": {
+      "category": "fact",
+      "value": "Flint Sensor Ltd",
+      "refs": [
+        "S1"
+      ],
+      "gate": "wrong_entity",
+      "aliases": [],
+      "tolerance": null,
+      "support": null
+    },
+    "runway_months": {
+      "category": "arithmetic",
+      "value": "4",
+      "refs": [
+        "S1"
+      ],
+      "gate": null,
+      "aliases": [],
+      "tolerance": "0.01",
+      "support": null
+    },
+    "shortfall_months": {
+      "category": "arithmetic",
+      "value": "2",
+      "refs": [
+        "S1"
+      ],
+      "gate": null,
+      "aliases": [],
+      "tolerance": "0.01",
+      "support": null
+    },
+    "signed_sales_claim": {
+      "category": "contradiction",
+      "value": "contradicted",
+      "refs": [
+        "S2"
+      ],
+      "gate": null,
+      "aliases": [],
+      "tolerance": null,
+      "support": null
+    },
+    "recognised_revenue_usd": {
+      "category": "fact",
+      "value": null,
+      "refs": [
+        "S2"
+      ],
+      "gate": "unsupported_value",
+      "aliases": [],
+      "tolerance": null,
+      "support": null
+    },
+    "equity_value_usd": {
+      "category": "fact",
+      "value": null,
+      "refs": [
+        "S2"
+      ],
+      "gate": "unsupported_value",
+      "aliases": [],
+      "tolerance": null,
+      "support": null
+    }
+  },
+  "material": [
+    "FUNDING",
+    "ACCEPTANCE"
+  ],
+  "decision": "hold",
+  "adjudication": "Prioritise funding until the test and the independent milestone conditions. The packet supports a cash run-rate, without evidence of signed sales or a valuation."
+}

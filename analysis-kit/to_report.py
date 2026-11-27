@@ -77,14 +77,51 @@ def convert(b, digest, report_version=None):
       section("Management questions",[g["priority"]+" | "+g["item"]+" | "+g["action"] for g in gaps]),
       section("Methodology and limitations",limits)
     ],"sources":sources,"missing_information":gaps}
+def read_bundle(path):
+    if path.stat().st_size > 5_000_000:
+        raise ValueError("Bundle too large")
+    raw = path.read_bytes()
+    return json.loads(raw), hashlib.sha256(raw).hexdigest()
+
+
+def first_difference(actual, expected, path="$"):
+    if type(actual) is not type(expected):
+        return path
+    if isinstance(expected, dict):
+        missing = actual.keys() ^ expected.keys()
+        if missing:
+            return f"{path}.{min(missing)}"
+        for key in expected:
+            changed = first_difference(actual[key], expected[key], f"{path}.{key}")
+            if changed:
+                return changed
+        return None
+    if isinstance(expected, list):
+        if len(actual) != len(expected):
+            return path
+        for i, (found, wanted) in enumerate(zip(actual, expected, strict=True)):
+            changed = first_difference(found, wanted, f"{path}[{i}]")
+            if changed:
+                return changed
+        return None
+    return path if actual != expected else None
+
+
+def verify_bundle(report, bundle_path):
+    bundle, digest = read_bundle(bundle_path)
+    expected = convert(bundle, digest, report_version=report["version"])
+    changed = first_difference(report, expected)
+    if changed:
+        raise ValueError(f"Report differs from the validated bundle at {changed}")
+
+
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument("bundle",type=Path)
     p.add_argument("output",type=Path)
     p.add_argument("--report-version",choices=("1.0","1.3"))
     a=p.parse_args()
-    raw=a.bundle.read_bytes()
-    if len(raw)>5_000_000: raise ValueError("Bundle too large")
-    result=convert(json.loads(raw),hashlib.sha256(raw).hexdigest(),a.report_version)
+    bundle, digest = read_bundle(a.bundle)
+    result=convert(bundle,digest,a.report_version)
     a.output.write_text(json.dumps(result,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
 if __name__=="__main__": main()

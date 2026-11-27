@@ -1,0 +1,25 @@
+{
+  "suite_id": "eqwitty-pilot-2026-11-27",
+  "sealed_at": "2026-11-27T16:32:48+00:00",
+  "fingerprint": "3ed3884576ff4c45bfe0e1e05e6bddbb1beb68e6f1bc264676459cb7a3915138",
+  "files": {
+    "cases/deeptech-sparse.json": "5d08dd7fefeed46766c14a2b9c1274498d6765979033c6053739bbfd1b4a947d",
+    "cases/lending-operating.json": "6394017972dbae146b6b87844bda976386d56e847482c319788d03abc6dd393d",
+    "cases/live-registry-uk.json": "9645c99457f607e5273b76321d65a70ad14e03dab39fb33d84f690c1844ff7af",
+    "cases/manufacturing-pilot.json": "19aa8b94d19ea262fa189e5bfc3eb9283b6e255065ab5bf33d1ab754b48af0d4",
+    "cases/marketplace-growth.json": "7a91609e8372ca87b66b418ffb8922a699ae4739792ddc9df54b945f969e8258",
+    "cases/registry-uk.json": "cb0870639a0b09b800cad53eeacc75e8acb3eabf21f59afad2a5c6b272bc65cc",
+    "cases/saas-early.json": "719c0eebd8d2a982bf5c2990fa1a722fe69f00cbe8ce49fac2da84e3b1f0bbc7",
+    "keys/deeptech-sparse.json": "e9a025c4e64265bb9effaeaf82ed7952756697b6ae41093ce37fac0717d57988",
+    "keys/lending-operating.json": "fc486b7e4b8b5922cedf7c71b57dc6c2f3c60d898ed6869e2c62f30bd52e534f",
+    "keys/manufacturing-pilot.json": "0152182005358447e815780bab51a0cb64874d517e76d187111e836afc6b6b17",
+    "keys/marketplace-growth.json": "4bac58370f10aa847a53311c99768027f2be9cb551d55fb083679c256db6a4fc",
+    "keys/registry-uk.json": "dfd86cf71dd231f0302e63e213793791272481f312b8a4e71ec9dc2657a1d201",
+    "keys/saas-early.json": "0b1919b1e54e3d78ac2ab13f60df1e539013e25fc1ea93579779ebac0ae847e2",
+    "reference-review.md": "80636f5baa978323ae3bd71d83b2de37e46e44bffb7d6abf6d83450df63dee75",
+    "reviewer.md": "5ae3e5583b8143e30f5e85bfcdbe9026667a8711a83167793fb4217199a0371c",
+    "solver.md": "d09cdf901fbccc67c053e31bf9e98f8f2c089d20c87aedec6d85935ec2f352ec",
+    "sources.md": "36bfe0a2a06ea1c29e7e0d0b58332794cc0c448e5c622765bf6fc76a13abc8cc",
+    "suite.json": "43dea1aa9f4a709c59562ac75735f480b22ef48c74c25773f320a863451c59ab"
+  }
+}

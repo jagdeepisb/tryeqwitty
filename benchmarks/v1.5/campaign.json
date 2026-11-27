@@ -1,0 +1,83 @@
+{
+  "name": "November 2026 controlled pilot",
+  "fingerprint": "3ed3884576ff4c45bfe0e1e05e6bddbb1beb68e6f1bc264676459cb7a3915138",
+  "trials": [
+    {
+      "id": "B8",
+      "track": "fixed",
+      "provider": "OpenAI",
+      "configuration": "Codex Work Mode, inherited configuration",
+      "model_version": null,
+      "execution_date": "2026-11-27",
+      "tools": "Frozen packet I/O; zero web actions",
+      "output_recorded_at": "2026-11-27T16:34:24+00:00",
+      "sha256": "b2ac16420f363a74734a5bedbe47dc61dee6e843bc3e51f299a4cabd68fe5267"
+    },
+    {
+      "id": "J4",
+      "track": "fixed",
+      "provider": "OpenAI",
+      "configuration": "Codex Work Mode, inherited configuration",
+      "model_version": null,
+      "execution_date": "2026-11-27",
+      "tools": "Frozen packet I/O; zero web actions",
+      "output_recorded_at": "2026-11-27T16:34:24+00:00",
+      "sha256": "adaf50f5c616c386fa564081b3a623a4eb932b7f8a704182d7fdfa361c1559a5"
+    },
+    {
+      "id": "Q2",
+      "track": "fixed",
+      "provider": "OpenAI",
+      "configuration": "Codex Work Mode, inherited configuration",
+      "model_version": null,
+      "execution_date": "2026-11-27",
+      "tools": "Frozen packet I/O; zero web actions",
+      "output_recorded_at": "2026-11-27T16:34:36+00:00",
+      "sha256": "da7e9e4a145d5a1466384586984a48a9fd0fca406388f0d56429348d6d50d033"
+    },
+    {
+      "id": "H6",
+      "track": "live",
+      "provider": "OpenAI",
+      "configuration": "Codex Work Mode, inherited configuration",
+      "model_version": null,
+      "execution_date": "2026-11-27",
+      "tools": "Frozen brief I/O; public web search with at most one query and two official source opens",
+      "output_recorded_at": "2026-11-27T16:34:00+00:00",
+      "sha256": "acbaf5ad0cd4c2dfa94c9f0314cb4f4cb9277c1633c19f49326ac742f9b2e810"
+    },
+    {
+      "id": "M3",
+      "track": "live",
+      "provider": "OpenAI",
+      "configuration": "Codex Work Mode, inherited configuration",
+      "model_version": null,
+      "execution_date": "2026-11-27",
+      "tools": "Frozen brief I/O; public web search with at most one query and two official source opens",
+      "output_recorded_at": "2026-11-27T16:34:06+00:00",
+      "sha256": "bda8d42a7fd8a967179ede9fa6c151ae4d8c1e640001278dab915d2455481313"
+    },
+    {
+      "id": "X1",
+      "track": "live",
+      "provider": "OpenAI",
+      "configuration": "Codex Work Mode, inherited configuration",
+      "model_version": null,
+      "execution_date": "2026-11-27",
+      "tools": "Frozen brief I/O; public web search with at most one query and two official source opens",
+      "output_recorded_at": "2026-11-27T16:34:18+00:00",
+      "sha256": "65c8a8c4f7593c8d7849f8edb27b1f8ed0e66e0d1d77ea4ffc22f62b5476f17b"
+    }
+  ],
+  "reviewers": [
+    "A",
+    "B"
+  ],
+  "resolutions": [],
+  "limitations": [
+    "Six fresh sessions used the same inherited Codex configuration. The platform did not expose the precise model build.",
+    "Tool constraints were issued in the solver brief, and raw search logs are solver records. Model tokens and wall times were not exposed as comparable measurements.",
+    "Claude and Gemini were not configured for this campaign. Provider comparisons are unmeasured.",
+    "The two masked decision reviewers were independent Codex sessions."
+  ]
+}

@@ -379,6 +379,7 @@ def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument("input",type=pathlib.Path)
     p.add_argument("--out",type=pathlib.Path,required=True)
+    p.add_argument("--bundle", type=pathlib.Path, help="Check the report against this analytical bundle before rendering")
     p.add_argument("--html-only",action="store_true",help="Create HTML and CSV only; not a PDF")
     a=p.parse_args()
     size = a.input.stat().st_size
@@ -387,6 +388,14 @@ def main():
     report = validate(json.loads(a.input.read_text(encoding="utf-8")))
     if report["version"] == "1.0" and size > 2_000_000:
         raise ValueError("Legacy report input exceeds 2 MB")
+    if a.bundle is not None:
+        import sys
+        kit = ROOT.parent / "analysis-kit"
+        if not (kit / "to_report.py").is_file():
+            raise ValueError("Bundle checking requires the analysis-kit from the reviewed repository")
+        sys.path.insert(0, str(kit))
+        from to_report import verify_bundle
+        verify_bundle(report, a.bundle)
     output = report_html(report)
     pdf = pdf_bytes(report) if not a.html_only else None
     a.out.mkdir(parents=True,exist_ok=True)

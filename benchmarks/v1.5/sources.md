@@ -1,0 +1,7 @@
+# Evidence provenance
+
+The five fictional company packets were authored for this benchmark. Their ledgers, parties, regulatory extracts and commercial figures are synthetic.
+
+The registry case uses a limited capture of non-personal company metadata from the Companies House public register as of 27 November 2026. Companies House provides the record. The case links and attributes the company overview and the latest full-accounts filing-history row. The corresponding Free Company Data Product is catalogued under the UK Open Government Licence v3.0. The benchmark uses factual register metadata, and any future intake of private material requires a recorded right to share and review it. [Company overview](https://find-and-update.company-information.service.gov.uk/company/09446231) · [Filing history](https://find-and-update.company-information.service.gov.uk/company/09446231/filing-history) · [Data product catalogue](https://open.barnet.gov.uk/dataset/companies-house-free-company-data-product-exym2) · [Open Government Licence](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/)
+
+The fixed packet retains its captured dates. The live case makes the same bounded identity and filing-date request using the official targets. A later change in the public source is a versioned evidence change. Use a new capture and independently checked key to test a subsequent cut-off.

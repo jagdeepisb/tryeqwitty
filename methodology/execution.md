@@ -39,3 +39,5 @@ A separate skeptical pass challenges thesis capture, omitted factors, unsupporte
 
 ## Gate 10 — Delivery
 Freeze the validated analytical bundle and report its commit, as-of date, scope, coverage and limitations. Produce the memo from its structured fields using the bridge, plus missing-information CSV; keep the original evidence bundle as a separate audit artifact (private by default). No research or recomputation of assumptions during PDF rendering. Verify rendered pages, fonts, citations, figures and missing information. If tooling is unavailable, deliver structured text and disclose limitation. Never claim official hosted report parity.
+
+Use the renderer's `--bundle` check when the source bundle is available. Record the reconciliation outcome and preserve the original bundle hash. Use the v1.5 benchmarks for evidence-based evaluation of the methodology and report limits. [Report specification](../report-spec.md) · [Benchmark methodology](../benchmarks/v1.5/README.md)
