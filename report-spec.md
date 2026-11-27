@@ -1,4 +1,4 @@
-# Eqwitty Report Specification (v1.0)
+# Eqwitty report specification
 This specification defines the standalone open-standard investment memo format and accompanies the portable offline renderer. It is distinct from the hosted Eqwitty platform renderer.
 
 Required final artifacts: a company-specific investment memo PDF; where valuation is eligible, a valuation analysis or clearly marked valuation section; and a prioritised missing-information checklist. Source links must be clickable where possible. The memo should have scope and input inventory, executive assessment, business and product, team, market/competition, thesis reconciliation, financial analysis and reproducible calculations, factors and evidence coverage, material risks, valuation and sensitivities (if available), management questions, missing information, methodology limitations and sources. Use clear units, currencies, as-of dates and status for unavailable values. No invented app scores or IDs.
@@ -16,3 +16,11 @@ Use the validated v1.1 analysis bundle and [bridge](analysis-kit/README.md) to c
 ## v1.2 financial model reporting
 
 The same bridge accepts v1.2 bundles and records the analytical version, commit and bundle hash. The financial section includes the accounting context, monthly scenario summaries, liquidity and financing effects. The valuation section includes annual FCFF, WACC, enterprise and equity value and sensitivity when applicable. Unavailable components cite the linked information requests. Retain the full validation output for detailed schedules, operand IDs, sources and holder-level changes. See the [analysis kit](analysis-kit/README.md).
+
+## v1.3 structured exhibits
+
+The report bridge turns a validated bundle into exhibits with raw decimal values, display units, operand IDs and evidence references. Cash charts use the numeric cells of their companion table. The PDF shows the evidence matrix, like-for-like comparisons, cap table and round changes, scenario summaries, monthly cash schedules and enterprise and equity sensitivities when supported. Evidence IDs link directly to the source record and missing-information IDs link to its checklist entry. The HTML export includes the complete operand register and exposes raw numeric exhibit values in the markup. The report records the methodology version, review commit, bundle hash and renderer version.
+
+A competitor comparison specifies its scope, comparison companies and criteria. Identify the assessed company with the ID `subject` and use its profile name. Each criterion supplies the same definition for all companies in that comparison and exactly one cell per company. A reported observation needs a source. An independently supported observation needs independent grade A or B evidence. Use a null value, a rationale and applicable gap references for an unknown or inapplicable cell. [Analysis schema](schemas/analysis-bundle-v1.3.json)
+
+Review each rendered PDF page for legibility and verify the figures, references, source links and both fonts. The tagged PDF and semantic HTML use the same exhibits. Preserve the structured inputs and output JSON so readers with permission can trace the calculations. [Report schema](report-kit/schema-v1.3.json) · [Reference reports](report-kit/README.md)

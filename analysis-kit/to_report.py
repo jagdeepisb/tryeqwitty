@@ -1,12 +1,19 @@
-"""Bridge validated analytical bundles to the v1.0 report renderer."""
+"""Project a validated analytical bundle into a portable report."""
 import argparse
 import hashlib
 import json
 from pathlib import Path
 from report_finance import financial_summary
+from structured_report import build_report
 from validate import validate
-def convert(b, digest):
+def convert(b, digest, report_version=None):
     coverage=validate(b)
+    if report_version is None:
+        report_version = "1.3" if b["version"] == "1.3" else "1.0"
+    if report_version == "1.3":
+        return build_report(b, digest, coverage)
+    if report_version != "1.0":
+        raise ValueError("Unsupported report version")
     model=coverage.pop("financial_model",None)
     evidence={e["id"]:e for e in b["evidence"]}
     mapping={k:"S"+str(i+1) for i,k in enumerate(evidence)}
@@ -67,9 +74,13 @@ def convert(b, digest):
       section("Methodology and limitations",limits)
     ],"sources":sources,"missing_information":gaps}
 def main():
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument("bundle",type=Path);p.add_argument("output",type=Path);a=p.parse_args()
+    p=argparse.ArgumentParser(description=__doc__)
+    p.add_argument("bundle",type=Path)
+    p.add_argument("output",type=Path)
+    p.add_argument("--report-version",choices=("1.0","1.3"))
+    a=p.parse_args()
     raw=a.bundle.read_bytes()
     if len(raw)>5_000_000: raise ValueError("Bundle too large")
-    result=convert(json.loads(raw),hashlib.sha256(raw).hexdigest())
+    result=convert(json.loads(raw),hashlib.sha256(raw).hexdigest(),a.report_version)
     a.output.write_text(json.dumps(result,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
 if __name__=="__main__": main()

@@ -15,13 +15,15 @@ from finance_model import calculate
 ROOT=Path(__file__).resolve().parents[1]
 SCHEMA=json.loads((ROOT/"schemas/analysis-bundle.json").read_text(encoding="utf-8"))
 SCHEMA_V12=json.loads((ROOT/"schemas/analysis-bundle-v1.2.json").read_text(encoding="utf-8"))
+SCHEMA_V13=json.loads((ROOT/"schemas/analysis-bundle-v1.3.json").read_text(encoding="utf-8"))
 REGISTRY=Registry().with_resources([
     ("analysis-bundle.json", Resource.from_contents(SCHEMA)),
+    ("analysis-bundle-v1.2.json", Resource.from_contents(SCHEMA_V12)),
     ("financial-model-v1.2.json", Resource.from_contents(
         json.loads((ROOT/"schemas/financial-model-v1.2.json").read_text(encoding="utf-8"))
     )),
 ])
-SCHEMAS={"1.1": SCHEMA, "1.2": SCHEMA_V12}
+SCHEMAS={"1.1": SCHEMA, "1.2": SCHEMA_V12, "1.3": SCHEMA_V13}
 LIB=json.loads((ROOT/"factor-library/factors.json").read_text())
 D=Decimal
 # name -> (operand names and units, operation, denominator checks)
@@ -127,6 +129,34 @@ def verify_financial_rows(b, inputs, finance=None):
     return advanced
 
 
+def validate_comparisons(comparisons, subject, evidence, gaps, strong):
+    identifiers = indexed(comparisons, "competitor comparison")
+    for comparison in comparisons:
+        label = comparison["id"]
+        companies = indexed(comparison["companies"], f"{label} company")
+        require(companies.get("subject", {}).get("name") == subject, f"{label}: missing or mismatched subject")
+        names = {company["name"].strip().casefold() for company in companies.values()}
+        require("" not in names and len(names) == len(companies), f"{label}: blank or duplicate company names")
+        criteria = {row["label"].strip().casefold() for row in comparison["criteria"]}
+        require("" not in criteria and len(criteria) == len(comparison["criteria"]),
+                f"{label}: blank or duplicate criteria")
+        for criterion in comparison["criteria"]:
+            require(criterion["cells"].keys() == companies.keys(), f"{label}: every company needs one cell per criterion")
+            for cell in criterion["cells"].values():
+                status = cell["status"]
+                refs(cell["evidence_ids"], evidence, f"{label} competitor evidence")
+                refs(cell["gap_ids"], gaps, f"{label} competitor gap")
+                require(bool(cell["rationale"].strip()), f"{label}: comparison cell needs rationale")
+                if status in ("unknown", "not_applicable"):
+                    require(cell["value"] is None, f"{label}: unavailable comparator cell must be null")
+                else:
+                    require(cell["value"] is not None and bool(cell["value"].strip()) and cell["evidence_ids"],
+                            f"{label}: comparison value needs evidence")
+                if status == "independently_supported":
+                    require(strong(cell["evidence_ids"]), f"{label}: independent comparator value needs A/B evidence")
+    return identifiers
+
+
 def validate(b):
     version = b.get("version") if isinstance(b, dict) else None
     require(isinstance(version, str) and version in SCHEMAS, "Unsupported analytical bundle version")
@@ -176,7 +206,8 @@ def validate(b):
         require(bool(i["currency"])==i["unit"].startswith("money"),"Currency/unit mismatch")
         if i["basis"]=="observed": require(bool(i["evidence_ids"]),"Observed input lacks evidence")
         number(i["value"])
-    finance = FinanceContext(b, I, E, C, G) if version == "1.2" else None
+    comparison_ids = validate_comparisons(b.get("competitor_comparisons", []), b["profile"]["company"], E, G, strong)
+    finance = FinanceContext(b, I, E, C, G) if version != "1.1" else None
     with localcontext() as ctx:
         ctx.prec = 90 if finance is not None else 40
         financial_rows = verify_financial_rows(b, I, finance)
@@ -188,6 +219,7 @@ def validate(b):
             require(len(vals)==3 and set(by)=={"low","base","high"} and by["low"]<=by["base"]<=by["high"],"Incomplete or inverted valuation range")
     unresolved=False
     all_ids=set(E)|set(C)|set(F)|set(I)|set(G)|{x["id"] for k in ("metrics","valuations","research") for x in b[k]}
+    all_ids.update(comparison_ids)
     if finance is not None:
         all_ids.update(key for key in COMPONENTS if key in models)
         all_ids.update(term["id"] for term in b["financial_model"].get("cap_table", {}).get("rounds", []))

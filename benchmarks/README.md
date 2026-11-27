@@ -14,3 +14,7 @@ Use [acceptance-rubric.md](acceptance-rubric.md) for future independent cross-ag
 | [Sparse manufacturing](financial-sparse-v1.2.json) | No input qualifies for a numerical cash, dilution or valuation result. Model components, runway and the multiple-based valuation emit null and reference their missing information. |
 
 The unit tests verify all nine DCF sensitivity cells and all new scalar formulas independently. Adversarial mutations cover unsupported stages and business models, unresolved sources, wrong units and cutoff dates, incompatible terms and financing paths, null handling and the existing report renderer.
+
+## v1.3 report fixtures
+
+The complete fixture exercises a disputed claim, a partially known competitor comparison, cash and dilution schedules, and DCF sensitivity. The sparse fixture exercises qualified decisions, unavailable results and named missing-information links. CI renders real PDFs, checks the reference HTML and CSVs, verifies the embedded brand fonts and link destinations, and compares every numeric exhibit to the validated results. [Complete bundle](report-complete-v1.3.json) · [Sparse bundle](report-sparse-v1.3.json) · [Reference outputs](../report-kit/README.md)

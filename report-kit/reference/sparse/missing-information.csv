@@ -1,0 +1,4 @@
+id,priority,item,period,why,conclusion,action,availability
+G1,Critical,Cash statement and financial model,Current month and full horizon,Cash and runway are not independently verified.,Capital needs and viability.,Reconcile cash and recompute runway.,Private
+G3,Critical,Dated fully diluted ownership and financing terms,Current month and full horizon,Cash and runway are not independently verified.,Capital needs and viability.,Reconcile signed ownership and issued instruments.,Private
+G2,High,Comparable manufacturers and cash-flow model,Current month and full horizon,Independent comparable prices are missing.,Multiples-based valuation eligibility.,Verify comparables and forecast stability.,Public

@@ -1,0 +1,231 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Cedar Components (fictional) | Eqwitty assessment</title><style>:root {
+  --ink: #111111;
+  --muted: #555d69;
+  --blue: #3b82f6;
+  --link: #174da5;
+  --line: #e5e5e5;
+  --panel: #f5f5f5;
+  --blue-tint: #eaf2ff;
+}
+@page {
+  size: A4;
+  margin: 15mm 16mm 17mm;
+  @bottom-right {
+    content: counter(page) " / " counter(pages);
+    font: 8pt "Space Grotesk", sans-serif;
+    color: #555d69;
+  }
+}
+body {
+  color: var(--ink);
+  margin: 0;
+  font: 10pt/1.43 "DM Sans", sans-serif;
+  overflow-wrap: anywhere;
+}
+h1, h2, h3, caption, .brand {
+  font-family: "Space Grotesk", sans-serif;
+}
+h1 { font-size: 27pt; line-height: 1.13; margin: 5mm 0 2mm; }
+h2 {
+  font-size: 15pt;
+  margin: 6mm 0 2.5mm;
+  border-bottom: 0.7pt solid var(--line);
+  padding-bottom: 1.5mm;
+  break-after: avoid;
+}
+h3 { font-size: 11pt; margin: 3mm 0 1mm; break-after: avoid; }
+p { margin: 0 0 2.5mm; orphans: 2; widows: 2; white-space: pre-line; }
+header.hero { padding-bottom: 4mm; border-bottom: 2pt solid var(--blue); }
+.brand { font-size: 19pt; font-weight: 700; letter-spacing: -0.5pt; }
+.dot { color: var(--blue); }
+.hero .objective { max-width: 72ch; font-size: 11pt; }
+.notice { color: var(--muted); font-size: 8.5pt; margin: 2mm 0 0; }
+.meta { display: flex; flex-wrap: wrap; gap: 2mm 7mm; margin: 3mm 0 0; }
+.meta span { display: inline-block; padding: 0.7mm 2mm; background: var(--panel); font-size: 8.75pt; }
+a { color: var(--link); text-decoration: underline; }
+a:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+.subtle { color: var(--muted); }
+.table-wrap { margin: 3mm 0 4mm; }
+.print-caption { display: none; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: 8.75pt;
+  line-height: 1.34;
+  overflow-wrap: anywhere;
+}
+caption {
+  text-align: left;
+  font-size: 10.75pt;
+  font-weight: 700;
+  padding: 0 0 1.8mm;
+  break-after: avoid;
+}
+caption .note { font: 8.5pt/1.35 "DM Sans", sans-serif; margin-top: 0.45mm; }
+thead { display: table-header-group; }
+tr { break-inside: avoid; }
+th, td { text-align: left; padding: 1.65mm 1.8mm; border-bottom: 0.55pt solid var(--line); vertical-align: top; }
+thead th { color: #1b3151; background: var(--blue-tint); font-weight: 700; }
+tbody th { font-weight: 700; }
+tbody tr:nth-child(even) { background: #f8f9fb; }
+tbody tr td.emphasis, tbody tr th.emphasis { background: var(--blue-tint); font-weight: 700; }
+.cols-2 th:first-child { width: 49%; }
+.cols-3 th:first-child { width: 32%; }
+.cols-4 th:first-child { width: 25%; }
+.cols-6 th:first-child { width: 20%; }
+.cols-7 th:first-child { width: 28%; }
+.cols-7 tbody th, .cols-7 tbody td { padding-top: 1.05mm; padding-bottom: 1.05mm; }
+.number { text-align: right; font-variant-numeric: tabular-nums; }
+.cell-text, .note { white-space: pre-line; }
+.note, .cell-links { display: block; color: var(--muted); margin-top: 0.6mm; font-size: 7.75pt; font-weight: 400; }
+.cell-links a { margin-right: 0.25em; }
+.chart { margin: 4mm 0; padding: 3mm; border: 0.6pt solid var(--line); break-inside: avoid; }
+.chart figcaption { margin-bottom: 1.8mm; font-size: 9.25pt; font-weight: 700; }
+.chart-row { display: flex; align-items: center; gap: 2mm; margin: 1mm 0; font-size: 8pt; }
+.chart-key { flex: 0 0 37%; }
+.chart-plot { flex: 1; height: 2.7mm; background-color: var(--panel); }
+.chart-value { flex: 0 0 17%; text-align: right; }
+.record { margin: 2.7mm 0 3.3mm; border-left: 1.5pt solid var(--line); padding-left: 2.8mm; }
+.record h3 { margin-top: 0; }
+.record p { margin-bottom: 1.3mm; }
+.detail { color: var(--muted); font-size: 8.5pt; }
+.provenance { font-size: 8.5pt; }
+.provenance dt { font-weight: 700; }
+.provenance dd { margin: 0 0 1.7mm; overflow-wrap: anywhere; }
+.skip-link { position: absolute; left: -999em; }
+.skip-link:focus { left: 1rem; top: 1rem; background: white; padding: 0.5rem; }
+@media screen {
+  body { max-width: 67rem; margin: 0 auto; padding: 1.7rem 1rem 3rem; }
+  .table-wrap { overflow-x: auto; }
+  table { min-width: 32rem; }
+  .cols-6, .cols-7 { min-width: 50rem; }
+  .record:target, tr:target { outline: 2px solid var(--blue); outline-offset: 2px; }
+}
+@media print {
+  .skip-link { display: none; }
+  caption { display: none; }
+  .print-caption { display: block; break-after: avoid; padding-bottom: 1mm; }
+  .appendix { break-before: page; }
+  .keep-together, .record, .provenance { break-inside: avoid; }
+}
+@page { @bottom-left { content: "eqwitty. | Standard v1.3 | Report v1.3"; font: 8pt "DM Sans"; color: #555d69; } }</style></head><body><a class="skip-link" href="#assessment">Skip to assessment</a><header class="hero"><div class="brand">eqwitty<span class="dot">.</span></div><h1>Cedar Components (fictional)</h1><p class="objective">Identify the records needed to assess liquidity, ownership and the basis for a financing decision.</p><div class="meta"><span>As of <time>2026-11-27</time></span><span>Methodology v1.3</span><span>Renderer v1.3</span></div><p class="notice">Independent assessment: Eqwitty open methodology (not an official Eqwitty platform report)</p></header><main id="assessment">
+<section><h2>Executive assessment</h2>
+<p>Qualified · No reliable decision can be made from synthetic evidence.</p>
+</section>
+<section><h2>Scope and input inventory</h2>
+<p>Synthetic entity · Not established · Unknown</p>
+<p>Synthetic sparse assessment. Financial statements, ownership and customer records were unavailable.</p>
+</section>
+<section><h2>Business and product</h2>
+<p>Manufacturing is the declared model in the fictional intake.</p>
+<p>Manufacturing</p>
+</section>
+<section><h2>Team</h2>
+<p>No evidence in fixture.</p>
+</section>
+<section><h2>Market and competition</h2>
+<p>No evidence in fixture.</p>
+<p>No evidence in fixture.</p>
+<p>No evidence in fixture.</p>
+<div class="table-wrap keep-together"><h3 class="print-caption">CC1 · Manufacturing alternatives<span class="note">Fictional supplier comparison for the proposed product.</span></h3><table class="cols-3"><caption>CC1 · Manufacturing alternatives<span class="note">Fictional supplier comparison for the proposed product.</span></caption><thead><tr><th scope="col">Criterion</th><th scope="col">Cedar Components (fictional)</th><th scope="col">Elm Components (fictional)</th></tr></thead><tbody><tr><th scope="row" class=""><span class="cell-text">Verified capacity</span><span class="note">Effective monthly capacity under the same operating conditions.</span></th><td class=""><span class="cell-text">Unknown</span><span class="note">No production or capacity records.</span></td><td class=""><span class="cell-text">Unknown</span><span class="note">No comparable operating data.</span></td></tr></tbody></table></div>
+</section>
+<section><h2>Independent thesis and reconciliation</h2>
+<p>Management · Unavailable</p>
+<p>Independent · Insufficient independent evidence to support the thesis.</p>
+<p>Verified cash shortfall or inability to sustain gross margin</p>
+</section>
+<section><h2>Financial analysis and calculations</h2>
+<p>Synthetic entity · USD in base units · US GAAP</p>
+<div class="table-wrap keep-together"><h3 class="print-caption">Financial and operating metrics</h3><table class="cols-4"><caption>Financial and operating metrics</caption><thead><tr><th scope="col">Calculation</th><th scope="col">Value</th><th scope="col">Basis</th><th scope="col">Rationale</th></tr></thead><tbody><tr><th scope="row" class=""><span class="cell-text">M1 · Runway</span><span class="note">runway</span></th><td class=""><span class="cell-text">Unavailable</span><span class="cell-links">Gap <a href="#gap-G1">G1</a></span></td><td class=""><span class="cell-text">Observed</span></td><td class=""><span class="cell-text">No cash or burn.</span></td></tr></tbody></table></div>
+<div class="table-wrap keep-together"><h3 class="print-caption">Capitalisation and dilution</h3><table class="cols-2"><caption>Capitalisation and dilution</caption><thead><tr><th scope="col">Status</th><th scope="col">Reason</th></tr></thead><tbody><tr><th scope="row" class=""><span class="cell-text">Unavailable</span></th><td class=""><span class="cell-text">No dated ownership register.</span><span class="cell-links">Gap <a href="#gap-G3">G3</a></span></td></tr></tbody></table></div>
+<div class="table-wrap keep-together"><h3 class="print-caption">Monthly cash and runway</h3><table class="cols-2"><caption>Monthly cash and runway</caption><thead><tr><th scope="col">Status</th><th scope="col">Reason</th></tr></thead><tbody><tr><th scope="row" class=""><span class="cell-text">Unavailable</span></th><td class=""><span class="cell-text">No source for opening cash or monthly drivers.</span><span class="cell-links">Gap <a href="#gap-G1">G1</a></span></td></tr></tbody></table></div>
+</section>
+<section><h2>Material factors and evidence coverage</h2>
+<div class="table-wrap keep-together"><h3 class="print-caption">Factor coverage</h3><table class="cols-2"><caption>Factor coverage</caption><thead><tr><th scope="col">Measure</th><th scope="col">Count</th></tr></thead><tbody><tr><th scope="row" class=""><span class="cell-text">Applicable</span></th><td class="number"><span data-value="13">13</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">Assessed</span></th><td class="number"><span data-value="0">0</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">Fully supported</span></th><td class="number"><span data-value="0">0</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">Unknown</span></th><td class="number"><span data-value="13">13</span></td></tr></tbody></table></div>
+<div class="table-wrap"><h3 class="print-caption">Material factors and evidence matrix</h3><table class="cols-3"><caption>Material factors and evidence matrix</caption><thead><tr><th scope="col">Factor</th><th scope="col">Assessment</th><th scope="col">Evidence</th></tr></thead><tbody><tr><th scope="row" class=""><span class="cell-text">C01 · Resolve legal identity, jurisdiction, ownership and instruments; distinguish operating entity from brand.</span><span class="note">Medium priority</span></th><td class=""><span class="cell-text">Unknown · unknown confidence</span><span class="note">No evidence in fixture.
+Implication · Insufficient evidence for decision.
+Next test · Request source evidence.</span></td><td class=""><span class="cell-text">Supporting none recorded
+Opposing none recorded</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">C02 · Test urgency, alternatives, willingness to pay and demonstrated adoption.</span><span class="note">Medium priority</span></th><td class=""><span class="cell-text">Unknown · unknown confidence</span><span class="note">No evidence in fixture.
+Implication · Insufficient evidence for decision.
+Next test · Request source evidence.</span></td><td class=""><span class="cell-text">Supporting none recorded
+Opposing none recorded</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">C03 · Assess current readiness, delivery evidence, differentiation and critical dependencies.</span><span class="note">Medium priority</span></th><td class=""><span class="cell-text">Unknown · unknown confidence</span><span class="note">No evidence in fixture.
+Implication · Insufficient evidence for decision.
+Next test · Request source evidence.</span></td><td class=""><span class="cell-text">Supporting none recorded
+Opposing none recorded</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">C04 · Verify relevant track record, responsibilities, key-person dependency, conflicts and governance.</span><span class="note">Medium priority</span></th><td class=""><span class="cell-text">Unknown · unknown confidence</span><span class="note">No evidence in fixture.
+Implication · Insufficient evidence for decision.
+Next test · Request source evidence.</span></td><td class=""><span class="cell-text">Supporting none recorded
+Opposing none recorded</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">C05 · Test reachable market, competitors, substitutes, channels and pricing; distinguish top-down TAM from addressable sales.</span><span class="note">Medium priority</span></th><td class=""><span class="cell-text">Unknown · unknown confidence</span><span class="note">No evidence in fixture.
+Implication · Insufficient evidence for decision.
+Next test · Request source evidence.</span></td><td class=""><span class="cell-text">Supporting none recorded
+Opposing none recorded</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">C06 · Reconcile actual revenue and cost structure, monetisation, contribution and repeatability.</span><span class="note">Medium priority</span></th><td class=""><span class="cell-text">Unknown · unknown confidence</span><span class="note">No evidence in fixture.
+Implication · Insufficient evidence for decision.
+Next test · Request source evidence.</span></td><td class=""><span class="cell-text">Supporting none recorded
+Opposing none recorded</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">C07 · Test cash availability, financing, burn, debt, working capital, runway and future funding needs.</span><span class="note">Critical priority</span></th><td class=""><span class="cell-text">Unknown · unknown confidence</span><span class="note">No evidence in fixture.
+Implication · Insufficient evidence for decision.
+Next test · Request source evidence.</span></td><td class=""><span class="cell-text">Supporting none recorded
+Opposing none recorded</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">C08 · Test durability of differentiation, switching costs, IP rights, scale effects and replication risks.</span><span class="note">Medium priority</span></th><td class=""><span class="cell-text">Unknown · unknown confidence</span><span class="note">No evidence in fixture.
+Implication · Insufficient evidence for decision.
+Next test · Request source evidence.</span></td><td class=""><span class="cell-text">Supporting none recorded
+Opposing none recorded</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">C09 · Identify material licensing, compliance, operational, security and concentration dependencies.</span><span class="note">Medium priority</span></th><td class=""><span class="cell-text">Unknown · unknown confidence</span><span class="note">No evidence in fixture.
+Implication · Insufficient evidence for decision.
+Next test · Request source evidence.</span></td><td class=""><span class="cell-text">Supporting none recorded
+Opposing none recorded</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">C10 · Identify evidence that would invalidate the thesis; determine valuation eligibility and key drivers.</span><span class="note">Medium priority</span></th><td class=""><span class="cell-text">Unknown · unknown confidence</span><span class="note">No evidence in fixture.
+Implication · Insufficient evidence for decision.
+Next test · Request source evidence.</span></td><td class=""><span class="cell-text">Supporting none recorded
+Opposing none recorded</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">MF01 · Rated versus effective capacity, utilisation, throughput, scrap and quality.</span><span class="note">Medium priority</span></th><td class=""><span class="cell-text">Unknown · unknown confidence</span><span class="note">No evidence in fixture.
+Implication · Insufficient evidence for decision.
+Next test · Request source evidence.</span></td><td class=""><span class="cell-text">Supporting none recorded
+Opposing none recorded</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">MF02 · Capex maintenance, inventory, receivables, payables and cash conversion.</span><span class="note">Medium priority</span></th><td class=""><span class="cell-text">Unknown · unknown confidence</span><span class="note">No evidence in fixture.
+Implication · Insufficient evidence for decision.
+Next test · Request source evidence.</span></td><td class=""><span class="cell-text">Supporting none recorded
+Opposing none recorded</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">MF03 · Supplier dependence, order quality, delivery, warranties and certifications.</span><span class="note">Medium priority</span></th><td class=""><span class="cell-text">Unknown · unknown confidence</span><span class="note">No evidence in fixture.
+Implication · Insufficient evidence for decision.
+Next test · Request source evidence.</span></td><td class=""><span class="cell-text">Supporting none recorded
+Opposing none recorded</span></td></tr></tbody></table></div>
+</section>
+<section><h2>Risks and safeguards</h2>
+<p>Evidence unavailable</p>
+<div class="table-wrap keep-together"><h3 class="print-caption">Safeguards</h3><table class="cols-3"><caption>Safeguards</caption><thead><tr><th scope="col">Check</th><th scope="col">Status</th><th scope="col">Rationale</th></tr></thead><tbody><tr><th scope="row" class=""><span class="cell-text">Legal identity</span></th><td class=""><span class="cell-text">Unknown</span></td><td class=""><span class="cell-text">Synthetic data only</span></td></tr></tbody></table></div>
+</section>
+<section><h2>Valuation and sensitivity</h2>
+<div class="table-wrap keep-together"><h3 class="print-caption">Discounted cash flow</h3><table class="cols-2"><caption>Discounted cash flow</caption><thead><tr><th scope="col">Status</th><th scope="col">Reason</th></tr></thead><tbody><tr><th scope="row" class=""><span class="cell-text">Unavailable</span></th><td class=""><span class="cell-text">Stage and terminal cash-flow evidence are insufficient.</span><span class="cell-links">Gap <a href="#gap-G1">G1</a>, <a href="#gap-G2">G2</a></span></td></tr></tbody></table></div>
+<div class="table-wrap keep-together"><h3 class="print-caption">Other valuation methods</h3><table class="cols-4"><caption>Other valuation methods</caption><thead><tr><th scope="col">Calculation</th><th scope="col">Value</th><th scope="col">Basis</th><th scope="col">Rationale</th></tr></thead><tbody><tr><th scope="row" class=""><span class="cell-text">V1 · EV/revenue</span><span class="note">ev_revenue</span></th><td class=""><span class="cell-text">Unavailable</span><span class="cell-links">Gap <a href="#gap-G2">G2</a></span></td><td class=""><span class="cell-text">Enterprise</span></td><td class=""><span class="cell-text">No independently supported comparable multiples.</span></td></tr></tbody></table></div>
+</section>
+<section><h2>Management questions</h2>
+<div class="table-wrap keep-together"><h3 class="print-caption">Information to request</h3><table class="cols-3"><caption>Information to request</caption><thead><tr><th scope="col">Priority</th><th scope="col">Item</th><th scope="col">Reassessment</th></tr></thead><tbody><tr><th scope="row" class=""><span class="cell-text">Critical</span></th><td class=""><span class="cell-text">Cash statement and financial model</span><span class="cell-links">Gap <a href="#gap-G1">G1</a></span></td><td class=""><span class="cell-text">Reconcile cash and recompute runway.</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">High</span></th><td class=""><span class="cell-text">Comparable manufacturers and cash-flow model</span><span class="cell-links">Gap <a href="#gap-G2">G2</a></span></td><td class=""><span class="cell-text">Verify comparables and forecast stability.</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">Critical</span></th><td class=""><span class="cell-text">Dated fully diluted ownership and financing terms</span><span class="cell-links">Gap <a href="#gap-G3">G3</a></span></td><td class=""><span class="cell-text">Reconcile signed ownership and issued instruments.</span></td></tr></tbody></table></div>
+</section>
+<section><h2>Methodology and limitations</h2>
+<p>Not a real evaluation; no actual research.</p>
+<p>R1 · Blocked · Synthetic fixture; no live research performed.</p>
+<p>Q1 · Critical · Unresolved
+No independent verification of cash or commercial thesis.
+Request evidence; qualify output.</p>
+</section>
+<dl class="provenance"><dt>Standard commit</dt><dd>0000000000000000000000000000000000000000</dd><dt>Bundle SHA-256</dt><dd>7ab7e37e6b742721bc11911e8c497d8b6250d3b234dc3001cee881a15e6ed937</dd></dl>
+<section><h2>Missing information</h2>
+<article class="record" id="gap-G1"><h3>G1 · Critical · Cash statement and financial model</h3><p><strong>Period</strong> Current month and full horizon</p><p><strong>Why needed</strong> Cash and runway are not independently verified.</p><p><strong>Conclusion affected</strong> Capital needs and viability.</p><p><strong>Reassessment action</strong> Reconcile cash and recompute runway.</p><p><strong>Availability</strong> Private</p></article>
+<article class="record" id="gap-G3"><h3>G3 · Critical · Dated fully diluted ownership and financing terms</h3><p><strong>Period</strong> Current month and full horizon</p><p><strong>Why needed</strong> Cash and runway are not independently verified.</p><p><strong>Conclusion affected</strong> Capital needs and viability.</p><p><strong>Reassessment action</strong> Reconcile signed ownership and issued instruments.</p><p><strong>Availability</strong> Private</p></article>
+<article class="record" id="gap-G2"><h3>G2 · High · Comparable manufacturers and cash-flow model</h3><p><strong>Period</strong> Current month and full horizon</p><p><strong>Why needed</strong> Independent comparable prices are missing.</p><p><strong>Conclusion affected</strong> Multiples-based valuation eligibility.</p><p><strong>Reassessment action</strong> Verify comparables and forecast stability.</p><p><strong>Availability</strong> Public</p></article>
+</section><section><h2>Sources</h2>
+<p>Source records unavailable.</p>
+</section>
+
+</main></body></html>
