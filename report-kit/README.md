@@ -1,6 +1,6 @@
 # Eqwitty portable report kit
 
-Generate an independent branded PDF, accessible HTML and a missing-information CSV from a validated assessment. The renderer works offline. It accepts structured report v1.3 and legacy report v1.0.
+Generate an independent branded PDF, accessible HTML and a missing-information CSV from a validated assessment. The renderer works offline. It accepts structured report v1.3 and legacy report v1.0. v1.4 analytical bundles use the structured renderer and include the recorded research scope, source origins, question outcomes and corrections. [Research disclosure](../report-spec.md#v14-research-disclosure)
 
 ## Reference reports
 

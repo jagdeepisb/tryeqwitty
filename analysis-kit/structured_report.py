@@ -282,6 +282,56 @@ def dcf_tables(result, config, inputs, currency):
         ])
 
 
+def research_tables(bundle, coverage):
+    plan = bundle["research_plan"]
+    budget = coverage["budget"]
+    caps = plan["capabilities"]
+    yield table("Actual research activity", ["Channel", "Availability", "Recorded attempts"], [
+        [cell(title), cell("Available" if caps[capacity] else "Unavailable"),
+         numeric(str(coverage["attempts_by_channel"].get(channel, 0)), "integer")]
+        for title, channel, capacity in (
+            ("Web searches", "web_search", "web"), ("Web sources opened", "web_open", "web"),
+            ("Document reviews", "document_review", "documents"), ("Private information requests", "private_request", "private_requests"),
+        )
+    ], note=(f"Objective · {label(plan['objective'])}. "
+             f"Research attempts used {budget['research_used']} of {budget['max_attempts'] - budget['challenge_reserve']}."
+             f" Corrective reviews used {budget['challenge_used']}. {plan['limitations']}"))
+    yield table("Question and evidence coverage", ["Measure", "Count"], [
+        *[[cell(label(state)), numeric(str(count), "integer")] for state, count in coverage["question_counts"].items()],
+        *[[cell(title), numeric(str(coverage[key]), "integer")] for title, key in (
+            ("Evidence records", "source_records"), ("Distinct origins", "source_origins"),
+            ("Independent origins", "independent_origins"),
+        )],
+    ], note="Counts describe scope. Corroboration uses the originating source.")
+    grouped = [[cell(origin), cell("Evidence records", source_ids=ids)]
+               for origin, ids in coverage["origin_groups"].items() if len(ids) > 1]
+    if grouped:
+        yield table("Evidence records from a shared origin", ["Origin", "Records"], grouped)
+    questions = {q["id"]: q for q in plan["questions"]}
+    attempts = {a["id"]: a for a in bundle["research_attempts"]}
+    records = {r["question_id"]: r for r in bundle["research"]}
+    rows = []
+    for entry in coverage["priorities"]:
+        qid = entry["question_id"]
+        q, result = questions[qid], records[qid]
+        work = "\n".join(f"{a} · {label(attempts[a]['channel'])} · {attempts[a]['date']} · {label(attempts[a]['outcome'])}"
+                         for a in result["attempt_ids"])
+        rows.append([
+            cell(f"{qid} · {q['question']}", note=", ".join(q["factor_ids"])),
+            cell(f"{label(result['status'])} · {label(result['stop_reason'])}", note=result["reason"],
+                 source_ids=result["evidence_ids"], gap_ids=result["gap_ids"]),
+            cell(work or "No attempts recorded"),
+        ])
+    yield table("Planned questions and recorded outcomes", ["Question", "Outcome and reason", "Recorded work"], rows)
+    yield table("Red-team corrections", ["Review", "Affected objects", "Action and recheck"], [
+        [cell(f"{q['id']} · {label(q['status'])}", note=f"{q['severity']} · {label(q['route'])}"),
+         cell(", ".join(q["affected"]), note=q["finding"]),
+         cell(q["correction"], note=("Rechecked " + ", ".join(q["rechecked_ids"])) if q["rechecked_ids"] else None,
+              gap_ids=q["gap_ids"])]
+        for q in bundle["challenges"]
+    ])
+
+
 def build_report(bundle, digest, validated):
     profile = bundle["profile"]
     decision = bundle["decision"]
@@ -337,9 +387,16 @@ def build_report(bundle, digest, validated):
         for g in bundle["gaps"]
     ])] if gaps else []
     limits = [decision["limitations"]]
-    limits.extend(f"{r['id']} · {label(r['status'])} · {r['reason']}" for r in bundle["research"])
-    limits.extend(f"{q['id']} · {q['severity']} · {label(q['status'])}\n{q['finding']}\n{q['correction']}"
-                  for q in bundle["challenges"])
+    research = validated.get("research_coverage")
+    methodology_tables = []
+    if research is None:
+        limits.extend(f"{r['id']} · {label(r['status'])} · {r['reason']}" for r in bundle["research"])
+        limits.extend(f"{q['id']} · {q['severity']} · {label(q['status'])}\n{q['finding']}\n{q['correction']}"
+                      for q in bundle["challenges"])
+    else:
+        plan = bundle["research_plan"]
+        limits.extend((plan["objective_rationale"], plan["stage_rationale"]))
+        methodology_tables = list(research_tables(bundle, research))
     if not gaps:
         limits.append("No material gaps listed within the declared scope.")
     financial_context = [
@@ -356,13 +413,16 @@ def build_report(bundle, digest, validated):
                     [claims_table(bundle["claims"])] if bundle["claims"] else []),
             section("Team", team), section("Market and competition", market, comparison_tables),
             section("Independent thesis and reconciliation",
-                    [f"Management · {thesis['management'] or 'Unavailable'}", f"Independent · {thesis['independent']}",
+                    [f"Management · {thesis['management'] or 'Unavailable'}",
+                     f"Independent · {label(thesis['status'])} · {thesis['independent']}" if research else
+                     f"Independent · {thesis['independent']}",
                      *thesis["falsifiers"]], divergences, thesis["independent_evidence"]),
             section("Financial analysis and calculations", financial_context, financial),
             section("Material factors and evidence coverage", tables=[coverage, evidence_matrix]),
             section("Risks and safeguards", decision["risks"], safeguards),
             section("Valuation and sensitivity", tables=valuation),
-            section("Management questions", tables=questions), section("Methodology and limitations", limits),
+            section("Management questions", tables=questions),
+            section("Methodology and limitations", limits, methodology_tables),
         ],
         "sources": bundle["evidence"], "missing_information": gaps, "operands": bundle["inputs"],
         "schedules": schedules,

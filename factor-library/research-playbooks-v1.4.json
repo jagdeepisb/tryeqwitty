@@ -1,0 +1,980 @@
+{
+  "version": "1.4",
+  "baseline": {
+    "C01": "High",
+    "C07": "High",
+    "C02": "Medium",
+    "C03": "Medium",
+    "C04": "Medium",
+    "C05": "Medium",
+    "C06": "Medium",
+    "C08": "Medium",
+    "C09": "Medium",
+    "C10": "Medium"
+  },
+  "stage_groups": {
+    "concept": "precommercial",
+    "development": "precommercial",
+    "pilot": "pilot",
+    "early_revenue": "early_revenue",
+    "repeatable_growth": "established",
+    "mature": "established",
+    "unknown": "unknown"
+  },
+  "stages": {
+    "concept": {
+      "ST01": "High"
+    },
+    "development": {
+      "ST02": "High"
+    },
+    "pilot": {
+      "ST03": "High"
+    },
+    "early_revenue": {
+      "ST04": "High"
+    },
+    "repeatable_growth": {
+      "ST05": "High"
+    },
+    "mature": {
+      "ST06": "High"
+    },
+    "unknown": {
+      "ST07": "High"
+    }
+  },
+  "objectives": {
+    "investment": {
+      "OB01": "High",
+      "C04": "High",
+      "C09": "High",
+      "C10": "High"
+    },
+    "fundraising_readiness": {
+      "OB02": "High",
+      "C03": "High",
+      "C06": "High",
+      "C07": "High"
+    },
+    "mandate_screening": {
+      "OB03": "High",
+      "C01": "High",
+      "C09": "High"
+    },
+    "valuation": {
+      "OB04": "High",
+      "C06": "High",
+      "C07": "High",
+      "C10": "High"
+    },
+    "strategic_review": {
+      "OB05": "High",
+      "C02": "High",
+      "C05": "High",
+      "C06": "High"
+    },
+    "other": {
+      "OB06": "High"
+    }
+  },
+  "models": {
+    "saas": {
+      "precommercial": {
+        "SA04": "High"
+      },
+      "pilot": {
+        "SA04": "High"
+      },
+      "early_revenue": {
+        "SA01": "High",
+        "SA02": "Medium"
+      },
+      "established": {
+        "SA01": "High",
+        "SA02": "High",
+        "SA03": "Medium"
+      },
+      "unknown": {
+        "SA04": "High"
+      }
+    },
+    "marketplace": {
+      "precommercial": {
+        "MP04": "High"
+      },
+      "pilot": {
+        "MP01": "High"
+      },
+      "early_revenue": {
+        "MP01": "High",
+        "MP02": "High"
+      },
+      "established": {
+        "MP01": "High",
+        "MP02": "High",
+        "MP03": "Medium"
+      },
+      "unknown": {
+        "MP04": "High"
+      }
+    },
+    "manufacturing": {
+      "precommercial": {
+        "MF04": "High"
+      },
+      "pilot": {
+        "MF04": "High",
+        "MF01": "High",
+        "MF02": "Medium"
+      },
+      "early_revenue": {
+        "MF01": "High",
+        "MF02": "High",
+        "MF03": "Medium"
+      },
+      "established": {
+        "MF01": "High",
+        "MF02": "High",
+        "MF03": "High"
+      },
+      "unknown": {
+        "MF04": "High"
+      }
+    },
+    "consumer": {
+      "precommercial": {
+        "CO04": "High"
+      },
+      "pilot": {
+        "CO01": "High",
+        "CO02": "Medium"
+      },
+      "early_revenue": {
+        "CO01": "High",
+        "CO02": "High",
+        "CO03": "Medium"
+      },
+      "established": {
+        "CO01": "High",
+        "CO02": "High",
+        "CO03": "High"
+      },
+      "unknown": {
+        "CO04": "High"
+      }
+    },
+    "lending": {
+      "precommercial": {
+        "LE02": "High",
+        "LE04": "Critical"
+      },
+      "pilot": {
+        "LE02": "High",
+        "LE01": "Medium",
+        "LE04": "Critical"
+      },
+      "early_revenue": {
+        "LE01": "High",
+        "LE02": "High",
+        "LE03": "Medium",
+        "LE04": "Critical"
+      },
+      "established": {
+        "LE01": "High",
+        "LE02": "High",
+        "LE03": "High",
+        "LE04": "Critical"
+      },
+      "unknown": {
+        "LE02": "High",
+        "LE04": "Critical"
+      }
+    },
+    "biotech": {
+      "precommercial": {
+        "BI04": "High",
+        "BI03": "High",
+        "BI02": "Critical"
+      },
+      "pilot": {
+        "BI01": "High",
+        "BI03": "High",
+        "BI02": "Critical"
+      },
+      "early_revenue": {
+        "BI01": "High",
+        "BI03": "High",
+        "BI02": "Critical"
+      },
+      "established": {
+        "BI01": "High",
+        "BI03": "High",
+        "BI02": "Critical"
+      },
+      "unknown": {
+        "BI04": "High",
+        "BI03": "High",
+        "BI02": "Critical"
+      }
+    },
+    "deeptech": {
+      "precommercial": {
+        "DT01": "High",
+        "DT03": "Medium"
+      },
+      "pilot": {
+        "DT01": "High",
+        "DT02": "High",
+        "DT03": "Medium"
+      },
+      "early_revenue": {
+        "DT01": "High",
+        "DT02": "High",
+        "DT03": "High"
+      },
+      "established": {
+        "DT02": "High",
+        "DT03": "High",
+        "DT01": "Medium"
+      },
+      "unknown": {
+        "DT01": "High",
+        "DT03": "Medium"
+      }
+    },
+    "services": {
+      "precommercial": {
+        "SV04": "High"
+      },
+      "pilot": {
+        "SV01": "High"
+      },
+      "early_revenue": {
+        "SV01": "High",
+        "SV02": "Medium"
+      },
+      "established": {
+        "SV01": "High",
+        "SV02": "High",
+        "SV03": "Medium"
+      },
+      "unknown": {
+        "SV04": "High"
+      }
+    },
+    "other": {
+      "precommercial": {
+        "OT01": "High",
+        "OT02": "Medium"
+      },
+      "pilot": {
+        "OT01": "High",
+        "OT02": "Medium"
+      },
+      "early_revenue": {
+        "OT01": "High",
+        "OT02": "Medium"
+      },
+      "established": {
+        "OT01": "High",
+        "OT02": "Medium"
+      },
+      "unknown": {
+        "OT01": "High",
+        "OT02": "Medium"
+      }
+    }
+  },
+  "budget_examples": {
+    "screen": {
+      "max_attempts": 12,
+      "challenge_reserve": 2,
+      "minimum_priority": 6
+    },
+    "standard": {
+      "max_attempts": 30,
+      "challenge_reserve": 5,
+      "minimum_priority": 4
+    },
+    "deep": {
+      "max_attempts": 60,
+      "challenge_reserve": 10,
+      "minimum_priority": 3
+    }
+  },
+  "factors": {
+    "C01": {
+      "title": "Entity and ownership",
+      "question": "Which legal entity owns the product, contracts and securities?",
+      "evidence_required": "Dated registration, ownership and entity perimeter matched to the assessed business.",
+      "counter_test": "Check similarly named entities, former names and mismatch between invoices, product and fundraising entity.",
+      "preferred_sources": [
+        "Company registry",
+        "Signed capitalisation register",
+        "Customer contract"
+      ],
+      "decision_use": "Establish the entity, ownership, and transaction eligibility."
+    },
+    "C02": {
+      "title": "Customer problem and demand",
+      "question": "Who has demonstrated demand or willingness to pay for the current offer?",
+      "evidence_required": "Segment-specific demand evidence that distinguishes interest, use, purchase and repeat use.",
+      "counter_test": "Find inactive users, rejected offers, unpaid pilots and alternatives purchasers already use.",
+      "preferred_sources": [
+        "Customer records",
+        "Procurement data",
+        "Independent customer accounts"
+      ],
+      "decision_use": "Test demand and reachable customer segments."
+    },
+    "C03": {
+      "title": "Product and execution",
+      "question": "What can the team deliver at the evidenced stage?",
+      "evidence_required": "Dated product, service or operating records against a defined capability and acceptance criterion.",
+      "counter_test": "Check failed tests, unavailable features, manual workarounds and delivery dependencies.",
+      "preferred_sources": [
+        "Acceptance records",
+        "Product demonstration",
+        "Delivery logs"
+      ],
+      "decision_use": "Qualify claims about product maturity and delivery risk."
+    },
+    "C04": {
+      "title": "Team and governance",
+      "question": "Who controls delivery and decisions, and what track record is evidenced?",
+      "evidence_required": "Named responsibilities, relevant execution history and decision rights.",
+      "counter_test": "Check contradictory biographies, conflicts and departures that change who can deliver.",
+      "preferred_sources": [
+        "Authoritative company records",
+        "Team references",
+        "Governance documents"
+      ],
+      "decision_use": "Assess execution, governance and key-person dependencies."
+    },
+    "C05": {
+      "title": "Market and competition",
+      "question": "Which alternatives compete for the same buyer and budget?",
+      "evidence_required": "Comparable offers and buyer substitution evidence matched by segment, geography, period and unit.",
+      "counter_test": "Look for private or manual substitutes, old price lists and scope mismatches.",
+      "preferred_sources": [
+        "Supplier offers",
+        "Procurement outcomes",
+        "Independently collected comparisons"
+      ],
+      "decision_use": "Assess market access, price position and adoption alternatives."
+    },
+    "C06": {
+      "title": "Revenue and economics",
+      "question": "What drives recognised revenue and contribution at the current stage?",
+      "evidence_required": "Revenue mechanism and reconciled operating inputs where available, with actual, contracted and projected amounts identified.",
+      "counter_test": "Look for refundable deposits, free pilots, bookings and pass-through amounts presented as earned revenue.",
+      "preferred_sources": [
+        "Ledger and reconciliations",
+        "Contracts",
+        "Pricing and delivery records"
+      ],
+      "decision_use": "Set revenue quality and defensible unit-economics assumptions."
+    },
+    "C07": {
+      "title": "Cash and capital",
+      "question": "Which dated cash and funding constraints affect the next decision?",
+      "evidence_required": "Unrestricted cash, commitments, cash movement and timing or a precise request for the missing records.",
+      "counter_test": "Test restricted cash, delayed collections and conditional finance against the same timeline.",
+      "preferred_sources": [
+        "Cash statements",
+        "Cash-flow schedule",
+        "Signed financing terms"
+      ],
+      "decision_use": "Determine funding needs, liquidity exposure and timing."
+    },
+    "C08": {
+      "title": "Defensibility",
+      "question": "What evidence suggests an advantage can survive replication or switching?",
+      "evidence_required": "Customer behaviour, protected rights or operational economics that can be traced to the advantage.",
+      "counter_test": "Identify reproducible features, weak IP coverage, multi-homing and low switching costs.",
+      "preferred_sources": [
+        "Customer interviews",
+        "IP records",
+        "Observed product or channel behaviour"
+      ],
+      "decision_use": "Test durability and the persistence of value drivers."
+    },
+    "C09": {
+      "title": "Regulatory and operational risks",
+      "question": "Which operational, regulatory or other dependencies could prevent delivery?",
+      "evidence_required": "A scoped dependency and compliance record for the entity, geography and actual operations.",
+      "counter_test": "Check scope limits, expired or conditional permissions, and any reliance on an uncommitted third party.",
+      "preferred_sources": [
+        "Authoritative records",
+        "Operating agreements",
+        "Audit or incident records"
+      ],
+      "decision_use": "Identify conditions that could block operations or invalidate the decision."
+    },
+    "C10": {
+      "title": "Thesis and valuation drivers",
+      "question": "What observable change would invalidate the independent case or valuation basis?",
+      "evidence_required": "The primary decision drivers, a practical falsifier and the method eligibility or missing valuation input.",
+      "counter_test": "Test whether plausible adverse data changes the recommended decision or disqualifies the method.",
+      "preferred_sources": [
+        "Reconciled model",
+        "Independent benchmark",
+        "Decision criteria"
+      ],
+      "decision_use": "Qualify the thesis, valuation and final decision."
+    },
+    "ST01": {
+      "title": "Concept validation",
+      "question": "What credible evidence supports the problem at concept stage?",
+      "evidence_required": "A dated record of customer discovery and a costed test that could falsify willingness to pay.",
+      "counter_test": "Look for leading questions, samples dominated by friends and actual behaviour that conflicts with stated interest.",
+      "preferred_sources": [
+        "Interview notes",
+        "Trial design",
+        "Buyer procurement record"
+      ],
+      "decision_use": "Decide whether to fund or refine problem validation."
+    },
+    "ST02": {
+      "title": "Development milestone feasibility",
+      "question": "Which development milestone will demonstrate feasibility within the available resources?",
+      "evidence_required": "Current readiness, evidence against explicit acceptance criteria and dated cost-to-milestone assumptions.",
+      "counter_test": "Check failed tests, prototype conditions and unbudgeted commercial requirements.",
+      "preferred_sources": [
+        "Prototype acceptance logs",
+        "Development plan",
+        "Independent review"
+      ],
+      "decision_use": "Test feasibility, execution timing and milestone funding."
+    },
+    "ST03": {
+      "title": "Pilot conversion",
+      "question": "What did the pilot actually prove and what would convert it to commercial use?",
+      "evidence_required": "Pilot scope, acceptance results, paying status, and the next commitment with a representative counterpart.",
+      "counter_test": "Test free or subsidised use, selection bias and conditions unlikely to hold in production.",
+      "preferred_sources": [
+        "Pilot agreement",
+        "Acceptance results",
+        "Buyer confirmation"
+      ],
+      "decision_use": "Qualify pilot evidence and the next commercial milestone."
+    },
+    "ST04": {
+      "title": "Early revenue quality",
+      "question": "Is initial revenue collectible and repeatable beyond the first customers?",
+      "evidence_required": "Recognised sales, delivery, collections and representative renewal or reorder evidence.",
+      "counter_test": "Reconcile discounted, related-party or one-off sales and delayed collections.",
+      "preferred_sources": [
+        "Sales ledger",
+        "Bank receipts",
+        "Contracts and cohort records"
+      ],
+      "decision_use": "Separate initial trading from repeatable revenue assumptions."
+    },
+    "ST05": {
+      "title": "Repeatable growth",
+      "question": "What drives repeatable growth as the company adds customers and costs?",
+      "evidence_required": "Comparable cohorts, concentration and incremental retention, contribution and capacity measures.",
+      "counter_test": "Test weakening later cohorts, channel dependency and acquisition costs after incentives.",
+      "preferred_sources": [
+        "Cohort records",
+        "Channel records",
+        "Period financial statements"
+      ],
+      "decision_use": "Stress unit economics and working capital under growth."
+    },
+    "ST06": {
+      "title": "Mature operating cash",
+      "question": "How much sustainable cash does a mature business generate after necessary reinvestment?",
+      "evidence_required": "Multi-period normalised operations, maintenance spend and working capital with documented scope.",
+      "counter_test": "Remove cyclical windfalls, underinvestment and revenue concentration effects.",
+      "preferred_sources": [
+        "Financial statements",
+        "Maintenance history",
+        "Operating performance"
+      ],
+      "decision_use": "Anchor sustainable cash generation and method eligibility."
+    },
+    "ST07": {
+      "title": "Stage verification",
+      "question": "What evidence would establish achieved commercial maturity?",
+      "evidence_required": "Dated product, customer and sales records that can resolve the most consequential stage distinction.",
+      "counter_test": "Check whether projected or unpaid activity is being used to imply actual revenue or repeatable growth.",
+      "preferred_sources": [
+        "Commercial milestone records",
+        "Billing and collection records",
+        "Acceptance records"
+      ],
+      "decision_use": "Select a supported stage or preserve the uncertainty."
+    },
+    "OB01": {
+      "title": "Investment conditions",
+      "question": "Which evidence or transaction conditions could reverse the investment decision?",
+      "evidence_required": "Decision conditions, downside exposure and the evidence or terms on which a commitment depends.",
+      "counter_test": "Find reversals under adverse assumptions or governing terms that change the economic rights.",
+      "preferred_sources": [
+        "Investment mandate",
+        "Deal documents",
+        "Independent diligence"
+      ],
+      "decision_use": "Specify the investment decision and diligence conditions."
+    },
+    "OB02": {
+      "title": "Fundraising readiness",
+      "question": "Which evidence, use of funds and milestones are needed for fundraising readiness?",
+      "evidence_required": "A dated funding plan, credible milestones, the story-to-record reconciliation and the exact asks.",
+      "counter_test": "Test whether proposed funds cover the downside and whether headline traction survives reconciliation.",
+      "preferred_sources": [
+        "Fundraising materials",
+        "Cash plan",
+        "Cap table and milestone records"
+      ],
+      "decision_use": "Determine which evidence or operational work should precede fundraising."
+    },
+    "OB03": {
+      "title": "Mandate fit",
+      "question": "Does the company meet the scoped mandate and engagement criteria?",
+      "evidence_required": "User or firm mandate, target criteria, any exclusion and the assessed company's supporting records.",
+      "counter_test": "Check conflicts, legal entity mismatches and ambiguous eligibility boundaries.",
+      "preferred_sources": [
+        "Engagement criteria",
+        "Corporate records",
+        "Conflict register"
+      ],
+      "decision_use": "Decide whether to progress or qualify the mandate."
+    },
+    "OB04": {
+      "title": "Valuation eligibility",
+      "question": "What is the defendable value basis, method and sensitivity at the cut-off date?",
+      "evidence_required": "Basis, purpose, period, eligible methods and traceable assumptions or missing inputs.",
+      "counter_test": "Disqualify methods when comparables, sustainable flows, rights or financing terms are unsupported.",
+      "preferred_sources": [
+        "Financial records",
+        "Independent benchmarks",
+        "Securities documentation"
+      ],
+      "decision_use": "Support a conditional range or withhold valuation."
+    },
+    "OB05": {
+      "title": "Strategic options",
+      "question": "Which strategic choice improves the binding operating or capital constraint?",
+      "evidence_required": "Defined options, resource needs, opportunity costs and measurable decision triggers.",
+      "counter_test": "Test a credible alternative, downside and execution bottleneck.",
+      "preferred_sources": [
+        "Operating plan",
+        "Market evidence",
+        "Unit or project records"
+      ],
+      "decision_use": "Compare actions and set a decision threshold."
+    },
+    "OB06": {
+      "title": "Custom decision conditions",
+      "question": "Which unresolved evidence matters most to the declared decision?",
+      "evidence_required": "An explicit objective, decision thresholds and the observations needed to change them.",
+      "counter_test": "Find plausible findings that point to a different action.",
+      "preferred_sources": [
+        "Scope brief",
+        "Controlling decision records",
+        "Relevant source evidence"
+      ],
+      "decision_use": "Keep a custom or provisional objective testable."
+    },
+    "SA04": {
+      "title": "Subscription workflow validation",
+      "question": "Can the proposed workflow reach paying users or a representative paid pilot?",
+      "evidence_required": "Scoped adoption test, integration requirements and buyer payment or acceptance evidence.",
+      "counter_test": "Check concierge delivery, promotional sign-ups and interest without commitment.",
+      "preferred_sources": [
+        "Design partner records",
+        "Pilot agreement",
+        "Billing or acceptance"
+      ],
+      "decision_use": "Test commercial readiness before measuring mature SaaS economics."
+    },
+    "SA01": {
+      "title": "Recurring revenue quality",
+      "question": "How much contracted recurring revenue is evidenced and reconcilable?",
+      "evidence_required": "Subscription ledger, period and bridge excluding one-offs, bookings and implementation income.",
+      "counter_test": "Trace churn, pauses, reclassifications and annualisation of non-recurring receipts.",
+      "preferred_sources": [
+        "Subscription ledger",
+        "Invoice records",
+        "Customer contracts"
+      ],
+      "decision_use": "Set the recurring revenue base for valuation and growth."
+    },
+    "SA02": {
+      "title": "Retention and acquisition",
+      "question": "What do mature cohort retention and acquisition costs show?",
+      "evidence_required": "Dated cohorts, acquisition cost, denominator definitions and retention or contribution by segment.",
+      "counter_test": "Test newer cohorts, excluded churn and incentives omitted from acquisition cost.",
+      "preferred_sources": [
+        "Cohort exports",
+        "Spend ledgers",
+        "Billing histories"
+      ],
+      "decision_use": "Test repeatability and acquisition sustainability."
+    },
+    "SA03": {
+      "title": "Scalability",
+      "question": "Does the service scale after support and hosting costs?",
+      "evidence_required": "Unit contribution and delivery cost across customer bands and volume.",
+      "counter_test": "Find manual onboarding, committed hosting and support costs excluded from margins.",
+      "preferred_sources": [
+        "Hosting bills",
+        "Support records",
+        "Customer margin schedule"
+      ],
+      "decision_use": "Test incremental contribution and scaling limits."
+    },
+    "MP01": {
+      "title": "Liquidity and repeat usage",
+      "question": "Can each side reliably find and complete a match?",
+      "evidence_required": "Comparable demand, supply, completed matches and time-to-match in an actual operating segment.",
+      "counter_test": "Separate manual matches, incentive-dependent volume and repeated requests from genuine liquidity.",
+      "preferred_sources": [
+        "Transaction logs",
+        "Customer records",
+        "Segment reports"
+      ],
+      "decision_use": "Identify the binding side and location of liquidity."
+    },
+    "MP02": {
+      "title": "GMV and monetisation",
+      "question": "What recognised marketplace revenue survives refunds and incentives?",
+      "evidence_required": "GMV reconciled to fees, refunds, discounts and recognised revenue at a matching period.",
+      "counter_test": "Test principal-versus-agent presentation, pass-through value and incentives booked outside fees.",
+      "preferred_sources": [
+        "Ledger",
+        "Settlement records",
+        "Terms and order-level data"
+      ],
+      "decision_use": "Set defensible take rate and contribution assumptions."
+    },
+    "MP03": {
+      "title": "Network resilience",
+      "question": "How resilient are liquidity and margin to loss of dominant participants?",
+      "evidence_required": "Concentration, retention, off-platform behaviour and market-level economics by side.",
+      "counter_test": "Test multi-homing, disintermediation and removal of acquisition incentives.",
+      "preferred_sources": [
+        "Seller cohorts",
+        "Buyer activity",
+        "Regional economics"
+      ],
+      "decision_use": "Quantify platform and network exposure."
+    },
+    "MF04": {
+      "title": "Production readiness",
+      "question": "Which trials or validations establish production readiness?",
+      "evidence_required": "Dated production trial, yield and acceptance conditions, plus funded scale-up gates.",
+      "counter_test": "Compare prototype conditions, rework, incomplete approvals and factory constraints.",
+      "preferred_sources": [
+        "Trial and inspection records",
+        "Customer acceptance",
+        "Equipment and supplier terms"
+      ],
+      "decision_use": "Determine whether projected production can be supported."
+    },
+    "MF01": {
+      "title": "Capacity and yield",
+      "question": "What effective capacity and first-pass yield are demonstrated?",
+      "evidence_required": "Production and quality records at specified shifts, product mix and utilisation.",
+      "counter_test": "Compare rated capacity with downtime, scrap, rework and changeovers.",
+      "preferred_sources": [
+        "Production logs",
+        "Quality records",
+        "Independent site review"
+      ],
+      "decision_use": "Test deliverable volume and direct cost assumptions."
+    },
+    "MF02": {
+      "title": "Capital and working capital",
+      "question": "How much capital and working capital are needed at the planned scale?",
+      "evidence_required": "Dated capex, inventory, customer credit and supplier terms linked to output.",
+      "counter_test": "Check maintenance spend, slow inventory, long receivable cycles and unsupported purchase credit.",
+      "preferred_sources": [
+        "Equipment quotations",
+        "Inventory ageing",
+        "Trade records"
+      ],
+      "decision_use": "Stress cash conversion and required financing."
+    },
+    "MF03": {
+      "title": "Supply and execution",
+      "question": "Which suppliers, orders or quality requirements could stop production?",
+      "evidence_required": "Supplier approvals, customer order quality, quality terms and capacity commitments.",
+      "counter_test": "Find sole sources, cancellable orders, warranties and qualification delays.",
+      "preferred_sources": [
+        "Purchase and sales contracts",
+        "Quality and supplier records",
+        "Customer confirmation"
+      ],
+      "decision_use": "Test continuity, order credibility and delivery risk."
+    },
+    "CO01": {
+      "title": "Repeat demand",
+      "question": "Do end customers purchase repeatedly without launch promotions?",
+      "evidence_required": "Comparable customer/order cohorts with returns, discount and repeat-window definitions.",
+      "counter_test": "Check sell-in versus consumer sell-through and behaviour after subsidies.",
+      "preferred_sources": [
+        "Order records",
+        "Retail audits",
+        "Returns and cohort data"
+      ],
+      "decision_use": "Test repeat demand and sustainable revenue."
+    },
+    "CO02": {
+      "title": "Channel contribution",
+      "question": "Are distribution channels profitable at realised prices?",
+      "evidence_required": "Channel-level realised price and contribution after trade spend, returns and delivery costs.",
+      "counter_test": "Find one-off placement revenue, hidden listing fees or negative margins masked by blended results.",
+      "preferred_sources": [
+        "Channel contracts",
+        "Contribution schedules",
+        "Retail data"
+      ],
+      "decision_use": "Identify profitable growth channels and costs."
+    },
+    "CO03": {
+      "title": "Inventory",
+      "question": "How does inventory risk change under slower demand?",
+      "evidence_required": "Sell-through, ageing, expiry or return rights and associated working capital.",
+      "counter_test": "Test inventory pushed into distributors and returns or obsolescence after the period cut-off.",
+      "preferred_sources": [
+        "Inventory ageing",
+        "Distributor returns",
+        "Production plan"
+      ],
+      "decision_use": "Forecast inventory losses and liquidity under slower sales."
+    },
+    "LE04": {
+      "title": "Lending perimeter",
+      "question": "Which entity originates and holds the credit exposure in the relevant jurisdiction?",
+      "evidence_required": "Documented origination, servicing, licence and risk-transfer perimeter, with identified sources.",
+      "counter_test": "Check activity outside the authorised scope and origination or funding agreements that leave residual risk.",
+      "preferred_sources": [
+        "Regulatory register",
+        "Partner agreement",
+        "Loan ownership records"
+      ],
+      "decision_use": "Determine legal operating perimeter and retained credit exposure."
+    },
+    "LE01": {
+      "title": "Credit performance",
+      "question": "How do comparable vintages perform after delinquency and write-off?",
+      "evidence_required": "Loan-book cohorts, delinquency definitions, recoveries and vintage maturity.",
+      "counter_test": "Check evergreening, restructured vintages, collections lags and write-offs excluded from performance.",
+      "preferred_sources": [
+        "Loan tape",
+        "Collection history",
+        "Audited portfolio disclosures"
+      ],
+      "decision_use": "Stress credit losses and reported portfolio quality."
+    },
+    "LE02": {
+      "title": "Funding and capital",
+      "question": "Can funding and capital absorb losses and timing mismatches?",
+      "evidence_required": "Dated financing, covenant and capital terms, maturities and downside funding needs.",
+      "counter_test": "Test committed lines, funding concentration and triggers under delayed collections.",
+      "preferred_sources": [
+        "Funding agreements",
+        "Liquidity records",
+        "Capital disclosures"
+      ],
+      "decision_use": "Estimate financing headroom and loss absorption."
+    },
+    "LE03": {
+      "title": "Risk-adjusted economics",
+      "question": "What is contribution after funding, servicing, acquisition and credit losses?",
+      "evidence_required": "Comparable risk-adjusted unit economics with matched portfolio periods and product boundaries.",
+      "counter_test": "Include loss reserves, collections costs and new-originations mix that change reported margins.",
+      "preferred_sources": [
+        "Portfolio performance",
+        "Unit economics",
+        "Cost and funding records"
+      ],
+      "decision_use": "Determine whether lending economics hold across vintages."
+    },
+    "BI01": {
+      "title": "Clinical evidence",
+      "question": "Which clinical milestones are supported by the available records?",
+      "evidence_required": "Published or registered results matched to indication, population, endpoint and trial phase.",
+      "counter_test": "Check protocol/result changes, unresolved adverse findings and unsupported comparisons across populations.",
+      "preferred_sources": [
+        "Trial registry",
+        "Published outcomes",
+        "Independent clinical review"
+      ],
+      "decision_use": "Bound evidence and uncertainty for the next decision."
+    },
+    "BI02": {
+      "title": "Regulatory and IP",
+      "question": "What regulatory status and rights are in force for the stated indication and geography?",
+      "evidence_required": "Dated authority record, indication and material rights, with explicit unresolved gates.",
+      "counter_test": "Check narrower authorisations, changed timelines and rights exclusions.",
+      "preferred_sources": [
+        "Authoritative regulator record",
+        "Licence and IP documents",
+        "Dated announcements"
+      ],
+      "decision_use": "Identify regulatory or rights constraints on timing."
+    },
+    "BI03": {
+      "title": "Capital to milestones",
+      "question": "How much cash is needed to reach the next defined development milestone?",
+      "evidence_required": "Dated operating and financing plan tied to documented milestone decisions.",
+      "counter_test": "Check failed gates, delayed timelines and commitments excluded from the funding requirement.",
+      "preferred_sources": [
+        "Budget and assumptions",
+        "Financing terms",
+        "Milestone records"
+      ],
+      "decision_use": "Assess dilution and funding needs around milestone timing."
+    },
+    "DT01": {
+      "title": "Technical validation",
+      "question": "What technical performance is demonstrated under relevant conditions?",
+      "evidence_required": "Dated test criteria, prototype scope and independent comparisons where available.",
+      "counter_test": "Identify failed checks, controlled conditions and requirements that remain untested.",
+      "preferred_sources": [
+        "Independent verification",
+        "Test records",
+        "Acceptance criteria"
+      ],
+      "decision_use": "Assess readiness and unresolved technical dependencies."
+    },
+    "DT02": {
+      "title": "Commercialisation",
+      "question": "Can the proven capability meet buyer requirements at commercial cost?",
+      "evidence_required": "Buyer acceptance, deployment timeline and manufacturing or integration economics.",
+      "counter_test": "Test unresolved certification, low-volume cost and an unsubsidised customer requirement.",
+      "preferred_sources": [
+        "Acceptance records",
+        "Cost models",
+        "Buyer and production commitments"
+      ],
+      "decision_use": "Test time-to-market and cost to scale."
+    },
+    "DT03": {
+      "title": "IP and capital",
+      "question": "Which exclusive rights, infrastructure and capital are required?",
+      "evidence_required": "Documented commercial rights, dependencies and financing to the next unit-cost or readiness gate.",
+      "counter_test": "Check third-party IP, uncommitted specialised infrastructure and cost overruns.",
+      "preferred_sources": [
+        "Licence records",
+        "Capex plan",
+        "Development commitments"
+      ],
+      "decision_use": "Assess operating feasibility and capital requirements."
+    },
+    "SV01": {
+      "title": "Delivery economics",
+      "question": "What contribution is delivered per project or billable team?",
+      "evidence_required": "Comparable project revenue, delivery cost, staffing and invoice recovery.",
+      "counter_test": "Include unpaid effort, scope overruns and pass-through subcontractor costs.",
+      "preferred_sources": [
+        "Project statements",
+        "Time records",
+        "Billings and receipts"
+      ],
+      "decision_use": "Test delivery unit economics and cash collection."
+    },
+    "SV02": {
+      "title": "Repeat and concentration",
+      "question": "Do repeat assignments and pipeline reduce customer concentration?",
+      "evidence_required": "Renewals, repeat project counts and client concentration by period.",
+      "counter_test": "Check one-off contracts, founder-relationship dependency and weak pipeline conversion.",
+      "preferred_sources": [
+        "Executed contracts",
+        "Account records",
+        "Renewal and pipeline logs"
+      ],
+      "decision_use": "Assess revenue resilience and concentration."
+    },
+    "SV03": {
+      "title": "Scalability",
+      "question": "Can delivery capacity scale while preserving quality and margin?",
+      "evidence_required": "Capacity, hiring and management span data with quality or service outcomes.",
+      "counter_test": "Test utilisation peaks, subcontractor dependency and unpriced management overhead.",
+      "preferred_sources": [
+        "Time and staffing records",
+        "Quality outcomes",
+        "Cost plan"
+      ],
+      "decision_use": "Forecast scalable contribution and staffing constraints."
+    },
+    "OT01": {
+      "title": "Model-specific economics",
+      "question": "What is the company-specific unit of value and economic exchange?",
+      "evidence_required": "Named payer, unit of measure, delivery costs and timing evidence.",
+      "counter_test": "Find stated payers, prices or realised revenue that differ from observed transactions.",
+      "preferred_sources": [
+        "Customer contracts",
+        "Revenue records",
+        "Service or product records"
+      ],
+      "decision_use": "Establish the operating and financial mechanism."
+    },
+    "OT02": {
+      "title": "Model-specific risk",
+      "question": "Which model-specific dependency could change the assessment?",
+      "evidence_required": "Evidence of the dominant bottleneck, commitments and alternatives.",
+      "counter_test": "Test breaks under delay, funding loss or substitution.",
+      "preferred_sources": [
+        "Operating records",
+        "Independent sources",
+        "Counterparty documents"
+      ],
+      "decision_use": "Define the binding risk and diligence response."
+    },
+    "MP04": {
+      "title": "Two-sided launch validation",
+      "question": "Which buyers and suppliers would join the first market, and under what conditions?",
+      "evidence_required": "Scoped buyer and supplier commitments and a testable definition of a successful first match.",
+      "counter_test": "Compare sign-ups without commitment, manual matching and the need for incentives.",
+      "preferred_sources": [
+        "Buyer or supplier trial commitments",
+        "Market-specific trial design",
+        "Substitution evidence"
+      ],
+      "decision_use": "Assess whether there is enough initial participation to test liquidity."
+    },
+    "CO04": {
+      "title": "Consumer purchase validation",
+      "question": "Will the intended customer buy the offer at a proposed price and channel?",
+      "evidence_required": "Dated purchase tests or commitments with conditions, price and customer sample.",
+      "counter_test": "Check free samples, promotional intent and channel revenue presented as consumer purchase.",
+      "preferred_sources": [
+        "Small-scale order record",
+        "Dated purchase test",
+        "Channel or buyer commitment"
+      ],
+      "decision_use": "Assess launch demand and conditions for a repeat-purchase test."
+    },
+    "SV04": {
+      "title": "Service launch feasibility",
+      "question": "Can the team deliver an initial contracted service at the indicated rate and scope?",
+      "evidence_required": "Defined deliverables, staffing and cost assumptions and evidence of client commitment.",
+      "counter_test": "Check unpaid pilots, scope ambiguity and missing delivery or subcontractor costs.",
+      "preferred_sources": [
+        "Client scope or proposal",
+        "Team capacity and cost plan",
+        "Signed commitment"
+      ],
+      "decision_use": "Test readiness to deliver and the evidence needed for contribution analysis."
+    },
+    "BI04": {
+      "title": "Development evidence and milestones",
+      "question": "Which early development milestone has been independently documented?",
+      "evidence_required": "Dated milestone records, the next review threshold and any limits on translation to clinical evidence.",
+      "counter_test": "Check missing validation records, changed milestone criteria and unsupported clinical claims.",
+      "preferred_sources": [
+        "Official filings",
+        "Independent milestone review",
+        "Programme and funding records"
+      ],
+      "decision_use": "Set the evidence standard and funding conditions for the next programme milestone."
+    }
+  }
+}

@@ -18,3 +18,12 @@ The unit tests verify all nine DCF sensitivity cells and all new scalar formulas
 ## v1.3 report fixtures
 
 The complete fixture exercises a disputed claim, a partially known competitor comparison, cash and dilution schedules, and DCF sensitivity. The sparse fixture exercises qualified decisions, unavailable results and named missing-information links. CI renders real PDFs, checks the reference HTML and CSVs, verifies the embedded brand fonts and link destinations, and compares every numeric exhibit to the validated results. [Complete bundle](report-complete-v1.3.json) · [Sparse bundle](report-sparse-v1.3.json) · [Reference outputs](../report-kit/README.md)
+
+## v1.4 adaptive research fixtures
+
+| Case | Differentiation and known result |
+|---|---|
+| [Early-revenue SaaS valuation](research-early-saas-v1.4.json) | Prioritises subscription economics and valuation eligibility. Eight planned questions yield two completed, two partial, three blocked and one deferred. Five captured evidence records represent four originating sources. The pricing dispute remains open and the valuation is unavailable. |
+| [Manufacturing pilot fundraising](research-pilot-manufacturing-v1.4.json) | Prioritises pilot conditions, production readiness, capex and funding. Eight questions yield one completed, two partial, four blocked and one deferred. Independent inspection corroborates the scoped pilot. Cash and operating records remain open. |
+
+Both cases use frozen synthetic documents and disclose zero web searches. Tests cover stage changes within a model, hybrid routes, exact priorities, shared attempts, false completion, duplicate origins, prerequisite cycles and priority-matched information requests. These cases test the contract under fixed conditions. [Cross-agent evaluation rubric](acceptance-rubric.md)

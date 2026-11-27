@@ -11,19 +11,22 @@ from contract import indexed, number, refs, require
 from finance_context import COMPONENTS, FinanceContext, decimal_text
 from finance_metrics import LEGACY_METRIC_UNITS, MODEL_METRICS, check_legacy, new_metric
 from finance_model import calculate
+from research_validation import ResearchAudit, SourceOrigins
 
 ROOT=Path(__file__).resolve().parents[1]
 SCHEMA=json.loads((ROOT/"schemas/analysis-bundle.json").read_text(encoding="utf-8"))
 SCHEMA_V12=json.loads((ROOT/"schemas/analysis-bundle-v1.2.json").read_text(encoding="utf-8"))
 SCHEMA_V13=json.loads((ROOT/"schemas/analysis-bundle-v1.3.json").read_text(encoding="utf-8"))
+SCHEMA_V14=json.loads((ROOT/"schemas/analysis-bundle-v1.4.json").read_text(encoding="utf-8"))
 REGISTRY=Registry().with_resources([
     ("analysis-bundle.json", Resource.from_contents(SCHEMA)),
     ("analysis-bundle-v1.2.json", Resource.from_contents(SCHEMA_V12)),
+    ("analysis-bundle-v1.3.json", Resource.from_contents(SCHEMA_V13)),
     ("financial-model-v1.2.json", Resource.from_contents(
         json.loads((ROOT/"schemas/financial-model-v1.2.json").read_text(encoding="utf-8"))
     )),
 ])
-SCHEMAS={"1.1": SCHEMA, "1.2": SCHEMA_V12, "1.3": SCHEMA_V13}
+SCHEMAS={"1.1": SCHEMA, "1.2": SCHEMA_V12, "1.3": SCHEMA_V13, "1.4": SCHEMA_V14}
 LIB=json.loads((ROOT/"factor-library/factors.json").read_text())
 D=Decimal
 # name -> (operand names and units, operation, denominator checks)
@@ -171,10 +174,16 @@ def validate(b):
             require(u.scheme in ("https","http") and u.hostname and not u.username and not u.password and not any(ord(c)<32 for c in e["url"]),"Unsafe evidence URL")
         require(e["accessed"]<=b["as_of"],"Evidence after analysis date")
         require(e["type"] not in ("company_material","company_public") or e["grade"] in ("C","D"),"Company-origin evidence cannot independently verify")
+    origins = SourceOrigins(E) if version == "1.4" else None
+    audit = ResearchAudit(b, F, E, C, G, origins) if origins is not None else None
+    if audit is not None:
+        audit.validate_selection()
     def evidence_pair(row):
         refs(row["support"],E,"support"); refs(row["oppose"],E,"opposition")
         require(not set(row["support"])&set(row["oppose"]),"Same evidence used as support and opposition")
     def strong(ids):
+        if origins is not None:
+            return bool(origins.independent(ids))
         return any(E[k]["type"] in ("independent_public","authoritative_record") and E[k]["grade"] in ("A","B") for k in ids)
     for c in C.values():
         evidence_pair(c)
@@ -183,9 +192,10 @@ def validate(b):
         if c["status"]=="reported": require(bool(c["support"]),"Reported claim lacks source")
     refs(b["thesis"]["independent_evidence"],E,"independent thesis")
     for x in b["thesis"]["divergences"]: refs(x["claim_ids"],C,"thesis divergence")
-    required={x["id"] for x in LIB["core"]}
-    for m in b["profile"]["models"]: required.update(x["id"] for x in LIB["models"][m])
-    require(required<=set(F),"Missing mandatory core/model factors: "+str(sorted(required-set(F))))
+    if audit is None:
+        required={x["id"] for x in LIB["core"]}
+        for m in b["profile"]["models"]: required.update(x["id"] for x in LIB["models"][m])
+        require(required<=set(F),"Missing mandatory core/model factors: "+str(sorted(required-set(F))))
     for f in F.values():
         evidence_pair(f)
         if f["status"] in ("supported","partial"): require(bool(f["support"]),"Factor lacks supporting evidence")
@@ -195,19 +205,20 @@ def validate(b):
     for s in b["safeguards"]:
         refs(s["evidence_ids"],E,"safeguard")
         if s["status"]=="pass": require(bool(s["evidence_ids"]),"Unsupported safeguard pass")
-    covered=set()
-    for r in b["research"]:
-        refs(r["factor_ids"],F,"research factor"); refs(r["evidence_ids"],E,"research evidence")
-        if r["status"]=="completed": require(bool(r["queries"]) and bool(r["evidence_ids"]),"Completed research lacks recorded query/evidence")
-        covered.update(r["factor_ids"])
-    require({k for k,v in F.items() if v["status"]!="not_applicable"}<=covered,"Applicable factor has no research task")
+    if audit is None:
+        covered=set()
+        for r in b["research"]:
+            refs(r["factor_ids"],F,"research factor"); refs(r["evidence_ids"],E,"research evidence")
+            if r["status"]=="completed": require(bool(r["queries"]) and bool(r["evidence_ids"]),"Completed research lacks recorded query/evidence")
+            covered.update(r["factor_ids"])
+        require({k for k,v in F.items() if v["status"]!="not_applicable"}<=covered,"Applicable factor has no research task")
     for i in I.values():
         refs(i["evidence_ids"],E,"financial operand")
         require(bool(i["currency"])==i["unit"].startswith("money"),"Currency/unit mismatch")
         if i["basis"]=="observed": require(bool(i["evidence_ids"]),"Observed input lacks evidence")
         number(i["value"])
     comparison_ids = validate_comparisons(b.get("competitor_comparisons", []), b["profile"]["company"], E, G, strong)
-    finance = FinanceContext(b, I, E, C, G) if version != "1.1" else None
+    finance = FinanceContext(b, I, E, C, G, source_origins=origins) if version != "1.1" else None
     with localcontext() as ctx:
         ctx.prec = 90 if finance is not None else 40
         financial_rows = verify_financial_rows(b, I, finance)
@@ -218,11 +229,19 @@ def validate(b):
             by={v["scenario"]:number(v["value"]) for v in vals}
             require(len(vals)==3 and set(by)=={"low","base","high"} and by["low"]<=by["base"]<=by["high"],"Incomplete or inverted valuation range")
     unresolved=False
-    all_ids=set(E)|set(C)|set(F)|set(I)|set(G)|{x["id"] for k in ("metrics","valuations","research") for x in b[k]}
-    all_ids.update(comparison_ids)
+    model_ids = set()
     if finance is not None:
-        all_ids.update(key for key in COMPONENTS if key in models)
-        all_ids.update(term["id"] for term in b["financial_model"].get("cap_table", {}).get("rounds", []))
+        model_ids.update(key for key in COMPONENTS if key in models)
+        model_ids.update(term["id"] for term in b["financial_model"].get("cap_table", {}).get("rounds", []))
+    identity_groups = [E, C, F, I, G, comparison_ids, model_ids,
+                       *({x["id"] for x in b[k]} for k in ("metrics", "valuations", "research"))]
+    if audit is not None:
+        identity_groups.extend((audit.questions, audit.attempts, {"profile", "thesis", "decision", "report"}))
+    all_ids = set().union(*identity_groups)
+    if audit is not None:
+        challenge_ids = {row["id"] for row in b["challenges"]}
+        require(len(all_ids) == sum(len(group) for group in identity_groups) and not challenge_ids & all_ids,
+                "Research and analytical identities overlap")
     require(not (set(C)&set(F)), "Claim and factor identities overlap")
     for g in G.values(): refs(g["affected_factor_ids"],F,"gap factor")
     for q in b["challenges"]:
@@ -231,7 +250,8 @@ def validate(b):
             require(bool(q["gap_ids"]),"Unresolved challenge needs missing-information request")
             unresolved |= q["severity"]=="Critical"
     applicable=[f for f in F.values() if f["status"]!="not_applicable"]
-    critical_unknown=[f["id"] for f in applicable if f["priority"]=="Critical" and f["status"] in ("unknown","partial","contradicted")]
+    unresolved_factor_states = ("unknown", "partial", "contradicted") if audit is None else ("unknown", "partial")
+    critical_unknown=[f["id"] for f in applicable if f["priority"]=="Critical" and f["status"] in unresolved_factor_states]
     covered_gaps={k for g in G.values() for k in g["affected_factor_ids"]}
     require(set(critical_unknown)<=covered_gaps,"Critical unresolved factor lacks a specific information request")
     if unresolved or critical_unknown or any(s["status"] in ("fail","unknown") for s in b["safeguards"]):
@@ -240,6 +260,8 @@ def validate(b):
     result = {"applicable":len(applicable),"assessed":assessed,"fully_supported":sum(f["status"]=="supported" for f in applicable),"unknown":sum(f["status"]=="unknown" for f in applicable),"critical_unresolved":critical_unknown,"decision_status":b["decision"]["status"]}
     if finance is not None:
         result["financial_model"] = {**models, **financial_rows}
+    if audit is not None:
+        result["research_coverage"] = audit.audit(all_ids, comparison_ids, model_ids)
     return result
 
 def main():
