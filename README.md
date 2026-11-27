@@ -7,7 +7,7 @@ Open, tool-agnostic methodology and offline report generation for private compan
 - [Evidence rules](methodology/evidence.md), [factor library](factor-library/factors.json), [financial guide](financial-analysis/guide.md), [valuation guide](valuation/guide.md)
 - [v1.1 analytical bundle schema](schemas/analysis-bundle.json), [validator and report bridge](analysis-kit/README.md)
 - [Report specification](report-spec.md), [v1.0 offline renderer](report-kit/README.md)
-- [Synthetic benchmarks](benchmarks/README.md), [change history](CHANGELOG.md)
+- [Synthetic benchmarks](benchmarks/README.md), [cross-agent acceptance rubric](benchmarks/acceptance-rubric.md), [change history](CHANGELOG.md)
 
 ## Run an evaluation
 Choose a reviewed commit or release and pin all files to it. Attach authorised company materials to an AI agent, specify the decision and give it the canonical prompt. Require actual research, evidence registers, calculation operands, qualified conclusions, challenges and missing information. Use the validator, bridge and renderer when tools permit; preserve the bundle. The kit does not itself conduct web research or guarantee factual accuracy.
