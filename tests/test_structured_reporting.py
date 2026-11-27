@@ -248,7 +248,7 @@ class PDFRenderingTests(unittest.TestCase):
                          "Closing cash by scenario", "Equity value sensitivity", "1,472.73", "1,442.73", "-260",
                          "Downside monthly cash", "Upside monthly cash"),
             "sparse": ("Cedar Components", "Monthly cash and runway", "Discounted cash flow", "Unavailable",
-                       "Source records unavailable", "G3", "Bundle SHA-256"),
+                       "Source records unavailable", "G3"),
         }
         for sample, required in markers.items():
             _, report = benchmark(sample)
@@ -266,6 +266,7 @@ class PDFRenderingTests(unittest.TestCase):
                         for marker in required:
                             self.assertIn(marker, " ".join(text.split()))
                         if pdf == fresh:
+                            self.assertIn("Methodology v", text)
                             self.assertNotIn("\u2014", text)
                             self.assertNotIn("Bundle SHA-256", text)
                             self.assertNotIn("Renderer v", text)
