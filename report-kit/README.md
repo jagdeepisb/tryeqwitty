@@ -4,7 +4,7 @@ Generate an independent branded PDF, accessible HTML and a missing-information C
 
 ## Reference reports
 
-Both assessments use fictional companies and figures.
+Both historical reference assessments use fictional companies and figures. For current publication-quality references, consult the selected release's reference archive.
 
 | Case | PDF | HTML | Missing information | Input bundle |
 |---|---|---|---|---|
