@@ -1,4 +1,8 @@
 # Changelog
+## Unreleased: editorial and publication quality
+
+Adds mandatory reader-facing editorial rules, zero em dashes in visible reports, linked inline evidence references, separate technical provenance and publication regression checks. The analytical contracts and immutable v2.0.0 release remain unchanged. A new release requires regenerated references and conformance checks.
+
 ## Unreleased — audit corrections
 
 Clarifies published-release pinning, rejects dirty tracked source checkouts when establishing conformance provenance, and prevents an export from mixing newly generated files with existing report artifacts. Adds regression tests. The immutable v2.0.0 release is unchanged.
