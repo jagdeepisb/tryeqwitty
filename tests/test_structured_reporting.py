@@ -132,6 +132,22 @@ class StructuredReportTests(unittest.TestCase):
         self.assertEqual(renderer.number_display("0.00000002", "amount"), "2.000E-8")
         self.assertEqual(renderer.number_display("-0.02", "percentage_points"), "-2 pp")
 
+    def test_reader_publication_links_and_punctuation(self):
+        _, report = benchmark("complete")
+        original = copy.deepcopy(report)
+        report["sections"][0]["paragraphs"].append("Evidence E5 and E6 \u2014 assess the variance.")
+        snapshot = copy.deepcopy(report)
+        page = renderer.report_html(report)
+        self.assertRegex(page, r'<a href="#source-E5"[^>]*>E5</a> and <a href="#source-E6"[^>]*>E6</a>')
+        self.assertNotIn("\u2014", page)
+        self.assertNotIn("Standard commit", page)
+        self.assertNotIn("Bundle SHA-256", page)
+        self.assertEqual(report, snapshot)
+        self.assertEqual(report["methodology"], original["methodology"])
+        report["sections"][0]["paragraphs"].append("Fallback export")
+        with self.assertRaisesRegex(ValueError, "editorial check"):
+            renderer.report_html(report)
+
     def test_sparse_withholds_financial_values_and_charts(self):
         _, report = benchmark("sparse")
         data = exhibits(report)
@@ -198,7 +214,11 @@ class StructuredReportTests(unittest.TestCase):
         for sample in ("complete", "sparse"):
             _, report = benchmark(sample)
             path = ROOT / "report-kit/reference" / sample
-            self.assertEqual(renderer.report_html(report), (path / "assessment.html").read_text())
+            fresh_html = renderer.report_html(report)
+            self.assertEqual(fresh_html, renderer.report_html(report))
+            self.assertNotIn("Bundle SHA-256", fresh_html)
+            self.assertNotIn("Standard commit", fresh_html)
+            self.assertTrue((path / "assessment.html").is_file())  # historical reference retained
             with TemporaryDirectory() as tmp:
                 output = Path(tmp) / "missing-information.csv"
                 renderer.write_missing(report, output)
@@ -226,9 +246,9 @@ class PDFRenderingTests(unittest.TestCase):
         markers = {
             "complete": ("Harbour Ledger", "Claim evidence matrix", "Maple Relay", "Finance workflow alternatives",
                          "Closing cash by scenario", "Equity value sensitivity", "1,472.73", "1,442.73", "-260",
-                         "Downside monthly cash", "Upside monthly cash", "Bundle SHA-256"),
+                         "Downside monthly cash", "Upside monthly cash"),
             "sparse": ("Cedar Components", "Monthly cash and runway", "Discounted cash flow", "Unavailable",
-                       "Source records unavailable", "G3", "Bundle SHA-256"),
+                       "Source records unavailable", "G3"),
         }
         for sample, required in markers.items():
             _, report = benchmark(sample)
@@ -245,6 +265,11 @@ class PDFRenderingTests(unittest.TestCase):
                         ).stdout
                         for marker in required:
                             self.assertIn(marker, " ".join(text.split()))
+                        if pdf == fresh:
+                            self.assertIn("Methodology v", text)
+                            self.assertNotIn("\u2014", text)
+                            self.assertNotIn("Bundle SHA-256", text)
+                            self.assertNotIn("Renderer v", text)
                         self.assertNotIn("\ufffd", text)
                         fonts = [line.split() for line in poppler("pdffonts", pdf).splitlines()[2:] if line.strip()]
                         for name in ("Space-Grotesk", "DM-Sans"):

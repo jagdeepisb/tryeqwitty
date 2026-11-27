@@ -40,3 +40,7 @@ Provide a prioritised request list: item, exact required document/metric, period
 Follow the execution gates and evidence, financial and valuation guidance at one reviewed commit. [Execution gates](methodology/execution.md) · [Evidence](methodology/evidence.md) · [Factor library](factor-library/factors.json) · [Finance](financial-analysis/guide.md) · [Valuation](valuation/guide.md)
 
 Use the v1.4 playbooks to select and prioritise questions. Record capabilities, actual attempts, source origins, completion and reasons for stopping. Validate the bundle before creating the report and keep the analysis, research ledger and calculations. [Research playbooks](methodology/research-playbooks.md) · [Analysis schema](schemas/analysis-bundle-v1.4.json) · [Financial model schema](schemas/financial-model-v1.2.json) · [Analysis kit](analysis-kit/README.md)
+
+## Mandatory publication review
+
+Apply the [reader-facing publication quality rules](report-spec.md#reader-facing-publication-quality-mandatory) before final delivery, regardless of renderer. No em dashes in visible report text; every displayed evidence ID must link to its source record. Separate technical provenance and diagnostics into the analytical record, retain decision-relevant limitations in the memo, and verify the actual exported pages and links. Disclose any unperformed checks without claiming conformance.

@@ -46,11 +46,13 @@ def review_pdf(path, report, markers, commit):
     info = query("pdfinfo", path)
     require(re.search(r"^Tagged:\s+yes$", info, re.MULTILINE), f"{path.parent.name}: PDF lacks tags")
     text = " ".join(query("pdftotext", "-layout", path, "-").split())
-    for marker in (*markers, "Independent assessment", "Bundle SHA-256"):
+    for marker in (*markers, "Independent assessment", "Methodology v"):
         require(marker in text, f"{path.parent.name}: missing PDF text {marker}")
-    # Text extraction can insert spaces in long hashes across line breaks.
-    for expected in (commit, report["methodology"]["bundle_sha256"]):
-        require(expected in text.replace(" ", ""), f"{path.parent.name}: PDF provenance digest is missing")
+    # Technical provenance remains in the report JSON and release manifest.
+    require(report["methodology"]["standard_commit"] == commit, "Report provenance differs from source")
+    require("\u2014" not in text, f"{path.parent.name}: PDF contains an em dash")
+    for phrase in ("Bundle SHA-256", "Standard commit", "Renderer v", "fallback export", "Lato substitute"):
+        require(phrase.lower() not in text.lower(), f"{path.parent.name}: PDF contains implementation language")
     require("\ufffd" not in text, f"{path.parent.name}: PDF has unreadable characters")
     fonts = [line.split() for line in query("pdffonts", path).splitlines()[2:] if line.strip()]
     for family in ("Space-Grotesk", "DM-Sans"):
@@ -59,10 +61,10 @@ def review_pdf(path, report, markers, commit):
     urls = set()
     destinations = query("pdfinfo", "-dests", path)
     for source in report["sources"]:
+        require(f'"source-{source["id"]}"' in destinations,
+                f"{path.parent.name}: missing PDF destination for {source['id']}")
         if source["url"]:
             urls.add(source["url"])
-            require(f'"source-{source["id"]}"' in destinations,
-                    f"{path.parent.name}: missing PDF destination for {source['id']}")
     actual_urls = {row.split(maxsplit=2)[-1] for row in query("pdfinfo", "-url", path).splitlines()[1:] if row.strip()}
     require(urls <= actual_urls, f"{path.parent.name}: missing PDF source links")
     for gap in report["missing_information"]:

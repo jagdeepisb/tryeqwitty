@@ -354,8 +354,12 @@ class FinancialModelTests(unittest.TestCase):
                 renderer.validate(report)
                 self.assertEqual(report["version"], "1.0")
                 output = renderer.report_html(report)
-                for marker in ("Open standard v1.2", digest, *markers):
+                for marker in ("Open standard v1.2", *markers):
                     self.assertIn(marker, output)
+                self.assertIn(digest, json.dumps(report))
+                self.assertNotIn(digest, output)
+                self.assertNotIn("Bundle SHA-256", output)
+                self.assertNotIn("\u2014", output)
 
 
 METRIC_CASES = {

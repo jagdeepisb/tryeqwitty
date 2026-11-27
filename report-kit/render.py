@@ -2,6 +2,7 @@
 import argparse
 import csv
 import html
+from html.parser import HTMLParser
 import json
 import pathlib
 import re
@@ -44,9 +45,106 @@ def validate(report):
 def esc(s):
     return html.escape(str(s), quote=True)
 
+
+# Publication transforms only the presentation, never the frozen report JSON.
+# Source URLs, identifiers, numeric attributes and original evidence are preserved.
+class PublicationHTML(HTMLParser):
+    """Normalise visible punctuation and link every inline source reference."""
+
+    def __init__(self, report):
+        super().__init__(convert_charrefs=True)
+        self.parts = []
+        self.sources = {row["id"]: row for row in report["sources"]}
+        self.prefix = "source-" if report["version"] == "1.3" else ""
+        self.gaps = {row["id"]: row for row in report.get("missing_information", []) if "id" in row}
+        ids = sorted(self.sources.keys() | self.gaps.keys(), key=lambda item: (-len(item), item))
+        self.pattern = re.compile(r"(?<![\w-])(?:" + "|".join(map(re.escape, ids)) +
+                                  r")(?![\w-])") if ids else None
+        self.anchor = False
+        self.raw = False
+        self.visible = []
+
+    def handle_decl(self, decl):
+        self.parts.append("<!" + decl + ">")
+
+    def handle_starttag(self, tag, attrs):
+        original = self.get_starttag_text()
+        if tag == "a":
+            href = dict(attrs).get("href", "") or ""
+            prefix = "#" + self.prefix
+            ref = href[len(prefix):] if href.startswith(prefix) else None
+            if ref in self.sources and "title" not in dict(attrs):
+                source = self.sources[ref]
+                description = " | ".join(filter(None, (source.get("publisher"), source["title"], source["locator"]))).replace("\u2014", " - ")
+                original = original[:-1] + f' title="{esc(description)}">'
+            self.anchor = True
+        self.parts.append(original)
+        if tag in {"style", "script"}:
+            self.raw = True
+
+    def handle_startendtag(self, tag, attrs):
+        self.parts.append(self.get_starttag_text())
+
+    def handle_endtag(self, tag):
+        self.parts.append("</" + tag + ">")
+        if tag == "a":
+            self.anchor = False
+        if tag in {"style", "script"}:
+            self.raw = False
+
+    def handle_comment(self, data):
+        self.parts.append("<!--" + data + "-->")
+
+    def handle_data(self, data):
+        if self.raw:
+            self.parts.append(data)
+            return
+        # Keep the original extracts in the analytical record. Normalise only
+        # the display copy, including Unicode and HTML-encoded em dashes.
+        data = re.sub(r"[ \t]*\u2014[ \t]*", " - ", data)
+        self.visible.append(data)
+        if self.anchor or not self.pattern:
+            self.parts.append(esc(data))
+            return
+        start = 0
+        for match in self.pattern.finditer(data):
+            self.parts.append(esc(data[start:match.start()]))
+            ref = match.group()
+            if ref in self.sources:
+                source = self.sources[ref]
+                description = " | ".join(filter(None, (source.get("publisher"), source["title"], source["locator"])))
+                target = self.prefix + ref
+            else:
+                description = self.gaps[ref]["item"]
+                target = "gap-" + ref
+            description = description.replace("\u2014", " - ")
+            self.parts.append(f'<a href="#{esc(target)}" title="{esc(description)}">{esc(ref)}</a>')
+            start = match.end()
+        self.parts.append(esc(data[start:]))
+
+
+def publication_html(markup, report):
+    parser = PublicationHTML(report)
+    parser.feed(markup)
+    parser.close()
+    visible = " ".join(parser.visible)
+    forbidden = r"\b(?:fallback export|palette with Lato substitute|Lato substitut(?:e|ion)|pinned release commit|standard commit|renderer version|bundle SHA-256|tool call unsuccessful)\b"
+    if "\u2014" in visible or re.search(forbidden, visible, re.IGNORECASE):
+        raise ValueError("Reader-facing editorial check failed; rewrite implementation language or em dashes without hiding material limitations")
+    return "".join(parser.parts)
+
+
+def reader_paragraphs(section):
+    # Legacy bridge emits this exact provenance paragraph. The original JSON
+    # still contains it; do not remove other limitations or research findings.
+    for paragraph in section["paragraphs"]:
+        provenance = re.fullmatch(r"(Open standard v[^;]+); source commit [0-9a-f]{40}; bundle SHA-256 [0-9a-f]{64}", paragraph)
+        yield provenance.group(1) if provenance else paragraph
+
+
 CSS = """
 @page { size: A4; margin: 18mm 17mm 20mm;
-  @bottom-left { content: 'eqwitty. | Open methodology v1.0'; font: 8pt 'DM Sans'; color: #666666; }
+  @bottom-left { content: 'eqwitty. | Open methodology'; font: 8pt 'DM Sans'; color: #666666; }
   @bottom-right { content: counter(page) ' / ' counter(pages); font: 8pt 'Space Grotesk'; color: #666666; }
 }
 body { font: 10pt/1.5 'DM Sans'; color: #111111; background: #FFFFFF; overflow-wrap: anywhere; }
@@ -65,12 +163,12 @@ a { text-decoration: underline; overflow-wrap: anywhere; }
 def report_html(report, *, include_operands=True):
     validate(report)
     if report["version"] == "1.3":
-        return structured_html(report, include_operands)
+        return publication_html(structured_html(report, include_operands), report)
     parts = ['<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Independent company assessment</title><style>', CSS, '</style></head><body>',
         '<header><div class="brand">eqwitty<span class="dot">.</span></div><h1>', esc(report["company"]), '</h1><p>', esc(report["objective"]), '</p><p class="muted">As of ', esc(report["as_of"]), '</p><p class="notice">', esc(LABEL), '</p></header>']
     for section in report["sections"]:
         parts += ['<section><h2>', esc(section["heading"]), '</h2>']
-        parts += ["<p>"+esc(p)+"</p>" for p in section["paragraphs"]]
+        parts += ["<p>"+esc(p)+"</p>" for p in reader_paragraphs(section)]
         if section["source_ids"]:
             parts += ['<p class="muted">Sources: ', ", ".join('<a href="#'+esc(s)+'">'+esc(s)+'</a>' for s in section["source_ids"]), '</p>']
         parts += ["</section>"]
@@ -91,7 +189,7 @@ def report_html(report, *, include_operands=True):
     if not report["sources"]:
         parts += ["<p>No sources recorded. Interpret findings accordingly.</p>"]
     parts += ["<p class='muted'>Informational analysis, not investment advice.</p></body></html>"]
-    return "".join(parts)
+    return publication_html("".join(parts), report)
 
 def version_13_schema(report, legacy_schema):
     from jsonschema import Draft202012Validator, FormatChecker
@@ -276,10 +374,9 @@ def operands_html(operands):
 def structured_html(report, include_operands):
     meta = report["methodology"]
     title = esc(report["company"])
-    render_version = esc(report["version"])
     method = esc(meta["version"])
     css = (ROOT / "report-v1.3.css").read_text(encoding="utf-8")
-    footer = f'@page {{ @bottom-left {{ content: "eqwitty. | Standard v{method} | Report v{render_version}"; ' \
+    footer = f'@page {{ @bottom-left {{ content: "eqwitty. | Open methodology v{method}"; ' \
              'font: 8pt "DM Sans"; color: #555d69; } }'
     parts = [
         f'<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" '
@@ -288,7 +385,7 @@ def structured_html(report, include_operands):
         f'<header class="hero"><div class="brand">eqwitty<span class="dot">.</span></div>'
         f'<h1>{title}</h1><p class="objective">{esc(report["objective"])}</p>'
         f'<div class="meta"><span>As of <time>{esc(report["as_of"])}</time></span>'
-        f'<span>Methodology v{method}</span><span>Renderer v{render_version}</span></div>'
+        f'<span>Methodology v{method}</span></div>'
         f'<p class="notice">{esc(LABEL)}</p></header><main id="assessment">'
     ]
     for section in report["sections"]:
@@ -300,8 +397,6 @@ def structured_html(report, include_operands):
         if not (section["paragraphs"] or section["tables"]):
             parts.append("<p class=\"subtle\">Unavailable within assessed scope.</p>")
         parts.append("</section>")
-    parts.append(f'<dl class="provenance"><dt>Standard commit</dt><dd>{esc(meta["standard_commit"])}</dd>'
-                 f'<dt>Bundle SHA-256</dt><dd>{esc(meta["bundle_sha256"])}</dd></dl>')
     parts.append("<section><h2>Missing information</h2>")
     if report["missing_information"]:
         parts.extend(gap_record(row) for row in sorted(report["missing_information"], key=lambda g: PRIORITIES.index(g["priority"])))
@@ -309,6 +404,8 @@ def structured_html(report, include_operands):
         parts.append("<p>No material gaps listed within the assessed scope.</p>")
     parts.append("</section><section><h2>Sources</h2>")
     if report["sources"]:
+        if any("\u2014" in row.get("extract", "") for row in report["sources"]):
+            parts.append('<p class="detail">Source extracts are shown with normalised punctuation. Original wording is retained in the analytical record.</p>')
         parts.extend(source_record(row) for row in report["sources"])
     else:
         parts.append("<p>Source records unavailable.</p>")
@@ -320,7 +417,7 @@ def structured_html(report, include_operands):
     if include_operands:
         parts.append(operands_html(report["operands"]))
     elif report["operands"]:
-        parts.append('<p class="detail">The HTML report and analytical bundle contain the full operand register.</p>')
+        parts.append('<p class="detail">The complete calculation record is available separately.</p>')
     parts.append("</main></body></html>")
     return "\n".join(parts)
 
@@ -352,7 +449,13 @@ def pdf_bytes(report):
     font_css = CSS(string="".join(rules), font_config=fonts, url_fetcher=fetch_font)
     options = {"pdf_variant": "pdf/ua-1"} if report["version"] == "1.3" else {}
     document = HTML(string=report_html(report, include_operands=False), url_fetcher=deny_fetch)
-    pdf = document.write_pdf(stylesheets=[font_css], font_config=fonts, **options)
+    rendered = document.render(stylesheets=[font_css], font_config=fonts)
+    anchors = {anchor for page in rendered.pages for anchor in page.anchors}
+    for page in rendered.pages:
+        for kind, target, *_ in page.links:
+            if kind == "internal" and target not in anchors:
+                raise ValueError(f"Unresolved PDF link target: {target}")
+    pdf = rendered.write_pdf(**options)
     if not pdf.startswith(b"%PDF-") or not pdf.rstrip().endswith(b"%%EOF"):
         raise RuntimeError("Invalid PDF output")
     return pdf
