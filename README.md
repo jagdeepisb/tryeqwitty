@@ -39,7 +39,7 @@ This is an introductory overview, not a substitute for the [canonical execution 
 
 ## Run an evaluation
 
-Choose a reviewed commit or release and pin all files to it. Attach authorised company materials to an AI agent, specify the decision and give it the [canonical prompt](prompts/evaluate.md). Require actual research, evidence registers, calculation operands, qualified conclusions, challenges and missing information. Use the validator, bridge and renderer when tools permit; preserve the bundle. The kit does not itself conduct web research or guarantee factual accuracy.
+For a published-standard assessment, resolve the [latest release](https://github.com/jagdeepisb/tryeqwitty/releases/latest) to its exact source commit and pin all files to it. An explicitly selected development commit is suitable for experimental work but is not the published release. Attach authorised company materials to an AI agent, specify the decision and give it the [canonical prompt](prompts/evaluate.md). Require actual research, evidence registers, calculation operands, qualified conclusions, challenges and missing information. Use the validator, bridge and renderer when tools permit; preserve the bundle. The kit does not itself conduct web research or guarantee factual accuracy.
 
 ## Reference reports
 

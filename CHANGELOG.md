@@ -1,4 +1,8 @@
 # Changelog
+## Unreleased — audit corrections
+
+Clarifies published-release pinning, rejects dirty tracked source checkouts when establishing conformance provenance, and prevents an export from mixing newly generated files with existing report artifacts. Adds regression tests. The immutable v2.0.0 release is unchanged.
+
 ## 2.0.0 — stable standard and release conformance
 
 Pins the analytical, financial, research, reporting and evidence contracts in a release profile. Adds analytical-bundle and reconciled-report checks, compatibility and migration guidance, and an evidence package with reproducible reports, benchmark gates and source and artifact hashes. Records maintainer-approved MIT and CC BY 4.0 licensing, contribution procedures and governance. [Release profile](release/v2.0.0/README.md)

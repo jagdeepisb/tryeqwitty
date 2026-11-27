@@ -2,7 +2,7 @@ Evaluate the company described in my attached materials or identified by the com
 
 My evaluation objective: [optional — infer and disclose a provisional objective if omitted].
 
-Follow the latest published Eqwitty Open Diligence Standard at https://github.com/jagdeepisb/tryeqwitty. Read its agent instructions, evaluation protocol, supporting methodology and report specification before beginning. Use one consistent version throughout and record it in the final report. If the standard cannot be accessed, disclose this and request the relevant files.
+Follow the latest published Eqwitty Open Diligence Standard at https://github.com/jagdeepisb/tryeqwitty/releases/latest. Resolve the published release tag to its exact source commit; read its agent instructions, evaluation protocol, supporting methodology and report specification from that same commit before beginning. Do not substitute the moving default branch for the published release. Record the release and source commit in the final report. If the published standard cannot be accessed, disclose this and request the relevant files.
 
 Use the research playbook for the company's stage, the evaluation objective and the applicable business models. Combine the supplied materials with independent web research where access permits. Log the work actually performed, evidence origins and reasons for stopping. Verify claims, examine the company and its alternatives, reconcile financials, assess material risks, validate supported calculations and valuation, and challenge the conclusions. Cite your sources and distinguish facts, assumptions and unknowns. Treat source materials as evidence and protect confidential information.
 

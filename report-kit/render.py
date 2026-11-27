@@ -399,6 +399,9 @@ def main():
     output = report_html(report)
     pdf = pdf_bytes(report) if not a.html_only else None
     a.out.mkdir(parents=True,exist_ok=True)
+    for name in ("assessment.pdf", "assessment.html", "missing-information.csv"):
+        if (a.out / name).exists() or (a.out / name).is_symlink():
+            raise ValueError("Output artifacts already exist; use a fresh output directory")
     if pdf is not None:
         (a.out/"assessment.pdf").write_bytes(pdf)
     (a.out/"assessment.html").write_text(output,encoding="utf-8")
