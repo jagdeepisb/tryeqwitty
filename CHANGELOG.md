@@ -1,7 +1,7 @@
 # Changelog
-## Unreleased: editorial and publication quality
+## 2.1.0 release candidate: editorial and publication quality
 
-Adds mandatory reader-facing editorial rules, zero em dashes in visible reports, linked inline evidence references, separate technical provenance and publication regression checks. The analytical contracts and immutable v2.0.0 release remain unchanged. A new release requires regenerated references and conformance checks.
+Adds mandatory reader-facing editorial rules, zero em dashes in visible reports, linked inline evidence references, separate technical provenance and publication regression checks. The analytical contracts and immutable v2.0.0 release remain unchanged. Publication requires regenerated references, conformance checks and final visual review.
 
 ## Unreleased — audit corrections
 
