@@ -61,14 +61,23 @@ class PublicationHTML(HTMLParser):
                                   r")(?![\w-])") if ids else None
         self.anchor = False
         self.raw = False
+        self.visible = []
 
     def handle_decl(self, decl):
         self.parts.append("<!" + decl + ">")
 
     def handle_starttag(self, tag, attrs):
-        self.parts.append(self.get_starttag_text())
+        original = self.get_starttag_text()
         if tag == "a":
+            href = dict(attrs).get("href", "") or ""
+            prefix = "#" + self.prefix
+            ref = href[len(prefix):] if href.startswith(prefix) else None
+            if ref in self.sources and "title" not in dict(attrs):
+                source = self.sources[ref]
+                description = " | ".join(filter(None, (source.get("publisher"), source["title"], source["locator"])))
+                original = original[:-1] + f' title="{esc(description)}">'
             self.anchor = True
+        self.parts.append(original)
         if tag in {"style", "script"}:
             self.raw = True
 
@@ -92,6 +101,7 @@ class PublicationHTML(HTMLParser):
         # Keep the original extracts in the analytical record. Normalise only
         # the display copy, including Unicode and HTML-encoded em dashes.
         data = re.sub(r"[ \t]*\u2014[ \t]*", " - ", data)
+        self.visible.append(data)
         if self.anchor or not self.pattern:
             self.parts.append(esc(data))
             return
@@ -110,6 +120,10 @@ def publication_html(markup, report):
     parser = PublicationHTML(report)
     parser.feed(markup)
     parser.close()
+    visible = " ".join(parser.visible)
+    forbidden = r"\b(?:fallback export|palette with Lato substitute|Lato substitut(?:e|ion)|pinned release commit|standard commit|renderer version|bundle SHA-256|tool call unsuccessful)\b"
+    if "\u2014" in visible or re.search(forbidden, visible, re.IGNORECASE):
+        raise ValueError("Reader-facing editorial check failed; rewrite implementation language or em dashes without hiding material limitations")
     return "".join(parser.parts)
 
 
