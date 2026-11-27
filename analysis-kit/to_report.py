@@ -1,11 +1,13 @@
-"""Bridge validated v1.1 bundle to the compatible v1.0 report renderer."""
+"""Bridge validated analytical bundles to the v1.0 report renderer."""
 import argparse
 import hashlib
 import json
 from pathlib import Path
+from report_finance import financial_summary
 from validate import validate
 def convert(b, digest):
     coverage=validate(b)
+    model=coverage.pop("financial_model",None)
     evidence={e["id"]:e for e in b["evidence"]}
     mapping={k:"S"+str(i+1) for i,k in enumerate(evidence)}
     sources=[{"id":mapping[k],"title":e["title"],"locator":e["publisher"]+" | "+e["locator"]+" | Accessed "+e["accessed"],"url":e["url"],"type":{"company_material":"company material","company_public":"company public source","independent_public":"independent public source","authoritative_record":"independent public source"}[e["type"]]} for k,e in evidence.items()]
@@ -18,18 +20,38 @@ def convert(b, digest):
     p=b["profile"];d=b["decision"]
     inputs={x["id"]:x for x in b["inputs"]}
     def calc(x,key):
-        return x["id"]+" | "+x[key]+" | "+x["status"]+" | "+(x["value"] if x["value"] is not None else "Not available")+" | "+x.get("reason",x.get("rationale",""))+" | "+", ".join(k+"="+inputs[v]["value"]+" "+inputs[v]["unit"]+" "+str(inputs[v]["currency"] or "")+" ("+inputs[v]["period"]+"; "+inputs[v]["basis"]+")"+cite(inputs[v]["evidence_ids"]) for k,v in x["operands"].items())
+        value=x["value"] if x["value"] is not None else "Not available"
+        if model is not None:
+            calculated=model["metrics" if key=="formula" else "valuations"].get(x["id"])
+            if calculated["status"]=="calculated":
+                unit=calculated["unit"]
+                currency=model["currency"]+" " if unit.startswith("money") else ""
+                value=f"{value} {currency}{unit} ({calculated['basis']})"
+            else:
+                value+=" | Missing information "+", ".join(x["gap_ids"])
+        return x["id"]+" | "+x[key]+" | "+x["status"]+" | "+value+" | "+x.get("reason",x.get("rationale",""))+" | "+", ".join(k+"="+inputs[v]["value"]+" "+inputs[v]["unit"]+" "+str(inputs[v]["currency"] or "")+" ("+inputs[v]["period"]+"; "+inputs[v]["basis"]+")"+cite(inputs[v]["evidence_ids"]) for k,v in x["operands"].items())
     claims=[c["statement"]+" | "+c["kind"]+" | "+c["status"]+" | "+c["rationale"]+cite(c["support"]+c["oppose"]) for c in b["claims"]]
     fac=lambda f:f["id"]+" | "+f["priority"]+" | "+f["status"]+" | "+f["confidence"]+" | "+f["finding"]+" | Impact: "+f["impact"]+" | Next: "+f["next_test"]+cite(f["support"]+f["oppose"])
     all_f=[i for f in b["factors"] for i in f["support"]+f["oppose"]]
     all_i=[i for x in b["inputs"] for i in x["evidence_ids"]]
+    financial_paragraphs=[calc(x,"formula") for x in b["metrics"]]
+    valuation_paragraphs=[calc(x,"method")+" | "+x["value_basis"]+" | "+x["scenario"] for x in b["valuations"]]
+    financial_sources=valuation_sources=all_i
+    if model is not None:
+        new_finance, new_finance_ids, new_valuation, new_valuation_ids=financial_summary(model,cite)
+        financial_paragraphs=new_finance+financial_paragraphs
+        valuation_paragraphs=new_valuation+valuation_paragraphs
+        financial_sources=new_finance_ids | {eid for row in b["metrics"] for ref in row["operands"].values()
+                                             for eid in inputs[ref]["evidence_ids"]}
+        valuation_sources=new_valuation_ids | {eid for row in b["valuations"] for ref in row["operands"].values()
+                                               for eid in inputs[ref]["evidence_ids"]}
     all_c=[i for x in b["claims"] for i in x["support"]+x["oppose"]]
     def selected(prefix): return [f for f in b["factors"] if f["id"] in prefix]
     def fs(head,ids):
         rows=selected(ids)
         return section(head,[fac(f) for f in rows],[i for f in rows for i in f["support"]+f["oppose"]])
     gaps=[{**{k:g[k] for k in ("priority","item","period","why","conclusion","action","availability")},"conclusion":g["conclusion"]+(" | Factors: "+", ".join(g["affected_factor_ids"]) if g["affected_factor_ids"] else "")} for g in b["gaps"]]
-    limits=[d["limitations"],"Open standard v1.1; source commit "+b["standard_commit"]+"; bundle SHA-256 "+digest,"Coverage (count, not performance score): "+json.dumps(coverage), *[r["id"]+" | "+r["status"]+" | "+r["reason"] for r in b["research"]],*[q["id"]+" | "+q["severity"]+" | "+q["status"]+" | "+q["finding"]+" | "+q["correction"] for q in b["challenges"]]]
+    limits=[d["limitations"],"Open standard v"+b["version"]+"; source commit "+b["standard_commit"]+"; bundle SHA-256 "+digest,"Coverage (count, not performance score): "+json.dumps(coverage), *[r["id"]+" | "+r["status"]+" | "+r["reason"] for r in b["research"]],*[q["id"]+" | "+q["severity"]+" | "+q["status"]+" | "+q["finding"]+" | "+q["correction"] for q in b["challenges"]]]
     if not gaps: limits.append("No material gaps listed within the declared scope; see limitations above.")
     return {"version":"1.0","company":p["company"],"objective":p["objective"],"as_of":b["as_of"],"sections":[
       section("Executive assessment",[d["status"]+": "+d["conclusion"],*d["strengths"],*d["risks"]],all_f),
@@ -37,10 +59,10 @@ def convert(b, digest):
       section("Business and product",[p["model_rationale"],"Models: "+", ".join(p["models"]),*claims],all_c),
       fs("Team",["C04"]),fs("Market and competition",["C02","C05","C08"]),
       section("Independent thesis and reconciliation",["Management: "+(b["thesis"]["management"] or "Not available"),"Independent: "+b["thesis"]["independent"],*b["thesis"]["falsifiers"],*[x["finding"]+" | "+x["impact"] for x in b["thesis"]["divergences"]]],b["thesis"]["independent_evidence"]+all_c),
-      section("Financial analysis and calculations",[calc(x,"formula") for x in b["metrics"]],all_i),
+      section("Financial analysis and calculations",financial_paragraphs,financial_sources),
       section("Material factors and evidence coverage",[fac(f) for f in b["factors"]],all_f),
       section("Risks and safeguards",[x["check"]+" | "+x["status"]+" | "+x["rationale"]+cite(x["evidence_ids"]) for x in b["safeguards"]]+d["risks"],[i for x in b["safeguards"] for i in x["evidence_ids"]]),
-      section("Valuation and sensitivity",[calc(x,"method")+" | "+x["value_basis"]+" | "+x["scenario"] for x in b["valuations"]],all_i),
+      section("Valuation and sensitivity",valuation_paragraphs,valuation_sources),
       section("Management questions",[g["priority"]+" | "+g["item"]+" | "+g["action"] for g in gaps]),
       section("Methodology and limitations",limits)
     ],"sources":sources,"missing_information":gaps}

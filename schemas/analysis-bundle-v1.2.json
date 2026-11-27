@@ -1,0 +1,301 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Eqwitty analysis bundle v1.2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "standard_commit",
+    "as_of",
+    "profile",
+    "documents",
+    "evidence",
+    "claims",
+    "thesis",
+    "safeguards",
+    "factors",
+    "research",
+    "inputs",
+    "metrics",
+    "valuations",
+    "challenges",
+    "gaps",
+    "decision",
+    "financial_model"
+  ],
+  "properties": {
+    "version": {
+      "const": "1.2"
+    },
+    "standard_commit": {
+      "$ref": "analysis-bundle.json#/properties/standard_commit"
+    },
+    "as_of": {
+      "$ref": "analysis-bundle.json#/properties/as_of"
+    },
+    "profile": {
+      "$ref": "analysis-bundle.json#/properties/profile"
+    },
+    "documents": {
+      "$ref": "analysis-bundle.json#/properties/documents"
+    },
+    "evidence": {
+      "$ref": "analysis-bundle.json#/properties/evidence"
+    },
+    "claims": {
+      "$ref": "analysis-bundle.json#/properties/claims"
+    },
+    "thesis": {
+      "$ref": "analysis-bundle.json#/properties/thesis"
+    },
+    "safeguards": {
+      "$ref": "analysis-bundle.json#/properties/safeguards"
+    },
+    "factors": {
+      "$ref": "analysis-bundle.json#/properties/factors"
+    },
+    "research": {
+      "$ref": "analysis-bundle.json#/properties/research"
+    },
+    "inputs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "label",
+          "value",
+          "unit",
+          "currency",
+          "entity",
+          "period",
+          "basis",
+          "evidence_ids",
+          "rationale",
+          "quantity",
+          "accounting_basis",
+          "claim_ids"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "analysis-bundle.json#/properties/inputs/items/properties/id"
+          },
+          "label": {
+            "$ref": "analysis-bundle.json#/properties/inputs/items/properties/label"
+          },
+          "value": {
+            "type": "string",
+            "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+            "maxLength": 40
+          },
+          "unit": {
+            "enum": [
+              "money",
+              "money_per_customer",
+              "money_per_customer_month",
+              "money_per_month",
+              "count",
+              "capacity",
+              "ratio",
+              "shares",
+              "hours"
+            ]
+          },
+          "currency": {
+            "$ref": "analysis-bundle.json#/properties/inputs/items/properties/currency"
+          },
+          "entity": {
+            "$ref": "analysis-bundle.json#/properties/inputs/items/properties/entity"
+          },
+          "period": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 21,
+            "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}(/[0-9]{4}-[0-9]{2}-[0-9]{2})?$"
+          },
+          "basis": {
+            "$ref": "analysis-bundle.json#/properties/inputs/items/properties/basis"
+          },
+          "evidence_ids": {
+            "$ref": "financial-model-v1.2.json#/$defs/evidence_ids"
+          },
+          "rationale": {
+            "$ref": "analysis-bundle.json#/properties/inputs/items/properties/rationale"
+          },
+          "quantity": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100,
+            "pattern": "^[a-z][a-z0-9_]*$"
+          },
+          "accounting_basis": {
+            "$ref": "financial-model-v1.2.json#/$defs/accounting_basis"
+          },
+          "claim_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^C[0-9]+$"
+            },
+            "minItems": 0,
+            "maxItems": 300,
+            "uniqueItems": true
+          }
+        }
+      },
+      "minItems": 0,
+      "maxItems": 3000
+    },
+    "metrics": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "formula",
+          "operands",
+          "basis",
+          "status",
+          "value",
+          "reason"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "analysis-bundle.json#/properties/metrics/items/properties/id"
+          },
+          "formula": {
+            "$ref": "analysis-bundle.json#/properties/metrics/items/properties/formula"
+          },
+          "operands": {
+            "$ref": "analysis-bundle.json#/properties/metrics/items/properties/operands"
+          },
+          "basis": {
+            "$ref": "analysis-bundle.json#/properties/metrics/items/properties/basis"
+          },
+          "status": {
+            "$ref": "analysis-bundle.json#/properties/metrics/items/properties/status"
+          },
+          "value": {
+            "$ref": "analysis-bundle.json#/properties/metrics/items/properties/value"
+          },
+          "reason": {
+            "$ref": "analysis-bundle.json#/properties/metrics/items/properties/reason"
+          },
+          "gap_ids": {
+            "$ref": "financial-model-v1.2.json#/$defs/gap_ids"
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "status": {
+                  "const": "unavailable"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "gap_ids"
+              ]
+            },
+            "else": {
+              "not": {
+                "required": [
+                  "gap_ids"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "minItems": 0,
+      "maxItems": 300
+    },
+    "valuations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "method",
+          "value_basis",
+          "status",
+          "operands",
+          "value",
+          "rationale",
+          "scenario"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "analysis-bundle.json#/properties/valuations/items/properties/id"
+          },
+          "method": {
+            "$ref": "analysis-bundle.json#/properties/valuations/items/properties/method"
+          },
+          "value_basis": {
+            "$ref": "analysis-bundle.json#/properties/valuations/items/properties/value_basis"
+          },
+          "status": {
+            "$ref": "analysis-bundle.json#/properties/valuations/items/properties/status"
+          },
+          "operands": {
+            "$ref": "analysis-bundle.json#/properties/valuations/items/properties/operands"
+          },
+          "value": {
+            "$ref": "analysis-bundle.json#/properties/valuations/items/properties/value"
+          },
+          "rationale": {
+            "$ref": "analysis-bundle.json#/properties/valuations/items/properties/rationale"
+          },
+          "scenario": {
+            "$ref": "analysis-bundle.json#/properties/valuations/items/properties/scenario"
+          },
+          "gap_ids": {
+            "$ref": "financial-model-v1.2.json#/$defs/gap_ids"
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "status": {
+                  "const": "unavailable"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "gap_ids"
+              ]
+            },
+            "else": {
+              "not": {
+                "required": [
+                  "gap_ids"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "minItems": 0,
+      "maxItems": 300
+    },
+    "challenges": {
+      "$ref": "analysis-bundle.json#/properties/challenges"
+    },
+    "gaps": {
+      "$ref": "analysis-bundle.json#/properties/gaps"
+    },
+    "decision": {
+      "$ref": "analysis-bundle.json#/properties/decision"
+    },
+    "financial_model": {
+      "$ref": "financial-model-v1.2.json"
+    }
+  }
+}
