@@ -1,0 +1,250 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Eqwitty analysis bundle v1.3",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "standard_commit",
+    "as_of",
+    "profile",
+    "documents",
+    "evidence",
+    "claims",
+    "thesis",
+    "safeguards",
+    "factors",
+    "research",
+    "inputs",
+    "metrics",
+    "valuations",
+    "challenges",
+    "gaps",
+    "decision",
+    "financial_model",
+    "competitor_comparisons"
+  ],
+  "properties": {
+    "version": {
+      "const": "1.3"
+    },
+    "standard_commit": {
+      "$ref": "analysis-bundle-v1.2.json#/properties/standard_commit"
+    },
+    "as_of": {
+      "$ref": "analysis-bundle-v1.2.json#/properties/as_of"
+    },
+    "profile": {
+      "$ref": "analysis-bundle-v1.2.json#/properties/profile"
+    },
+    "documents": {
+      "$ref": "analysis-bundle-v1.2.json#/properties/documents"
+    },
+    "evidence": {
+      "$ref": "analysis-bundle-v1.2.json#/properties/evidence"
+    },
+    "claims": {
+      "$ref": "analysis-bundle-v1.2.json#/properties/claims"
+    },
+    "thesis": {
+      "$ref": "analysis-bundle-v1.2.json#/properties/thesis"
+    },
+    "safeguards": {
+      "$ref": "analysis-bundle-v1.2.json#/properties/safeguards"
+    },
+    "factors": {
+      "$ref": "analysis-bundle-v1.2.json#/properties/factors"
+    },
+    "research": {
+      "$ref": "analysis-bundle-v1.2.json#/properties/research"
+    },
+    "inputs": {
+      "$ref": "analysis-bundle-v1.2.json#/properties/inputs"
+    },
+    "metrics": {
+      "$ref": "analysis-bundle-v1.2.json#/properties/metrics"
+    },
+    "valuations": {
+      "$ref": "analysis-bundle-v1.2.json#/properties/valuations"
+    },
+    "challenges": {
+      "$ref": "analysis-bundle-v1.2.json#/properties/challenges"
+    },
+    "gaps": {
+      "$ref": "analysis-bundle-v1.2.json#/properties/gaps"
+    },
+    "decision": {
+      "$ref": "analysis-bundle-v1.2.json#/properties/decision"
+    },
+    "financial_model": {
+      "$ref": "analysis-bundle-v1.2.json#/properties/financial_model"
+    },
+    "competitor_comparisons": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/comparison"
+      },
+      "minItems": 0,
+      "maxItems": 12
+    }
+  },
+  "$defs": {
+    "comparison": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "title",
+        "scope",
+        "companies",
+        "criteria"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 20,
+          "pattern": "^CC[1-9][0-9]*$"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 250
+        },
+        "scope": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000
+        },
+        "companies": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "name"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 40,
+                "pattern": "^[a-z][a-z0-9_-]*$"
+              },
+              "name": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 300
+              }
+            }
+          },
+          "minItems": 2,
+          "maxItems": 12
+        },
+        "criteria": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label",
+              "definition",
+              "cells"
+            ],
+            "properties": {
+              "label": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "definition": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2000
+              },
+              "cells": {
+                "type": "object",
+                "propertyNames": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 40,
+                  "pattern": "^[a-z][a-z0-9_-]*$"
+                },
+                "additionalProperties": {
+                  "$ref": "#/$defs/comparison_cell"
+                },
+                "minProperties": 2,
+                "maxProperties": 12
+              }
+            }
+          },
+          "minItems": 1,
+          "maxItems": 30
+        }
+      }
+    },
+    "comparison_cell": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "value",
+        "rationale",
+        "evidence_ids",
+        "gap_ids"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "reported",
+            "independently_supported",
+            "unknown",
+            "not_applicable"
+          ]
+        },
+        "value": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2000
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4000
+        },
+        "evidence_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 20,
+            "pattern": "^E[0-9]*$"
+          },
+          "minItems": 0,
+          "maxItems": 300,
+          "uniqueItems": true
+        },
+        "gap_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 20,
+            "pattern": "^G[0-9]+$"
+          },
+          "minItems": 0,
+          "maxItems": 300,
+          "uniqueItems": true
+        }
+      }
+    }
+  }
+}

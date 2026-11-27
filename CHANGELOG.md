@@ -1,4 +1,8 @@
 # Changelog
+## 1.3 — structured PDF reporting and financial exhibits
+
+Adds the structured company and competitor matrices, claim-level source links, financial tables and charts, scenario schedule appendix, DCF sensitivity grids and tagged PDF output. The HTML export includes the exact-value and operand registers. Complete and sparse examples include PDF, HTML and missing-information CSVs. CI verifies numeric reconciliation, source links, PDF text and the embedded brand fonts. v1.0 report JSON and older analysis bundles remain supported.
+
 ## 1.2 — advanced financial modelling and valuation
 
 Adds typed, sourced financial inputs, stage and model eligibility, linked monthly liquidity scenarios, priced primary equity and dilution, and an annual FCFF DCF with WACC, equity bridge and sensitivity. Adds a versioned contract, complete and sparse fixtures, and known-answer and adversarial tests. The validator accepts v1.1 bundles and both versions feed the portable v1.0 report renderer.
