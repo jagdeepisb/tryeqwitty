@@ -1,0 +1,447 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Eqwitty financial modelling inputs v1.2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "currency",
+    "accounting_basis"
+  ],
+  "properties": {
+    "currency": {
+      "$ref": "#/$defs/currency"
+    },
+    "accounting_basis": {
+      "$ref": "#/$defs/accounting_basis"
+    },
+    "cap_table": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/cap_table"
+        },
+        {
+          "$ref": "#/$defs/unavailable"
+        }
+      ]
+    },
+    "scenarios": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/scenarios"
+        },
+        {
+          "$ref": "#/$defs/unavailable"
+        }
+      ]
+    },
+    "dcf": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/dcf"
+        },
+        {
+          "$ref": "#/$defs/unavailable"
+        }
+      ]
+    }
+  },
+  "$defs": {
+    "input_id": {
+      "type": "string",
+      "pattern": "^I[0-9]+$"
+    },
+    "holder_id": {
+      "type": "string",
+      "pattern": "^H[0-9]+$"
+    },
+    "round_id": {
+      "type": "string",
+      "pattern": "^RND[0-9]+$"
+    },
+    "rationale": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 8000
+    },
+    "accounting_basis": {
+      "enum": [
+        "ifrs",
+        "us_gaap",
+        "local_gaap",
+        "management_accrual"
+      ]
+    },
+    "currency": {
+      "type": "string",
+      "pattern": "^[A-Z]{3}$"
+    },
+    "evidence_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^E[0-9]+$"
+      },
+      "minItems": 1,
+      "maxItems": 300,
+      "uniqueItems": true
+    },
+    "gap_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^G[0-9]+$"
+      },
+      "minItems": 1,
+      "maxItems": 300,
+      "uniqueItems": true
+    },
+    "unavailable": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "rationale",
+        "gap_ids"
+      ],
+      "properties": {
+        "status": {
+          "const": "unavailable"
+        },
+        "rationale": {
+          "$ref": "#/$defs/rationale"
+        },
+        "gap_ids": {
+          "$ref": "#/$defs/gap_ids"
+        }
+      }
+    },
+    "cap_table": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "rationale",
+        "capitalization_basis",
+        "opening_date",
+        "holders",
+        "rounds"
+      ],
+      "properties": {
+        "status": {
+          "const": "calculated"
+        },
+        "rationale": {
+          "$ref": "#/$defs/rationale"
+        },
+        "capitalization_basis": {
+          "const": "fully_diluted_as_converted_primary_equity"
+        },
+        "opening_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "holders": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "name",
+              "kind",
+              "shares"
+            ],
+            "properties": {
+              "id": {
+                "$ref": "#/$defs/holder_id"
+              },
+              "name": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 300
+              },
+              "kind": {
+                "enum": [
+                  "holder",
+                  "option_pool"
+                ]
+              },
+              "shares": {
+                "$ref": "#/$defs/input_id"
+              }
+            }
+          },
+          "minItems": 1,
+          "maxItems": 100
+        },
+        "rounds": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "date",
+              "pre_money",
+              "pool_top_up",
+              "subscriptions"
+            ],
+            "properties": {
+              "id": {
+                "$ref": "#/$defs/round_id"
+              },
+              "date": {
+                "type": "string",
+                "format": "date"
+              },
+              "pre_money": {
+                "$ref": "#/$defs/input_id"
+              },
+              "pool_top_up": {
+                "$ref": "#/$defs/input_id"
+              },
+              "subscriptions": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "holder",
+                    "amount"
+                  ],
+                  "properties": {
+                    "holder": {
+                      "$ref": "#/$defs/holder_id"
+                    },
+                    "amount": {
+                      "$ref": "#/$defs/input_id"
+                    }
+                  }
+                },
+                "minItems": 1,
+                "maxItems": 100
+              }
+            }
+          },
+          "minItems": 0,
+          "maxItems": 16
+        }
+      }
+    },
+    "cash_month": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ebit",
+        "cash_tax",
+        "da",
+        "capex",
+        "working_capital_change",
+        "other_cash_flow",
+        "round_ids"
+      ],
+      "properties": {
+        "ebit": {
+          "$ref": "#/$defs/input_id"
+        },
+        "cash_tax": {
+          "$ref": "#/$defs/input_id"
+        },
+        "da": {
+          "$ref": "#/$defs/input_id"
+        },
+        "capex": {
+          "$ref": "#/$defs/input_id"
+        },
+        "working_capital_change": {
+          "$ref": "#/$defs/input_id"
+        },
+        "other_cash_flow": {
+          "$ref": "#/$defs/input_id"
+        },
+        "round_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/round_id"
+          },
+          "minItems": 0,
+          "maxItems": 16,
+          "uniqueItems": true
+        }
+      }
+    },
+    "scenario_case": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "rationale",
+        "months"
+      ],
+      "properties": {
+        "rationale": {
+          "$ref": "#/$defs/rationale"
+        },
+        "months": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/cash_month"
+          },
+          "minItems": 1,
+          "maxItems": 120
+        }
+      }
+    },
+    "scenarios": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "rationale",
+        "opening_cash",
+        "cash_floor",
+        "cases"
+      ],
+      "properties": {
+        "status": {
+          "const": "calculated"
+        },
+        "rationale": {
+          "$ref": "#/$defs/rationale"
+        },
+        "opening_cash": {
+          "$ref": "#/$defs/input_id"
+        },
+        "cash_floor": {
+          "$ref": "#/$defs/input_id"
+        },
+        "cases": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "downside",
+            "base",
+            "upside"
+          ],
+          "properties": {
+            "downside": {
+              "$ref": "#/$defs/scenario_case"
+            },
+            "base": {
+              "$ref": "#/$defs/scenario_case"
+            },
+            "upside": {
+              "$ref": "#/$defs/scenario_case"
+            }
+          }
+        }
+      }
+    },
+    "dcf": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "rationale",
+        "scenario",
+        "eligibility_evidence_ids",
+        "wacc",
+        "terminal_growth",
+        "bridge",
+        "sensitivity"
+      ],
+      "properties": {
+        "status": {
+          "const": "calculated"
+        },
+        "rationale": {
+          "$ref": "#/$defs/rationale"
+        },
+        "scenario": {
+          "enum": [
+            "downside",
+            "base",
+            "upside"
+          ]
+        },
+        "eligibility_evidence_ids": {
+          "$ref": "#/$defs/evidence_ids"
+        },
+        "wacc": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "cost_of_equity",
+            "pretax_cost_of_debt",
+            "debt_weight",
+            "tax_rate"
+          ],
+          "properties": {
+            "cost_of_equity": {
+              "$ref": "#/$defs/input_id"
+            },
+            "pretax_cost_of_debt": {
+              "$ref": "#/$defs/input_id"
+            },
+            "debt_weight": {
+              "$ref": "#/$defs/input_id"
+            },
+            "tax_rate": {
+              "$ref": "#/$defs/input_id"
+            }
+          }
+        },
+        "terminal_growth": {
+          "$ref": "#/$defs/input_id"
+        },
+        "bridge": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "excess_cash",
+            "debt",
+            "other_adjustments"
+          ],
+          "properties": {
+            "excess_cash": {
+              "$ref": "#/$defs/input_id"
+            },
+            "debt": {
+              "$ref": "#/$defs/input_id"
+            },
+            "other_adjustments": {
+              "$ref": "#/$defs/input_id"
+            }
+          }
+        },
+        "sensitivity": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "wacc",
+            "terminal_growth"
+          ],
+          "properties": {
+            "wacc": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/input_id"
+              },
+              "minItems": 2,
+              "maxItems": 2,
+              "uniqueItems": true
+            },
+            "terminal_growth": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/input_id"
+              },
+              "minItems": 2,
+              "maxItems": 2,
+              "uniqueItems": true
+            }
+          }
+        }
+      }
+    }
+  }
+}

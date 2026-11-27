@@ -1,0 +1,834 @@
+{
+  "version": "1.2",
+  "standard_commit": "0000000000000000000000000000000000000000",
+  "as_of": "2026-11-30",
+  "profile": {
+    "company": "Fictional linked financial model",
+    "legal_entity": "Synthetic entity",
+    "jurisdiction": "Not established",
+    "objective": "Exercise v1.2 scenarios, dilution, metrics and discounted cash flow.",
+    "stage": "repeatable_growth",
+    "models": [
+      "saas"
+    ],
+    "model_rationale": "Synthetic test model; not a real company.",
+    "scope": "Synthetic fixture only."
+  },
+  "documents": [
+    {
+      "name": "Reported accounts and recurring-revenue ledger",
+      "version": "1",
+      "reviewed": "Cutoff balances and historical measures",
+      "limitations": "Fictional synthetic data."
+    },
+    {
+      "name": "Operating and capital plan",
+      "version": "1",
+      "reviewed": "24 monthly drivers and minimum liquidity",
+      "limitations": "Fictional synthetic data."
+    },
+    {
+      "name": "Opening ownership and proposed financing terms",
+      "version": "1",
+      "reviewed": "Fully diluted share register and terms",
+      "limitations": "Fictional synthetic data."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E1",
+      "title": "Reported accounts and recurring-revenue ledger",
+      "publisher": "Synthetic benchmark creator",
+      "locator": "Cutoff and FY2026 actuals",
+      "url": null,
+      "accessed": "2026-11-30",
+      "origin": "E1",
+      "type": "company_material",
+      "grade": "C",
+      "extract": "Fictional historical evidence. Revenue 100000, COGS 40000. At cutoff unrestricted cash 100, net monthly burn 10, excess cash 15, debt 40 and other bridge adjustments -5. Contracted recurring MRR 10. Opening 10 and churned 2 November customers."
+    },
+    {
+      "id": "E2",
+      "title": "Synthetic independent terminal-state and market-rate review",
+      "publisher": "Synthetic benchmark creator",
+      "locator": "Eligibility review and rate table",
+      "url": null,
+      "accessed": "2026-11-30",
+      "origin": "E2",
+      "type": "independent_public",
+      "grade": "B",
+      "extract": "Fictional benchmark for repeatable subscription economics, stable final-year reinvestment, 12% cost of equity, 5% debt cost, 25% target debt weight, 20% marginal tax, 2% long-run growth and sensitivity inputs."
+    },
+    {
+      "id": "E3",
+      "title": "Operating and capital plan",
+      "publisher": "Synthetic benchmark creator",
+      "locator": "Months 1\u201324 and cash policy",
+      "url": null,
+      "accessed": "2026-11-30",
+      "origin": "E3",
+      "type": "company_material",
+      "grade": "C",
+      "extract": "Assumed monthly EBIT of 8 / 18 / 23 in downside / base / upside, cash tax 3, D&A 2, capex 5, increase in working capital 2, other net cash flow -15, cash floor 40."
+    },
+    {
+      "id": "E4",
+      "title": "Opening ownership and proposed financing terms",
+      "publisher": "Synthetic benchmark creator",
+      "locator": "Holdings and RND1\u2013RND2",
+      "url": null,
+      "accessed": "2026-11-30",
+      "origin": "E4",
+      "type": "company_material",
+      "grade": "C",
+      "extract": "At cutoff founder 80 shares, option pool 20, two future investors each hold zero. Proposed 15 March 2027 financing 250 pre-money, 25-share pool top-up, angel subscribes 50. Proposed 15 December 2027 financing 450 pre-money, zero top-up, founder and fund each subscribe 30."
+    }
+  ],
+  "claims": [
+    {
+      "id": "C1",
+      "statement": "Synthetic revenue of 100000",
+      "kind": "historical",
+      "status": "reported",
+      "support": [
+        "E1"
+      ],
+      "oppose": [],
+      "rationale": "Company-origin only"
+    }
+  ],
+  "thesis": {
+    "management": "Fictional growth thesis",
+    "independent": "Insufficient independent evidence to support the thesis.",
+    "independent_evidence": [],
+    "falsifiers": [
+      "Verified cash shortfall or inability to sustain gross margin"
+    ],
+    "divergences": []
+  },
+  "safeguards": [
+    {
+      "check": "Legal identity",
+      "status": "unknown",
+      "evidence_ids": [],
+      "rationale": "Synthetic data only"
+    }
+  ],
+  "factors": [
+    {
+      "id": "C01",
+      "question": "Resolve legal identity, jurisdiction, ownership and instruments; distinguish operating entity from brand.",
+      "priority": "Medium",
+      "status": "unknown",
+      "support": [],
+      "oppose": [],
+      "confidence": "unknown",
+      "finding": "No evidence in fixture.",
+      "impact": "Insufficient evidence for decision.",
+      "next_test": "Request source evidence."
+    },
+    {
+      "id": "C02",
+      "question": "Test urgency, alternatives, willingness to pay and demonstrated adoption.",
+      "priority": "Medium",
+      "status": "unknown",
+      "support": [],
+      "oppose": [],
+      "confidence": "unknown",
+      "finding": "No evidence in fixture.",
+      "impact": "Insufficient evidence for decision.",
+      "next_test": "Request source evidence."
+    },
+    {
+      "id": "C03",
+      "question": "Assess current readiness, delivery evidence, differentiation and critical dependencies.",
+      "priority": "Medium",
+      "status": "unknown",
+      "support": [],
+      "oppose": [],
+      "confidence": "unknown",
+      "finding": "No evidence in fixture.",
+      "impact": "Insufficient evidence for decision.",
+      "next_test": "Request source evidence."
+    },
+    {
+      "id": "C04",
+      "question": "Verify relevant track record, responsibilities, key-person dependency, conflicts and governance.",
+      "priority": "Medium",
+      "status": "unknown",
+      "support": [],
+      "oppose": [],
+      "confidence": "unknown",
+      "finding": "No evidence in fixture.",
+      "impact": "Insufficient evidence for decision.",
+      "next_test": "Request source evidence."
+    },
+    {
+      "id": "C05",
+      "question": "Test reachable market, competitors, substitutes, channels and pricing; distinguish top-down TAM from addressable sales.",
+      "priority": "Medium",
+      "status": "unknown",
+      "support": [],
+      "oppose": [],
+      "confidence": "unknown",
+      "finding": "No evidence in fixture.",
+      "impact": "Insufficient evidence for decision.",
+      "next_test": "Request source evidence."
+    },
+    {
+      "id": "C06",
+      "question": "Reconcile actual revenue and cost structure, monetisation, contribution and repeatability.",
+      "priority": "Medium",
+      "status": "partial",
+      "support": [
+        "E1"
+      ],
+      "oppose": [],
+      "confidence": "low",
+      "finding": "Synthetic company statement only; no independent verification.",
+      "impact": "Insufficient evidence for decision.",
+      "next_test": "Request source evidence."
+    },
+    {
+      "id": "C07",
+      "question": "Test cash availability, financing, burn, debt, working capital, runway and future funding needs.",
+      "priority": "Critical",
+      "status": "unknown",
+      "support": [],
+      "oppose": [],
+      "confidence": "unknown",
+      "finding": "No evidence in fixture.",
+      "impact": "Insufficient evidence for decision.",
+      "next_test": "Request source evidence."
+    },
+    {
+      "id": "C08",
+      "question": "Test durability of differentiation, switching costs, IP rights, scale effects and replication risks.",
+      "priority": "Medium",
+      "status": "unknown",
+      "support": [],
+      "oppose": [],
+      "confidence": "unknown",
+      "finding": "No evidence in fixture.",
+      "impact": "Insufficient evidence for decision.",
+      "next_test": "Request source evidence."
+    },
+    {
+      "id": "C09",
+      "question": "Identify material licensing, compliance, operational, security and concentration dependencies.",
+      "priority": "Medium",
+      "status": "unknown",
+      "support": [],
+      "oppose": [],
+      "confidence": "unknown",
+      "finding": "No evidence in fixture.",
+      "impact": "Insufficient evidence for decision.",
+      "next_test": "Request source evidence."
+    },
+    {
+      "id": "C10",
+      "question": "Identify evidence that would invalidate the thesis; determine valuation eligibility and key drivers.",
+      "priority": "Medium",
+      "status": "unknown",
+      "support": [],
+      "oppose": [],
+      "confidence": "unknown",
+      "finding": "No evidence in fixture.",
+      "impact": "Insufficient evidence for decision.",
+      "next_test": "Request source evidence."
+    },
+    {
+      "id": "SA01",
+      "question": "Contracted recurring revenue versus bookings and one-off services; ARR bridge.",
+      "priority": "Medium",
+      "status": "unknown",
+      "support": [],
+      "oppose": [],
+      "confidence": "unknown",
+      "finding": "No evidence in fixture.",
+      "impact": "Insufficient evidence for decision.",
+      "next_test": "Request source evidence."
+    },
+    {
+      "id": "SA02",
+      "question": "Cohorts, GRR/NRR, churn, CAC and payback with consistent definitions.",
+      "priority": "Medium",
+      "status": "unknown",
+      "support": [],
+      "oppose": [],
+      "confidence": "unknown",
+      "finding": "No evidence in fixture.",
+      "impact": "Insufficient evidence for decision.",
+      "next_test": "Request source evidence."
+    },
+    {
+      "id": "SA03",
+      "question": "Hosting and service costs, contribution, support and enterprise sales cycle.",
+      "priority": "Medium",
+      "status": "unknown",
+      "support": [],
+      "oppose": [],
+      "confidence": "unknown",
+      "finding": "No evidence in fixture.",
+      "impact": "Insufficient evidence for decision.",
+      "next_test": "Request source evidence."
+    }
+  ],
+  "research": [
+    {
+      "id": "R1",
+      "factor_ids": [
+        "C01",
+        "C02",
+        "C03",
+        "C04",
+        "C05",
+        "C06",
+        "C07",
+        "C08",
+        "C09",
+        "C10",
+        "SA01",
+        "SA02",
+        "SA03"
+      ],
+      "status": "blocked",
+      "queries": [],
+      "evidence_ids": [],
+      "reason": "Synthetic fixture; no live research performed."
+    }
+  ],
+  "inputs": [
+    {"id": "I1", "label": "Opening unrestricted cash", "quantity": "unrestricted_cash", "unit": "money", "value": "100", "period": "2026-11-30", "basis": "observed", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E1"], "claim_ids": [], "rationale": "Fictional reported source figure."},
+    {"id": "I2", "label": "Minimum cash floor", "quantity": "minimum_unrestricted_cash", "unit": "money", "value": "40", "period": "2026-11-30", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I3", "label": "Recognised revenue", "quantity": "recognised_revenue", "unit": "money", "value": "100000", "period": "2025-12-01/2026-11-30", "basis": "observed", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E1"], "claim_ids": ["C1"], "rationale": "Fictional reported source figure."},
+    {"id": "I4", "label": "Cost of goods sold", "quantity": "cogs", "unit": "money", "value": "40000", "period": "2025-12-01/2026-11-30", "basis": "observed", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E1"], "claim_ids": [], "rationale": "Fictional reported source figure."},
+    {"id": "I5", "label": "Net monthly burn", "quantity": "monthly_net_burn", "unit": "money_per_month", "value": "10", "period": "2026-11-30", "basis": "observed", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E1"], "claim_ids": [], "rationale": "Fictional reported source figure."},
+    {"id": "I6", "label": "Contracted recurring MRR", "quantity": "contracted_recurring_mrr", "unit": "money_per_month", "value": "10", "period": "2026-11-30", "basis": "observed", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E1"], "claim_ids": [], "rationale": "Fictional reported source figure."},
+    {"id": "I7", "label": "Churned opening customers", "quantity": "churned_opening_customers", "unit": "count", "value": "2", "period": "2026-11-01/2026-11-30", "basis": "observed", "currency": null, "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E1"], "claim_ids": [], "rationale": "Fictional reported source figure."},
+    {"id": "I8", "label": "Opening customers", "quantity": "opening_customers", "unit": "count", "value": "10", "period": "2026-11-01/2026-11-30", "basis": "observed", "currency": null, "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E1"], "claim_ids": [], "rationale": "Fictional reported source figure."},
+    {"id": "I9", "label": "Founder opening shares", "quantity": "fully_diluted_shares_held", "unit": "shares", "value": "80", "period": "2026-11-30", "basis": "observed", "currency": null, "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E4"], "claim_ids": [], "rationale": "Fictional reported source figure."},
+    {"id": "I10", "label": "Option pool opening shares", "quantity": "fully_diluted_shares_held", "unit": "shares", "value": "20", "period": "2026-11-30", "basis": "observed", "currency": null, "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E4"], "claim_ids": [], "rationale": "Fictional reported source figure."},
+    {"id": "I11", "label": "Angel opening shares", "quantity": "fully_diluted_shares_held", "unit": "shares", "value": "0", "period": "2026-11-30", "basis": "observed", "currency": null, "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E4"], "claim_ids": [], "rationale": "Fictional reported source figure."},
+    {"id": "I12", "label": "Fund opening shares", "quantity": "fully_diluted_shares_held", "unit": "shares", "value": "0", "period": "2026-11-30", "basis": "observed", "currency": null, "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E4"], "claim_ids": [], "rationale": "Fictional reported source figure."},
+    {"id": "I13", "label": "Pre-money equity value", "quantity": "pre_money_equity_value", "unit": "money", "value": "250", "period": "2027-03-15", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E4"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I14", "label": "Pre-money pool top-up shares", "quantity": "pre_money_pool_top_up", "unit": "shares", "value": "25", "period": "2027-03-15", "basis": "assumption", "currency": null, "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E4"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I15", "label": "H3 primary subscription cash", "quantity": "primary_equity_subscription", "unit": "money", "value": "50", "period": "2027-03-15", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E4"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I16", "label": "Pre-money equity value", "quantity": "pre_money_equity_value", "unit": "money", "value": "450", "period": "2027-12-15", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E4"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I17", "label": "Pre-money pool top-up shares", "quantity": "pre_money_pool_top_up", "unit": "shares", "value": "0", "period": "2027-12-15", "basis": "assumption", "currency": null, "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E4"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I18", "label": "H1 primary subscription cash", "quantity": "primary_equity_subscription", "unit": "money", "value": "30", "period": "2027-12-15", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E4"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I19", "label": "H4 primary subscription cash", "quantity": "primary_equity_subscription", "unit": "money", "value": "30", "period": "2027-12-15", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E4"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I20", "label": "Cash operating income tax", "quantity": "unlevered_cash_income_tax", "unit": "money", "value": "3", "period": "2026-12-01/2026-12-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I21", "label": "Depreciation and amortisation", "quantity": "depreciation_amortisation", "unit": "money", "value": "2", "period": "2026-12-01/2026-12-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I22", "label": "Capital expenditure", "quantity": "capital_expenditure", "unit": "money", "value": "5", "period": "2026-12-01/2026-12-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I23", "label": "Increase in operating working capital", "quantity": "change_in_noncash_operating_working_capital", "unit": "money", "value": "2", "period": "2026-12-01/2026-12-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I24", "label": "Other net cash flow", "quantity": "net_cash_flow_outside_fcff_and_linked_rounds", "unit": "money", "value": "-15", "period": "2026-12-01/2026-12-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I25", "label": "Downside EBIT", "quantity": "ebit", "unit": "money", "value": "8", "period": "2026-12-01/2026-12-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I26", "label": "Base EBIT", "quantity": "ebit", "unit": "money", "value": "18", "period": "2026-12-01/2026-12-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I27", "label": "Upside EBIT", "quantity": "ebit", "unit": "money", "value": "23", "period": "2026-12-01/2026-12-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I28", "label": "Cash operating income tax", "quantity": "unlevered_cash_income_tax", "unit": "money", "value": "3", "period": "2027-01-01/2027-01-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I29", "label": "Depreciation and amortisation", "quantity": "depreciation_amortisation", "unit": "money", "value": "2", "period": "2027-01-01/2027-01-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I30", "label": "Capital expenditure", "quantity": "capital_expenditure", "unit": "money", "value": "5", "period": "2027-01-01/2027-01-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I31", "label": "Increase in operating working capital", "quantity": "change_in_noncash_operating_working_capital", "unit": "money", "value": "2", "period": "2027-01-01/2027-01-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I32", "label": "Other net cash flow", "quantity": "net_cash_flow_outside_fcff_and_linked_rounds", "unit": "money", "value": "-15", "period": "2027-01-01/2027-01-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I33", "label": "Downside EBIT", "quantity": "ebit", "unit": "money", "value": "8", "period": "2027-01-01/2027-01-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I34", "label": "Base EBIT", "quantity": "ebit", "unit": "money", "value": "18", "period": "2027-01-01/2027-01-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I35", "label": "Upside EBIT", "quantity": "ebit", "unit": "money", "value": "23", "period": "2027-01-01/2027-01-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I36", "label": "Cash operating income tax", "quantity": "unlevered_cash_income_tax", "unit": "money", "value": "3", "period": "2027-02-01/2027-02-28", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I37", "label": "Depreciation and amortisation", "quantity": "depreciation_amortisation", "unit": "money", "value": "2", "period": "2027-02-01/2027-02-28", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I38", "label": "Capital expenditure", "quantity": "capital_expenditure", "unit": "money", "value": "5", "period": "2027-02-01/2027-02-28", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I39", "label": "Increase in operating working capital", "quantity": "change_in_noncash_operating_working_capital", "unit": "money", "value": "2", "period": "2027-02-01/2027-02-28", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I40", "label": "Other net cash flow", "quantity": "net_cash_flow_outside_fcff_and_linked_rounds", "unit": "money", "value": "-15", "period": "2027-02-01/2027-02-28", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I41", "label": "Downside EBIT", "quantity": "ebit", "unit": "money", "value": "8", "period": "2027-02-01/2027-02-28", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I42", "label": "Base EBIT", "quantity": "ebit", "unit": "money", "value": "18", "period": "2027-02-01/2027-02-28", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I43", "label": "Upside EBIT", "quantity": "ebit", "unit": "money", "value": "23", "period": "2027-02-01/2027-02-28", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I44", "label": "Cash operating income tax", "quantity": "unlevered_cash_income_tax", "unit": "money", "value": "3", "period": "2027-03-01/2027-03-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I45", "label": "Depreciation and amortisation", "quantity": "depreciation_amortisation", "unit": "money", "value": "2", "period": "2027-03-01/2027-03-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I46", "label": "Capital expenditure", "quantity": "capital_expenditure", "unit": "money", "value": "5", "period": "2027-03-01/2027-03-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I47", "label": "Increase in operating working capital", "quantity": "change_in_noncash_operating_working_capital", "unit": "money", "value": "2", "period": "2027-03-01/2027-03-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I48", "label": "Other net cash flow", "quantity": "net_cash_flow_outside_fcff_and_linked_rounds", "unit": "money", "value": "-15", "period": "2027-03-01/2027-03-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I49", "label": "Downside EBIT", "quantity": "ebit", "unit": "money", "value": "8", "period": "2027-03-01/2027-03-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I50", "label": "Base EBIT", "quantity": "ebit", "unit": "money", "value": "18", "period": "2027-03-01/2027-03-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I51", "label": "Upside EBIT", "quantity": "ebit", "unit": "money", "value": "23", "period": "2027-03-01/2027-03-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I52", "label": "Cash operating income tax", "quantity": "unlevered_cash_income_tax", "unit": "money", "value": "3", "period": "2027-04-01/2027-04-30", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I53", "label": "Depreciation and amortisation", "quantity": "depreciation_amortisation", "unit": "money", "value": "2", "period": "2027-04-01/2027-04-30", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I54", "label": "Capital expenditure", "quantity": "capital_expenditure", "unit": "money", "value": "5", "period": "2027-04-01/2027-04-30", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I55", "label": "Increase in operating working capital", "quantity": "change_in_noncash_operating_working_capital", "unit": "money", "value": "2", "period": "2027-04-01/2027-04-30", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I56", "label": "Other net cash flow", "quantity": "net_cash_flow_outside_fcff_and_linked_rounds", "unit": "money", "value": "-15", "period": "2027-04-01/2027-04-30", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I57", "label": "Downside EBIT", "quantity": "ebit", "unit": "money", "value": "8", "period": "2027-04-01/2027-04-30", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I58", "label": "Base EBIT", "quantity": "ebit", "unit": "money", "value": "18", "period": "2027-04-01/2027-04-30", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I59", "label": "Upside EBIT", "quantity": "ebit", "unit": "money", "value": "23", "period": "2027-04-01/2027-04-30", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I60", "label": "Cash operating income tax", "quantity": "unlevered_cash_income_tax", "unit": "money", "value": "3", "period": "2027-05-01/2027-05-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I61", "label": "Depreciation and amortisation", "quantity": "depreciation_amortisation", "unit": "money", "value": "2", "period": "2027-05-01/2027-05-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I62", "label": "Capital expenditure", "quantity": "capital_expenditure", "unit": "money", "value": "5", "period": "2027-05-01/2027-05-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I63", "label": "Increase in operating working capital", "quantity": "change_in_noncash_operating_working_capital", "unit": "money", "value": "2", "period": "2027-05-01/2027-05-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I64", "label": "Other net cash flow", "quantity": "net_cash_flow_outside_fcff_and_linked_rounds", "unit": "money", "value": "-15", "period": "2027-05-01/2027-05-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I65", "label": "Downside EBIT", "quantity": "ebit", "unit": "money", "value": "8", "period": "2027-05-01/2027-05-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I66", "label": "Base EBIT", "quantity": "ebit", "unit": "money", "value": "18", "period": "2027-05-01/2027-05-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I67", "label": "Upside EBIT", "quantity": "ebit", "unit": "money", "value": "23", "period": "2027-05-01/2027-05-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I68", "label": "Cash operating income tax", "quantity": "unlevered_cash_income_tax", "unit": "money", "value": "3", "period": "2027-06-01/2027-06-30", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I69", "label": "Depreciation and amortisation", "quantity": "depreciation_amortisation", "unit": "money", "value": "2", "period": "2027-06-01/2027-06-30", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I70", "label": "Capital expenditure", "quantity": "capital_expenditure", "unit": "money", "value": "5", "period": "2027-06-01/2027-06-30", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I71", "label": "Increase in operating working capital", "quantity": "change_in_noncash_operating_working_capital", "unit": "money", "value": "2", "period": "2027-06-01/2027-06-30", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I72", "label": "Other net cash flow", "quantity": "net_cash_flow_outside_fcff_and_linked_rounds", "unit": "money", "value": "-15", "period": "2027-06-01/2027-06-30", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I73", "label": "Downside EBIT", "quantity": "ebit", "unit": "money", "value": "8", "period": "2027-06-01/2027-06-30", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I74", "label": "Base EBIT", "quantity": "ebit", "unit": "money", "value": "18", "period": "2027-06-01/2027-06-30", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I75", "label": "Upside EBIT", "quantity": "ebit", "unit": "money", "value": "23", "period": "2027-06-01/2027-06-30", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I76", "label": "Cash operating income tax", "quantity": "unlevered_cash_income_tax", "unit": "money", "value": "3", "period": "2027-07-01/2027-07-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I77", "label": "Depreciation and amortisation", "quantity": "depreciation_amortisation", "unit": "money", "value": "2", "period": "2027-07-01/2027-07-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I78", "label": "Capital expenditure", "quantity": "capital_expenditure", "unit": "money", "value": "5", "period": "2027-07-01/2027-07-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I79", "label": "Increase in operating working capital", "quantity": "change_in_noncash_operating_working_capital", "unit": "money", "value": "2", "period": "2027-07-01/2027-07-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I80", "label": "Other net cash flow", "quantity": "net_cash_flow_outside_fcff_and_linked_rounds", "unit": "money", "value": "-15", "period": "2027-07-01/2027-07-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I81", "label": "Downside EBIT", "quantity": "ebit", "unit": "money", "value": "8", "period": "2027-07-01/2027-07-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I82", "label": "Base EBIT", "quantity": "ebit", "unit": "money", "value": "18", "period": "2027-07-01/2027-07-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I83", "label": "Upside EBIT", "quantity": "ebit", "unit": "money", "value": "23", "period": "2027-07-01/2027-07-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I84", "label": "Cash operating income tax", "quantity": "unlevered_cash_income_tax", "unit": "money", "value": "3", "period": "2027-08-01/2027-08-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I85", "label": "Depreciation and amortisation", "quantity": "depreciation_amortisation", "unit": "money", "value": "2", "period": "2027-08-01/2027-08-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I86", "label": "Capital expenditure", "quantity": "capital_expenditure", "unit": "money", "value": "5", "period": "2027-08-01/2027-08-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I87", "label": "Increase in operating working capital", "quantity": "change_in_noncash_operating_working_capital", "unit": "money", "value": "2", "period": "2027-08-01/2027-08-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I88", "label": "Other net cash flow", "quantity": "net_cash_flow_outside_fcff_and_linked_rounds", "unit": "money", "value": "-15", "period": "2027-08-01/2027-08-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I89", "label": "Downside EBIT", "quantity": "ebit", "unit": "money", "value": "8", "period": "2027-08-01/2027-08-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I90", "label": "Base EBIT", "quantity": "ebit", "unit": "money", "value": "18", "period": "2027-08-01/2027-08-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I91", "label": "Upside EBIT", "quantity": "ebit", "unit": "money", "value": "23", "period": "2027-08-01/2027-08-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I92", "label": "Cash operating income tax", "quantity": "unlevered_cash_income_tax", "unit": "money", "value": "3", "period": "2027-09-01/2027-09-30", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I93", "label": "Depreciation and amortisation", "quantity": "depreciation_amortisation", "unit": "money", "value": "2", "period": "2027-09-01/2027-09-30", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I94", "label": "Capital expenditure", "quantity": "capital_expenditure", "unit": "money", "value": "5", "period": "2027-09-01/2027-09-30", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I95", "label": "Increase in operating working capital", "quantity": "change_in_noncash_operating_working_capital", "unit": "money", "value": "2", "period": "2027-09-01/2027-09-30", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I96", "label": "Other net cash flow", "quantity": "net_cash_flow_outside_fcff_and_linked_rounds", "unit": "money", "value": "-15", "period": "2027-09-01/2027-09-30", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I97", "label": "Downside EBIT", "quantity": "ebit", "unit": "money", "value": "8", "period": "2027-09-01/2027-09-30", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I98", "label": "Base EBIT", "quantity": "ebit", "unit": "money", "value": "18", "period": "2027-09-01/2027-09-30", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I99", "label": "Upside EBIT", "quantity": "ebit", "unit": "money", "value": "23", "period": "2027-09-01/2027-09-30", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I100", "label": "Cash operating income tax", "quantity": "unlevered_cash_income_tax", "unit": "money", "value": "3", "period": "2027-10-01/2027-10-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I101", "label": "Depreciation and amortisation", "quantity": "depreciation_amortisation", "unit": "money", "value": "2", "period": "2027-10-01/2027-10-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I102", "label": "Capital expenditure", "quantity": "capital_expenditure", "unit": "money", "value": "5", "period": "2027-10-01/2027-10-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I103", "label": "Increase in operating working capital", "quantity": "change_in_noncash_operating_working_capital", "unit": "money", "value": "2", "period": "2027-10-01/2027-10-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I104", "label": "Other net cash flow", "quantity": "net_cash_flow_outside_fcff_and_linked_rounds", "unit": "money", "value": "-15", "period": "2027-10-01/2027-10-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I105", "label": "Downside EBIT", "quantity": "ebit", "unit": "money", "value": "8", "period": "2027-10-01/2027-10-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I106", "label": "Base EBIT", "quantity": "ebit", "unit": "money", "value": "18", "period": "2027-10-01/2027-10-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I107", "label": "Upside EBIT", "quantity": "ebit", "unit": "money", "value": "23", "period": "2027-10-01/2027-10-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I108", "label": "Cash operating income tax", "quantity": "unlevered_cash_income_tax", "unit": "money", "value": "3", "period": "2027-11-01/2027-11-30", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I109", "label": "Depreciation and amortisation", "quantity": "depreciation_amortisation", "unit": "money", "value": "2", "period": "2027-11-01/2027-11-30", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I110", "label": "Capital expenditure", "quantity": "capital_expenditure", "unit": "money", "value": "5", "period": "2027-11-01/2027-11-30", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I111", "label": "Increase in operating working capital", "quantity": "change_in_noncash_operating_working_capital", "unit": "money", "value": "2", "period": "2027-11-01/2027-11-30", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I112", "label": "Other net cash flow", "quantity": "net_cash_flow_outside_fcff_and_linked_rounds", "unit": "money", "value": "-15", "period": "2027-11-01/2027-11-30", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I113", "label": "Downside EBIT", "quantity": "ebit", "unit": "money", "value": "8", "period": "2027-11-01/2027-11-30", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I114", "label": "Base EBIT", "quantity": "ebit", "unit": "money", "value": "18", "period": "2027-11-01/2027-11-30", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I115", "label": "Upside EBIT", "quantity": "ebit", "unit": "money", "value": "23", "period": "2027-11-01/2027-11-30", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I116", "label": "Cash operating income tax", "quantity": "unlevered_cash_income_tax", "unit": "money", "value": "3", "period": "2027-12-01/2027-12-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I117", "label": "Depreciation and amortisation", "quantity": "depreciation_amortisation", "unit": "money", "value": "2", "period": "2027-12-01/2027-12-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I118", "label": "Capital expenditure", "quantity": "capital_expenditure", "unit": "money", "value": "5", "period": "2027-12-01/2027-12-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I119", "label": "Increase in operating working capital", "quantity": "change_in_noncash_operating_working_capital", "unit": "money", "value": "2", "period": "2027-12-01/2027-12-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I120", "label": "Other net cash flow", "quantity": "net_cash_flow_outside_fcff_and_linked_rounds", "unit": "money", "value": "-15", "period": "2027-12-01/2027-12-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I121", "label": "Downside EBIT", "quantity": "ebit", "unit": "money", "value": "8", "period": "2027-12-01/2027-12-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I122", "label": "Base EBIT", "quantity": "ebit", "unit": "money", "value": "18", "period": "2027-12-01/2027-12-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I123", "label": "Upside EBIT", "quantity": "ebit", "unit": "money", "value": "23", "period": "2027-12-01/2027-12-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I124", "label": "Cash operating income tax", "quantity": "unlevered_cash_income_tax", "unit": "money", "value": "3", "period": "2028-01-01/2028-01-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I125", "label": "Depreciation and amortisation", "quantity": "depreciation_amortisation", "unit": "money", "value": "2", "period": "2028-01-01/2028-01-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I126", "label": "Capital expenditure", "quantity": "capital_expenditure", "unit": "money", "value": "5", "period": "2028-01-01/2028-01-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I127", "label": "Increase in operating working capital", "quantity": "change_in_noncash_operating_working_capital", "unit": "money", "value": "2", "period": "2028-01-01/2028-01-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I128", "label": "Other net cash flow", "quantity": "net_cash_flow_outside_fcff_and_linked_rounds", "unit": "money", "value": "-15", "period": "2028-01-01/2028-01-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I129", "label": "Downside EBIT", "quantity": "ebit", "unit": "money", "value": "8", "period": "2028-01-01/2028-01-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I130", "label": "Base EBIT", "quantity": "ebit", "unit": "money", "value": "18", "period": "2028-01-01/2028-01-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I131", "label": "Upside EBIT", "quantity": "ebit", "unit": "money", "value": "23", "period": "2028-01-01/2028-01-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I132", "label": "Cash operating income tax", "quantity": "unlevered_cash_income_tax", "unit": "money", "value": "3", "period": "2028-02-01/2028-02-29", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I133", "label": "Depreciation and amortisation", "quantity": "depreciation_amortisation", "unit": "money", "value": "2", "period": "2028-02-01/2028-02-29", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I134", "label": "Capital expenditure", "quantity": "capital_expenditure", "unit": "money", "value": "5", "period": "2028-02-01/2028-02-29", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I135", "label": "Increase in operating working capital", "quantity": "change_in_noncash_operating_working_capital", "unit": "money", "value": "2", "period": "2028-02-01/2028-02-29", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I136", "label": "Other net cash flow", "quantity": "net_cash_flow_outside_fcff_and_linked_rounds", "unit": "money", "value": "-15", "period": "2028-02-01/2028-02-29", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I137", "label": "Downside EBIT", "quantity": "ebit", "unit": "money", "value": "8", "period": "2028-02-01/2028-02-29", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I138", "label": "Base EBIT", "quantity": "ebit", "unit": "money", "value": "18", "period": "2028-02-01/2028-02-29", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I139", "label": "Upside EBIT", "quantity": "ebit", "unit": "money", "value": "23", "period": "2028-02-01/2028-02-29", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I140", "label": "Cash operating income tax", "quantity": "unlevered_cash_income_tax", "unit": "money", "value": "3", "period": "2028-03-01/2028-03-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I141", "label": "Depreciation and amortisation", "quantity": "depreciation_amortisation", "unit": "money", "value": "2", "period": "2028-03-01/2028-03-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I142", "label": "Capital expenditure", "quantity": "capital_expenditure", "unit": "money", "value": "5", "period": "2028-03-01/2028-03-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I143", "label": "Increase in operating working capital", "quantity": "change_in_noncash_operating_working_capital", "unit": "money", "value": "2", "period": "2028-03-01/2028-03-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I144", "label": "Other net cash flow", "quantity": "net_cash_flow_outside_fcff_and_linked_rounds", "unit": "money", "value": "-15", "period": "2028-03-01/2028-03-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I145", "label": "Downside EBIT", "quantity": "ebit", "unit": "money", "value": "8", "period": "2028-03-01/2028-03-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I146", "label": "Base EBIT", "quantity": "ebit", "unit": "money", "value": "18", "period": "2028-03-01/2028-03-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I147", "label": "Upside EBIT", "quantity": "ebit", "unit": "money", "value": "23", "period": "2028-03-01/2028-03-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I148", "label": "Cash operating income tax", "quantity": "unlevered_cash_income_tax", "unit": "money", "value": "3", "period": "2028-04-01/2028-04-30", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I149", "label": "Depreciation and amortisation", "quantity": "depreciation_amortisation", "unit": "money", "value": "2", "period": "2028-04-01/2028-04-30", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I150", "label": "Capital expenditure", "quantity": "capital_expenditure", "unit": "money", "value": "5", "period": "2028-04-01/2028-04-30", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I151", "label": "Increase in operating working capital", "quantity": "change_in_noncash_operating_working_capital", "unit": "money", "value": "2", "period": "2028-04-01/2028-04-30", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I152", "label": "Other net cash flow", "quantity": "net_cash_flow_outside_fcff_and_linked_rounds", "unit": "money", "value": "-15", "period": "2028-04-01/2028-04-30", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I153", "label": "Downside EBIT", "quantity": "ebit", "unit": "money", "value": "8", "period": "2028-04-01/2028-04-30", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I154", "label": "Base EBIT", "quantity": "ebit", "unit": "money", "value": "18", "period": "2028-04-01/2028-04-30", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I155", "label": "Upside EBIT", "quantity": "ebit", "unit": "money", "value": "23", "period": "2028-04-01/2028-04-30", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I156", "label": "Cash operating income tax", "quantity": "unlevered_cash_income_tax", "unit": "money", "value": "3", "period": "2028-05-01/2028-05-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I157", "label": "Depreciation and amortisation", "quantity": "depreciation_amortisation", "unit": "money", "value": "2", "period": "2028-05-01/2028-05-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I158", "label": "Capital expenditure", "quantity": "capital_expenditure", "unit": "money", "value": "5", "period": "2028-05-01/2028-05-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I159", "label": "Increase in operating working capital", "quantity": "change_in_noncash_operating_working_capital", "unit": "money", "value": "2", "period": "2028-05-01/2028-05-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I160", "label": "Other net cash flow", "quantity": "net_cash_flow_outside_fcff_and_linked_rounds", "unit": "money", "value": "-15", "period": "2028-05-01/2028-05-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I161", "label": "Downside EBIT", "quantity": "ebit", "unit": "money", "value": "8", "period": "2028-05-01/2028-05-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I162", "label": "Base EBIT", "quantity": "ebit", "unit": "money", "value": "18", "period": "2028-05-01/2028-05-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I163", "label": "Upside EBIT", "quantity": "ebit", "unit": "money", "value": "23", "period": "2028-05-01/2028-05-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I164", "label": "Cash operating income tax", "quantity": "unlevered_cash_income_tax", "unit": "money", "value": "3", "period": "2028-06-01/2028-06-30", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I165", "label": "Depreciation and amortisation", "quantity": "depreciation_amortisation", "unit": "money", "value": "2", "period": "2028-06-01/2028-06-30", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I166", "label": "Capital expenditure", "quantity": "capital_expenditure", "unit": "money", "value": "5", "period": "2028-06-01/2028-06-30", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I167", "label": "Increase in operating working capital", "quantity": "change_in_noncash_operating_working_capital", "unit": "money", "value": "2", "period": "2028-06-01/2028-06-30", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I168", "label": "Other net cash flow", "quantity": "net_cash_flow_outside_fcff_and_linked_rounds", "unit": "money", "value": "-15", "period": "2028-06-01/2028-06-30", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I169", "label": "Downside EBIT", "quantity": "ebit", "unit": "money", "value": "8", "period": "2028-06-01/2028-06-30", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I170", "label": "Base EBIT", "quantity": "ebit", "unit": "money", "value": "18", "period": "2028-06-01/2028-06-30", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I171", "label": "Upside EBIT", "quantity": "ebit", "unit": "money", "value": "23", "period": "2028-06-01/2028-06-30", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I172", "label": "Cash operating income tax", "quantity": "unlevered_cash_income_tax", "unit": "money", "value": "3", "period": "2028-07-01/2028-07-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I173", "label": "Depreciation and amortisation", "quantity": "depreciation_amortisation", "unit": "money", "value": "2", "period": "2028-07-01/2028-07-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I174", "label": "Capital expenditure", "quantity": "capital_expenditure", "unit": "money", "value": "5", "period": "2028-07-01/2028-07-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I175", "label": "Increase in operating working capital", "quantity": "change_in_noncash_operating_working_capital", "unit": "money", "value": "2", "period": "2028-07-01/2028-07-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I176", "label": "Other net cash flow", "quantity": "net_cash_flow_outside_fcff_and_linked_rounds", "unit": "money", "value": "-15", "period": "2028-07-01/2028-07-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I177", "label": "Downside EBIT", "quantity": "ebit", "unit": "money", "value": "8", "period": "2028-07-01/2028-07-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I178", "label": "Base EBIT", "quantity": "ebit", "unit": "money", "value": "18", "period": "2028-07-01/2028-07-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I179", "label": "Upside EBIT", "quantity": "ebit", "unit": "money", "value": "23", "period": "2028-07-01/2028-07-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I180", "label": "Cash operating income tax", "quantity": "unlevered_cash_income_tax", "unit": "money", "value": "3", "period": "2028-08-01/2028-08-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I181", "label": "Depreciation and amortisation", "quantity": "depreciation_amortisation", "unit": "money", "value": "2", "period": "2028-08-01/2028-08-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I182", "label": "Capital expenditure", "quantity": "capital_expenditure", "unit": "money", "value": "5", "period": "2028-08-01/2028-08-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I183", "label": "Increase in operating working capital", "quantity": "change_in_noncash_operating_working_capital", "unit": "money", "value": "2", "period": "2028-08-01/2028-08-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I184", "label": "Other net cash flow", "quantity": "net_cash_flow_outside_fcff_and_linked_rounds", "unit": "money", "value": "-15", "period": "2028-08-01/2028-08-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I185", "label": "Downside EBIT", "quantity": "ebit", "unit": "money", "value": "8", "period": "2028-08-01/2028-08-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I186", "label": "Base EBIT", "quantity": "ebit", "unit": "money", "value": "18", "period": "2028-08-01/2028-08-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I187", "label": "Upside EBIT", "quantity": "ebit", "unit": "money", "value": "23", "period": "2028-08-01/2028-08-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I188", "label": "Cash operating income tax", "quantity": "unlevered_cash_income_tax", "unit": "money", "value": "3", "period": "2028-09-01/2028-09-30", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I189", "label": "Depreciation and amortisation", "quantity": "depreciation_amortisation", "unit": "money", "value": "2", "period": "2028-09-01/2028-09-30", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I190", "label": "Capital expenditure", "quantity": "capital_expenditure", "unit": "money", "value": "5", "period": "2028-09-01/2028-09-30", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I191", "label": "Increase in operating working capital", "quantity": "change_in_noncash_operating_working_capital", "unit": "money", "value": "2", "period": "2028-09-01/2028-09-30", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I192", "label": "Other net cash flow", "quantity": "net_cash_flow_outside_fcff_and_linked_rounds", "unit": "money", "value": "-15", "period": "2028-09-01/2028-09-30", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I193", "label": "Downside EBIT", "quantity": "ebit", "unit": "money", "value": "8", "period": "2028-09-01/2028-09-30", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I194", "label": "Base EBIT", "quantity": "ebit", "unit": "money", "value": "18", "period": "2028-09-01/2028-09-30", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I195", "label": "Upside EBIT", "quantity": "ebit", "unit": "money", "value": "23", "period": "2028-09-01/2028-09-30", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I196", "label": "Cash operating income tax", "quantity": "unlevered_cash_income_tax", "unit": "money", "value": "3", "period": "2028-10-01/2028-10-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I197", "label": "Depreciation and amortisation", "quantity": "depreciation_amortisation", "unit": "money", "value": "2", "period": "2028-10-01/2028-10-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I198", "label": "Capital expenditure", "quantity": "capital_expenditure", "unit": "money", "value": "5", "period": "2028-10-01/2028-10-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I199", "label": "Increase in operating working capital", "quantity": "change_in_noncash_operating_working_capital", "unit": "money", "value": "2", "period": "2028-10-01/2028-10-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I200", "label": "Other net cash flow", "quantity": "net_cash_flow_outside_fcff_and_linked_rounds", "unit": "money", "value": "-15", "period": "2028-10-01/2028-10-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I201", "label": "Downside EBIT", "quantity": "ebit", "unit": "money", "value": "8", "period": "2028-10-01/2028-10-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I202", "label": "Base EBIT", "quantity": "ebit", "unit": "money", "value": "18", "period": "2028-10-01/2028-10-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I203", "label": "Upside EBIT", "quantity": "ebit", "unit": "money", "value": "23", "period": "2028-10-01/2028-10-31", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I204", "label": "Cash operating income tax", "quantity": "unlevered_cash_income_tax", "unit": "money", "value": "3", "period": "2028-11-01/2028-11-30", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I205", "label": "Depreciation and amortisation", "quantity": "depreciation_amortisation", "unit": "money", "value": "2", "period": "2028-11-01/2028-11-30", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I206", "label": "Capital expenditure", "quantity": "capital_expenditure", "unit": "money", "value": "5", "period": "2028-11-01/2028-11-30", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I207", "label": "Increase in operating working capital", "quantity": "change_in_noncash_operating_working_capital", "unit": "money", "value": "2", "period": "2028-11-01/2028-11-30", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I208", "label": "Other net cash flow", "quantity": "net_cash_flow_outside_fcff_and_linked_rounds", "unit": "money", "value": "-15", "period": "2028-11-01/2028-11-30", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I209", "label": "Downside EBIT", "quantity": "ebit", "unit": "money", "value": "8", "period": "2028-11-01/2028-11-30", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I210", "label": "Base EBIT", "quantity": "ebit", "unit": "money", "value": "18", "period": "2028-11-01/2028-11-30", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I211", "label": "Upside EBIT", "quantity": "ebit", "unit": "money", "value": "23", "period": "2028-11-01/2028-11-30", "basis": "assumption", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E3"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I212", "label": "Cost of equity", "quantity": "cost_of_equity", "unit": "ratio", "value": "0.12", "period": "2026-11-30", "basis": "assumption", "currency": null, "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E2"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I213", "label": "Pre-tax cost of debt", "quantity": "pretax_cost_of_debt", "unit": "ratio", "value": "0.05", "period": "2026-11-30", "basis": "assumption", "currency": null, "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E2"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I214", "label": "Debt share of market capital value", "quantity": "market_value_debt_weight", "unit": "ratio", "value": "0.25", "period": "2026-11-30", "basis": "assumption", "currency": null, "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E2"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I215", "label": "Marginal tax rate", "quantity": "marginal_tax_rate", "unit": "ratio", "value": "0.2", "period": "2026-11-30", "basis": "assumption", "currency": null, "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E2"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I216", "label": "Terminal growth", "quantity": "terminal_growth_rate", "unit": "ratio", "value": "0.02", "period": "2026-11-30", "basis": "assumption", "currency": null, "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E2"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I217", "label": "Excess cash", "quantity": "excess_nonoperating_cash", "unit": "money", "value": "15", "period": "2026-11-30", "basis": "observed", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E1"], "claim_ids": [], "rationale": "Fictional reported source figure."},
+    {"id": "I218", "label": "Interest-bearing debt", "quantity": "interest_bearing_debt", "unit": "money", "value": "40", "period": "2026-11-30", "basis": "observed", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E1"], "claim_ids": [], "rationale": "Fictional reported source figure."},
+    {"id": "I219", "label": "Net noncash adjustments", "quantity": "net_noncash_equity_bridge_adjustments", "unit": "money", "value": "-5", "period": "2026-11-30", "basis": "observed", "currency": "USD", "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E1"], "claim_ids": [], "rationale": "Fictional reported source figure."},
+    {"id": "I220", "label": "Sensitivity WACC 0.08", "quantity": "sensitivity_wacc", "unit": "ratio", "value": "0.08", "period": "2026-11-30", "basis": "assumption", "currency": null, "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E2"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I221", "label": "Sensitivity WACC 0.12", "quantity": "sensitivity_wacc", "unit": "ratio", "value": "0.12", "period": "2026-11-30", "basis": "assumption", "currency": null, "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E2"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I222", "label": "Sensitivity growth 0.01", "quantity": "terminal_growth_rate", "unit": "ratio", "value": "0.01", "period": "2026-11-30", "basis": "assumption", "currency": null, "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E2"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."},
+    {"id": "I223", "label": "Sensitivity growth 0.03", "quantity": "terminal_growth_rate", "unit": "ratio", "value": "0.03", "period": "2026-11-30", "basis": "assumption", "currency": null, "entity": "Synthetic entity", "accounting_basis": "us_gaap", "evidence_ids": ["E2"], "claim_ids": [], "rationale": "Fictional planning or sensitivity assumption."}
+  ],
+  "metrics": [
+    {
+      "id": "M1",
+      "formula": "gross_margin",
+      "operands": {
+        "revenue": "I3",
+        "cogs": "I4"
+      },
+      "basis": "observed",
+      "status": "calculated",
+      "value": "0.6",
+      "reason": "Synthetic operands."
+    },
+    {
+      "id": "M2",
+      "formula": "runway",
+      "operands": {
+        "cash": "I1",
+        "monthly_burn": "I5"
+      },
+      "basis": "observed",
+      "status": "calculated",
+      "value": "10",
+      "reason": "Synthetic positive monthly burn."
+    },
+    {
+      "id": "M3",
+      "formula": "saas_arr",
+      "operands": {
+        "mrr": "I6"
+      },
+      "basis": "observed",
+      "status": "calculated",
+      "value": "120",
+      "reason": "Synthetic reported operands."
+    },
+    {
+      "id": "M4",
+      "formula": "saas_logo_churn",
+      "operands": {
+        "churned": "I7",
+        "opening": "I8"
+      },
+      "basis": "observed",
+      "status": "calculated",
+      "value": "0.2",
+      "reason": "Synthetic reported operands."
+    }
+  ],
+  "valuations": [
+    {
+      "id": "V1",
+      "method": "ev_revenue",
+      "value_basis": "enterprise",
+      "status": "unavailable",
+      "operands": {},
+      "value": null,
+      "rationale": "No independently supported comparable multiples.",
+      "scenario": "standalone",
+      "gap_ids": [
+        "G2"
+      ]
+    }
+  ],
+  "challenges": [
+    {
+      "id": "Q1",
+      "severity": "Critical",
+      "status": "unresolved",
+      "finding": "No independent verification of cash or commercial thesis.",
+      "affected": [
+        "C07"
+      ],
+      "correction": "Request evidence; qualify output.",
+      "gap_ids": [
+        "G1"
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "id": "G1",
+      "priority": "Critical",
+      "item": "Cash statement and financial model",
+      "period": "Current month and full horizon",
+      "why": "Cash and runway are not independently verified.",
+      "conclusion": "Capital needs and viability.",
+      "action": "Reconcile cash and recompute runway.",
+      "availability": "Private",
+      "affected_factor_ids": [
+        "C07"
+      ]
+    },
+    {
+      "id": "G2",
+      "priority": "High",
+      "item": "Comparable recurring-revenue transactions",
+      "period": "Current month and full horizon",
+      "why": "Independent comparable prices are missing.",
+      "conclusion": "Multiples-based valuation eligibility.",
+      "action": "Reconcile comparable entity, date and enterprise value to recognised revenue.",
+      "availability": "Public",
+      "affected_factor_ids": [
+        "C10"
+      ]
+    }
+  ],
+  "decision": {
+    "conclusion": "No reliable decision can be made from synthetic evidence.",
+    "limitations": "Not a real evaluation; no actual research.",
+    "status": "qualified",
+    "strengths": [],
+    "risks": [
+      "Evidence unavailable"
+    ]
+  },
+  "financial_model": {
+    "currency": "USD",
+    "accounting_basis": "us_gaap",
+    "cap_table": {
+      "status": "calculated",
+      "rationale": "Fully diluted common-equivalent model for two conditional primary closings.",
+      "capitalization_basis": "fully_diluted_as_converted_primary_equity",
+      "opening_date": "2026-11-30",
+      "holders": [
+        {
+          "id": "H1",
+          "name": "Founder",
+          "kind": "holder",
+          "shares": "I9"
+        },
+        {
+          "id": "H2",
+          "name": "Option pool",
+          "kind": "option_pool",
+          "shares": "I10"
+        },
+        {
+          "id": "H3",
+          "name": "Angel",
+          "kind": "holder",
+          "shares": "I11"
+        },
+        {
+          "id": "H4",
+          "name": "Fund",
+          "kind": "holder",
+          "shares": "I12"
+        }
+      ],
+      "rounds": [
+        {
+          "id": "RND1",
+          "date": "2027-03-15",
+          "pre_money": "I13",
+          "pool_top_up": "I14",
+          "subscriptions": [
+            {
+              "holder": "H3",
+              "amount": "I15"
+            }
+          ]
+        },
+        {
+          "id": "RND2",
+          "date": "2027-12-15",
+          "pre_money": "I16",
+          "pool_top_up": "I17",
+          "subscriptions": [
+            {
+              "holder": "H1",
+              "amount": "I18"
+            },
+            {
+              "holder": "H4",
+              "amount": "I19"
+            }
+          ]
+        }
+      ]
+    },
+    "scenarios": {
+      "status": "calculated",
+      "rationale": "Consistent monthly operating and financing cash flows.",
+      "opening_cash": "I1",
+      "cash_floor": "I2",
+      "cases": {
+        "downside": {
+          "rationale": "Weaker trading with neither conditional equity round included.",
+          "months": [
+            {"ebit": "I25", "cash_tax": "I20", "da": "I21", "capex": "I22", "working_capital_change": "I23", "other_cash_flow": "I24", "round_ids": []},
+            {"ebit": "I33", "cash_tax": "I28", "da": "I29", "capex": "I30", "working_capital_change": "I31", "other_cash_flow": "I32", "round_ids": []},
+            {"ebit": "I41", "cash_tax": "I36", "da": "I37", "capex": "I38", "working_capital_change": "I39", "other_cash_flow": "I40", "round_ids": []},
+            {"ebit": "I49", "cash_tax": "I44", "da": "I45", "capex": "I46", "working_capital_change": "I47", "other_cash_flow": "I48", "round_ids": []},
+            {"ebit": "I57", "cash_tax": "I52", "da": "I53", "capex": "I54", "working_capital_change": "I55", "other_cash_flow": "I56", "round_ids": []},
+            {"ebit": "I65", "cash_tax": "I60", "da": "I61", "capex": "I62", "working_capital_change": "I63", "other_cash_flow": "I64", "round_ids": []},
+            {"ebit": "I73", "cash_tax": "I68", "da": "I69", "capex": "I70", "working_capital_change": "I71", "other_cash_flow": "I72", "round_ids": []},
+            {"ebit": "I81", "cash_tax": "I76", "da": "I77", "capex": "I78", "working_capital_change": "I79", "other_cash_flow": "I80", "round_ids": []},
+            {"ebit": "I89", "cash_tax": "I84", "da": "I85", "capex": "I86", "working_capital_change": "I87", "other_cash_flow": "I88", "round_ids": []},
+            {"ebit": "I97", "cash_tax": "I92", "da": "I93", "capex": "I94", "working_capital_change": "I95", "other_cash_flow": "I96", "round_ids": []},
+            {"ebit": "I105", "cash_tax": "I100", "da": "I101", "capex": "I102", "working_capital_change": "I103", "other_cash_flow": "I104", "round_ids": []},
+            {"ebit": "I113", "cash_tax": "I108", "da": "I109", "capex": "I110", "working_capital_change": "I111", "other_cash_flow": "I112", "round_ids": []},
+            {"ebit": "I121", "cash_tax": "I116", "da": "I117", "capex": "I118", "working_capital_change": "I119", "other_cash_flow": "I120", "round_ids": []},
+            {"ebit": "I129", "cash_tax": "I124", "da": "I125", "capex": "I126", "working_capital_change": "I127", "other_cash_flow": "I128", "round_ids": []},
+            {"ebit": "I137", "cash_tax": "I132", "da": "I133", "capex": "I134", "working_capital_change": "I135", "other_cash_flow": "I136", "round_ids": []},
+            {"ebit": "I145", "cash_tax": "I140", "da": "I141", "capex": "I142", "working_capital_change": "I143", "other_cash_flow": "I144", "round_ids": []},
+            {"ebit": "I153", "cash_tax": "I148", "da": "I149", "capex": "I150", "working_capital_change": "I151", "other_cash_flow": "I152", "round_ids": []},
+            {"ebit": "I161", "cash_tax": "I156", "da": "I157", "capex": "I158", "working_capital_change": "I159", "other_cash_flow": "I160", "round_ids": []},
+            {"ebit": "I169", "cash_tax": "I164", "da": "I165", "capex": "I166", "working_capital_change": "I167", "other_cash_flow": "I168", "round_ids": []},
+            {"ebit": "I177", "cash_tax": "I172", "da": "I173", "capex": "I174", "working_capital_change": "I175", "other_cash_flow": "I176", "round_ids": []},
+            {"ebit": "I185", "cash_tax": "I180", "da": "I181", "capex": "I182", "working_capital_change": "I183", "other_cash_flow": "I184", "round_ids": []},
+            {"ebit": "I193", "cash_tax": "I188", "da": "I189", "capex": "I190", "working_capital_change": "I191", "other_cash_flow": "I192", "round_ids": []},
+            {"ebit": "I201", "cash_tax": "I196", "da": "I197", "capex": "I198", "working_capital_change": "I199", "other_cash_flow": "I200", "round_ids": []},
+            {"ebit": "I209", "cash_tax": "I204", "da": "I205", "capex": "I206", "working_capital_change": "I207", "other_cash_flow": "I208", "round_ids": []}
+          ]
+        },
+        "base": {
+          "rationale": "Steady trading with the first conditional round included.",
+          "months": [
+            {"ebit": "I26", "cash_tax": "I20", "da": "I21", "capex": "I22", "working_capital_change": "I23", "other_cash_flow": "I24", "round_ids": []},
+            {"ebit": "I34", "cash_tax": "I28", "da": "I29", "capex": "I30", "working_capital_change": "I31", "other_cash_flow": "I32", "round_ids": []},
+            {"ebit": "I42", "cash_tax": "I36", "da": "I37", "capex": "I38", "working_capital_change": "I39", "other_cash_flow": "I40", "round_ids": []},
+            {"ebit": "I50", "cash_tax": "I44", "da": "I45", "capex": "I46", "working_capital_change": "I47", "other_cash_flow": "I48", "round_ids": ["RND1"]},
+            {"ebit": "I58", "cash_tax": "I52", "da": "I53", "capex": "I54", "working_capital_change": "I55", "other_cash_flow": "I56", "round_ids": []},
+            {"ebit": "I66", "cash_tax": "I60", "da": "I61", "capex": "I62", "working_capital_change": "I63", "other_cash_flow": "I64", "round_ids": []},
+            {"ebit": "I74", "cash_tax": "I68", "da": "I69", "capex": "I70", "working_capital_change": "I71", "other_cash_flow": "I72", "round_ids": []},
+            {"ebit": "I82", "cash_tax": "I76", "da": "I77", "capex": "I78", "working_capital_change": "I79", "other_cash_flow": "I80", "round_ids": []},
+            {"ebit": "I90", "cash_tax": "I84", "da": "I85", "capex": "I86", "working_capital_change": "I87", "other_cash_flow": "I88", "round_ids": []},
+            {"ebit": "I98", "cash_tax": "I92", "da": "I93", "capex": "I94", "working_capital_change": "I95", "other_cash_flow": "I96", "round_ids": []},
+            {"ebit": "I106", "cash_tax": "I100", "da": "I101", "capex": "I102", "working_capital_change": "I103", "other_cash_flow": "I104", "round_ids": []},
+            {"ebit": "I114", "cash_tax": "I108", "da": "I109", "capex": "I110", "working_capital_change": "I111", "other_cash_flow": "I112", "round_ids": []},
+            {"ebit": "I122", "cash_tax": "I116", "da": "I117", "capex": "I118", "working_capital_change": "I119", "other_cash_flow": "I120", "round_ids": []},
+            {"ebit": "I130", "cash_tax": "I124", "da": "I125", "capex": "I126", "working_capital_change": "I127", "other_cash_flow": "I128", "round_ids": []},
+            {"ebit": "I138", "cash_tax": "I132", "da": "I133", "capex": "I134", "working_capital_change": "I135", "other_cash_flow": "I136", "round_ids": []},
+            {"ebit": "I146", "cash_tax": "I140", "da": "I141", "capex": "I142", "working_capital_change": "I143", "other_cash_flow": "I144", "round_ids": []},
+            {"ebit": "I154", "cash_tax": "I148", "da": "I149", "capex": "I150", "working_capital_change": "I151", "other_cash_flow": "I152", "round_ids": []},
+            {"ebit": "I162", "cash_tax": "I156", "da": "I157", "capex": "I158", "working_capital_change": "I159", "other_cash_flow": "I160", "round_ids": []},
+            {"ebit": "I170", "cash_tax": "I164", "da": "I165", "capex": "I166", "working_capital_change": "I167", "other_cash_flow": "I168", "round_ids": []},
+            {"ebit": "I178", "cash_tax": "I172", "da": "I173", "capex": "I174", "working_capital_change": "I175", "other_cash_flow": "I176", "round_ids": []},
+            {"ebit": "I186", "cash_tax": "I180", "da": "I181", "capex": "I182", "working_capital_change": "I183", "other_cash_flow": "I184", "round_ids": []},
+            {"ebit": "I194", "cash_tax": "I188", "da": "I189", "capex": "I190", "working_capital_change": "I191", "other_cash_flow": "I192", "round_ids": []},
+            {"ebit": "I202", "cash_tax": "I196", "da": "I197", "capex": "I198", "working_capital_change": "I199", "other_cash_flow": "I200", "round_ids": []},
+            {"ebit": "I210", "cash_tax": "I204", "da": "I205", "capex": "I206", "working_capital_change": "I207", "other_cash_flow": "I208", "round_ids": []}
+          ]
+        },
+        "upside": {
+          "rationale": "Stronger trading with both conditional rounds included.",
+          "months": [
+            {"ebit": "I27", "cash_tax": "I20", "da": "I21", "capex": "I22", "working_capital_change": "I23", "other_cash_flow": "I24", "round_ids": []},
+            {"ebit": "I35", "cash_tax": "I28", "da": "I29", "capex": "I30", "working_capital_change": "I31", "other_cash_flow": "I32", "round_ids": []},
+            {"ebit": "I43", "cash_tax": "I36", "da": "I37", "capex": "I38", "working_capital_change": "I39", "other_cash_flow": "I40", "round_ids": []},
+            {"ebit": "I51", "cash_tax": "I44", "da": "I45", "capex": "I46", "working_capital_change": "I47", "other_cash_flow": "I48", "round_ids": ["RND1"]},
+            {"ebit": "I59", "cash_tax": "I52", "da": "I53", "capex": "I54", "working_capital_change": "I55", "other_cash_flow": "I56", "round_ids": []},
+            {"ebit": "I67", "cash_tax": "I60", "da": "I61", "capex": "I62", "working_capital_change": "I63", "other_cash_flow": "I64", "round_ids": []},
+            {"ebit": "I75", "cash_tax": "I68", "da": "I69", "capex": "I70", "working_capital_change": "I71", "other_cash_flow": "I72", "round_ids": []},
+            {"ebit": "I83", "cash_tax": "I76", "da": "I77", "capex": "I78", "working_capital_change": "I79", "other_cash_flow": "I80", "round_ids": []},
+            {"ebit": "I91", "cash_tax": "I84", "da": "I85", "capex": "I86", "working_capital_change": "I87", "other_cash_flow": "I88", "round_ids": []},
+            {"ebit": "I99", "cash_tax": "I92", "da": "I93", "capex": "I94", "working_capital_change": "I95", "other_cash_flow": "I96", "round_ids": []},
+            {"ebit": "I107", "cash_tax": "I100", "da": "I101", "capex": "I102", "working_capital_change": "I103", "other_cash_flow": "I104", "round_ids": []},
+            {"ebit": "I115", "cash_tax": "I108", "da": "I109", "capex": "I110", "working_capital_change": "I111", "other_cash_flow": "I112", "round_ids": []},
+            {"ebit": "I123", "cash_tax": "I116", "da": "I117", "capex": "I118", "working_capital_change": "I119", "other_cash_flow": "I120", "round_ids": ["RND2"]},
+            {"ebit": "I131", "cash_tax": "I124", "da": "I125", "capex": "I126", "working_capital_change": "I127", "other_cash_flow": "I128", "round_ids": []},
+            {"ebit": "I139", "cash_tax": "I132", "da": "I133", "capex": "I134", "working_capital_change": "I135", "other_cash_flow": "I136", "round_ids": []},
+            {"ebit": "I147", "cash_tax": "I140", "da": "I141", "capex": "I142", "working_capital_change": "I143", "other_cash_flow": "I144", "round_ids": []},
+            {"ebit": "I155", "cash_tax": "I148", "da": "I149", "capex": "I150", "working_capital_change": "I151", "other_cash_flow": "I152", "round_ids": []},
+            {"ebit": "I163", "cash_tax": "I156", "da": "I157", "capex": "I158", "working_capital_change": "I159", "other_cash_flow": "I160", "round_ids": []},
+            {"ebit": "I171", "cash_tax": "I164", "da": "I165", "capex": "I166", "working_capital_change": "I167", "other_cash_flow": "I168", "round_ids": []},
+            {"ebit": "I179", "cash_tax": "I172", "da": "I173", "capex": "I174", "working_capital_change": "I175", "other_cash_flow": "I176", "round_ids": []},
+            {"ebit": "I187", "cash_tax": "I180", "da": "I181", "capex": "I182", "working_capital_change": "I183", "other_cash_flow": "I184", "round_ids": []},
+            {"ebit": "I195", "cash_tax": "I188", "da": "I189", "capex": "I190", "working_capital_change": "I191", "other_cash_flow": "I192", "round_ids": []},
+            {"ebit": "I203", "cash_tax": "I196", "da": "I197", "capex": "I198", "working_capital_change": "I199", "other_cash_flow": "I200", "round_ids": []},
+            {"ebit": "I211", "cash_tax": "I204", "da": "I205", "capex": "I206", "working_capital_change": "I207", "other_cash_flow": "I208", "round_ids": []}
+          ]
+        }
+      }
+    },
+    "dcf": {
+      "status": "calculated",
+      "rationale": "Synthetic established subscriptions and steady-state reinvestment support perpetuity.",
+      "scenario": "base",
+      "eligibility_evidence_ids": [
+        "E1",
+        "E2"
+      ],
+      "wacc": {
+        "cost_of_equity": "I212",
+        "pretax_cost_of_debt": "I213",
+        "debt_weight": "I214",
+        "tax_rate": "I215"
+      },
+      "terminal_growth": "I216",
+      "bridge": {
+        "excess_cash": "I217",
+        "debt": "I218",
+        "other_adjustments": "I219"
+      },
+      "sensitivity": {
+        "wacc": [
+          "I220",
+          "I221"
+        ],
+        "terminal_growth": [
+          "I222",
+          "I223"
+        ]
+      }
+    }
+  }
+}

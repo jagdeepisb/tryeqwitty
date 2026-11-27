@@ -1,12 +1,27 @@
-"""Public v1.1 analytical contract; deterministic checks are not factual verification."""
+"""Validate the open analysis bundle and calculate the v1.2 financial model."""
 import argparse
 from decimal import Decimal, localcontext
 import json
 from pathlib import Path
 from urllib.parse import urlsplit
 from jsonschema import Draft202012Validator, FormatChecker
+from referencing import Registry, Resource
+
+from contract import indexed, number, refs, require
+from finance_context import COMPONENTS, FinanceContext, decimal_text
+from finance_metrics import LEGACY_METRIC_UNITS, MODEL_METRICS, check_legacy, new_metric
+from finance_model import calculate
+
 ROOT=Path(__file__).resolve().parents[1]
-SCHEMA=json.loads((ROOT/"schemas/analysis-bundle.json").read_text())
+SCHEMA=json.loads((ROOT/"schemas/analysis-bundle.json").read_text(encoding="utf-8"))
+SCHEMA_V12=json.loads((ROOT/"schemas/analysis-bundle-v1.2.json").read_text(encoding="utf-8"))
+REGISTRY=Registry().with_resources([
+    ("analysis-bundle.json", Resource.from_contents(SCHEMA)),
+    ("financial-model-v1.2.json", Resource.from_contents(
+        json.loads((ROOT/"schemas/financial-model-v1.2.json").read_text(encoding="utf-8"))
+    )),
+])
+SCHEMAS={"1.1": SCHEMA, "1.2": SCHEMA_V12}
 LIB=json.loads((ROOT/"factor-library/factors.json").read_text())
 D=Decimal
 # name -> (operand names and units, operation, denominator checks)
@@ -33,21 +48,6 @@ FORMULAS={
  "ev_to_equity":({"ev":"money","debt":"money","cash":"money"},lambda x:x["ev"]-x["debt"]+x["cash"],())
 }
 VALUATIONS={"ev_revenue":"enterprise","ev_ebitda":"enterprise","net_assets":"equity","ev_to_equity":"equity"}
-
-def require(ok,msg):
-    if not ok: raise ValueError(msg)
-
-def indexed(rows,label):
-    result={r["id"]:r for r in rows}
-    require(len(result)==len(rows),f"Duplicate {label} IDs")
-    return result
-
-def refs(values,table,label):
-    require(set(values)<=set(table),f"Unknown reference in {label}")
-
-def number(s):
-    require(len(s)<=80,"Decimal too long")
-    return D(s)
 
 def compute(formula, operands, inputs, basis, rationale):
     require(formula in FORMULAS,"Unsupported formula")
@@ -77,8 +77,60 @@ def compute(formula, operands, inputs, basis, rationale):
         ctx.prec=40
         return fn(x)
 
+def verify_financial_rows(b, inputs, finance=None):
+    advanced = {"metrics": {}, "valuations": {}}
+    for key, field in (("metrics", "formula"), ("valuations", "method")):
+        for row in b[key]:
+            row_id = row["id"]
+            method = row[field]
+            valuation = key == "valuations"
+            is_new_metric = not valuation and finance is not None and method in MODEL_METRICS
+            if not valuation:
+                require(is_new_metric or method in FORMULAS and method not in VALUATIONS, "Unknown metric formula")
+            if valuation and row["status"] == "calculated":
+                require(VALUATIONS.get(method) == row["value_basis"], "Wrong or unsupported valuation basis")
+            operand_ids = row["operands"].values()
+            refs(operand_ids, inputs, "result operand")
+            if row["status"] == "unavailable":
+                require(row["value"] is None, "Unavailable result must be null")
+                if finance is not None:
+                    refs(row["gap_ids"], finance.gaps, f"{row_id} missing information")
+                    reason = row["rationale" if valuation else "reason"]
+                    require(bool(reason.strip()), f"{row_id}: reason required")
+                    advanced[key][row_id] = {
+                        field: method, "formula_version": "1.2", "status": "unavailable", "value": None,
+                        "reason": reason, "gap_ids": row["gap_ids"], **finance.trace(operand_ids),
+                    }
+                continue
+            require(row["value"] is not None, "Calculated result missing")
+            basis = "scenario" if valuation else row["basis"]
+            if finance is not None:
+                finance.use(row_id)
+                if not is_new_metric:
+                    check_legacy(finance, row, method, FORMULAS[method][0], valuation=valuation)
+            if is_new_metric:
+                expected, unit = new_metric(finance, row)
+            else:
+                expected = compute(method, row["operands"], inputs, basis, row.get("reason", row.get("rationale")))
+                unit = "money" if valuation else LEGACY_METRIC_UNITS[method]
+            actual = number(row["value"])
+            tolerance = max(D("0.00000001"), abs(expected) * D("0.000000000001"))
+            if finance is not None:
+                require((actual > 0) == (expected > 0) and (actual < 0) == (expected < 0),
+                        "Calculation mismatch " + row_id)
+            require(abs(actual - expected) <= tolerance, "Calculation mismatch " + row_id)
+            if finance is not None:
+                advanced[key][row_id] = {
+                    field: method, "formula_version": "1.2", "status": "calculated", "basis": basis, "unit": unit,
+                    "value": decimal_text(expected), **finance.trace(operand_ids),
+                }
+    return advanced
+
+
 def validate(b):
-    Draft202012Validator(SCHEMA,format_checker=FormatChecker()).validate(b)
+    version = b.get("version") if isinstance(b, dict) else None
+    require(isinstance(version, str) and version in SCHEMAS, "Unsupported analytical bundle version")
+    Draft202012Validator(SCHEMAS[version], registry=REGISTRY, format_checker=FormatChecker()).validate(b)
     for key in ("evidence","claims","factors","research","inputs","metrics","valuations","challenges","gaps"):
         indexed(b[key],key)
     E=indexed(b["evidence"],"evidence"); C=indexed(b["claims"],"claims"); F=indexed(b["factors"],"factors")
@@ -124,21 +176,11 @@ def validate(b):
         require(bool(i["currency"])==i["unit"].startswith("money"),"Currency/unit mismatch")
         if i["basis"]=="observed": require(bool(i["evidence_ids"]),"Observed input lacks evidence")
         number(i["value"])
-    def verify_result(x,formula,basis):
-        refs(x["operands"].values(),I,"result operand")
-        if x["status"]=="unavailable": require(x["value"] is None,"Unavailable result must be null"); return
-        require(x["value"] is not None,"Calculated result missing")
-        expected=compute(formula,x["operands"],I,basis,x.get("reason",x.get("rationale","")))
-        with localcontext() as ctx:
-            ctx.prec=40
-            actual=number(x["value"])
-            require(abs(actual-expected)<=max(D("0.00000001"),abs(expected)*D("0.000000000001")),"Calculation mismatch "+x["id"])
-    for m in b["metrics"]:
-        require(m["formula"] in FORMULAS and m["formula"] not in VALUATIONS,"Unknown metric formula")
-        verify_result(m,m["formula"],m["basis"])
-    for v in b["valuations"]:
-        if v["status"]=="calculated": require(VALUATIONS.get(v["method"])==v["value_basis"],"Wrong or unsupported valuation basis")
-        verify_result(v,v["method"],"scenario")
+    finance = FinanceContext(b, I, E, C, G) if version == "1.2" else None
+    with localcontext() as ctx:
+        ctx.prec = 90 if finance is not None else 40
+        financial_rows = verify_financial_rows(b, I, finance)
+        models = calculate(finance) if finance is not None else {}
     for method in VALUATIONS:
         vals=[v for v in b["valuations"] if v["method"]==method and v["status"]=="calculated" and v["scenario"]!="standalone"]
         if vals:
@@ -146,6 +188,9 @@ def validate(b):
             require(len(vals)==3 and set(by)=={"low","base","high"} and by["low"]<=by["base"]<=by["high"],"Incomplete or inverted valuation range")
     unresolved=False
     all_ids=set(E)|set(C)|set(F)|set(I)|set(G)|{x["id"] for k in ("metrics","valuations","research") for x in b[k]}
+    if finance is not None:
+        all_ids.update(key for key in COMPONENTS if key in models)
+        all_ids.update(term["id"] for term in b["financial_model"].get("cap_table", {}).get("rounds", []))
     require(not (set(C)&set(F)), "Claim and factor identities overlap")
     for g in G.values(): refs(g["affected_factor_ids"],F,"gap factor")
     for q in b["challenges"]:
@@ -160,7 +205,10 @@ def validate(b):
     if unresolved or critical_unknown or any(s["status"] in ("fail","unknown") for s in b["safeguards"]):
         require(b["decision"]["status"]=="qualified" and bool(G),"Material unresolved issue requires qualified decision and gaps")
     assessed=sum(f["status"] in ("supported","partial","contradicted") for f in applicable)
-    return {"applicable":len(applicable),"assessed":assessed,"fully_supported":sum(f["status"]=="supported" for f in applicable),"unknown":sum(f["status"]=="unknown" for f in applicable),"critical_unresolved":critical_unknown,"decision_status":b["decision"]["status"]}
+    result = {"applicable":len(applicable),"assessed":assessed,"fully_supported":sum(f["status"]=="supported" for f in applicable),"unknown":sum(f["status"]=="unknown" for f in applicable),"critical_unresolved":critical_unknown,"decision_status":b["decision"]["status"]}
+    if finance is not None:
+        result["financial_model"] = {**models, **financial_rows}
+    return result
 
 def main():
     p=argparse.ArgumentParser(description=__doc__);p.add_argument("bundle",type=Path);a=p.parse_args()

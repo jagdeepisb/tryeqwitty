@@ -5,3 +5,12 @@ Conflicting revenue: synthetic deck claims 100,000 versus independent fixture 80
 
 
 Use [acceptance-rubric.md](acceptance-rubric.md) for future independent cross-agent adjudication. The known-answer formula test covers all implemented calculator IDs. These tests establish deterministic arithmetic on synthetic operands only; no factual benchmark performance is claimed.
+
+## v1.2 deterministic fixtures
+
+| Fixture | Known answers |
+|---|---|
+| [Linked financial model](financial-model-v1.2.json) | First round price: USD 2; proceeds: USD 50; shares: 100 before the round, 150 after. Second round price: USD 3; total shares: 170 after. Downside capital gap: USD 300; runway: 4 completed months. In the base case the first round reduces the capital gap from USD 60 to USD 10 and increases runway from 12 to 22 months. Upside runway is at least 24 months. Base annual FCFF: USD 120 in each year. WACC: 10%; terminal growth: 2%; terminal value: USD 1,530; EV: USD 1,472.73; equity value: USD 1,442.73, rounded to cents. |
+| [Sparse manufacturing](financial-sparse-v1.2.json) | No input qualifies for a numerical cash, dilution or valuation result. Model components, runway and the multiple-based valuation emit null and reference their missing information. |
+
+The unit tests verify all nine DCF sensitivity cells and all new scalar formulas independently. Adversarial mutations cover unsupported stages and business models, unresolved sources, wrong units and cutoff dates, incompatible terms and financing paths, null handling and the existing report renderer.
