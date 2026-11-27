@@ -38,6 +38,9 @@ def source_commit(supplied=None):
         checkout = run(["git", "-C", str(ROOT), "rev-parse", "HEAD"], check=True,
                        capture_output=True, text=True).stdout.strip()
         require(supplied is None or supplied == checkout, "Source commit does not match this checkout")
+        dirty = run(["git", "-C", str(ROOT), "status", "--porcelain", "--untracked-files=no"],
+                    check=True, capture_output=True, text=True).stdout
+        require(not dirty, "Source checkout has uncommitted tracked changes")
         return checkout
     require(supplied is not None, "Supply --commit for a verified release source archive")
     return supplied

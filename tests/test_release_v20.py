@@ -6,13 +6,15 @@ from pathlib import Path
 import sys
 from tempfile import TemporaryDirectory
 import unittest
+from unittest.mock import patch
+from subprocess import CompletedProcess
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "release"))
 sys.path.insert(0, str(ROOT / "analysis-kit"))
 
 from certify import check_pilot, json_bytes
-from conformance import PROFILE, check, json_document
+from conformance import PROFILE, check, json_document, source_commit
 from to_report import convert
 
 COMMIT = "1" * 40
@@ -53,6 +55,31 @@ class ConformanceTests(unittest.TestCase):
         self.report_path.write_bytes(json_bytes(self.report))
         with self.assertRaisesRegex(ValueError, r"validated bundle at .+bundle_sha256"):
             check(self.bundle_path, self.report_path, COMMIT)
+
+
+class SourceCommitTests(unittest.TestCase):
+    def test_dirty_checkout_cannot_claim_committed_provenance(self):
+        with TemporaryDirectory() as d:
+            root = Path(d)
+            (root / ".git").mkdir()
+            with patch("conformance.ROOT", root), patch("conformance.run") as git:
+                git.side_effect = [
+                    CompletedProcess([], 0, stdout=COMMIT + "\n"),
+                    CompletedProcess([], 0, stdout=" M analysis-kit/validate.py\n"),
+                ]
+                with self.assertRaisesRegex(ValueError, "uncommitted tracked changes"):
+                    source_commit(COMMIT)
+
+    def test_clean_checkout_accepts_matching_commit(self):
+        with TemporaryDirectory() as d:
+            root = Path(d)
+            (root / ".git").mkdir()
+            with patch("conformance.ROOT", root), patch("conformance.run") as git:
+                git.side_effect = [
+                    CompletedProcess([], 0, stdout=COMMIT + "\n"),
+                    CompletedProcess([], 0, stdout=""),
+                ]
+                self.assertEqual(source_commit(COMMIT), COMMIT)
 
 
 class AcceptanceTests(unittest.TestCase):

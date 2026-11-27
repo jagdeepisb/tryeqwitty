@@ -3,6 +3,8 @@ import importlib.util
 import json
 import pathlib
 import tempfile
+import subprocess
+import sys
 import unittest
 ROOT=pathlib.Path(__file__).resolve().parents[1]/"report-kit"
 spec=importlib.util.spec_from_file_location("render",ROOT/"render.py")
@@ -34,6 +36,18 @@ class ReportTests(unittest.TestCase):
             p=pathlib.Path(d)/"missing.csv"
             render.write_missing(self.data,p)
             self.assertIn("'=1+1",p.read_text())
+    def test_html_only_refuses_stale_pdf(self):
+        with tempfile.TemporaryDirectory() as d:
+            output = pathlib.Path(d)
+            stale = output / "assessment.pdf"
+            stale.write_bytes(b"old pdf")
+            run = subprocess.run([sys.executable, str(ROOT / "render.py"),
+                                  str(ROOT / "example.json"), "--out", str(output), "--html-only"],
+                                 capture_output=True, text=True)
+            self.assertNotEqual(run.returncode, 0)
+            self.assertIn("use a fresh output directory", run.stderr)
+            self.assertEqual(stale.read_bytes(), b"old pdf")
+            self.assertFalse((output / "assessment.html").exists())
     def test_invalid_url(self):
         self.data["sources"]=[{"id":"S1","title":"Test","locator":"Test","url":"javascript:alert(1)","type":"independent public source"}]
         with self.assertRaises(ValueError): render.validate(self.data)
