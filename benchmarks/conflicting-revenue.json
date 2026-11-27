@@ -1,0 +1,517 @@
+{
+  "version": "1.1",
+  "standard_commit": "0000000000000000000000000000000000000000",
+  "as_of": "2026-11-27",
+  "profile": {
+    "company": "Fictional conflicting revenue and valuation benchmark",
+    "legal_entity": "Synthetic entity",
+    "jurisdiction": "Not established",
+    "objective": "Test contradictory reported revenue and scenario valuation",
+    "stage": "early_revenue",
+    "models": [
+      "saas"
+    ],
+    "model_rationale": "Synthetic test model; not a real company.",
+    "scope": "Synthetic fixture only."
+  },
+  "documents": [
+    {
+      "name": "Synthetic financial table",
+      "version": "1",
+      "reviewed": "One synthetic row",
+      "limitations": "Unverified company statement"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E1",
+      "title": "Synthetic financial table",
+      "publisher": "Fictional company",
+      "locator": "Row 1",
+      "url": null,
+      "accessed": "2026-11-27",
+      "origin": "fixture",
+      "type": "company_material",
+      "grade": "C",
+      "extract": "Revenue 100000, COGS 40000, cash 60000, monthly burn 10000 (fictional)."
+    },
+    {
+      "id": "E2",
+      "title": "Synthetic independently audited sales record",
+      "publisher": "Fictional independent auditor",
+      "locator": "Synthetic statement row 1",
+      "url": null,
+      "accessed": "2026-11-27",
+      "origin": "independent-fictional-fixture",
+      "type": "authoritative_record",
+      "grade": "A",
+      "extract": "Fictional recognised revenue 80000, rather than 100000."
+    }
+  ],
+  "claims": [
+    {
+      "id": "C1",
+      "statement": "Synthetic revenue of 100000",
+      "kind": "historical",
+      "status": "disputed",
+      "support": [
+        "E1"
+      ],
+      "oppose": [
+        "E2"
+      ],
+      "rationale": "Synthetic deck revenue conflicts with audited record; independent record preferred for scenario only pending reconciliation."
+    }
+  ],
+  "thesis": {
+    "management": "Fictional growth thesis",
+    "independent": "Insufficient independent evidence to support the thesis.",
+    "independent_evidence": [
+      "E2"
+    ],
+    "falsifiers": [
+      "Verified cash shortfall or inability to sustain gross margin"
+    ],
+    "divergences": [
+      {
+        "claim_ids": [
+          "C1"
+        ],
+        "finding": "Reported revenue differs from independently recorded revenue by 20000.",
+        "impact": "Use a qualified scenario, not a verified final valuation."
+      }
+    ]
+  },
+  "safeguards": [
+    {
+      "check": "Legal identity",
+      "status": "unknown",
+      "evidence_ids": [],
+      "rationale": "Synthetic data only"
+    }
+  ],
+  "factors": [
+    {
+      "id": "C01",
+      "question": "Resolve legal identity, jurisdiction, ownership and instruments; distinguish operating entity from brand.",
+      "priority": "Medium",
+      "status": "unknown",
+      "support": [],
+      "oppose": [],
+      "confidence": "unknown",
+      "finding": "No evidence in fixture.",
+      "impact": "Insufficient evidence for decision.",
+      "next_test": "Request source evidence."
+    },
+    {
+      "id": "C02",
+      "question": "Test urgency, alternatives, willingness to pay and demonstrated adoption.",
+      "priority": "Medium",
+      "status": "unknown",
+      "support": [],
+      "oppose": [],
+      "confidence": "unknown",
+      "finding": "No evidence in fixture.",
+      "impact": "Insufficient evidence for decision.",
+      "next_test": "Request source evidence."
+    },
+    {
+      "id": "C03",
+      "question": "Assess current readiness, delivery evidence, differentiation and critical dependencies.",
+      "priority": "Medium",
+      "status": "unknown",
+      "support": [],
+      "oppose": [],
+      "confidence": "unknown",
+      "finding": "No evidence in fixture.",
+      "impact": "Insufficient evidence for decision.",
+      "next_test": "Request source evidence."
+    },
+    {
+      "id": "C04",
+      "question": "Verify relevant track record, responsibilities, key-person dependency, conflicts and governance.",
+      "priority": "Medium",
+      "status": "unknown",
+      "support": [],
+      "oppose": [],
+      "confidence": "unknown",
+      "finding": "No evidence in fixture.",
+      "impact": "Insufficient evidence for decision.",
+      "next_test": "Request source evidence."
+    },
+    {
+      "id": "C05",
+      "question": "Test reachable market, competitors, substitutes, channels and pricing; distinguish top-down TAM from addressable sales.",
+      "priority": "Medium",
+      "status": "unknown",
+      "support": [],
+      "oppose": [],
+      "confidence": "unknown",
+      "finding": "No evidence in fixture.",
+      "impact": "Insufficient evidence for decision.",
+      "next_test": "Request source evidence."
+    },
+    {
+      "id": "C06",
+      "question": "Reconcile actual revenue and cost structure, monetisation, contribution and repeatability.",
+      "priority": "Critical",
+      "status": "contradicted",
+      "support": [
+        "E1"
+      ],
+      "oppose": [
+        "E2"
+      ],
+      "confidence": "high",
+      "finding": "Synthetic sources disagree on revenue recognition.",
+      "impact": "Insufficient evidence for decision.",
+      "next_test": "Request source evidence."
+    },
+    {
+      "id": "C07",
+      "question": "Test cash availability, financing, burn, debt, working capital, runway and future funding needs.",
+      "priority": "Critical",
+      "status": "unknown",
+      "support": [],
+      "oppose": [],
+      "confidence": "unknown",
+      "finding": "No evidence in fixture.",
+      "impact": "Insufficient evidence for decision.",
+      "next_test": "Request source evidence."
+    },
+    {
+      "id": "C08",
+      "question": "Test durability of differentiation, switching costs, IP rights, scale effects and replication risks.",
+      "priority": "Medium",
+      "status": "unknown",
+      "support": [],
+      "oppose": [],
+      "confidence": "unknown",
+      "finding": "No evidence in fixture.",
+      "impact": "Insufficient evidence for decision.",
+      "next_test": "Request source evidence."
+    },
+    {
+      "id": "C09",
+      "question": "Identify material licensing, compliance, operational, security and concentration dependencies.",
+      "priority": "Medium",
+      "status": "unknown",
+      "support": [],
+      "oppose": [],
+      "confidence": "unknown",
+      "finding": "No evidence in fixture.",
+      "impact": "Insufficient evidence for decision.",
+      "next_test": "Request source evidence."
+    },
+    {
+      "id": "C10",
+      "question": "Identify evidence that would invalidate the thesis; determine valuation eligibility and key drivers.",
+      "priority": "Medium",
+      "status": "unknown",
+      "support": [],
+      "oppose": [],
+      "confidence": "unknown",
+      "finding": "No evidence in fixture.",
+      "impact": "Insufficient evidence for decision.",
+      "next_test": "Request source evidence."
+    },
+    {
+      "id": "SA01",
+      "question": "Contracted recurring revenue versus bookings and one-off services; ARR bridge.",
+      "priority": "Medium",
+      "status": "unknown",
+      "support": [],
+      "oppose": [],
+      "confidence": "unknown",
+      "finding": "No evidence in fixture.",
+      "impact": "Insufficient evidence for decision.",
+      "next_test": "Request source evidence."
+    },
+    {
+      "id": "SA02",
+      "question": "Cohorts, GRR/NRR, churn, CAC and payback with consistent definitions.",
+      "priority": "Medium",
+      "status": "unknown",
+      "support": [],
+      "oppose": [],
+      "confidence": "unknown",
+      "finding": "No evidence in fixture.",
+      "impact": "Insufficient evidence for decision.",
+      "next_test": "Request source evidence."
+    },
+    {
+      "id": "SA03",
+      "question": "Hosting and service costs, contribution, support and enterprise sales cycle.",
+      "priority": "Medium",
+      "status": "unknown",
+      "support": [],
+      "oppose": [],
+      "confidence": "unknown",
+      "finding": "No evidence in fixture.",
+      "impact": "Insufficient evidence for decision.",
+      "next_test": "Request source evidence."
+    }
+  ],
+  "research": [
+    {
+      "id": "R1",
+      "factor_ids": [
+        "C01",
+        "C02",
+        "C03",
+        "C04",
+        "C05",
+        "C06",
+        "C07",
+        "C08",
+        "C09",
+        "C10",
+        "SA01",
+        "SA02",
+        "SA03"
+      ],
+      "status": "blocked",
+      "queries": [],
+      "evidence_ids": [],
+      "reason": "Synthetic fixture; no live research performed."
+    }
+  ],
+  "inputs": [
+    {
+      "id": "I1",
+      "label": "Revenue",
+      "value": "100000",
+      "unit": "money",
+      "currency": "USD",
+      "entity": "Synthetic entity",
+      "period": "FY2026 synthetic",
+      "basis": "observed",
+      "evidence_ids": [
+        "E1"
+      ],
+      "rationale": "Fictional reported input"
+    },
+    {
+      "id": "I2",
+      "label": "COGS",
+      "value": "40000",
+      "unit": "money",
+      "currency": "USD",
+      "entity": "Synthetic entity",
+      "period": "FY2026 synthetic",
+      "basis": "observed",
+      "evidence_ids": [
+        "E1"
+      ],
+      "rationale": "Fictional reported input"
+    },
+    {
+      "id": "I3",
+      "label": "Cash",
+      "value": "60000",
+      "unit": "money",
+      "currency": "USD",
+      "entity": "Synthetic entity",
+      "period": "FY2026 synthetic",
+      "basis": "observed",
+      "evidence_ids": [
+        "E1"
+      ],
+      "rationale": "Fictional reported input"
+    },
+    {
+      "id": "I4",
+      "label": "Monthly burn",
+      "value": "10000",
+      "unit": "money_per_month",
+      "currency": "USD",
+      "entity": "Synthetic entity",
+      "period": "FY2026 synthetic",
+      "basis": "observed",
+      "evidence_ids": [
+        "E1"
+      ],
+      "rationale": "Fictional reported input"
+    },
+    {
+      "id": "I5",
+      "label": "Synthetic scenario revenue",
+      "value": "80000",
+      "unit": "money",
+      "currency": "USD",
+      "entity": "Synthetic entity",
+      "period": "FY2026 synthetic",
+      "basis": "assumption",
+      "evidence_ids": [
+        "E2"
+      ],
+      "rationale": "Scenario input conditional on reconciliation"
+    },
+    {
+      "id": "I6",
+      "label": "Fictional low revenue multiple",
+      "value": "2",
+      "unit": "ratio",
+      "currency": null,
+      "entity": "Synthetic entity",
+      "period": "FY2026 synthetic",
+      "basis": "assumption",
+      "evidence_ids": [],
+      "rationale": "Arbitrary synthetic assumption solely to test arithmetic; not market evidence"
+    },
+    {
+      "id": "I7",
+      "label": "Fictional base revenue multiple",
+      "value": "3",
+      "unit": "ratio",
+      "currency": null,
+      "entity": "Synthetic entity",
+      "period": "FY2026 synthetic",
+      "basis": "assumption",
+      "evidence_ids": [],
+      "rationale": "Arbitrary synthetic assumption solely to test arithmetic; not market evidence"
+    },
+    {
+      "id": "I8",
+      "label": "Fictional high revenue multiple",
+      "value": "4",
+      "unit": "ratio",
+      "currency": null,
+      "entity": "Synthetic entity",
+      "period": "FY2026 synthetic",
+      "basis": "assumption",
+      "evidence_ids": [],
+      "rationale": "Arbitrary synthetic assumption solely to test arithmetic; not market evidence"
+    }
+  ],
+  "metrics": [
+    {
+      "id": "M1",
+      "formula": "gross_margin",
+      "operands": {},
+      "basis": "observed",
+      "status": "unavailable",
+      "value": null,
+      "reason": "Conflicting revenue definitions; cost linkage not reconciled."
+    },
+    {
+      "id": "M2",
+      "formula": "runway",
+      "operands": {
+        "cash": "I3",
+        "monthly_burn": "I4"
+      },
+      "basis": "observed",
+      "status": "calculated",
+      "value": "6",
+      "reason": "Synthetic positive monthly burn."
+    }
+  ],
+  "valuations": [
+    {
+      "id": "V1",
+      "method": "ev_revenue",
+      "value_basis": "enterprise",
+      "status": "calculated",
+      "operands": {
+        "revenue": "I5",
+        "multiple": "I6"
+      },
+      "value": "160000",
+      "rationale": "Synthetic conditional scenario arithmetic only; not a market valuation.",
+      "scenario": "low"
+    },
+    {
+      "id": "V2",
+      "method": "ev_revenue",
+      "value_basis": "enterprise",
+      "status": "calculated",
+      "operands": {
+        "revenue": "I5",
+        "multiple": "I7"
+      },
+      "value": "240000",
+      "rationale": "Synthetic conditional scenario arithmetic only; not a market valuation.",
+      "scenario": "base"
+    },
+    {
+      "id": "V3",
+      "method": "ev_revenue",
+      "value_basis": "enterprise",
+      "status": "calculated",
+      "operands": {
+        "revenue": "I5",
+        "multiple": "I8"
+      },
+      "value": "320000",
+      "rationale": "Synthetic conditional scenario arithmetic only; not a market valuation.",
+      "scenario": "high"
+    }
+  ],
+  "challenges": [
+    {
+      "id": "Q1",
+      "severity": "Critical",
+      "status": "unresolved",
+      "finding": "No independent verification of cash or commercial thesis.",
+      "affected": [
+        "C07"
+      ],
+      "correction": "Request evidence; qualify output.",
+      "gap_ids": [
+        "G1"
+      ]
+    },
+    {
+      "id": "Q2",
+      "severity": "Critical",
+      "status": "unresolved",
+      "finding": "Revenue mismatch",
+      "affected": [
+        "C1",
+        "C06"
+      ],
+      "correction": "Preserve both sources and qualify scenario outputs",
+      "gap_ids": [
+        "G2"
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "id": "G1",
+      "priority": "Critical",
+      "item": "Cash statement and financial model",
+      "period": "Current month and full horizon",
+      "why": "Cash and runway are not independently verified.",
+      "conclusion": "Capital needs and viability.",
+      "action": "Reconcile cash and recompute runway.",
+      "availability": "Private",
+      "affected_factor_ids": [
+        "C07"
+      ]
+    },
+    {
+      "id": "G2",
+      "priority": "Critical",
+      "item": "Revenue reconciliation",
+      "period": "FY2026 synthetic",
+      "why": "Two conflicting source figures",
+      "conclusion": "Revenue quality and indicative enterprise value",
+      "action": "Reconcile accounting definitions and rerun multiples",
+      "availability": "Private",
+      "affected_factor_ids": [
+        "C06"
+      ]
+    }
+  ],
+  "decision": {
+    "conclusion": "No reliable decision can be made from synthetic evidence.",
+    "limitations": "Not a real evaluation; no actual research.",
+    "status": "qualified",
+    "strengths": [],
+    "risks": [
+      "Evidence unavailable"
+    ]
+  }
+}

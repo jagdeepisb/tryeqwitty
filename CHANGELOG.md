@@ -1,0 +1,3 @@
+# Changelog
+## 1.1 — proposed release
+Detailed execution gates, evidence rules, public model-specific factor library, financial/valuation guides, structured analysis bundle, deterministic checks, compatibility bridge, synthetic benchmarks, tests and CI. Original v1.0 report renderer remains supported. No hosted app scoring, live benchmark or exact report parity claim. Licensing remains to be explicitly selected by the maintainer.
