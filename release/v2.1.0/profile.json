@@ -1,0 +1,112 @@
+{
+  "standard": "Eqwitty Open Diligence Standard",
+  "release": "2.1.0",
+  "analysis_bundle_version": "1.4",
+  "financial_model_version": "1.2",
+  "report_version": "1.3",
+  "contracts": [
+    "AGENT.md",
+    "LICENSE",
+    "NOTICE.md",
+    "prompts/evaluate.md",
+    "evaluation-protocol.md",
+    "methodology/execution.md",
+    "methodology/evidence.md",
+    "methodology/research-playbooks.md",
+    "factor-library/factors.json",
+    "factor-library/research-playbooks-v1.4.json",
+    "financial-analysis/guide.md",
+    "valuation/guide.md",
+    "schemas/analysis-bundle.json",
+    "schemas/analysis-bundle-v1.2.json",
+    "schemas/analysis-bundle-v1.3.json",
+    "schemas/analysis-bundle-v1.4.json",
+    "schemas/financial-model-v1.2.json",
+    "report-spec.md",
+    "report-kit/schema.json",
+    "report-kit/schema-v1.3.json",
+    "report-kit/requirements.txt",
+    "release/COMPATIBILITY.md",
+    "release/v2.1.0/README.md",
+    "release/v2.1.0/PDF-REVIEW.md",
+    "release/v2.1.0/profile.json",
+    "release/v2.1.0/RELEASE-NOTES.md",
+    "report-kit/render.py",
+    "report-kit/report-v1.3.css",
+    "analysis-kit/conformance.py",
+    "release/certify.py",
+    "tests/test_structured_reporting.py",
+    "tests/test_financial_model_v12.py",
+    "tests/test_release_v20.py",
+    ".github/workflows/validate.yml",
+    ".github/workflows/stage-release.yml",
+    "benchmarks/acceptance-rubric.md"
+  ],
+  "benchmark": {
+    "path": "benchmarks/v1.5",
+    "fingerprint": "3ed3884576ff4c45bfe0e1e05e6bddbb1beb68e6f1bc264676459cb7a3915138",
+    "tracks": {
+      "fixed": {
+        "sessions": 3,
+        "case_responses": 18,
+        "answers": 111,
+        "contradictions": 15
+      },
+      "live": {
+        "sessions": 3,
+        "case_responses": 3,
+        "answers": 21,
+        "contradictions": 0
+      }
+    },
+    "minimum_percent": {
+      "factual_accuracy": 95,
+      "arithmetic_accuracy": 95,
+      "contradiction_recall": 90,
+      "answer_coverage": 95,
+      "citation_accuracy": 95,
+      "material_priorities": 90,
+      "decision_match": 90,
+      "decision_usefulness": 90,
+      "answer_agreement": 90,
+      "decision_agreement": 90,
+      "confidence_coverage": 95
+    },
+    "maximum_brier_mean": "0.10",
+    "reviewer_pairs": 84
+  },
+  "references": [
+    {
+      "id": "finance",
+      "bundle": "benchmarks/report-complete-v1.3.json",
+      "pdf_markers": [
+        "Harbour Ledger",
+        "Closing cash by scenario",
+        "Equity value sensitivity",
+        "1,472.73",
+        "1,442.73",
+        "Downside monthly cash"
+      ]
+    },
+    {
+      "id": "research",
+      "bundle": "benchmarks/research-early-saas-v1.4.json",
+      "pdf_markers": [
+        "Juniper Workflows",
+        "Actual research activity",
+        "Web research and outreach were unavailable",
+        "Red-team corrections"
+      ]
+    },
+    {
+      "id": "sparse",
+      "bundle": "benchmarks/research-pilot-manufacturing-v1.4.json",
+      "pdf_markers": [
+        "Cedar Components",
+        "Actual research activity",
+        "Unavailable",
+        "Monthly cash and runway"
+      ]
+    }
+  ]
+}

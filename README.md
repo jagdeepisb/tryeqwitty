@@ -68,7 +68,7 @@ Explore real, fictional-company example outputs from the existing report kit. Th
 
 The v1.5 benchmark includes sealed case packets, independent reference checks and a measured fixed-evidence and live-retrieval pilot. [Benchmark methodology](benchmarks/v1.5/README.md) · [Pilot results and limitations](benchmarks/v1.5/pilot-results.md).
 
-The v2.0.0 release publishes pinned contracts, a release manifest, checksums and reproducible reference reports. See the [release acceptance and limitations](release/v2.0.0/README.md) before interpreting the benchmark results.
+The [v2.1.0 release candidate](release/v2.1.0/README.md) adds mandatory editorial rules and clickable evidence throughout the report. Until publication, v2.0.0 remains the latest published standard. The v2.0.0 release publishes pinned contracts, a release manifest, checksums and reproducible reference reports. See the [release acceptance and limitations](release/v2.0.0/README.md) before interpreting the benchmark results.
 
 ## Execute a v1.4 research benchmark
 ```sh

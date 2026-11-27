@@ -107,5 +107,8 @@ tbody tr td.emphasis, tbody tr th.emphasis { background: var(--blue-tint); font-
   caption { display: none; }
   .print-caption { display: block; break-after: avoid; padding-bottom: 1mm; }
   .appendix { break-before: page; }
+  /* Compact source and information-request records without reducing type size. */
+  .record { margin-top: 1.8mm; margin-bottom: 2mm; }
+  .record p { margin-bottom: 0.8mm; }
   .keep-together, .record, .provenance { break-inside: avoid; }
 }

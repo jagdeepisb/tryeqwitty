@@ -1,13 +1,13 @@
-name: Stage the v2.0.0 release
+name: Stage the v2.1.0 release
 on:
   push:
     branches: [main]
-    paths: [release/v2.0.0/RELEASE-NOTES.md]
+    paths: [release/v2.1.0/RELEASE-NOTES.md]
   workflow_dispatch:
 permissions:
   contents: read
 concurrency:
-  group: eqwitty-v2.0.0-release
+  group: eqwitty-v2.1.0-release
   cancel-in-progress: false
 jobs:
   accept:
@@ -25,7 +25,7 @@ jobs:
           persist-credentials: false
       - uses: actions/download-artifact@v4
         with:
-          name: eqwitty-v2.0.0-release-evidence
+          name: eqwitty-v2.1.0-release-evidence
           path: ${{ runner.temp }}/eqwitty-release
       - name: Stage the verified assets for publication
         env:
@@ -35,16 +35,16 @@ jobs:
           set -euo pipefail
           test -s LICENSE
           test -s NOTICE.md
-          tag=v2.0.0
+          tag=v2.1.0
           assets="$RUNNER_TEMP/eqwitty-release"
           (cd "$assets" && sha256sum --check SHA256SUMS.txt)
           jq --exit-status --arg commit "$GITHUB_SHA" \
-            '.source_commit == $commit and .release == "2.0.0"' "$assets/release-manifest.json" >/dev/null
+            '.source_commit == $commit and .release == "2.1.0"' "$assets/release-manifest.json" >/dev/null
           if ! current=$(gh release view "$tag" --json targetCommitish,isDraft,assets 2>"$RUNNER_TEMP/release-view-error"); then
             cat "$RUNNER_TEMP/release-view-error"
             grep -qiE 'release not found|HTTP 404' "$RUNNER_TEMP/release-view-error"
             gh release create "$tag" --draft --target "$GITHUB_SHA" --title "Eqwitty Open Diligence Standard $tag" \
-              --notes-file release/v2.0.0/RELEASE-NOTES.md
+              --notes-file release/v2.1.0/RELEASE-NOTES.md
             current=$(gh release view "$tag" --json targetCommitish,isDraft,assets)
           fi
           jq --exit-status --arg commit "$GITHUB_SHA" '.targetCommitish == $commit' <<< "$current" >/dev/null

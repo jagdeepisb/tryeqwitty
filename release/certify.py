@@ -1,4 +1,4 @@
-"""Build or verify a v2.0 release evidence package from a pinned source revision."""
+"""Build or verify a v2.1 release evidence package from a pinned source revision."""
 
 import argparse
 from decimal import Decimal
