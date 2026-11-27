@@ -138,14 +138,13 @@ def reader_paragraphs(section):
     # Legacy bridge emits this exact provenance paragraph. The original JSON
     # still contains it; do not remove other limitations or research findings.
     for paragraph in section["paragraphs"]:
-        if re.fullmatch(r"Open standard v[^;]+; source commit [0-9a-f]{40}; bundle SHA-256 [0-9a-f]{64}", paragraph):
-            continue
-        yield paragraph
+        provenance = re.fullmatch(r"(Open standard v[^;]+); source commit [0-9a-f]{40}; bundle SHA-256 [0-9a-f]{64}", paragraph)
+        yield provenance.group(1) if provenance else paragraph
 
 
 CSS = """
 @page { size: A4; margin: 18mm 17mm 20mm;
-  @bottom-left { content: 'eqwitty. | Open methodology v1.0'; font: 8pt 'DM Sans'; color: #666666; }
+  @bottom-left { content: 'eqwitty. | Open methodology'; font: 8pt 'DM Sans'; color: #666666; }
   @bottom-right { content: counter(page) ' / ' counter(pages); font: 8pt 'Space Grotesk'; color: #666666; }
 }
 body { font: 10pt/1.5 'DM Sans'; color: #111111; background: #FFFFFF; overflow-wrap: anywhere; }
