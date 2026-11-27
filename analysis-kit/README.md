@@ -15,3 +15,5 @@ The validator emits coverage and, for v1.2 and later, a `financial_model` object
 A v1.3 or v1.4 bundle produces the structured report by default. Older bundles retain their v1.0 report format unless you pass `--report-version 1.3`. The v1.4 validation result adds `research_coverage` with selected factors, exact question priorities, actual attempts, budget use, originating sources and material unresolved issues. Evidence relevance and factual accuracy require reviewer judgement. [Research playbooks](../methodology/research-playbooks.md) · [Reference reports](../report-kit/README.md)
 
 Use `python analysis-kit/benchmark.py` to verify the v1.5 input seal and recompute the pilot from the original submissions and reviews. Use `--prepare fixed` or `--prepare live` to prepare a solver brief with the corresponding packet. [Benchmark methodology](../benchmarks/v1.5/README.md)
+
+For a v2.0 assessment, record the verified v2.0 source commit in the v1.4 bundle. Run `python analysis-kit/conformance.py analysis.json --report report.json` to validate the declared version, commit and report reconciliation. [Conformance levels](../release/v2.0.0/README.md#conformance)

@@ -107,12 +107,16 @@ def first_difference(actual, expected, path="$"):
     return path if actual != expected else None
 
 
-def verify_bundle(report, bundle_path):
-    bundle, digest = read_bundle(bundle_path)
+def verify_projection(report, bundle, digest):
     expected = convert(bundle, digest, report_version=report["version"])
     changed = first_difference(report, expected)
     if changed:
         raise ValueError(f"Report differs from the validated bundle at {changed}")
+
+
+def verify_bundle(report, bundle_path):
+    bundle, digest = read_bundle(bundle_path)
+    verify_projection(report, bundle, digest)
 
 
 def main():
