@@ -1,4 +1,4 @@
-"""Check an analytical bundle or reconciled report against the v2.0 release profile."""
+"""Check an analytical bundle or reconciled report against the v2.1 release profile."""
 
 import argparse
 from hashlib import sha256
@@ -15,7 +15,7 @@ from to_report import verify_projection
 from validate import validate
 
 ROOT = Path(__file__).resolve().parents[1]
-PROFILE = ROOT / "release/v2.0.0/profile.json"
+PROFILE = ROOT / "release/v2.1.0/profile.json"
 COMMIT = re.compile(r"[0-9a-f]{40}")
 
 
