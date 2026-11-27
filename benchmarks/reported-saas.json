@@ -370,7 +370,10 @@
       "why": "Cash and runway are not independently verified.",
       "conclusion": "Capital needs and viability.",
       "action": "Reconcile cash and recompute runway.",
-      "availability": "Private"
+      "availability": "Private",
+      "affected_factor_ids": [
+        "C07"
+      ]
     }
   ],
   "decision": {

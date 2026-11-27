@@ -217,7 +217,7 @@
         "properties": {
           "id": {
             "type": "string",
-            "pattern": "^C[0-9]+$"
+            "pattern": "^C[1-9][0-9]*$"
           },
           "statement": {
             "type": "string",
@@ -330,7 +330,7 @@
                 "type": "array",
                 "items": {
                   "type": "string",
-                  "pattern": "^C[0-9]+$"
+                  "pattern": "^C[1-9][0-9]*$"
                 },
                 "minItems": 0,
                 "maxItems": 300,
@@ -915,6 +915,15 @@
               "Public",
               "Either"
             ]
+          },
+          "affected_factor_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[A-Z][A-Z0-9_]*[0-9]+$"
+            },
+            "uniqueItems": true,
+            "maxItems": 300
           }
         },
         "required": [
@@ -925,7 +934,8 @@
           "why",
           "conclusion",
           "action",
-          "availability"
+          "availability",
+          "affected_factor_ids"
         ]
       },
       "minItems": 0,

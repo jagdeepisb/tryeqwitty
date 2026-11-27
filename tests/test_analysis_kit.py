@@ -65,4 +65,23 @@ class ContractTests(unittest.TestCase):
     def test_conflicting_evidence(self):
         self.full["claims"][0]["oppose"]=["E1"]
         with self.assertRaises(ValueError):validate(self.full)
+    def test_critical_gap_link(self):
+        self.full["gaps"][0]["affected_factor_ids"]=[]
+        with self.assertRaises(ValueError):validate(self.full)
+    def test_contradictory_case_and_range(self):
+        b=json.loads((ROOT/"benchmarks/conflicting-revenue.json").read_text())
+        self.assertIn("C06",validate(b)["critical_unresolved"])
+        self.assertEqual([v["value"] for v in b["valuations"]],["160000","240000","320000"])
+    def test_incomplete_valuation_range(self):
+        b=json.loads((ROOT/"benchmarks/conflicting-revenue.json").read_text())
+        b["valuations"].pop()
+        with self.assertRaises(ValueError):validate(b)
+    def test_inverted_valuation_range(self):
+        b=json.loads((ROOT/"benchmarks/conflicting-revenue.json").read_text())
+        b["valuations"][0]["scenario"]="high"
+        b["valuations"][2]["scenario"]="low"
+        with self.assertRaises(ValueError):validate(b)
+    def test_unknown_safeguard_cannot_pass(self):
+        self.full["safeguards"][0]["status"]="pass"
+        with self.assertRaises(ValueError):validate(self.full)
 if __name__=="__main__":unittest.main()

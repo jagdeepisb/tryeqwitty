@@ -69,8 +69,10 @@ def compute(formula, operands, inputs, basis, rationale):
         require(all(v>=0 for v in x.values()) and x["contraction"]+x["churn"]<=x["opening"],"Invalid retention inputs")
     if formula in ("utilisation","take_rate"):
         require(all(v>=0 for v in x.values()),"Negative numerator")
+    if formula=="utilisation": require(x["used"]<=x["available"],"Used capacity exceeds declared available capacity; reconcile definitions")
     if formula=="runway": require(x["cash"]>=0,"Negative unrestricted cash")
     if formula in ("cac","cac_payback"): require(all(v>=0 for v in x.values()),"Negative acquisition cost")
+    if formula=="cac": require(x["customers"]==x["customers"].to_integral_value(),"Customer count must be integral")
     with localcontext() as ctx:
         ctx.prec=40
         return fn(x)
@@ -144,6 +146,8 @@ def validate(b):
             require(len(vals)==3 and set(by)=={"low","base","high"} and by["low"]<=by["base"]<=by["high"],"Incomplete or inverted valuation range")
     unresolved=False
     all_ids=set(E)|set(C)|set(F)|set(I)|set(G)|{x["id"] for k in ("metrics","valuations","research") for x in b[k]}
+    require(not (set(C)&set(F)), "Claim and factor identities overlap")
+    for g in G.values(): refs(g["affected_factor_ids"],F,"gap factor")
     for q in b["challenges"]:
         refs(q["affected"],all_ids,"challenge affected"); refs(q["gap_ids"],G,"challenge gap")
         if q["status"]=="unresolved":
@@ -151,7 +155,9 @@ def validate(b):
             unresolved |= q["severity"]=="Critical"
     applicable=[f for f in F.values() if f["status"]!="not_applicable"]
     critical_unknown=[f["id"] for f in applicable if f["priority"]=="Critical" and f["status"] in ("unknown","partial","contradicted")]
-    if unresolved or critical_unknown or any(s["status"]=="fail" for s in b["safeguards"]):
+    covered_gaps={k for g in G.values() for k in g["affected_factor_ids"]}
+    require(set(critical_unknown)<=covered_gaps,"Critical unresolved factor lacks a specific information request")
+    if unresolved or critical_unknown or any(s["status"] in ("fail","unknown") for s in b["safeguards"]):
         require(b["decision"]["status"]=="qualified" and bool(G),"Material unresolved issue requires qualified decision and gaps")
     assessed=sum(f["status"] in ("supported","partial","contradicted") for f in applicable)
     return {"applicable":len(applicable),"assessed":assessed,"fully_supported":sum(f["status"]=="supported" for f in applicable),"unknown":sum(f["status"]=="unknown" for f in applicable),"critical_unresolved":critical_unknown,"decision_status":b["decision"]["status"]}
