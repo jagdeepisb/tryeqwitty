@@ -1,0 +1,872 @@
+{
+  "version": "1.4",
+  "standard_commit": "0000000000000000000000000000000000000000",
+  "as_of": "2026-11-27",
+  "profile": {
+    "company": "Juniper Workflows (fictional)",
+    "legal_entity": "Juniper Workflows Demo Co",
+    "jurisdiction": "Synthetic jurisdiction",
+    "objective": "Determine whether the signed subscription and cash evidence support a defensible valuation basis.",
+    "stage": "early_revenue",
+    "models": [
+      "saas"
+    ],
+    "model_rationale": "Fictional saas case at the stated operating stage.",
+    "scope": "Early-revenue subscription business. Use the fictional captures as provided records."
+  },
+  "documents": [
+    {
+      "name": "Juniper subscription and cost ledger",
+      "version": "packet-1",
+      "reviewed": "Frozen synthetic packet E1",
+      "limitations": "Fictional captured evidence used only to exercise the offline assessment."
+    },
+    {
+      "name": "Juniper registration extract",
+      "version": "packet-1",
+      "reviewed": "Frozen synthetic packet E2",
+      "limitations": "Fictional captured evidence used only to exercise the offline assessment."
+    },
+    {
+      "name": "Juniper introductory pricing release",
+      "version": "packet-1",
+      "reviewed": "Frozen synthetic packet E3",
+      "limitations": "Fictional captured evidence used only to exercise the offline assessment."
+    },
+    {
+      "name": "Independent review of entry subscription offers",
+      "version": "packet-1",
+      "reviewed": "Frozen synthetic packet E4",
+      "limitations": "Fictional captured evidence used only to exercise the offline assessment."
+    },
+    {
+      "name": "Reprint of Juniper introductory terms",
+      "version": "packet-1",
+      "reviewed": "Frozen synthetic packet E5",
+      "limitations": "Fictional captured evidence used only to exercise the offline assessment."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E1",
+      "title": "Juniper subscription and cost ledger",
+      "publisher": "Fictional Juniper",
+      "locator": "Frozen synthetic packet E1",
+      "url": null,
+      "accessed": "2026-11-27",
+      "origin": "juniper accounting",
+      "type": "company_material",
+      "grade": "C",
+      "extract": "Dated invoices and collection records identify two paid subscription users. The synthetic year to cut-off reports revenue of USD 100,000 and COGS of USD 40,000."
+    },
+    {
+      "id": "E2",
+      "title": "Juniper registration extract",
+      "publisher": "Fictional company registry",
+      "locator": "Frozen synthetic packet E2",
+      "url": null,
+      "accessed": "2026-11-27",
+      "origin": "registration authority",
+      "type": "authoritative_record",
+      "grade": "A",
+      "extract": "The registration extract identifies Juniper Workflows Demo Co and the registered name."
+    },
+    {
+      "id": "E3",
+      "title": "Juniper introductory pricing release",
+      "publisher": "Fictional Juniper",
+      "locator": "Frozen synthetic packet E3",
+      "url": null,
+      "accessed": "2026-11-27",
+      "origin": "Juniper price release",
+      "type": "company_public",
+      "grade": "C",
+      "extract": "The preserved release gives a USD 40 entry price, without tier scope or offer end date."
+    },
+    {
+      "id": "E4",
+      "title": "Independent review of entry subscription offers",
+      "publisher": "Fictional analyst",
+      "locator": "Frozen synthetic packet E4",
+      "url": null,
+      "accessed": "2026-11-27",
+      "origin": "independent offer comparison",
+      "type": "independent_public",
+      "grade": "B",
+      "extract": "The analyst's captured offer lists a USD 55 entry price. The package terms and offer dates differ."
+    },
+    {
+      "id": "E5",
+      "title": "Reprint of Juniper introductory terms",
+      "publisher": "Fictional channel newsletter",
+      "locator": "Frozen synthetic packet E5",
+      "url": null,
+      "accessed": "2026-11-27",
+      "origin": "  JUNIPER   PRICE RELEASE ",
+      "type": "company_public",
+      "grade": "C",
+      "extract": "This reprint quotes the same USD 40 company release verbatim."
+    }
+  ],
+  "claims": [
+    {
+      "id": "C1",
+      "statement": "The accounting packet reports USD 100,000 in recognised revenue.",
+      "kind": "historical",
+      "status": "reported",
+      "support": [
+        "E1"
+      ],
+      "oppose": [],
+      "rationale": "Company-origin ledger, pending independent reconciliation."
+    },
+    {
+      "id": "C2",
+      "statement": "The entry price is USD 40 per month.",
+      "kind": "historical",
+      "status": "disputed",
+      "support": [
+        "E3",
+        "E5"
+      ],
+      "oppose": [
+        "E4"
+      ],
+      "rationale": "Tiers and effective dates mismatch, so the exact comparable price remains unresolved."
+    }
+  ],
+  "thesis": {
+    "management": "Subscription demand should translate into a predictable recurring-revenue business.",
+    "independent": "Initial paid activity is documented. The sustainable revenue base and comparable pricing remain unresolved.",
+    "status": "provisional",
+    "question_ids": [
+      "RQ1",
+      "RQ2",
+      "RQ3"
+    ],
+    "independent_evidence": [
+      "E2",
+      "E4"
+    ],
+    "falsifiers": [
+      "Independently reconciled paid cohorts that show stable renewal and collectible, comparable prices."
+    ],
+    "divergences": [
+      {
+        "claim_ids": [
+          "C2"
+        ],
+        "finding": "The captured price lists disagree.",
+        "impact": "Withhold a matched entry price and any peer inference that depends on it."
+      }
+    ]
+  },
+  "safeguards": [
+    {
+      "check": "Input packet scope",
+      "status": "pass",
+      "evidence_ids": [
+        "E1"
+      ],
+      "rationale": "The scope of this fixture is defined by the supplied packet."
+    }
+  ],
+  "factors": [
+    {
+      "id": "C01",
+      "question": "Which legal entity owns the product, contracts and securities?",
+      "priority": "High",
+      "status": "supported",
+      "confidence": "low",
+      "support": [
+        "E2"
+      ],
+      "oppose": [],
+      "finding": "Dated registration supports the stated legal name.",
+      "impact": "Establish the entity, ownership, and transaction eligibility.",
+      "next_test": "Check similarly named entities, former names and mismatch between invoices, product and fundraising entity."
+    },
+    {
+      "id": "C02",
+      "question": "Who has demonstrated demand or willingness to pay for the current offer?",
+      "priority": "Medium",
+      "status": "partial",
+      "confidence": "low",
+      "support": [
+        "E1"
+      ],
+      "oppose": [],
+      "finding": "Two paying accounts are recorded. Wider adoption is unknown.",
+      "impact": "Test demand and reachable customer segments.",
+      "next_test": "Find inactive users, rejected offers, unpaid pilots and alternatives purchasers already use."
+    },
+    {
+      "id": "C03",
+      "question": "What can the team deliver at the evidenced stage?",
+      "priority": "Medium",
+      "status": "unknown",
+      "confidence": "unknown",
+      "support": [],
+      "oppose": [],
+      "finding": "Unresolved within the supplied synthetic packet.",
+      "impact": "Qualify claims about product maturity and delivery risk.",
+      "next_test": "Check failed tests, unavailable features, manual workarounds and delivery dependencies."
+    },
+    {
+      "id": "C04",
+      "question": "Who controls delivery and decisions, and what track record is evidenced?",
+      "priority": "Medium",
+      "status": "unknown",
+      "confidence": "unknown",
+      "support": [],
+      "oppose": [],
+      "finding": "Unresolved within the supplied synthetic packet.",
+      "impact": "Assess execution, governance and key-person dependencies.",
+      "next_test": "Check contradictory biographies, conflicts and departures that change who can deliver."
+    },
+    {
+      "id": "C05",
+      "question": "Which alternatives compete for the same buyer and budget?",
+      "priority": "High",
+      "status": "partial",
+      "confidence": "low",
+      "support": [
+        "E3",
+        "E5"
+      ],
+      "oppose": [
+        "E4"
+      ],
+      "finding": "Offers point to different starting prices with unmatched terms.",
+      "impact": "Assess market access, price position and adoption alternatives.",
+      "next_test": "Look for private or manual substitutes, old price lists and scope mismatches."
+    },
+    {
+      "id": "C06",
+      "question": "What drives recognised revenue and contribution at the current stage?",
+      "priority": "High",
+      "status": "supported",
+      "confidence": "low",
+      "support": [
+        "E1"
+      ],
+      "oppose": [],
+      "finding": "The supplied records support initial reported sales. The finding applies to the evidenced periods and customers.",
+      "impact": "Set revenue quality and defensible unit-economics assumptions.",
+      "next_test": "Look for refundable deposits, free pilots, bookings and pass-through amounts presented as earned revenue."
+    },
+    {
+      "id": "C07",
+      "question": "Which dated cash and funding constraints affect the next decision?",
+      "priority": "High",
+      "status": "unknown",
+      "confidence": "unknown",
+      "support": [],
+      "oppose": [],
+      "finding": "Unresolved within the supplied synthetic packet.",
+      "impact": "Determine funding needs, liquidity exposure and timing.",
+      "next_test": "Test restricted cash, delayed collections and conditional finance against the same timeline."
+    },
+    {
+      "id": "C08",
+      "question": "What evidence suggests an advantage can survive replication or switching?",
+      "priority": "Medium",
+      "status": "unknown",
+      "confidence": "unknown",
+      "support": [],
+      "oppose": [],
+      "finding": "Unresolved within the supplied synthetic packet.",
+      "impact": "Test durability and the persistence of value drivers.",
+      "next_test": "Identify reproducible features, weak IP coverage, multi-homing and low switching costs."
+    },
+    {
+      "id": "C09",
+      "question": "Which operational, regulatory or other dependencies could prevent delivery?",
+      "priority": "Medium",
+      "status": "unknown",
+      "confidence": "unknown",
+      "support": [],
+      "oppose": [],
+      "finding": "Unresolved within the supplied synthetic packet.",
+      "impact": "Identify conditions that could block operations or invalidate the decision.",
+      "next_test": "Check scope limits, expired or conditional permissions, and any reliance on an uncommitted third party."
+    },
+    {
+      "id": "C10",
+      "question": "What observable change would invalidate the independent case or valuation basis?",
+      "priority": "High",
+      "status": "unknown",
+      "confidence": "unknown",
+      "support": [],
+      "oppose": [],
+      "finding": "Unresolved within the supplied synthetic packet.",
+      "impact": "Qualify the thesis, valuation and final decision.",
+      "next_test": "Test whether plausible adverse data changes the recommended decision or disqualifies the method."
+    },
+    {
+      "id": "OB04",
+      "question": "What is the defendable value basis, method and sensitivity at the cut-off date?",
+      "priority": "High",
+      "status": "unknown",
+      "confidence": "unknown",
+      "support": [],
+      "oppose": [],
+      "finding": "Unresolved within the supplied synthetic packet.",
+      "impact": "Support a conditional range or withhold valuation.",
+      "next_test": "Disqualify methods when comparables, sustainable flows, rights or financing terms are unsupported."
+    },
+    {
+      "id": "SA01",
+      "question": "How much contracted recurring revenue is evidenced and reconcilable?",
+      "priority": "High",
+      "status": "supported",
+      "confidence": "low",
+      "support": [
+        "E1"
+      ],
+      "oppose": [],
+      "finding": "The supplied records support initial reported sales. The finding applies to the evidenced periods and customers.",
+      "impact": "Set the recurring revenue base for valuation and growth.",
+      "next_test": "Trace churn, pauses, reclassifications and annualisation of non-recurring receipts."
+    },
+    {
+      "id": "SA02",
+      "question": "What do mature cohort retention and acquisition costs show?",
+      "priority": "Medium",
+      "status": "unknown",
+      "confidence": "unknown",
+      "support": [],
+      "oppose": [],
+      "finding": "Unresolved within the supplied synthetic packet.",
+      "impact": "Test repeatability and acquisition sustainability.",
+      "next_test": "Test newer cohorts, excluded churn and incentives omitted from acquisition cost."
+    },
+    {
+      "id": "ST04",
+      "question": "Is initial revenue collectible and repeatable beyond the first customers?",
+      "priority": "High",
+      "status": "supported",
+      "confidence": "low",
+      "support": [
+        "E1"
+      ],
+      "oppose": [],
+      "finding": "The supplied records support initial reported sales. The finding applies to the evidenced periods and customers.",
+      "impact": "Separate initial trading from repeatable revenue assumptions.",
+      "next_test": "Reconcile discounted, related-party or one-off sales and delayed collections."
+    }
+  ],
+  "research": [
+    {
+      "id": "R1",
+      "question_id": "RQ1",
+      "status": "completed",
+      "stop_reason": "criteria_met",
+      "attempt_ids": [
+        "A2"
+      ],
+      "evidence_ids": [
+        "E2"
+      ],
+      "gap_ids": [],
+      "reason": "Reviewed legal names and the registry's historical alias field."
+    },
+    {
+      "id": "R2",
+      "question_id": "RQ2",
+      "status": "completed",
+      "stop_reason": "criteria_met",
+      "attempt_ids": [
+        "A1"
+      ],
+      "evidence_ids": [
+        "E1"
+      ],
+      "gap_ids": [],
+      "reason": "Reviewed the ledger for paid deliveries, and checked for free trials and pass-through revenue."
+    },
+    {
+      "id": "R3",
+      "question_id": "RQ3",
+      "status": "partial",
+      "stop_reason": "contradiction",
+      "attempt_ids": [
+        "A3",
+        "A4",
+        "A5"
+      ],
+      "evidence_ids": [
+        "E3",
+        "E4",
+        "E5"
+      ],
+      "gap_ids": [
+        "G2"
+      ],
+      "reason": "Reviewed report against the offer. Both original prices remain visible."
+    },
+    {
+      "id": "R4",
+      "question_id": "RQ4",
+      "status": "blocked",
+      "stop_reason": "private_information",
+      "attempt_ids": [],
+      "evidence_ids": [],
+      "gap_ids": [
+        "G1"
+      ],
+      "reason": "Cash statements and a supported cash-flow forecast are unavailable in this packet."
+    },
+    {
+      "id": "R5",
+      "question_id": "RQ5",
+      "status": "partial",
+      "stop_reason": "insufficient_evidence",
+      "attempt_ids": [
+        "A1"
+      ],
+      "evidence_ids": [
+        "E1"
+      ],
+      "gap_ids": [],
+      "reason": "The ledger documents transactions but gives limited evidence of sustained product usage."
+    },
+    {
+      "id": "R6",
+      "question_id": "RQ6",
+      "status": "blocked",
+      "stop_reason": "tool_unavailable",
+      "attempt_ids": [],
+      "evidence_ids": [],
+      "gap_ids": [],
+      "reason": "Checking employment history requires web access and the packet has no biographies."
+    },
+    {
+      "id": "R7",
+      "question_id": "RQ7",
+      "status": "blocked",
+      "stop_reason": "private_information",
+      "attempt_ids": [],
+      "evidence_ids": [],
+      "gap_ids": [
+        "G3"
+      ],
+      "reason": "Current cohorts and churn data must come from the company."
+    },
+    {
+      "id": "R8",
+      "question_id": "RQ8",
+      "status": "deferred",
+      "stop_reason": "budget_limit",
+      "attempt_ids": [],
+      "evidence_ids": [],
+      "gap_ids": [],
+      "reason": "The ordinary effort allowance was used. The remaining topic requires a new scope review."
+    }
+  ],
+  "inputs": [
+    {
+      "id": "I1",
+      "label": "Reported revenue",
+      "quantity": "recognised_revenue",
+      "value": "100000",
+      "unit": "money",
+      "currency": "USD",
+      "entity": "Juniper Workflows Demo Co",
+      "period": "2025-11-28/2026-11-27",
+      "basis": "observed",
+      "accounting_basis": "management_accrual",
+      "evidence_ids": [
+        "E1"
+      ],
+      "rationale": "Synthetic captured ledger row.",
+      "claim_ids": [
+        "C1"
+      ]
+    },
+    {
+      "id": "I2",
+      "label": "Reported cost of goods sold",
+      "quantity": "cogs",
+      "value": "40000",
+      "unit": "money",
+      "currency": "USD",
+      "entity": "Juniper Workflows Demo Co",
+      "period": "2025-11-28/2026-11-27",
+      "basis": "observed",
+      "accounting_basis": "management_accrual",
+      "evidence_ids": [
+        "E1"
+      ],
+      "rationale": "Synthetic captured ledger row.",
+      "claim_ids": []
+    }
+  ],
+  "metrics": [
+    {
+      "id": "M1",
+      "formula": "gross_margin",
+      "operands": {
+        "revenue": "I1",
+        "cogs": "I2"
+      },
+      "basis": "observed",
+      "status": "calculated",
+      "value": "0.6",
+      "reason": "Reported ledger figures."
+    }
+  ],
+  "valuations": [
+    {
+      "id": "V1",
+      "method": "ev_revenue",
+      "value_basis": "enterprise",
+      "status": "unavailable",
+      "operands": {},
+      "value": null,
+      "rationale": "Comparable pricing and cash evidence remain unresolved.",
+      "scenario": "standalone",
+      "gap_ids": [
+        "G1",
+        "G2"
+      ]
+    }
+  ],
+  "challenges": [
+    {
+      "id": "Q1",
+      "severity": "High",
+      "status": "unresolved",
+      "route": "evidence",
+      "affected": [
+        "C2",
+        "C05"
+      ],
+      "finding": "Company release and independent price review disagree.",
+      "correction": "Retain both sources and request dated plan inclusions.",
+      "question_ids": [
+        "RQ3"
+      ],
+      "attempt_ids": [
+        "A4"
+      ],
+      "rechecked_ids": [],
+      "gap_ids": [
+        "G2"
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "id": "G1",
+      "priority": "High",
+      "item": "Reconciled cash statement and valuation driver schedule",
+      "period": "At cut-off and the next operating period",
+      "why": "The packet does not establish unrestricted cash, affordable reinvestment or a defensible forecast.",
+      "conclusion": "Decision, timing or valuation implications for C07, C10, OB04.",
+      "action": "Reconcile the cash balance and forecast drivers, and retest method eligibility.",
+      "availability": "Private",
+      "affected_factor_ids": [
+        "C07",
+        "C10",
+        "OB04"
+      ]
+    },
+    {
+      "id": "G2",
+      "priority": "High",
+      "item": "Dated like-for-like subscription offers and tier terms",
+      "period": "At cut-off and the next operating period",
+      "why": "Recorded pricing disagrees and the copied release is one origin.",
+      "conclusion": "Decision, timing or valuation implications for C05.",
+      "action": "Align dates and included features before using pricing in comparables.",
+      "availability": "Either",
+      "affected_factor_ids": [
+        "C05"
+      ]
+    },
+    {
+      "id": "G3",
+      "priority": "Medium",
+      "item": "Dated customer cohorts and churn reconciliation",
+      "period": "At cut-off and the next operating period",
+      "why": "The ledger does not describe renewals or switching.",
+      "conclusion": "Decision, timing or valuation implications for SA02, C08.",
+      "action": "Test retention and switching behaviour by customer vintage.",
+      "availability": "Private",
+      "affected_factor_ids": [
+        "SA02",
+        "C08"
+      ]
+    }
+  ],
+  "decision": {
+    "status": "qualified",
+    "conclusion": "Withhold a valuation range pending cash, forecast and comparable offer evidence.",
+    "limitations": "Synthetic offline exercise of recorded research and blocking conditions.",
+    "strengths": [
+      "The recorded ledger supports a reproducible reported gross margin."
+    ],
+    "risks": [
+      "Pricing is disputed and comparable tiers are unresolved."
+    ]
+  },
+  "financial_model": {
+    "currency": "USD",
+    "accounting_basis": "management_accrual"
+  },
+  "competitor_comparisons": [],
+  "research_plan": {
+    "objective": "valuation",
+    "objective_rationale": "Determine whether the signed subscription and cash evidence support a defensible valuation basis.",
+    "stage_rationale": "Classify from dated records of realised activity in the synthetic packet.",
+    "stage_evidence_ids": [
+      "E1"
+    ],
+    "limitations": "Only frozen synthetic packet records were reviewed. Web research and outreach were unavailable.",
+    "capabilities": {
+      "web": false,
+      "documents": true,
+      "private_requests": false
+    },
+    "budget": {
+      "max_attempts": 6,
+      "challenge_reserve": 2,
+      "minimum_priority": 5
+    },
+    "exclusions": [],
+    "questions": [
+      {
+        "id": "RQ1",
+        "parent_id": null,
+        "depends_on": [],
+        "factor_ids": [
+          "C01"
+        ],
+        "claim_ids": [],
+        "question": "Which legal entity owns the product, contracts and securities?",
+        "evidence_required": "Dated registration, ownership and entity perimeter matched to the assessed business.",
+        "counter_test": "Check similarly named entities, former names and mismatch between invoices, product and fundraising entity.",
+        "decision_use": "Establish the entity, ownership, and transaction eligibility.",
+        "evidence_route": "provided",
+        "uncertainty": 2,
+        "answerability": 2,
+        "estimated_attempts": 1,
+        "min_origins": 1,
+        "min_independent_origins": 1
+      },
+      {
+        "id": "RQ2",
+        "parent_id": null,
+        "depends_on": [
+          "RQ1"
+        ],
+        "factor_ids": [
+          "SA01",
+          "C06",
+          "ST04"
+        ],
+        "claim_ids": [
+          "C1"
+        ],
+        "question": "How much contracted recurring revenue is evidenced and reconcilable?",
+        "evidence_required": "Subscription ledger, period and bridge excluding one-offs, bookings and implementation income.",
+        "counter_test": "Trace churn, pauses, reclassifications and annualisation of non-recurring receipts.",
+        "decision_use": "Set the recurring revenue base for valuation and growth.",
+        "evidence_route": "provided",
+        "uncertainty": 3,
+        "answerability": 2,
+        "estimated_attempts": 1,
+        "min_origins": 1,
+        "min_independent_origins": 0
+      },
+      {
+        "id": "RQ3",
+        "parent_id": null,
+        "depends_on": [],
+        "factor_ids": [
+          "C05"
+        ],
+        "claim_ids": [
+          "C2"
+        ],
+        "question": "Which alternatives compete for the same buyer and budget?",
+        "evidence_required": "Comparable offers and buyer substitution evidence matched by segment, geography, period and unit.",
+        "counter_test": "Look for private or manual substitutes, old price lists and scope mismatches.",
+        "decision_use": "Assess market access, price position and adoption alternatives.",
+        "evidence_route": "provided",
+        "uncertainty": 3,
+        "answerability": 2,
+        "estimated_attempts": 1,
+        "min_origins": 2,
+        "min_independent_origins": 1
+      },
+      {
+        "id": "RQ4",
+        "parent_id": "RQ2",
+        "depends_on": [],
+        "factor_ids": [
+          "C07",
+          "C10",
+          "OB04"
+        ],
+        "claim_ids": [],
+        "question": "Which dated cash and funding constraints affect the next decision?",
+        "evidence_required": "Unrestricted cash, commitments, cash movement and timing or a precise request for the missing records.",
+        "counter_test": "Test restricted cash, delayed collections and conditional finance against the same timeline.",
+        "decision_use": "Determine funding needs, liquidity exposure and timing.",
+        "evidence_route": "private",
+        "uncertainty": 2,
+        "answerability": 0,
+        "estimated_attempts": 1,
+        "min_origins": 1,
+        "min_independent_origins": 0
+      },
+      {
+        "id": "RQ5",
+        "parent_id": null,
+        "depends_on": [],
+        "factor_ids": [
+          "C02",
+          "C03"
+        ],
+        "claim_ids": [],
+        "question": "Who has demonstrated demand or willingness to pay for the current offer?",
+        "evidence_required": "Segment-specific demand evidence that distinguishes interest, use, purchase and repeat use.",
+        "counter_test": "Find inactive users, rejected offers, unpaid pilots and alternatives purchasers already use.",
+        "decision_use": "Test demand and reachable customer segments.",
+        "evidence_route": "provided",
+        "uncertainty": 2,
+        "answerability": 2,
+        "estimated_attempts": 1,
+        "min_origins": 2,
+        "min_independent_origins": 0
+      },
+      {
+        "id": "RQ6",
+        "parent_id": null,
+        "depends_on": [],
+        "factor_ids": [
+          "C04"
+        ],
+        "claim_ids": [],
+        "question": "Who controls delivery and decisions, and what track record is evidenced?",
+        "evidence_required": "Named responsibilities, relevant execution history and decision rights.",
+        "counter_test": "Check contradictory biographies, conflicts and departures that change who can deliver.",
+        "decision_use": "Assess execution, governance and key-person dependencies.",
+        "evidence_route": "public",
+        "uncertainty": 2,
+        "answerability": 0,
+        "estimated_attempts": 1,
+        "min_origins": 1,
+        "min_independent_origins": 0
+      },
+      {
+        "id": "RQ7",
+        "parent_id": null,
+        "depends_on": [],
+        "factor_ids": [
+          "C08",
+          "SA02"
+        ],
+        "claim_ids": [],
+        "question": "What evidence suggests an advantage can survive replication or switching?",
+        "evidence_required": "Customer behaviour, protected rights or operational economics that can be traced to the advantage.",
+        "counter_test": "Identify reproducible features, weak IP coverage, multi-homing and low switching costs.",
+        "decision_use": "Test durability and the persistence of value drivers.",
+        "evidence_route": "private",
+        "uncertainty": 2,
+        "answerability": 0,
+        "estimated_attempts": 1,
+        "min_origins": 1,
+        "min_independent_origins": 0
+      },
+      {
+        "id": "RQ8",
+        "parent_id": null,
+        "depends_on": [],
+        "factor_ids": [
+          "C09"
+        ],
+        "claim_ids": [],
+        "question": "Which supplier or operating agreement could restrict customer delivery?",
+        "evidence_required": "A scoped dependency and compliance record for the entity, geography and actual operations.",
+        "counter_test": "Check scope limits, expired or conditional permissions, and any reliance on an uncommitted third party.",
+        "decision_use": "Identify conditions that could block operations or invalidate the decision.",
+        "evidence_route": "mixed",
+        "uncertainty": 2,
+        "answerability": 2,
+        "estimated_attempts": 2,
+        "min_origins": 1,
+        "min_independent_origins": 0
+      }
+    ]
+  },
+  "research_attempts": [
+    {
+      "id": "A1",
+      "channel": "document_review",
+      "phase": "research",
+      "intent": "both",
+      "date": "2026-11-27",
+      "target": "Juniper subscription and cost ledger | packet-1",
+      "outcome": "evidence_found",
+      "evidence_ids": [
+        "E1"
+      ],
+      "note": "Dated invoices and collection records identify two paid subscription users. The synthetic year to cut-off reports revenue of USD 100,000 and COGS of USD 40,000."
+    },
+    {
+      "id": "A2",
+      "channel": "document_review",
+      "phase": "research",
+      "intent": "both",
+      "date": "2026-11-27",
+      "target": "Juniper registration extract | packet-1",
+      "outcome": "evidence_found",
+      "evidence_ids": [
+        "E2"
+      ],
+      "note": "The registration extract identifies Juniper Workflows Demo Co and the registered name."
+    },
+    {
+      "id": "A3",
+      "channel": "document_review",
+      "phase": "research",
+      "intent": "support",
+      "date": "2026-11-27",
+      "target": "Juniper introductory pricing release | packet-1",
+      "outcome": "evidence_found",
+      "evidence_ids": [
+        "E3"
+      ],
+      "note": "The preserved release gives a USD 40 entry price, without tier scope or offer end date."
+    },
+    {
+      "id": "A4",
+      "channel": "document_review",
+      "phase": "challenge",
+      "intent": "counter",
+      "date": "2026-11-27",
+      "target": "Independent review of entry subscription offers | packet-1",
+      "outcome": "evidence_found",
+      "evidence_ids": [
+        "E4"
+      ],
+      "note": "The analyst's captured offer lists a USD 55 entry price. The package terms and offer dates differ."
+    },
+    {
+      "id": "A5",
+      "channel": "document_review",
+      "phase": "research",
+      "intent": "support",
+      "date": "2026-11-27",
+      "target": "Reprint of Juniper introductory terms | packet-1",
+      "outcome": "evidence_found",
+      "evidence_ids": [
+        "E5"
+      ],
+      "note": "This reprint quotes the same USD 40 company release verbatim."
+    }
+  ]
+}

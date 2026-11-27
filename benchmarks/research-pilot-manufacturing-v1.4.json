@@ -1,0 +1,724 @@
+{
+  "version": "1.4",
+  "standard_commit": "0000000000000000000000000000000000000000",
+  "as_of": "2026-11-27",
+  "profile": {
+    "company": "Cedar Components (fictional)",
+    "legal_entity": "Cedar Components Demo Co",
+    "jurisdiction": "Synthetic jurisdiction",
+    "objective": "Assess the evidence and capital milestones needed before a financing process.",
+    "stage": "pilot",
+    "models": [
+      "manufacturing"
+    ],
+    "model_rationale": "Fictional manufacturing case at the stated operating stage.",
+    "scope": "Fictional one-shift trial. No production expansion or priced finance is assumed."
+  },
+  "documents": [
+    {
+      "name": "Cedar pilot status and scope",
+      "version": "packet-1",
+      "reviewed": "Frozen synthetic packet E1",
+      "limitations": "Fictional captured evidence used only to exercise the offline assessment."
+    },
+    {
+      "name": "Cedar pilot inspection and acceptance",
+      "version": "packet-1",
+      "reviewed": "Frozen synthetic packet E2",
+      "limitations": "Fictional captured evidence used only to exercise the offline assessment."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E1",
+      "title": "Cedar pilot status and scope",
+      "publisher": "Fictional Cedar",
+      "locator": "Frozen synthetic packet E1",
+      "url": null,
+      "accessed": "2026-11-27",
+      "origin": "cedar pilot operating record",
+      "type": "company_material",
+      "grade": "C",
+      "extract": "The company records a supervised one-shift manufacturing pilot without documented sales or committed funding."
+    },
+    {
+      "id": "E2",
+      "title": "Cedar pilot inspection and acceptance",
+      "publisher": "Fictional independent inspector",
+      "locator": "Frozen synthetic packet E2",
+      "url": null,
+      "accessed": "2026-11-27",
+      "origin": "independent test lab",
+      "type": "independent_public",
+      "grade": "B",
+      "extract": "The inspector confirmed prototype acceptance under the one-shift trial criteria. There is insufficient evidence on sustained line throughput or manufacturing cost."
+    }
+  ],
+  "claims": [],
+  "thesis": {
+    "management": "The supervised pilot can transition to larger lots.",
+    "independent": "The independent inspection corroborates the stated one-shift pilot and prototype acceptance.",
+    "status": "corroborated",
+    "question_ids": [
+      "RQ2"
+    ],
+    "independent_evidence": [
+      "E2"
+    ],
+    "falsifiers": [
+      "Representative larger lots show materially lower first-pass yield or unplanned downtime."
+    ],
+    "divergences": []
+  },
+  "safeguards": [
+    {
+      "check": "Input packet scope",
+      "status": "pass",
+      "evidence_ids": [
+        "E1"
+      ],
+      "rationale": "The scope of this fixture is defined by the supplied packet."
+    }
+  ],
+  "factors": [
+    {
+      "id": "C01",
+      "question": "Which legal entity owns the product, contracts and securities?",
+      "priority": "High",
+      "status": "partial",
+      "confidence": "low",
+      "support": [
+        "E1"
+      ],
+      "oppose": [],
+      "finding": "The pilot brief names the operating entity. Registration and ownership are unresolved.",
+      "impact": "Establish the entity, ownership, and transaction eligibility.",
+      "next_test": "Check similarly named entities, former names and mismatch between invoices, product and fundraising entity."
+    },
+    {
+      "id": "C02",
+      "question": "Who has demonstrated demand or willingness to pay for the current offer?",
+      "priority": "Medium",
+      "status": "unknown",
+      "confidence": "unknown",
+      "support": [],
+      "oppose": [],
+      "finding": "Unresolved within the supplied synthetic packet.",
+      "impact": "Test demand and reachable customer segments.",
+      "next_test": "Find inactive users, rejected offers, unpaid pilots and alternatives purchasers already use."
+    },
+    {
+      "id": "C03",
+      "question": "What can the team deliver at the evidenced stage?",
+      "priority": "High",
+      "status": "supported",
+      "confidence": "low",
+      "support": [
+        "E1",
+        "E2"
+      ],
+      "oppose": [],
+      "finding": "A supervised pilot demonstrated prototype acceptance within stated conditions.",
+      "impact": "Qualify claims about product maturity and delivery risk.",
+      "next_test": "Check failed tests, unavailable features, manual workarounds and delivery dependencies."
+    },
+    {
+      "id": "C04",
+      "question": "Who controls delivery and decisions, and what track record is evidenced?",
+      "priority": "Medium",
+      "status": "unknown",
+      "confidence": "unknown",
+      "support": [],
+      "oppose": [],
+      "finding": "Unresolved within the supplied synthetic packet.",
+      "impact": "Assess execution, governance and key-person dependencies.",
+      "next_test": "Check contradictory biographies, conflicts and departures that change who can deliver."
+    },
+    {
+      "id": "C05",
+      "question": "Which alternatives compete for the same buyer and budget?",
+      "priority": "Medium",
+      "status": "unknown",
+      "confidence": "unknown",
+      "support": [],
+      "oppose": [],
+      "finding": "Unresolved within the supplied synthetic packet.",
+      "impact": "Assess market access, price position and adoption alternatives.",
+      "next_test": "Look for private or manual substitutes, old price lists and scope mismatches."
+    },
+    {
+      "id": "C06",
+      "question": "What drives recognised revenue and contribution at the current stage?",
+      "priority": "High",
+      "status": "unknown",
+      "confidence": "unknown",
+      "support": [],
+      "oppose": [],
+      "finding": "Unresolved within the supplied synthetic packet.",
+      "impact": "Set revenue quality and defensible unit-economics assumptions.",
+      "next_test": "Look for refundable deposits, free pilots, bookings and pass-through amounts presented as earned revenue."
+    },
+    {
+      "id": "C07",
+      "question": "Which dated cash and funding constraints affect the next decision?",
+      "priority": "High",
+      "status": "unknown",
+      "confidence": "unknown",
+      "support": [],
+      "oppose": [],
+      "finding": "Unresolved within the supplied synthetic packet.",
+      "impact": "Determine funding needs, liquidity exposure and timing.",
+      "next_test": "Test restricted cash, delayed collections and conditional finance against the same timeline."
+    },
+    {
+      "id": "C08",
+      "question": "What evidence suggests an advantage can survive replication or switching?",
+      "priority": "Medium",
+      "status": "unknown",
+      "confidence": "unknown",
+      "support": [],
+      "oppose": [],
+      "finding": "Unresolved within the supplied synthetic packet.",
+      "impact": "Test durability and the persistence of value drivers.",
+      "next_test": "Identify reproducible features, weak IP coverage, multi-homing and low switching costs."
+    },
+    {
+      "id": "C09",
+      "question": "Which operational, regulatory or other dependencies could prevent delivery?",
+      "priority": "Medium",
+      "status": "unknown",
+      "confidence": "unknown",
+      "support": [],
+      "oppose": [],
+      "finding": "Unresolved within the supplied synthetic packet.",
+      "impact": "Identify conditions that could block operations or invalidate the decision.",
+      "next_test": "Check scope limits, expired or conditional permissions, and any reliance on an uncommitted third party."
+    },
+    {
+      "id": "C10",
+      "question": "What observable change would invalidate the independent case or valuation basis?",
+      "priority": "Medium",
+      "status": "unknown",
+      "confidence": "unknown",
+      "support": [],
+      "oppose": [],
+      "finding": "Unresolved within the supplied synthetic packet.",
+      "impact": "Qualify the thesis, valuation and final decision.",
+      "next_test": "Test whether plausible adverse data changes the recommended decision or disqualifies the method."
+    },
+    {
+      "id": "MF01",
+      "question": "What effective capacity and first-pass yield are demonstrated?",
+      "priority": "High",
+      "status": "partial",
+      "confidence": "low",
+      "support": [
+        "E2"
+      ],
+      "oppose": [],
+      "finding": "One-shift inspection documents performance only under trial conditions.",
+      "impact": "Test deliverable volume and direct cost assumptions.",
+      "next_test": "Compare rated capacity with downtime, scrap, rework and changeovers."
+    },
+    {
+      "id": "MF02",
+      "question": "How much capital and working capital are needed at the planned scale?",
+      "priority": "High",
+      "status": "unknown",
+      "confidence": "unknown",
+      "support": [],
+      "oppose": [],
+      "finding": "Equipment and trade-credit records are missing. At this fundraising decision, they can change the amount and timing of the raise.",
+      "impact": "Stress cash conversion and required financing.",
+      "next_test": "Check maintenance spend, slow inventory, long receivable cycles and unsupported purchase credit."
+    },
+    {
+      "id": "MF04",
+      "question": "Which trials or validations establish production readiness?",
+      "priority": "High",
+      "status": "supported",
+      "confidence": "low",
+      "support": [
+        "E1",
+        "E2"
+      ],
+      "oppose": [],
+      "finding": "A supervised pilot demonstrated prototype acceptance within stated conditions.",
+      "impact": "Determine whether projected production can be supported.",
+      "next_test": "Compare prototype conditions, rework, incomplete approvals and factory constraints."
+    },
+    {
+      "id": "OB02",
+      "question": "Which evidence, use of funds and milestones are needed for fundraising readiness?",
+      "priority": "High",
+      "status": "unknown",
+      "confidence": "unknown",
+      "support": [],
+      "oppose": [],
+      "finding": "Unresolved within the supplied synthetic packet.",
+      "impact": "Determine which evidence or operational work should precede fundraising.",
+      "next_test": "Test whether proposed funds cover the downside and whether headline traction survives reconciliation."
+    },
+    {
+      "id": "ST03",
+      "question": "What did the pilot actually prove and what would convert it to commercial use?",
+      "priority": "High",
+      "status": "supported",
+      "confidence": "low",
+      "support": [
+        "E1",
+        "E2"
+      ],
+      "oppose": [],
+      "finding": "A supervised pilot demonstrated prototype acceptance within stated conditions.",
+      "impact": "Qualify pilot evidence and the next commercial milestone.",
+      "next_test": "Test free or subsidised use, selection bias and conditions unlikely to hold in production."
+    }
+  ],
+  "research": [
+    {
+      "id": "R1",
+      "question_id": "RQ1",
+      "status": "partial",
+      "stop_reason": "insufficient_evidence",
+      "attempt_ids": [
+        "A1"
+      ],
+      "evidence_ids": [
+        "E1"
+      ],
+      "gap_ids": [
+        "G4"
+      ],
+      "reason": "One document gives the declared identity. The register is still required."
+    },
+    {
+      "id": "R2",
+      "question_id": "RQ2",
+      "status": "completed",
+      "stop_reason": "criteria_met",
+      "attempt_ids": [
+        "A1",
+        "A2"
+      ],
+      "evidence_ids": [
+        "E1",
+        "E2"
+      ],
+      "gap_ids": [],
+      "reason": "Compared the reported performance with the recorded inspection and its limited conditions."
+    },
+    {
+      "id": "R3",
+      "question_id": "RQ3",
+      "status": "partial",
+      "stop_reason": "diminishing_returns",
+      "attempt_ids": [
+        "A2"
+      ],
+      "evidence_ids": [
+        "E2"
+      ],
+      "gap_ids": [
+        "G2"
+      ],
+      "reason": "Available review covers one shift. More interpretation of this trial cannot establish representative yield."
+    },
+    {
+      "id": "R4",
+      "question_id": "RQ4",
+      "status": "blocked",
+      "stop_reason": "private_information",
+      "attempt_ids": [],
+      "evidence_ids": [],
+      "gap_ids": [
+        "G1"
+      ],
+      "reason": "Equipment quotations and a staged funding model were outside the supplied packet."
+    },
+    {
+      "id": "R5",
+      "question_id": "RQ5",
+      "status": "blocked",
+      "stop_reason": "private_information",
+      "attempt_ids": [],
+      "evidence_ids": [],
+      "gap_ids": [
+        "G3"
+      ],
+      "reason": "Invoices and collections are unavailable."
+    },
+    {
+      "id": "R6",
+      "question_id": "RQ6",
+      "status": "blocked",
+      "stop_reason": "tool_unavailable",
+      "attempt_ids": [],
+      "evidence_ids": [],
+      "gap_ids": [],
+      "reason": "Independent buying alternatives require external search beyond this packet."
+    },
+    {
+      "id": "R7",
+      "question_id": "RQ7",
+      "status": "blocked",
+      "stop_reason": "prerequisite",
+      "attempt_ids": [],
+      "evidence_ids": [],
+      "gap_ids": [],
+      "reason": "Confirm who owns the manufacturing entity before attributing management or supplier commitments."
+    },
+    {
+      "id": "R8",
+      "question_id": "RQ8",
+      "status": "deferred",
+      "stop_reason": "low_expected_value",
+      "attempt_ids": [],
+      "evidence_ids": [],
+      "gap_ids": [],
+      "reason": "Trial records do not resolve durable differentiation."
+    }
+  ],
+  "inputs": [],
+  "metrics": [],
+  "valuations": [],
+  "challenges": [
+    {
+      "id": "Q1",
+      "severity": "Medium",
+      "status": "resolved",
+      "route": "scope",
+      "affected": [
+        "profile"
+      ],
+      "finding": "Initial wording could imply operating capacity beyond pilot scale.",
+      "correction": "Rechecked inspection scope and classified commercial maturity as pilot.",
+      "question_ids": [
+        "RQ2"
+      ],
+      "attempt_ids": [],
+      "rechecked_ids": [
+        "profile"
+      ],
+      "gap_ids": []
+    },
+    {
+      "id": "Q2",
+      "severity": "High",
+      "status": "unresolved",
+      "route": "financial_model",
+      "affected": [
+        "scenarios"
+      ],
+      "finding": "Opening cash and equipment commitments prevent linked scenarios.",
+      "correction": "Withhold forecast and reconcile cash and capital commitments when supplied.",
+      "question_ids": [
+        "RQ4"
+      ],
+      "attempt_ids": [],
+      "rechecked_ids": [],
+      "gap_ids": [
+        "G1"
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "id": "G1",
+      "priority": "High",
+      "item": "Cash, equipment quotations and funding milestones",
+      "period": "At cut-off and the next operating period",
+      "why": "Current resources and supplier financing capacity are unknown.",
+      "conclusion": "Decision, timing or valuation implications for C07, OB02, MF02.",
+      "action": "Stress the forecast with equipment lead times and test downside cash requirements.",
+      "availability": "Private",
+      "affected_factor_ids": [
+        "C07",
+        "OB02",
+        "MF02"
+      ]
+    },
+    {
+      "id": "G2",
+      "priority": "High",
+      "item": "Repeat multi-shift production and reject logs",
+      "period": "At cut-off and the next operating period",
+      "why": "The one-shift trial does not establish sustainable throughput or yield.",
+      "conclusion": "Decision, timing or valuation implications for MF01.",
+      "action": "Compare good units, downtime and rework under representative production conditions.",
+      "availability": "Private",
+      "affected_factor_ids": [
+        "MF01"
+      ]
+    },
+    {
+      "id": "G3",
+      "priority": "High",
+      "item": "Invoices, paid status and collections from the pilot",
+      "period": "At cut-off and the next operating period",
+      "why": "There is no reconciliation between trial work and recognised commercial activity.",
+      "conclusion": "Decision, timing or valuation implications for C06.",
+      "action": "Verify acceptance obligations, billing dates and actual collection.",
+      "availability": "Private",
+      "affected_factor_ids": [
+        "C06"
+      ]
+    },
+    {
+      "id": "G4",
+      "priority": "High",
+      "item": "Dated legal entity registration and issued securities",
+      "period": "At cut-off and the next operating period",
+      "why": "The company brief gives the name but ownership and issued shares are unconfirmed.",
+      "conclusion": "Decision, timing or valuation implications for C01.",
+      "action": "Reconcile company registry, securities register and proposed issuer.",
+      "availability": "Private",
+      "affected_factor_ids": [
+        "C01"
+      ]
+    }
+  ],
+  "decision": {
+    "status": "qualified",
+    "conclusion": "Raise readiness remains qualified until financing, throughput and ownership records are reconciled.",
+    "limitations": "Synthetic offline exercise of recorded research and blocking conditions.",
+    "strengths": [
+      "An independently reviewed trial supports the stated pilot scope."
+    ],
+    "risks": [
+      "Pilot acceptance does not establish production capacity or collected revenue."
+    ]
+  },
+  "financial_model": {
+    "currency": "USD",
+    "accounting_basis": "management_accrual",
+    "scenarios": {
+      "status": "unavailable",
+      "rationale": "No opening cash schedule or equipment commitments.",
+      "gap_ids": [
+        "G1"
+      ]
+    },
+    "cap_table": {
+      "status": "unavailable",
+      "rationale": "No verified security register or financing terms.",
+      "gap_ids": [
+        "G4"
+      ]
+    }
+  },
+  "competitor_comparisons": [],
+  "research_plan": {
+    "objective": "fundraising_readiness",
+    "objective_rationale": "Assess the evidence and capital milestones needed before a financing process.",
+    "stage_rationale": "Classify from dated records of realised activity in the synthetic packet.",
+    "stage_evidence_ids": [
+      "E1"
+    ],
+    "limitations": "Only frozen synthetic packet records were reviewed. Web research and outreach were unavailable.",
+    "capabilities": {
+      "web": false,
+      "documents": true,
+      "private_requests": false
+    },
+    "budget": {
+      "max_attempts": 10,
+      "challenge_reserve": 2,
+      "minimum_priority": 6
+    },
+    "exclusions": [],
+    "questions": [
+      {
+        "id": "RQ1",
+        "parent_id": null,
+        "depends_on": [],
+        "factor_ids": [
+          "C01"
+        ],
+        "claim_ids": [],
+        "question": "Which legal entity owns the product, contracts and securities?",
+        "evidence_required": "Dated registration, ownership and entity perimeter matched to the assessed business.",
+        "counter_test": "Check similarly named entities, former names and mismatch between invoices, product and fundraising entity.",
+        "decision_use": "Establish the entity, ownership, and transaction eligibility.",
+        "evidence_route": "provided",
+        "uncertainty": 2,
+        "answerability": 2,
+        "estimated_attempts": 1,
+        "min_origins": 2,
+        "min_independent_origins": 0
+      },
+      {
+        "id": "RQ2",
+        "parent_id": null,
+        "depends_on": [],
+        "factor_ids": [
+          "MF04",
+          "ST03",
+          "C03"
+        ],
+        "claim_ids": [],
+        "question": "Which trials or validations establish production readiness?",
+        "evidence_required": "Dated production trial, yield and acceptance conditions, plus funded scale-up gates.",
+        "counter_test": "Compare prototype conditions, rework, incomplete approvals and factory constraints.",
+        "decision_use": "Determine whether projected production can be supported.",
+        "evidence_route": "provided",
+        "uncertainty": 3,
+        "answerability": 3,
+        "estimated_attempts": 1,
+        "min_origins": 2,
+        "min_independent_origins": 1
+      },
+      {
+        "id": "RQ3",
+        "parent_id": "RQ2",
+        "depends_on": [
+          "RQ2"
+        ],
+        "factor_ids": [
+          "MF01"
+        ],
+        "claim_ids": [],
+        "question": "What effective capacity and first-pass yield are demonstrated?",
+        "evidence_required": "Production and quality records at specified shifts, product mix and utilisation.",
+        "counter_test": "Compare rated capacity with downtime, scrap, rework and changeovers.",
+        "decision_use": "Test deliverable volume and direct cost assumptions.",
+        "evidence_route": "provided",
+        "uncertainty": 2,
+        "answerability": 2,
+        "estimated_attempts": 1,
+        "min_origins": 2,
+        "min_independent_origins": 1
+      },
+      {
+        "id": "RQ4",
+        "parent_id": null,
+        "depends_on": [],
+        "factor_ids": [
+          "C07",
+          "OB02",
+          "MF02"
+        ],
+        "claim_ids": [],
+        "question": "Which dated cash and funding constraints affect the next decision?",
+        "evidence_required": "Unrestricted cash, commitments, cash movement and timing or a precise request for the missing records.",
+        "counter_test": "Test restricted cash, delayed collections and conditional finance against the same timeline.",
+        "decision_use": "Determine funding needs, liquidity exposure and timing.",
+        "evidence_route": "private",
+        "uncertainty": 2,
+        "answerability": 0,
+        "estimated_attempts": 1,
+        "min_origins": 1,
+        "min_independent_origins": 0
+      },
+      {
+        "id": "RQ5",
+        "parent_id": null,
+        "depends_on": [],
+        "factor_ids": [
+          "C06"
+        ],
+        "claim_ids": [],
+        "question": "What drives recognised revenue and contribution at the current stage?",
+        "evidence_required": "Revenue mechanism and reconciled operating inputs where available, with actual, contracted and projected amounts identified.",
+        "counter_test": "Look for refundable deposits, free pilots, bookings and pass-through amounts presented as earned revenue.",
+        "decision_use": "Set revenue quality and defensible unit-economics assumptions.",
+        "evidence_route": "private",
+        "uncertainty": 2,
+        "answerability": 0,
+        "estimated_attempts": 1,
+        "min_origins": 1,
+        "min_independent_origins": 0
+      },
+      {
+        "id": "RQ6",
+        "parent_id": null,
+        "depends_on": [],
+        "factor_ids": [
+          "C02",
+          "C05"
+        ],
+        "claim_ids": [],
+        "question": "Who has demonstrated demand or willingness to pay for the current offer?",
+        "evidence_required": "Segment-specific demand evidence that distinguishes interest, use, purchase and repeat use.",
+        "counter_test": "Find inactive users, rejected offers, unpaid pilots and alternatives purchasers already use.",
+        "decision_use": "Test demand and reachable customer segments.",
+        "evidence_route": "public",
+        "uncertainty": 2,
+        "answerability": 0,
+        "estimated_attempts": 1,
+        "min_origins": 1,
+        "min_independent_origins": 0
+      },
+      {
+        "id": "RQ7",
+        "parent_id": null,
+        "depends_on": [
+          "RQ1"
+        ],
+        "factor_ids": [
+          "C04",
+          "C09"
+        ],
+        "claim_ids": [],
+        "question": "Who controls delivery and decisions, and what track record is evidenced?",
+        "evidence_required": "Named responsibilities, relevant execution history and decision rights.",
+        "counter_test": "Check contradictory biographies, conflicts and departures that change who can deliver.",
+        "decision_use": "Assess execution, governance and key-person dependencies.",
+        "evidence_route": "provided",
+        "uncertainty": 2,
+        "answerability": 2,
+        "estimated_attempts": 1,
+        "min_origins": 1,
+        "min_independent_origins": 0
+      },
+      {
+        "id": "RQ8",
+        "parent_id": null,
+        "depends_on": [],
+        "factor_ids": [
+          "C08",
+          "C10"
+        ],
+        "claim_ids": [],
+        "question": "What evidence suggests an advantage can survive replication or switching?",
+        "evidence_required": "Customer behaviour, protected rights or operational economics that can be traced to the advantage.",
+        "counter_test": "Identify reproducible features, weak IP coverage, multi-homing and low switching costs.",
+        "decision_use": "Test durability and the persistence of value drivers.",
+        "evidence_route": "provided",
+        "uncertainty": 1,
+        "answerability": 1,
+        "estimated_attempts": 2,
+        "min_origins": 1,
+        "min_independent_origins": 0
+      }
+    ]
+  },
+  "research_attempts": [
+    {
+      "id": "A1",
+      "channel": "document_review",
+      "phase": "research",
+      "intent": "both",
+      "date": "2026-11-27",
+      "target": "Cedar pilot status and scope | packet-1",
+      "outcome": "evidence_found",
+      "evidence_ids": [
+        "E1"
+      ],
+      "note": "The company records a supervised one-shift manufacturing pilot without documented sales or committed funding."
+    },
+    {
+      "id": "A2",
+      "channel": "document_review",
+      "phase": "research",
+      "intent": "both",
+      "date": "2026-11-27",
+      "target": "Cedar pilot inspection and acceptance | packet-1",
+      "outcome": "evidence_found",
+      "evidence_ids": [
+        "E2"
+      ],
+      "note": "The inspector confirmed prototype acceptance under the one-shift trial criteria. There is insufficient evidence on sustained line throughput or manufacturing cost."
+    }
+  ]
+}

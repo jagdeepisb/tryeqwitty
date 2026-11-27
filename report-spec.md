@@ -24,3 +24,7 @@ The report bridge turns a validated bundle into exhibits with raw decimal values
 A competitor comparison specifies its scope, comparison companies and criteria. Identify the assessed company with the ID `subject` and use its profile name. Each criterion supplies the same definition for all companies in that comparison and exactly one cell per company. A reported observation needs a source. An independently supported observation needs independent grade A or B evidence. Use a null value, a rationale and applicable gap references for an unknown or inapplicable cell. [Analysis schema](schemas/analysis-bundle-v1.3.json)
 
 Review each rendered PDF page for legibility and verify the figures, references, source links and both fonts. The tagged PDF and semantic HTML use the same exhibits. Preserve the structured inputs and output JSON so readers with permission can trace the calculations. [Report schema](report-kit/schema-v1.3.json) · [Reference reports](report-kit/README.md)
+
+## v1.4 research disclosure
+
+The v1.3 renderer displays the v1.4 methodology version. The report records actual activity by channel, capabilities, question outcomes, distinct evidence origins, corrections and limitations. Planned research without an attempt is disclosed as such. The independent thesis shows its current evidence status. Keep the plan and attempt ledger with the analysis so readers can trace the disclosed work. [Research playbooks](methodology/research-playbooks.md)

@@ -1,0 +1,676 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Eqwitty analysis bundle v1.4",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "standard_commit",
+    "as_of",
+    "profile",
+    "documents",
+    "evidence",
+    "claims",
+    "thesis",
+    "safeguards",
+    "factors",
+    "research",
+    "inputs",
+    "metrics",
+    "valuations",
+    "challenges",
+    "gaps",
+    "decision",
+    "financial_model",
+    "competitor_comparisons",
+    "research_plan",
+    "research_attempts"
+  ],
+  "properties": {
+    "version": {
+      "const": "1.4"
+    },
+    "standard_commit": {
+      "$ref": "analysis-bundle-v1.3.json#/properties/standard_commit"
+    },
+    "as_of": {
+      "$ref": "analysis-bundle-v1.3.json#/properties/as_of"
+    },
+    "profile": {
+      "$ref": "analysis-bundle-v1.3.json#/properties/profile"
+    },
+    "documents": {
+      "$ref": "analysis-bundle-v1.3.json#/properties/documents"
+    },
+    "evidence": {
+      "$ref": "analysis-bundle-v1.3.json#/properties/evidence"
+    },
+    "claims": {
+      "$ref": "analysis-bundle-v1.3.json#/properties/claims"
+    },
+    "thesis": {
+      "$ref": "#/$defs/thesis"
+    },
+    "safeguards": {
+      "$ref": "analysis-bundle-v1.3.json#/properties/safeguards"
+    },
+    "factors": {
+      "$ref": "analysis-bundle-v1.3.json#/properties/factors"
+    },
+    "research": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/research_result"
+      },
+      "minItems": 1,
+      "maxItems": 300
+    },
+    "inputs": {
+      "$ref": "analysis-bundle-v1.3.json#/properties/inputs"
+    },
+    "metrics": {
+      "$ref": "analysis-bundle-v1.3.json#/properties/metrics"
+    },
+    "valuations": {
+      "$ref": "analysis-bundle-v1.3.json#/properties/valuations"
+    },
+    "challenges": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/challenge"
+      },
+      "minItems": 1,
+      "maxItems": 300
+    },
+    "gaps": {
+      "$ref": "analysis-bundle-v1.3.json#/properties/gaps"
+    },
+    "decision": {
+      "$ref": "analysis-bundle-v1.3.json#/properties/decision"
+    },
+    "financial_model": {
+      "$ref": "analysis-bundle-v1.3.json#/properties/financial_model"
+    },
+    "competitor_comparisons": {
+      "$ref": "analysis-bundle-v1.3.json#/properties/competitor_comparisons"
+    },
+    "research_plan": {
+      "$ref": "#/$defs/research_plan"
+    },
+    "research_attempts": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/attempt"
+      },
+      "minItems": 0,
+      "maxItems": 1200
+    }
+  },
+  "$defs": {
+    "question_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 20,
+      "pattern": "^RQ[1-9][0-9]*$"
+    },
+    "attempt_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 20,
+      "pattern": "^A[1-9][0-9]*$"
+    },
+    "factor_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 80,
+      "pattern": "^[A-Z][A-Z0-9_]*[0-9]+$"
+    },
+    "claim_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 20,
+      "pattern": "^C[1-9][0-9]*$"
+    },
+    "evidence_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 20,
+      "pattern": "^E[0-9]+$"
+    },
+    "gap_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 20,
+      "pattern": "^G[0-9]+$"
+    },
+    "question": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "parent_id",
+        "depends_on",
+        "factor_ids",
+        "claim_ids",
+        "question",
+        "evidence_required",
+        "counter_test",
+        "decision_use",
+        "evidence_route",
+        "uncertainty",
+        "answerability",
+        "estimated_attempts",
+        "min_origins",
+        "min_independent_origins"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/question_id"
+        },
+        "parent_id": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/question_id"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "depends_on": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/question_id"
+          },
+          "minItems": 0,
+          "maxItems": 300,
+          "uniqueItems": true
+        },
+        "factor_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/factor_id"
+          },
+          "minItems": 1,
+          "maxItems": 300,
+          "uniqueItems": true
+        },
+        "claim_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/claim_id"
+          },
+          "minItems": 0,
+          "maxItems": 300,
+          "uniqueItems": true
+        },
+        "question": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 8000
+        },
+        "evidence_required": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 8000
+        },
+        "counter_test": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 8000
+        },
+        "decision_use": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 8000
+        },
+        "evidence_route": {
+          "enum": [
+            "public",
+            "provided",
+            "private",
+            "mixed"
+          ]
+        },
+        "uncertainty": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 3
+        },
+        "answerability": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3
+        },
+        "estimated_attempts": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100
+        },
+        "min_origins": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 10
+        },
+        "min_independent_origins": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10
+        }
+      }
+    },
+    "attempt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "channel",
+        "phase",
+        "intent",
+        "date",
+        "target",
+        "outcome",
+        "evidence_ids",
+        "note"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/attempt_id"
+        },
+        "channel": {
+          "enum": [
+            "web_search",
+            "web_open",
+            "document_review",
+            "private_request"
+          ]
+        },
+        "phase": {
+          "enum": [
+            "research",
+            "challenge"
+          ]
+        },
+        "intent": {
+          "enum": [
+            "support",
+            "counter",
+            "both"
+          ]
+        },
+        "date": {
+          "type": "string",
+          "format": "date"
+        },
+        "target": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4500
+        },
+        "outcome": {
+          "enum": [
+            "evidence_found",
+            "no_evidence",
+            "access_blocked",
+            "request_sent"
+          ]
+        },
+        "evidence_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/evidence_id"
+          },
+          "minItems": 0,
+          "maxItems": 300,
+          "uniqueItems": true
+        },
+        "note": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 8000
+        }
+      }
+    },
+    "research_result": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "question_id",
+        "status",
+        "stop_reason",
+        "attempt_ids",
+        "evidence_ids",
+        "gap_ids",
+        "reason"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 20,
+          "pattern": "^R[0-9]+$"
+        },
+        "question_id": {
+          "$ref": "#/$defs/question_id"
+        },
+        "status": {
+          "enum": [
+            "completed",
+            "partial",
+            "blocked",
+            "deferred"
+          ]
+        },
+        "stop_reason": {
+          "enum": [
+            "criteria_met",
+            "budget_limit",
+            "low_expected_value",
+            "diminishing_returns",
+            "access_blocked",
+            "insufficient_evidence",
+            "private_information",
+            "tool_unavailable",
+            "prerequisite",
+            "contradiction"
+          ]
+        },
+        "attempt_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/attempt_id"
+          },
+          "minItems": 0,
+          "maxItems": 300,
+          "uniqueItems": true
+        },
+        "evidence_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/evidence_id"
+          },
+          "minItems": 0,
+          "maxItems": 300,
+          "uniqueItems": true
+        },
+        "gap_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/gap_id"
+          },
+          "minItems": 0,
+          "maxItems": 300,
+          "uniqueItems": true
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 8000
+        }
+      }
+    },
+    "research_plan": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "objective",
+        "objective_rationale",
+        "stage_rationale",
+        "stage_evidence_ids",
+        "limitations",
+        "capabilities",
+        "budget",
+        "exclusions",
+        "questions"
+      ],
+      "properties": {
+        "objective": {
+          "enum": [
+            "investment",
+            "fundraising_readiness",
+            "mandate_screening",
+            "valuation",
+            "strategic_review",
+            "other"
+          ]
+        },
+        "objective_rationale": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 8000
+        },
+        "stage_rationale": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 8000
+        },
+        "stage_evidence_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/evidence_id"
+          },
+          "minItems": 0,
+          "maxItems": 300,
+          "uniqueItems": true
+        },
+        "limitations": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 8000
+        },
+        "capabilities": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "web",
+            "documents",
+            "private_requests"
+          ],
+          "properties": {
+            "web": {
+              "type": "boolean"
+            },
+            "documents": {
+              "type": "boolean"
+            },
+            "private_requests": {
+              "type": "boolean"
+            }
+          }
+        },
+        "budget": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "max_attempts",
+            "challenge_reserve",
+            "minimum_priority"
+          ],
+          "properties": {
+            "max_attempts": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1200
+            },
+            "challenge_reserve": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1200
+            },
+            "minimum_priority": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 72
+            }
+          }
+        },
+        "exclusions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "factor_id",
+              "evidence_ids",
+              "rationale"
+            ],
+            "properties": {
+              "factor_id": {
+                "$ref": "#/$defs/factor_id"
+              },
+              "evidence_ids": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/evidence_id"
+                },
+                "minItems": 1,
+                "maxItems": 300,
+                "uniqueItems": true
+              },
+              "rationale": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 8000
+              }
+            }
+          },
+          "minItems": 0,
+          "maxItems": 300
+        },
+        "questions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/question"
+          },
+          "minItems": 1,
+          "maxItems": 300
+        }
+      }
+    },
+    "thesis": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "management",
+        "independent",
+        "independent_evidence",
+        "falsifiers",
+        "divergences",
+        "status",
+        "question_ids"
+      ],
+      "properties": {
+        "management": {
+          "$ref": "analysis-bundle.json#/properties/thesis/properties/management"
+        },
+        "independent": {
+          "$ref": "analysis-bundle.json#/properties/thesis/properties/independent"
+        },
+        "independent_evidence": {
+          "$ref": "analysis-bundle.json#/properties/thesis/properties/independent_evidence"
+        },
+        "falsifiers": {
+          "$ref": "analysis-bundle.json#/properties/thesis/properties/falsifiers"
+        },
+        "divergences": {
+          "$ref": "analysis-bundle.json#/properties/thesis/properties/divergences"
+        },
+        "status": {
+          "enum": [
+            "corroborated",
+            "provisional",
+            "unavailable"
+          ]
+        },
+        "question_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/question_id"
+          },
+          "minItems": 0,
+          "maxItems": 300,
+          "uniqueItems": true
+        }
+      }
+    },
+    "challenge": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "severity",
+        "status",
+        "finding",
+        "affected",
+        "correction",
+        "gap_ids",
+        "route",
+        "question_ids",
+        "attempt_ids",
+        "rechecked_ids"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "analysis-bundle.json#/properties/challenges/items/properties/id"
+        },
+        "severity": {
+          "$ref": "analysis-bundle.json#/properties/challenges/items/properties/severity"
+        },
+        "status": {
+          "$ref": "analysis-bundle.json#/properties/challenges/items/properties/status"
+        },
+        "finding": {
+          "$ref": "analysis-bundle.json#/properties/challenges/items/properties/finding"
+        },
+        "affected": {
+          "$ref": "analysis-bundle.json#/properties/challenges/items/properties/affected"
+        },
+        "correction": {
+          "$ref": "analysis-bundle.json#/properties/challenges/items/properties/correction"
+        },
+        "gap_ids": {
+          "$ref": "analysis-bundle.json#/properties/challenges/items/properties/gap_ids"
+        },
+        "route": {
+          "enum": [
+            "scope",
+            "evidence",
+            "financial_model",
+            "valuation",
+            "report"
+          ]
+        },
+        "question_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/question_id"
+          },
+          "minItems": 0,
+          "maxItems": 300,
+          "uniqueItems": true
+        },
+        "attempt_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/attempt_id"
+          },
+          "minItems": 0,
+          "maxItems": 300,
+          "uniqueItems": true
+        },
+        "rechecked_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 300
+          },
+          "minItems": 0,
+          "maxItems": 300,
+          "uniqueItems": true
+        }
+      }
+    }
+  }
+}

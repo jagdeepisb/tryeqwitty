@@ -34,7 +34,7 @@ def decimal_text(value):
 
 
 class FinanceContext:
-    def __init__(self, bundle, inputs, evidence, claims, gaps):
+    def __init__(self, bundle, inputs, evidence, claims, gaps, source_origins=None):
         self.as_of = date.fromisoformat(bundle["as_of"])
         self.entity = bundle["profile"]["legal_entity"]
         self.stage = bundle["profile"]["stage"]
@@ -46,10 +46,12 @@ class FinanceContext:
         self.evidence = evidence
         self.claims = claims
         self.gaps = gaps
+        self.source_origins = source_origins
+        material_severities = {"High", "Critical"} if source_origins is not None else {"Critical"}
         self.blocked = {
             affected
             for challenge in bundle["challenges"]
-            if challenge["severity"] == "Critical" and challenge["status"] == "unresolved"
+            if challenge["severity"] in material_severities and challenge["status"] == "unresolved"
             for affected in challenge["affected"]
         }
         for input_id, row in inputs.items():
@@ -62,12 +64,16 @@ class FinanceContext:
             refs(row["claim_ids"], claims, f"{input_id} financial claims")
 
     def use(self, identifier):
-        require(identifier not in self.blocked, f"{identifier}: unresolved critical challenge")
+        severity = "material" if self.source_origins is not None else "critical"
+        require(identifier not in self.blocked, f"{identifier}: unresolved {severity} challenge")
 
     def independent(self, ids, label):
         refs(ids, self.evidence, label)
         for eid in ids:
             self.use(eid)
+        if self.source_origins is not None:
+            require(self.source_origins.independent(ids), f"{label}: needs independent A/B evidence")
+            return
         require(any(
             self.evidence[eid]["type"] in ("independent_public", "authoritative_record")
             and self.evidence[eid]["grade"] in ("A", "B") for eid in ids

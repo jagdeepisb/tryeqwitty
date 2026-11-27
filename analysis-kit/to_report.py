@@ -9,12 +9,13 @@ from validate import validate
 def convert(b, digest, report_version=None):
     coverage=validate(b)
     if report_version is None:
-        report_version = "1.3" if b["version"] == "1.3" else "1.0"
+        report_version = "1.3" if b["version"] in ("1.3", "1.4") else "1.0"
     if report_version == "1.3":
         return build_report(b, digest, coverage)
     if report_version != "1.0":
         raise ValueError("Unsupported report version")
     model=coverage.pop("financial_model",None)
+    research=coverage.pop("research_coverage",None)
     evidence={e["id"]:e for e in b["evidence"]}
     mapping={k:"S"+str(i+1) for i,k in enumerate(evidence)}
     sources=[{"id":mapping[k],"title":e["title"],"locator":e["publisher"]+" | "+e["locator"]+" | Accessed "+e["accessed"],"url":e["url"],"type":{"company_material":"company material","company_public":"company public source","independent_public":"independent public source","authoritative_record":"independent public source"}[e["type"]]} for k,e in evidence.items()]
@@ -59,6 +60,9 @@ def convert(b, digest, report_version=None):
         return section(head,[fac(f) for f in rows],[i for f in rows for i in f["support"]+f["oppose"]])
     gaps=[{**{k:g[k] for k in ("priority","item","period","why","conclusion","action","availability")},"conclusion":g["conclusion"]+(" | Factors: "+", ".join(g["affected_factor_ids"]) if g["affected_factor_ids"] else "")} for g in b["gaps"]]
     limits=[d["limitations"],"Open standard v"+b["version"]+"; source commit "+b["standard_commit"]+"; bundle SHA-256 "+digest,"Coverage (count, not performance score): "+json.dumps(coverage), *[r["id"]+" | "+r["status"]+" | "+r["reason"] for r in b["research"]],*[q["id"]+" | "+q["severity"]+" | "+q["status"]+" | "+q["finding"]+" | "+q["correction"] for q in b["challenges"]]]
+    if research is not None:
+        limits.extend([research["limitations"], "Recorded attempts "+json.dumps(research["attempts_by_channel"]),
+                       "Source origins "+str(research["source_origins"])])
     if not gaps: limits.append("No material gaps listed within the declared scope; see limitations above.")
     return {"version":"1.0","company":p["company"],"objective":p["objective"],"as_of":b["as_of"],"sections":[
       section("Executive assessment",[d["status"]+": "+d["conclusion"],*d["strengths"],*d["risks"]],all_f),

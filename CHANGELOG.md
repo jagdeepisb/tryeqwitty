@@ -1,4 +1,8 @@
 # Changelog
+## 1.4 — research playbooks and adaptive depth
+
+Adds mandatory factors routed by achieved stage, decision objective and business model, with evidence requirements and disconfirming tests. Adds a question graph, expected-information priorities, research allowances, actual attempt records, distinct-origin corroboration and correction routes. The validator and report now expose actual scope and material unresolved questions. Two synthetic cases demonstrate differentiated research and unavailable tool disclosure. Prior bundle versions retain their validation and rendering behaviour.
+
 ## 1.3 — structured PDF reporting and financial exhibits
 
 Adds the structured company and competitor matrices, claim-level source links, financial tables and charts, scenario schedule appendix, DCF sensitivity grids and tagged PDF output. The HTML export includes the exact-value and operand registers. Complete and sparse examples include PDF, HTML and missing-information CSVs. CI verifies numeric reconciliation, source links, PDF text and the embedded brand fonts. v1.0 report JSON and older analysis bundles remain supported.
