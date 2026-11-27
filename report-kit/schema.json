@@ -1,0 +1,189 @@
+{
+  "title": "Eqwitty Open Methodology Report Schema v1.0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "company",
+    "objective",
+    "as_of",
+    "sections",
+    "sources",
+    "missing_information"
+  ],
+  "properties": {
+    "version": {
+      "const": "1.0"
+    },
+    "company": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "objective": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1000
+    },
+    "as_of": {
+      "type": "string",
+      "format": "date"
+    },
+    "sections": {
+      "type": "array",
+      "minItems": 12,
+      "maxItems": 12,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "heading",
+          "paragraphs",
+          "source_ids"
+        ],
+        "properties": {
+          "heading": {
+            "enum": [
+              "Executive assessment",
+              "Scope and input inventory",
+              "Business and product",
+              "Team",
+              "Market and competition",
+              "Independent thesis and reconciliation",
+              "Financial analysis and calculations",
+              "Material factors and evidence coverage",
+              "Risks and safeguards",
+              "Valuation and sensitivity",
+              "Management questions",
+              "Methodology and limitations"
+            ]
+          },
+          "paragraphs": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 40,
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4000
+            }
+          },
+          "source_ids": {
+            "type": "array",
+            "uniqueItems": true,
+            "maxItems": 100,
+            "items": {
+              "type": "string",
+              "pattern": "^S[1-9][0-9]*$"
+            }
+          }
+        }
+      }
+    },
+    "sources": {
+      "type": "array",
+      "maxItems": 200,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "title",
+          "locator",
+          "url",
+          "type"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^S[1-9][0-9]*$"
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 300
+          },
+          "locator": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "url": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2000
+          },
+          "type": {
+            "enum": [
+              "company material",
+              "independent public source",
+              "company public source",
+              "analyst calculation"
+            ]
+          }
+        }
+      }
+    },
+    "missing_information": {
+      "type": "array",
+      "maxItems": 100,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "priority",
+          "item",
+          "period",
+          "why",
+          "conclusion",
+          "action",
+          "availability"
+        ],
+        "properties": {
+          "priority": {
+            "enum": [
+              "Critical",
+              "High",
+              "Medium",
+              "Low"
+            ]
+          },
+          "item": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "period": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "why": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 800
+          },
+          "conclusion": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 800
+          },
+          "action": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 800
+          },
+          "availability": {
+            "enum": [
+              "Private",
+              "Public",
+              "Either"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

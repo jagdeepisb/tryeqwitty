@@ -1,0 +1,104 @@
+{
+  "version": "1.0",
+  "company": "Synthetic Example Company (fictional)",
+  "objective": "Demonstrate the report format; not a real evaluation",
+  "as_of": "2026-11-27",
+  "sections": [
+    {
+      "heading": "Executive assessment",
+      "paragraphs": [
+        "This is a synthetic layout fixture. No real company or investment merits are assessed."
+      ],
+      "source_ids": []
+    },
+    {
+      "heading": "Scope and input inventory",
+      "paragraphs": [
+        "Not assessed in this synthetic fixture; further evidence would be required."
+      ],
+      "source_ids": []
+    },
+    {
+      "heading": "Business and product",
+      "paragraphs": [
+        "Not assessed in this synthetic fixture; further evidence would be required."
+      ],
+      "source_ids": []
+    },
+    {
+      "heading": "Team",
+      "paragraphs": [
+        "Not assessed in this synthetic fixture; further evidence would be required."
+      ],
+      "source_ids": []
+    },
+    {
+      "heading": "Market and competition",
+      "paragraphs": [
+        "Not assessed in this synthetic fixture; further evidence would be required."
+      ],
+      "source_ids": []
+    },
+    {
+      "heading": "Independent thesis and reconciliation",
+      "paragraphs": [
+        "Not assessed in this synthetic fixture; further evidence would be required."
+      ],
+      "source_ids": []
+    },
+    {
+      "heading": "Financial analysis and calculations",
+      "paragraphs": [
+        "No observed financial data. Do not infer revenue, margin, cash or runway."
+      ],
+      "source_ids": []
+    },
+    {
+      "heading": "Material factors and evidence coverage",
+      "paragraphs": [
+        "Not assessed in this synthetic fixture; further evidence would be required."
+      ],
+      "source_ids": []
+    },
+    {
+      "heading": "Risks and safeguards",
+      "paragraphs": [
+        "Not assessed in this synthetic fixture; further evidence would be required."
+      ],
+      "source_ids": []
+    },
+    {
+      "heading": "Valuation and sensitivity",
+      "paragraphs": [
+        "Not estimable: no verified financial or transaction inputs."
+      ],
+      "source_ids": []
+    },
+    {
+      "heading": "Management questions",
+      "paragraphs": [
+        "Not assessed in this synthetic fixture; further evidence would be required."
+      ],
+      "source_ids": []
+    },
+    {
+      "heading": "Methodology and limitations",
+      "paragraphs": [
+        "Not assessed in this synthetic fixture; further evidence would be required."
+      ],
+      "source_ids": []
+    }
+  ],
+  "sources": [],
+  "missing_information": [
+    {
+      "priority": "Critical",
+      "item": "Historical financial statements and model",
+      "period": "Last three years and forecast horizon",
+      "why": "No observed financial inputs exist in this fixture.",
+      "conclusion": "Financial viability and valuation remain unavailable.",
+      "action": "Reconcile statements; recompute eligible metrics from traceable operands.",
+      "availability": "Private"
+    }
+  ]
+}
