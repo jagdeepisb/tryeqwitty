@@ -1,46 +1,53 @@
 # Monzo: growth, earnings quality and regulatory risk
 
-**Decision:** Does the available public evidence justify progressing to detailed investment diligence, rather than agreeing a price? **Scope:** Monzo Bank Holding Group Limited, FY ended 31 March 2026; evidence accessed 28 November 2026. This is an AI-assisted, scoped public-source note, not a full validated Eqwitty assessment, expert-reviewed opinion or recommendation.
+**Decision:** Is the public evidence sufficient to progress to detailed diligence, rather than agree a price? **Scope:** Monzo Bank Holding Group Limited, year ended 31 March 2026. Selected records reviewed on 28 November 2026. AI-assisted, scoped public-source note; not a full validated Eqwitty assessment, independently reviewed opinion or recommendation.
 
 ## Conclusion
 
-The reported growth warrants examining the economics of the deposit franchise and risk-adjusted lending. It does not establish an attractive entry price or demonstrate that regulatory remediation is complete. Withhold a valuation until statutory earnings, capital requirements, credit losses, funding sensitivity and transaction terms have been reconciled.
+Further diligence is warranted by the reported scale and profitability. The financing decision remains open: deposit growth is not equivalent to earnings growth, adjusted profit substantially exceeds statutory profit, and the capital ratio has fallen. Do not infer an attractive entry price from customer growth. The FCA has confirmed completion of a historical remediation programme; the remaining diligence question concerns the effectiveness of ongoing controls at greater scale.
 
-## Evidence and implications
+## Evidence
 
-| Finding | Evidence | Decision implication |
-|---|---|---|
-| Private holding company; separate regulated operating entity | [Companies House: holding company 14785367](https://find-and-update.company-information.service.gov.uk/company/14785367); [bank 09446231](https://find-and-update.company-information.service.gov.uk/company/09446231) | Define the equity and regulatory perimeter before calculating value. |
-| £1.7bn FY26 revenue, 39% reported growth; £1.0bn gross profit, 35% reported growth | [Monzo FY26 year in review](https://monzo.com/annual-report/2026) | Growth is material, but gross revenue does not equal risk-adjusted economic income. |
-| Deposits increased from £16.6bn to £25.7bn; 15.2m total customers and 10.4m monthly active users | [Monzo FY26 year in review](https://monzo.com/annual-report/2026) | Test deposit concentration, duration, rate sensitivity and engagement. |
-| £172.6m adjusted profit before tax | [Monzo FY26 year in review](https://monzo.com/annual-report/2026) | Obtain the statutory-to-adjusted bridge; do not treat this figure as statutory profit. |
-| FCA imposed a £21,091,300 penalty on Monzo Bank Limited in July 2025 for historical financial crime control failings | [FCA enforcement announcement](https://www.fca.org.uk/news/press-releases/fca-fines-monzo-21m-failings-financial-crime-controls) | Growth and controls must be tested together; the historical finding alone does not establish current control failure. |
+All monetary amounts in the following table are GBP millions. Statutory figures are from the [FY26 consolidated annual report, pp. 120–121](https://monzo.com/annual-report/2026/Monzo-Annual-Report-2026.pdf#page=120); adjustment figures from [p. 195](https://monzo.com/annual-report/2026/Monzo-Annual-Report-2026.pdf#page=195). These statements are company-origin evidence, not an independent reconstruction of underlying ledgers.
 
-## Reproducible arithmetic
+| Measure | FY25 | FY26 |
+|---|---:|---:|
+| Revenue | 1,235.355 | 1,712.296 |
+| Gross profit | 747.927 | 1,012.813 |
+| Credit loss expense | 152.595 | 203.680 |
+| Statutory pre-tax profit | 60.478 | 87.288 |
+| Statutory profit after tax | 94.568 | 86.330 |
+| Customer deposits | 16,599.371 | 25,715.953 |
+| Book equity | 1,212.943 | 1,283.565 |
 
-All values use rounded figures from the FY26 company summary. The source is company-origin, not independent corroboration.
+The [Companies House holding company record](https://find-and-update.company-information.service.gov.uk/company/14785367) establishes the private legal entity; [the bank record](https://find-and-update.company-information.service.gov.uk/company/09446231) identifies a separate entity. [Monzo's governance page](https://monzo.com/meet-our-board) describes the group perimeter. The [FCA decision](https://www.fca.org.uk/news/press-releases/fca-fines-monzo-21m-failings-financial-crime-controls) records a £21.0913m penalty for past control deficiencies and breaches of restrictions, and states that the remediation programme was completed. Historical enforcement is not evidence that current controls are deficient.
+
+## Calculations and implications
 
 | Measure | Calculation | Result |
 |---|---|---:|
-| Deposit increase | £25.7bn less £16.6bn | £9.1bn |
-| Deposit growth | (25.7 / 16.6 − 1) × 100 | approximately 54.8% |
-| Monthly active share of total customers | 10.4 / 15.2 × 100 | approximately 68.4% |
-| Adjusted pre-tax profit / gross revenue | 172.6 / 1,700 × 100 | approximately 10.2% |
+| Revenue growth | 1,712.296 / 1,235.355 − 1 | 38.6% |
+| Deposit growth | 25,715.953 / 16,599.371 − 1 | 54.9% |
+| Statutory profit after tax growth | 86.330 / 94.568 − 1 | -8.7% |
+| FY26 statutory pre-tax profit to gross revenue | 87.288 / 1,712.296 | 5.1% |
+| FY26 adjusted pre-tax profit to gross revenue | 172.640 / 1,712.296 | 10.1% |
 
-The last ratio is an illustrative ratio of two reported measures, not a statutory margin, return on equity or bank efficiency ratio. Deposit balances are liabilities, not cash freely available to shareholders. The general corporate FCFF and SaaS valuation shortcuts are inappropriate here without a bank-specific model.
+The last two ratios are illustrative and not bank efficiency or return-on-equity measures. The difference between adjusted and statutory pre-tax profit is £85.352m: £59.007m share-based compensation and £26.345m exceptional items (including the FCA penalty and a restructuring provision). The company adds both back; share-based compensation can nevertheless dilute shareholders. FY25 statutory post-tax earnings included a £34.090m tax credit; FY26 had a £0.958m tax expense. These differences complicate simple year-on-year comparisons.
+
+In the [CFO review, p. 24](https://monzo.com/annual-report/2026/Monzo-Annual-Report-2026.pdf#page=24), the company reports net interest margin falling from 4.1% to 3.7% and CET1 falling from 56% to 33%. Its reported interest-income sensitivity to a 100-basis-point rate move is approximately £23.9m a year. These are management disclosures, not independent stress tests. Deposits are liabilities; the deposit balance cannot be treated as distributable cash. Generic corporate FCFF and SaaS multiples are not appropriate substitutes for bank-specific equity valuation.
 
 ## Challenge and next evidence
 
-A larger deposit base may increase income at a favourable rate environment, but deposit pricing and reinvestment yields can reverse this benefit. Customer growth may also require greater risk, compliance and servicing expenditure. The FCA record provides an external reason to investigate that trade-off, not a conclusion that current controls are deficient.
+The growth case could be stronger if low-cost deposit retention and credit-adjusted returns are durable. Conversely, expensive deposits, higher impairment or capital consumption could reduce value even as revenue rises. The regulator's statement of completed remediation is counter-evidence to any claim that the historical programme remains unfinished; continued control effectiveness is a separate question.
 
-| Priority | Obtain | Test |
+| Priority | Obtain or examine | Decision test |
 |---|---|---|
-| Critical | FY26 audited consolidated statements and notes; latest regulatory capital disclosures | Reconcile statutory earnings, impairment, capital buffers and returns on equity. |
-| High | Deposit mix, pricing and interest-rate sensitivity | Estimate sustainable net interest income under lower rates and deposit outflows. |
-| High | Loan vintages, expected credit losses and stress results | Separate balance growth from credit-adjusted profitability. |
-| High | Evidence of completed control remediation and subsequent independent testing | Assess whether risk controls scale with the business. |
-| High | Fully diluted ownership, transaction terms, comparable bank valuations | Establish an eligible equity valuation basis. |
+| Critical | Latest capital disclosures, risk-weighted asset forecast and capital requirements | Establish capital available for growth or distribution. |
+| High | Deposit mix, pricing, outflow scenarios and structural hedge maturity | Test sustainable net interest income. |
+| High | Loan vintages, impairment assumptions and stress results | Test risk-adjusted lending profitability. |
+| High | Current controls assurance, monitoring results and evidence of sustained effectiveness | Evaluate risks following historical remediation. |
+| High | Fully diluted ownership, transaction terms and matched bank comparables | Establish an eligible equity valuation basis. |
 
 ## Review limits
 
-This note used public company summary metrics, registry identity records and the FCA announcement. The full audited statements, regulatory capital schedules, loan books, comparable bank data and private records were not reviewed; no full analysis bundle or PDF was validated. The numbers are a bounded illustration of source-based reasoning, not a test of overall standard effectiveness. No human expert review is claimed.
+Reviewed selected FY26 annual report tables and CFO discussion, company registry information, governance and the FCA announcement. No comprehensive review of all notes, audit opinion, prudential disclosures, loan-level data, current comparable valuations or private records. No full analysis bundle or PDF was validated and no human expert review is claimed. The sample demonstrates bounded reasoning and reproducible arithmetic, not overall standard effectiveness.
