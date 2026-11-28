@@ -44,7 +44,7 @@ The [report kit](report-kit/README.md) contains synthetic regression fixtures an
 | Analytical contract | [Analytical bundle schema](schemas/analysis-bundle-v1.4.json) · [Validator and report bridge](analysis-kit/README.md) |
 | Structured reporting | [Report specification](report-spec.md) · [Offline renderer](report-kit/README.md) |
 | Benchmarks | [Synthetic benchmarks](benchmarks/README.md) · [Cross-agent acceptance rubric](benchmarks/acceptance-rubric.md) |
-| Release | [Release conformance](release/v2.2.0/README.md) · [Compatibility and migration](release/COMPATIBILITY.md) · [Change history](CHANGELOG.md) |
+| Release | [Release conformance](release/v2.2.1/README.md) · [Compatibility and migration](release/COMPATIBILITY.md) · [Change history](CHANGELOG.md) |
 
 ## What has been tested
 

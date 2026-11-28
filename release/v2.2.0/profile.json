@@ -34,7 +34,6 @@
     "report-kit/report-v1.3.css",
     "analysis-kit/conformance.py",
     "release/certify.py",
-    "release/verify_release.py",
     "tests/test_structured_reporting.py",
     "tests/test_financial_model_v12.py",
     "tests/test_release_v20.py",

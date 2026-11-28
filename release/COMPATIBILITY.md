@@ -30,3 +30,7 @@ Use the same JSON formats. Revisit a fully supported factor if an open research 
 ## v2.2 decision briefs
 
 No JSON format or financial formula changes. The optional `--brief` output is an additional presentation of the validated report, not a new analytical contract. Keep the full assessment and prior snapshots. See the [v2.2 profile](v2.2.0/README.md).
+
+## v2.2.1 editorial patch
+
+The accepted JSON formats and financial formulas remain unchanged. Preserve the earlier assessment, review it under the new published commit and regenerate both report formats if needed. [Patch profile](v2.2.1/README.md).

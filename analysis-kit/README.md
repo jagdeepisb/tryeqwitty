@@ -16,4 +16,4 @@ A v1.3 or v1.4 bundle produces the structured report by default. Older bundles r
 
 Use `python analysis-kit/benchmark.py` to verify the v1.5 input seal and recompute the pilot from the original submissions and reviews. Use `--prepare fixed` or `--prepare live` to prepare a solver brief with the corresponding packet. [Benchmark methodology](../benchmarks/v1.5/README.md)
 
-For a published assessment, record the source commit of the selected release in the v1.4 bundle. Run `python analysis-kit/conformance.py analysis.json --report report.json` to validate the declared version, commit and report reconciliation. [Conformance levels](../release/v2.2.0/README.md#conformance)
+For a published assessment, record the source commit of the selected release in the v1.4 bundle. Run `python analysis-kit/conformance.py analysis.json --report report.json` to validate the declared version, commit and report reconciliation. [Conformance levels](../release/v2.2.1/README.md#conformance)
