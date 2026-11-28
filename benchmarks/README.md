@@ -20,7 +20,7 @@ The unit tests verify all nine DCF sensitivity cells and all new scalar formulas
 
 ## v1.3 report fixtures
 
-The complete fixture exercises a disputed claim, a partially known competitor comparison, cash and dilution schedules, and DCF sensitivity. The sparse fixture exercises qualified decisions, unavailable results and named missing-information links. CI renders real PDFs, checks the reference HTML and CSVs, verifies the embedded brand fonts and link destinations, and compares every numeric exhibit to the validated results. [Complete bundle](report-complete-v1.3.json) · [Sparse bundle](report-sparse-v1.3.json) · [Reference outputs](../report-kit/README.md)
+The complete fixture exercises a disputed claim, a partially known competitor comparison, cash and dilution schedules, and DCF sensitivity. The sparse fixture exercises qualified decisions, unavailable results and named missing-information links. CI renders real PDFs, checks archived HTML integrity, fresh exports and the reference CSVs, verifies the embedded brand fonts and link destinations, and compares every numeric exhibit to the validated results. [Complete bundle](report-complete-v1.3.json) · [Sparse bundle](report-sparse-v1.3.json) · [Reference outputs](../report-kit/README.md)
 
 ## v1.4 adaptive research fixtures
 

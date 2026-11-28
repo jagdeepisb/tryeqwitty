@@ -2,7 +2,7 @@
 
 ## Unreleased | Editorial quality and public examples
 
-Adds a scoped public-source Monzo case, separates regression snapshots from the public showcase and clarifies release verification. Archived pilot results remain unchanged. No new independent validation is claimed.
+Adds a scoped public-source Monzo case, separates regression snapshots from the public showcase and clarifies release verification and uses business-language labels in both structured formats without changing the analytical record. Archived pilot results remain unchanged. No new independent validation is claimed.
 ## 2.2.0 | Decision briefs and benchmark scope
 
 Adds an optional concise decision brief with plain-language calculation and round labels, without changing the full assessment or analytical contracts. Adds automated PDF verification of both formats to the release archive. Distinguishes a commercially plausible fictional financing note from numerical regression fixtures and records requirements for prospective external evaluation. The archived pilot and earlier releases are unchanged. No external expert validation is claimed.
