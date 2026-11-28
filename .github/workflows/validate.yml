@@ -36,10 +36,10 @@ jobs:
       - run: python analysis-kit/benchmark.py > /tmp/benchmark-results.json && cmp benchmarks/v1.5/results.json /tmp/benchmark-results.json
       - name: Build and verify v2.2 release evidence
         run: |
-          python release/certify.py build --out "$RUNNER_TEMP/eqwitty-release"
-          python release/certify.py verify --out "$RUNNER_TEMP/eqwitty-release"
+          python release/verify_release.py build --out "$RUNNER_TEMP/eqwitty-release"
+          python release/verify_release.py verify --out "$RUNNER_TEMP/eqwitty-release"
       - uses: actions/upload-artifact@v4
         with:
-          name: eqwitty-v2.2.0-release-evidence
+          name: eqwitty-v2.2.1-release-evidence
           path: ${{ runner.temp }}/eqwitty-release
           if-no-files-found: error
