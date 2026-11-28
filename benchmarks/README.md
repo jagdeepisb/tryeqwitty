@@ -1,5 +1,5 @@
 # Benchmarks
-The financial examples exercise arithmetic and missing-data handling. The separate [November 2026 pilot](v1.5/pilot-results.md) measures repeatability on a fixed set of questions.
+The financial examples are deliberately simplified regression fixtures for arithmetic and missing-data handling. They are not commercially calibrated examples. The separate [November 2026 pilot](v1.5/pilot-results.md) measures repeatability on a fixed set of questions.
 
 | Early contract example | Expected result |
 |---|---|
@@ -34,3 +34,7 @@ Both cases use frozen synthetic documents and disclose zero web searches. Tests 
 ## v1.5 Codex repeatability pilot
 
 Six sealed cases cover SaaS, manufacturing, marketplace, lending, deeptech and a public corporate-register check. Six sessions of one Codex configuration produced the submissions. Two other Codex sessions reviewed masked responses. [Methodology and cases](v1.5/README.md) · [Measured pilot](v1.5/pilot-results.md)
+
+## Future evaluation
+
+The existing pilot is a descriptive repeatability baseline. It is not a prospective acceptance test or evidence of model superiority. Follow the [prospective evaluation requirements](prospective-evaluation.md) before making broader performance claims.

@@ -28,7 +28,9 @@ Give an AI agent the [evaluation prompt](prompts/evaluate.md), the decision you 
 
 ## Read a sample assessment
 
-These companies and figures are fictional. Each example answers a different financing question.
+[Start with a financing decision example](examples/financing-decision.md): a fictional subscription business with commercially plausible revenue, cash and financing amounts. The PDFs below are contract test outputs, not representative full-scale company finances.
+
+The downloadable PDFs use fictional test inputs. Harbour Ledger deliberately mixes small arithmetic operands with larger accounting figures to exercise the renderer; do not interpret those inputs as a commercially coherent operating model.
 
 | Case | What the evidence supports | Read the example |
 |---|---|---|
@@ -44,16 +46,16 @@ The [report kit](report-kit/README.md) links each example to its input records, 
 | :--- | :--- |
 | Evidence and research | [Evidence rules](methodology/evidence.md) · [Research playbooks and adaptive depth](methodology/research-playbooks.md) |
 | Material factors | [Factor library](factor-library/factors.json) |
-| Financial analysis | [Financial guide](financial-analysis/guide.md) · [Financial model schema v1.2](schemas/financial-model-v1.2.json) |
+| Financial analysis | [Financial guide](financial-analysis/guide.md) · [Financial model schema](schemas/financial-model-v1.2.json) |
 | Valuation | [Valuation guide](valuation/guide.md) |
-| Analytical contract | [Analytical bundle schema v1.4](schemas/analysis-bundle-v1.4.json) · [Validator and report bridge](analysis-kit/README.md) |
-| Structured reporting | [Report specification](report-spec.md) · [Offline renderer v1.3](report-kit/README.md) |
+| Analytical contract | [Analytical bundle schema](schemas/analysis-bundle-v1.4.json) · [Validator and report bridge](analysis-kit/README.md) |
+| Structured reporting | [Report specification](report-spec.md) · [Offline renderer](report-kit/README.md) |
 | Benchmarks | [Synthetic benchmarks](benchmarks/README.md) · [Cross-agent acceptance rubric](benchmarks/acceptance-rubric.md) |
 | Release | [Release conformance](release/v2.1.1/README.md) · [Compatibility and migration](release/COMPATIBILITY.md) · [Change history](CHANGELOG.md) |
 
 ## Evidence and reproducibility
 
-Six sessions of one Codex configuration took part in the November 2026 repeatability pilot. Three evaluated the same six fixed cases. Three repeated one live Companies House lookup. Two other Codex sessions reviewed masked answers. The scores describe those tasks. Performance across models and on live financing decisions remains unmeasured. [Pilot results and limitations](benchmarks/v1.5/pilot-results.md) · [Reproduce the scores](benchmarks/v1.5/README.md)
+Six sessions of one Codex configuration took part in the November 2026 repeatability pilot. Three evaluated the same six fixed cases. Three repeated one live Companies House lookup. Two other Codex sessions reviewed masked answers. The scores describe those tasks. Performance across models and on live financing decisions remains unmeasured. No human expert review is documented. The acceptance thresholds were chosen after the pilot; replay checks the archived result, not performance on unseen cases. [Prospective evaluation requirements](benchmarks/prospective-evaluation.md). [Pilot results and limitations](benchmarks/v1.5/pilot-results.md) · [Reproduce the scores](benchmarks/v1.5/README.md)
 
 ## Run the manufacturing example
 

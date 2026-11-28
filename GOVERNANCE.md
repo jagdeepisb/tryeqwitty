@@ -9,3 +9,5 @@ Eqwitty maintains the public standard in this repository. Public issues and pull
 | Release | Link the reviewed commit, passing CI, replayed benchmarks, PDF review, file checksums and remaining limitations. |
 
 Correct a published material error through a documented issue, a pull request and a new version. Preserve the earlier release and publish the correction and compatibility impact in the changelog. The public standard's release checks are administered by the maintainers. An independent certification claim requires an identified certifying party and an independently reviewable decision. [Compatibility policy](release/COMPATIBILITY.md) · [Release acceptance](release/v2.0.0/README.md)
+
+Performance claims beyond the archived pilot require a prospectively registered evaluation and documented independent review. See [prospective evaluation requirements](benchmarks/prospective-evaluation.md). Do not describe automated or AI-only review as human or third-party certification.
