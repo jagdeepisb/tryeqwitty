@@ -35,12 +35,6 @@ Review as a sceptical analyst: search for contradictory evidence, thesis capture
 ## 10. Missing information and final delivery
 Provide a prioritised request list: item, exact required document/metric, period/granularity, reason, conclusion it could change, current limitation, impact (critical/high/medium/low), and recalculation action. Separate publicly researchable gaps from private documents. List founder/management questions in priority order. Deliver a source-linked readable PDF only if a real PDF generation tool is available. Follow the report specification at [report-spec.md](report-spec.md) at the same pinned commit. Label the output "Independent assessment: Eqwitty open methodology (not an official Eqwitty platform report)" and do not claim hosted platform layout or official scoring. Provide the missing-information list as a separate copyable table or file in addition to the report. If no PDF tool is available, supply structured report text and explicitly state the limitation. Never simulate a download or official platform acceptance.
 
-## Normative v1.4 execution contract
+## Execution and publication
 
-Follow the execution gates and evidence, financial and valuation guidance at one reviewed commit. [Execution gates](methodology/execution.md) · [Evidence](methodology/evidence.md) · [Factor library](factor-library/factors.json) · [Finance](financial-analysis/guide.md) · [Valuation](valuation/guide.md)
-
-Use the v1.4 playbooks to select and prioritise questions. Record capabilities, actual attempts, source origins, completion and reasons for stopping. Validate the bundle before creating the report and keep the analysis, research ledger and calculations. [Research playbooks](methodology/research-playbooks.md) · [Analysis schema](schemas/analysis-bundle-v1.4.json) · [Financial model schema](schemas/financial-model-v1.2.json) · [Analysis kit](analysis-kit/README.md)
-
-## Mandatory publication review
-
-Apply the [reader-facing publication quality rules](report-spec.md#reader-facing-publication-quality-mandatory) before final delivery, regardless of renderer. No em dashes in visible report text; every displayed evidence ID must link to its source record. Separate technical provenance and diagnostics into the analytical record, retain decision-relevant limitations in the memo, and verify the actual exported pages and links. Disclose any unperformed checks without claiming conformance.
+The [execution gates](methodology/execution.md) define required records and validation. Use the [evidence rules](methodology/evidence.md), [research playbooks](methodology/research-playbooks.md), [financial guide](financial-analysis/guide.md) and [valuation guide](valuation/guide.md) for their respective requirements. Apply the [mandatory publication rules](report-spec.md#reader-facing-publication-quality-mandatory) to the actual export.

@@ -26,17 +26,12 @@ Give an AI agent the [evaluation prompt](prompts/evaluate.md), the decision you 
 
 [Agent instructions](AGENT.md) · [Evaluation protocol](evaluation-protocol.md) · [Execution and evidence requirements](methodology/execution.md)
 
-## Read a sample assessment
+## See the method in use
 
-[Start with a financing decision example](examples/financing-decision.md): a fictional subscription business with commercially plausible revenue, cash and financing amounts. The downloadable PDFs below are regression test outputs, not representative full-scale company finances. Harbour Ledger deliberately mixes small arithmetic operands with larger accounting figures to exercise the renderer; do not interpret those inputs as a commercially coherent operating model.
+- [Monzo: growth, earnings quality and regulatory risk](examples/monzo-fy2026.md). A scoped public-source decision note on a real private banking group, with calculations and a regulatory record. AI-assisted, not independently expert-reviewed.
+- [Alder Workflow: sizing a financing round](examples/financing-decision.md). A fictional worked example of cash runway and dilution.
 
-| Case | What the evidence supports | Read the example |
-|---|---|---|
-| Harbour Ledger | A proposed USD 50 round extends base-case runway from 12 to 22 months. The company still finishes USD 10 below its minimum cash balance. | [PDF](report-kit/reference/complete/assessment.pdf) · [Missing records](report-kit/reference/complete/missing-information.csv) |
-| Juniper Workflows | Two accounts paid. Annual sales are recorded, but the contract terms and invoice detail needed to calculate recurring revenue are missing. | [PDF](report-kit/reference/juniper/assessment.pdf) · [Missing records](report-kit/reference/juniper/missing-information.csv) |
-| Cedar Components | An inspector accepted a prototype in one shift. More shifts, equipment quotes and opening cash are needed to size an expansion. | [PDF](report-kit/reference/cedar-pilot/assessment.pdf) · [Missing records](report-kit/reference/cedar-pilot/missing-information.csv) |
-
-The [report kit](report-kit/README.md) links each example to its input records, HTML and missing-information list. The [release page](https://github.com/jagdeepisb/tryeqwitty/releases/latest) also includes the reference archive, calculation outputs and checksums. Starting with v2.2.0, the archive includes shorter decision briefs alongside the full assessments.
+The [report kit](report-kit/README.md) contains synthetic regression fixtures and instructions for generating reports. These test the software rather than establish investment judgment. The published release archive includes full assessments and decision briefs.
 
 ## Technical reference
 
@@ -51,9 +46,9 @@ The [report kit](report-kit/README.md) links each example to its input records, 
 | Benchmarks | [Synthetic benchmarks](benchmarks/README.md) · [Cross-agent acceptance rubric](benchmarks/acceptance-rubric.md) |
 | Release | [Release conformance](release/v2.2.0/README.md) · [Compatibility and migration](release/COMPATIBILITY.md) · [Change history](CHANGELOG.md) |
 
-## Evidence and reproducibility
+## What has been tested
 
-Six sessions of one Codex configuration took part in the November 2026 repeatability pilot. Three evaluated the same six fixed cases. Three repeated one live Companies House lookup. Two other Codex sessions reviewed masked answers. The scores describe those tasks. Performance across models and on live financing decisions remains unmeasured. No human expert review is documented. The acceptance thresholds were chosen after the pilot; replay checks the archived result, not performance on unseen cases. [Prospective evaluation requirements](benchmarks/prospective-evaluation.md). [Pilot results and limitations](benchmarks/v1.5/pilot-results.md) · [Reproduce the scores](benchmarks/v1.5/README.md)
+The executable checks reconcile calculations and report contents against supplied inputs. The archived November 2026 pilot measures repeatability on six fixed cases and one repeated registry lookup using a single Codex configuration. Its acceptance thresholds were retrospective; no baseline comparison, cross-model evaluation or human expert validation is documented. [Pilot data and limitations](benchmarks/v1.5/pilot-results.md) · [Next evaluation requirements](benchmarks/prospective-evaluation.md).
 
 ## Run the manufacturing example
 
