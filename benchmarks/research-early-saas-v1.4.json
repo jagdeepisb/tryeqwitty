@@ -6,7 +6,7 @@
     "company": "Juniper Workflows (fictional)",
     "legal_entity": "Juniper Workflows Demo Co",
     "jurisdiction": "Synthetic jurisdiction",
-    "objective": "Determine whether the signed subscription and cash evidence support a defensible valuation basis.",
+    "objective": "Determine which sales figures can support a valuation and which contracts and cash records are still needed.",
     "stage": "early_revenue",
     "models": [
       "saas"
@@ -18,32 +18,32 @@
     {
       "name": "Juniper subscription and cost ledger",
       "version": "packet-1",
-      "reviewed": "Frozen synthetic packet E1",
-      "limitations": "Fictional captured evidence used only to exercise the offline assessment."
+      "reviewed": "Two paying accounts, annual revenue of USD 100,000 and direct costs of USD 40,000.",
+      "limitations": "The ledger does not separate recurring fees from other charges or state the renewal terms."
     },
     {
       "name": "Juniper registration extract",
       "version": "packet-1",
-      "reviewed": "Frozen synthetic packet E2",
-      "limitations": "Fictional captured evidence used only to exercise the offline assessment."
+      "reviewed": "Registered name of the operating company.",
+      "limitations": "The extract does not identify the owners of the software, customer contracts or other operating assets."
     },
     {
       "name": "Juniper introductory pricing release",
       "version": "packet-1",
-      "reviewed": "Frozen synthetic packet E3",
-      "limitations": "Fictional captured evidence used only to exercise the offline assessment."
+      "reviewed": "The company advertised a USD 40 entry price.",
+      "limitations": "The release omits the offer end date and what the entry tier includes."
     },
     {
       "name": "Independent review of entry subscription offers",
       "version": "packet-1",
-      "reviewed": "Frozen synthetic packet E4",
-      "limitations": "Fictional captured evidence used only to exercise the offline assessment."
+      "reviewed": "An independent analyst recorded a USD 55 entry offer.",
+      "limitations": "The offer dates and package differ from the USD 40 release, preventing a like-for-like comparison."
     },
     {
       "name": "Reprint of Juniper introductory terms",
       "version": "packet-1",
-      "reviewed": "Frozen synthetic packet E5",
-      "limitations": "Fictional captured evidence used only to exercise the offline assessment."
+      "reviewed": "The publisher reproduced the company’s USD 40 offer.",
+      "limitations": "The reprint traces to the same company release and adds no independent price observation."
     }
   ],
   "evidence": [

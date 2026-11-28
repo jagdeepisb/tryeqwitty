@@ -18,14 +18,14 @@
     {
       "name": "Cedar pilot status and scope",
       "version": "packet-1",
-      "reviewed": "Frozen synthetic packet E1",
-      "limitations": "Fictional captured evidence used only to exercise the offline assessment."
+      "reviewed": "Scope and supervision of the one-shift prototype run.",
+      "limitations": "The description gives no multi-shift production rate, unit cost, customer order or funding commitment."
     },
     {
       "name": "Cedar pilot inspection and acceptance",
       "version": "packet-1",
-      "reviewed": "Frozen synthetic packet E2",
-      "limitations": "Fictional captured evidence used only to exercise the offline assessment."
+      "reviewed": "An inspector accepted the prototype under the trial criteria.",
+      "limitations": "The acceptance covers one shift. It supplies no sustained throughput or production cost."
     }
   ],
   "evidence": [

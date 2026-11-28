@@ -181,6 +181,8 @@ class StructuredReportTests(unittest.TestCase):
         for path in sorted((ROOT / "benchmarks").glob("*.json")):
             bundle = json.loads(path.read_bytes())
             with self.subTest(example=path.name):
+                documents = bundle["documents"]
+                self.assertEqual(len({d["limitations"] for d in documents}), len(documents), "document limitations")
                 factors = bundle["factors"]
                 for field in ("finding", "next_test"):
                     self.assertEqual(len({f[field] for f in factors}), len(factors), field)
