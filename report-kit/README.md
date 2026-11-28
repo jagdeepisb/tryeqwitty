@@ -2,9 +2,9 @@
 
 Generate an independent branded PDF, accessible HTML and a missing-information CSV from a validated assessment. The renderer works offline. It accepts structured report v1.3 and legacy report v1.0. v1.4 analytical bundles use the structured renderer and include the recorded research scope, source origins, question outcomes and corrections. [Research disclosure](../report-spec.md#v14-research-disclosure)
 
-## Reference reports
+## Archived regression reports
 
-All four examples are synthetic regression fixtures, not professional opinions or economically calibrated operating models. Harbour Ledger deliberately uses small cash and equity operands. For a separate commercially plausible illustrative decision note, see [financing decision](../examples/financing-decision.md). The two Cedar cases deliberately start from different evidence. The manufacturing pilot includes an inspection. The intake-only case has no source records.
+The checked-in HTML/PDF snapshots are archived v2.2.0-era regression fixtures; generate fresh outputs with the current checkout. All four examples are synthetic regression fixtures, not professional opinions or economically calibrated operating models. Harbour Ledger deliberately uses small cash and equity operands. For a separate commercially plausible illustrative decision note, see [financing decision](../examples/financing-decision.md). The two Cedar cases deliberately start from different evidence. The manufacturing pilot includes an inspection. The intake-only case has no source records.
 
 | Example | PDF | HTML | Missing records | Input |
 |---|---|---|---|---|
@@ -35,7 +35,7 @@ The structured report uses deterministic results from the validated bundle and p
 
 ## Optional decision brief
 
-For a structured report, add `--brief` to generate `decision-brief.html` and, unless `--html-only` is used, `decision-brief.pdf` alongside the unchanged full assessment and CSV. The brief removes exact repeated paragraphs and lower-priority unknown factor rows, and omits the detailed research-attempt table and monthly schedules. It retains the executive conclusion, coverage counts, all assessed and high-priority factors, risks, research limitations, financial summaries, requests and source records. Read it with the full assessment; it is not a substitute for the complete analytical record. No figures or evidence statuses are recalculated. The brief uses reader-friendly labels for calculation basis and financing rounds. Release v2.2.0 checks the brief PDF's text, links, fonts, page bounds and page count against the full report.
+For a structured report, add `--brief` to generate `decision-brief.html` and, unless `--html-only` is used, `decision-brief.pdf` alongside the unchanged full assessment and CSV. The brief removes exact repeated paragraphs and lower-priority unknown factor rows, and omits the detailed research-attempt table and monthly schedules. It retains the executive conclusion, coverage counts, all assessed and high-priority factors, risks, research limitations, financial summaries, requests and source records. Read it with the full assessment; it is not a substitute for the complete analytical record. No figures or evidence statuses are recalculated. Both structured formats use reader-friendly calculation and financing labels. Exact duplicate paragraphs within a section are omitted; the brief additionally suppresses exact repeats across sections only if their evidence context matches. Release v2.2.0 checks the brief PDF's text, links, fonts, page bounds and page count against the full report.
 
 ## Verify the export
 

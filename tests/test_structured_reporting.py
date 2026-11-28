@@ -151,7 +151,11 @@ class StructuredReportTests(unittest.TestCase):
         self.assertIn("Decision subject to further evidence:", brief)
         self.assertIn("The available records did not support a like-for-like competitor comparison.", brief)
         self.assertNotIn("Observed · formula v1.2", brief)
-        self.assertIn("Reported inputs", brief)
+        for page in (full, brief):
+            self.assertIn("Calculated from historical inputs", page)
+            self.assertIn("Decision subject to further evidence:", page)
+            self.assertNotIn("Observed · formula v1.2", page)
+            self.assertNotIn("M1 · Gross margin", page)
         self.assertIn("lower-priority unknown factors", brief)
         self.assertIn("Factor coverage", brief)
         self.assertIn("Red-team corrections", brief)
@@ -164,6 +168,19 @@ class StructuredReportTests(unittest.TestCase):
             self.assertIn(f'id="gap-{gap["id"]}"', brief)
         self.assertNotIn("\u2014", brief)
 
+    def test_duplicate_paragraphs_do_not_erase_distinct_evidence_contexts(self):
+        _, report = benchmark("juniper")
+        phrase = "The same observation has different supporting records."
+        report["sections"][2]["paragraphs"] = [phrase, phrase]
+        report["sections"][2]["source_ids"] = ["E1"]
+        report["sections"][3]["paragraphs"] = [phrase]
+        report["sections"][3]["source_ids"] = ["E2"]
+        original = copy.deepcopy(report)
+        for brief in (False, True):
+            page = renderer.report_html(report, brief=brief)
+            self.assertEqual(page.count(phrase), 2)
+            self.assertEqual(report, original)
+
     def test_financing_brief_retains_figures_with_plain_labels(self):
         _, report = benchmark("complete")
         before = copy.deepcopy(report)
@@ -171,6 +188,8 @@ class StructuredReportTests(unittest.TestCase):
         brief = renderer.report_html(report, brief=True)
         self.assertIn("Financing round 1: financing terms", brief)
         self.assertNotIn("RND1 financing terms", brief)
+        self.assertIn("Financing round 1: financing terms", full)
+        self.assertNotIn("RND1 financing terms", full)
         self.assertIn("1,472.73", brief)
         self.assertIn("Closing cash by scenario", brief)
         self.assertNotIn("Monthly cash schedules</h2>", brief)
@@ -279,12 +298,27 @@ class StructuredReportTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             renderer.deny_fetch("https://example.com/a")
 
-    def test_reference_html_csv_match_current_render(self):
+    def test_archived_html_integrity_and_current_render(self):
+        # The checked-in snapshots predate the reader-facing label changes.
+        # Keep their exact Git blob digests and separately check fresh exports.
+        archived = {
+            "complete": "12975d38469c41f6ba3cf807d32fc350c17c1a0e",
+            "juniper": "78aca71ed7c52326f2cb9f5560229a6a36da9d09",
+            "cedar-pilot": "b5d09bdb718429a81340d1939e7d4193cd326809",
+            "sparse": "8b79ff4a7a7f685502f4421c17c2553a2225000e",
+        }
         for sample in EXAMPLES:
             _, report = benchmark(sample)
             path = ROOT / "report-kit/reference" / sample
             fresh_html = renderer.report_html(report)
-            self.assertEqual(fresh_html, (path / "assessment.html").read_text(encoding="utf-8"))
+            raw = (path / "assessment.html").read_bytes()
+            blob = b"blob " + str(len(raw)).encode() + b"\x00" + raw
+            self.assertEqual(hashlib.sha1(blob).hexdigest(), archived[sample])
+            self.assertEqual(fresh_html, renderer.report_html(report))
+            for source in report["sources"]:
+                self.assertIn(f'id="source-{source["id"]}"', fresh_html)
+            for gap in report["missing_information"]:
+                self.assertIn(f'id="gap-{gap["id"]}"', fresh_html)
             self.assertNotIn("Bundle SHA-256", fresh_html)
             self.assertNotIn("Standard commit", fresh_html)
             with TemporaryDirectory() as tmp:

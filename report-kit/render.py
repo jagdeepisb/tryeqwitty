@@ -374,7 +374,7 @@ def operands_html(operands):
     return "".join(parts) + "</tbody></table></div></section>"
 
 
-def brief_exhibit(exhibit):
+def reader_exhibit(exhibit):
     """Use reader-friendly labels without altering figures or the report JSON."""
     caption = exhibit["caption"]
     view = {**exhibit}
@@ -384,18 +384,19 @@ def brief_exhibit(exhibit):
         for original in exhibit["rows"]:
             row = [dict(cell) for cell in original]
             row[0]["text"] = re.sub(r"^[MV][0-9]+ · ", "", row[0]["text"])
-            row[0].pop("note", None)
+            if re.fullmatch(r"[a-z][a-z0-9_]*", row[0].get("note", "")):
+                row[0].pop("note", None)
             row[2]["text"] = re.sub(r" · formula v[0-9.]+$", "", row[2]["text"])
             if row[2]["text"] == "Observed":
-                row[2]["text"] = "Reported inputs"
+                row[2]["text"] = "Calculated from historical inputs"
             elif row[2]["text"] == "Assumed":
-                row[2]["text"] = "Assumed inputs"
+                row[2]["text"] = "Calculated from assumed inputs"
             rows.append(row)
         view["rows"] = rows
     return view
 
 
-def brief_paragraph(paragraph, heading):
+def reader_paragraph(paragraph, heading):
     if heading == "Executive assessment":
         paragraph = re.sub(r"^Qualified · ", "Decision subject to further evidence: ", paragraph)
     if paragraph == "Structured competitor comparison unavailable within this assessment.":
@@ -425,11 +426,16 @@ def structured_html(report, include_operands, *, brief=False):
     seen = set()
     for section in report["sections"]:
         parts.append(f'<section><h2>{esc(section["heading"])}</h2>')
+        section_seen = set()
         for paragraph in section["paragraphs"]:
-            if not brief or paragraph not in seen:
-                display = brief_paragraph(paragraph, section["heading"]) if brief else paragraph
+            # Cross-section suppression in the brief is safe only when the
+            # evidence context is identical. Never merge merely similar claims.
+            identity = (paragraph, tuple(sorted(section["source_ids"])))
+            if paragraph not in section_seen and (not brief or identity not in seen):
+                display = reader_paragraph(paragraph, section["heading"])
+                section_seen.add(paragraph)
                 parts.append(f"<p>{esc(display)}</p>")
-                seen.add(paragraph)
+                seen.add(identity)
         if section["source_ids"]:
             parts.append(f'<p class="detail">Evidence {source_links(section["source_ids"])}</p>')
         for exhibit in section["tables"]:
@@ -444,8 +450,7 @@ def structured_html(report, include_operands, *, brief=False):
                 if not rows:
                     continue
                 exhibit = {**exhibit, "rows": rows}
-            if brief:
-                exhibit = brief_exhibit(exhibit)
+            exhibit = reader_exhibit(exhibit)
             parts.append(exhibit_html(exhibit, include_operands and not brief))
         if not (section["paragraphs"] or section["tables"]):
             parts.append("<p class=\"subtle\">Unavailable within assessed scope.</p>")
@@ -465,7 +470,7 @@ def structured_html(report, include_operands, *, brief=False):
     parts.append("</section>")
     if report["schedules"] and not brief:
         parts.append('<section class="appendix"><h2>Monthly cash schedules</h2>')
-        parts.extend(exhibit_html(exhibit, include_operands) for exhibit in report["schedules"])
+        parts.extend(exhibit_html(reader_exhibit(exhibit), include_operands) for exhibit in report["schedules"])
         parts.append("</section>")
     if include_operands and not brief:
         parts.append(operands_html(report["operands"]))
