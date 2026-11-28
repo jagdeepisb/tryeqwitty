@@ -36,8 +36,8 @@ class ConformanceTests(unittest.TestCase):
     def test_v20_levels_include_file_digests(self):
         analysis = check(self.bundle_path, None, COMMIT)
         reconciled = check(self.bundle_path, self.report_path, COMMIT)
-        self.assertEqual(analysis["standard_release"], "2.2.1")
-        self.assertEqual(analysis["release_profile_version"], "2.2.1")
+        self.assertEqual(analysis["standard_release"], "2.2.2")
+        self.assertEqual(analysis["release_profile_version"], "2.2.2")
         self.assertEqual(analysis["publication_status"], "not_verified")
         self.assertEqual(reconciled["publication_status"], "not_verified")
         self.assertEqual(analysis["level"], "analytical-bundle")

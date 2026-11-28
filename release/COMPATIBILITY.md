@@ -34,3 +34,7 @@ No JSON format or financial formula changes. The optional `--brief` output is an
 ## v2.2.1 editorial patch
 
 The accepted JSON formats and financial formulas remain unchanged. Preserve the earlier assessment, review it under the new published commit and regenerate both report formats if needed. [Patch profile](v2.2.1/README.md).
+
+## v2.2.2 governance patch
+
+Analysis bundle 1.4, financial model 1.2 and structured report 1.3 are unchanged. Offline conformance receipts retain the existing `standard_release` field and add `release_profile_version` and `publication_status`. The latter is `not_verified` because offline conformance cannot authenticate publication. Verify the immutable release separately. [Patch profile](v2.2.2/README.md).

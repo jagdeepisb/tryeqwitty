@@ -1,8 +1,8 @@
 # Changelog
 
-## Unreleased | Governance and recovery hardening
+## 2.2.2 | Governance and recovery hardening
 
-Adds standard agent discovery, relative documentation link checks, financial boundary tests, explicit offline release-publication status and same-artifact draft recovery checks. Documents the required live repository controls. Published releases are unchanged.
+Adds standard agent discovery, relative documentation link checks, financial boundary tests, explicit offline release-publication status and same-artifact draft recovery checks. Documents the sole maintainer's voluntary PR and CI policy; no mandatory branch ruleset. Published releases are unchanged.
 
 ## 2.2.1 | Editorial quality and public examples
 

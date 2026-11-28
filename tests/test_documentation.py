@@ -11,7 +11,7 @@ DOCS = (
     "evaluation-protocol.md", "methodology/execution.md", "methodology/evidence.md",
     "methodology/research-playbooks.md", "financial-analysis/guide.md", "valuation/guide.md",
     "report-spec.md", "report-kit/README.md", "analysis-kit/README.md", "GOVERNANCE.md",
-    "release/COMPATIBILITY.md", "release/RECOVERY.md", "benchmarks/prospective-evaluation.md",
+    "release/COMPATIBILITY.md", "release/RECOVERY.md", "release/v2.2.2/README.md", "benchmarks/prospective-evaluation.md",
 )
 LINK = re.compile(r"\]\(([^)\s]+)\)")
 HEADING = re.compile(r"^#{1,6}\s+(.+?)\s*#*\s*$")
