@@ -6,23 +6,23 @@
     "company": "Cedar Components (fictional)",
     "legal_entity": "Synthetic entity",
     "jurisdiction": "Not established",
-    "objective": "Identify the records needed to assess liquidity, ownership and the basis for a financing decision.",
+    "objective": "Determine which records would establish liquidity and support a financing discussion.",
     "stage": "unknown",
     "models": [
       "manufacturing"
     ],
-    "model_rationale": "Manufacturing is the declared model in the fictional intake.",
-    "scope": "Synthetic sparse assessment. Financial statements, ownership and customer records were unavailable."
+    "model_rationale": "The intake describes a manufacturer. Products, production sites and paying customers are unconfirmed.",
+    "scope": "Fictional manufacturing intake with no operating, ownership or financial records."
   },
   "documents": [],
   "evidence": [],
   "claims": [],
   "thesis": {
     "management": null,
-    "independent": "Insufficient independent evidence to support the thesis.",
+    "independent": "The intake supplies no basis for estimating saleable output, margin or the month cash runs out.",
     "independent_evidence": [],
     "falsifiers": [
-      "Verified cash shortfall or inability to sustain gross margin"
+      "A bank reconciliation, sales ledger and representative shift logs would allow those estimates to be tested."
     ],
     "divergences": []
   },
@@ -31,7 +31,7 @@
       "check": "Legal identity",
       "status": "unknown",
       "evidence_ids": [],
-      "rationale": "Synthetic data only"
+      "rationale": "No registration extract authenticates the legal entity or its ownership."
     }
   ],
   "factors": [
@@ -43,9 +43,9 @@
       "support": [],
       "oppose": [],
       "confidence": "unknown",
-      "finding": "No evidence in fixture.",
-      "impact": "Insufficient evidence for decision.",
-      "next_test": "Request source evidence."
+      "finding": "The registration and ownership records are missing.",
+      "impact": "The issuer and the holders entitled to financing proceeds are unconfirmed.",
+      "next_test": "Match the certificate of incorporation, shareholder register and signed financing terms."
     },
     {
       "id": "C02",
@@ -55,9 +55,9 @@
       "support": [],
       "oppose": [],
       "confidence": "unknown",
-      "finding": "No evidence in fixture.",
-      "impact": "Insufficient evidence for decision.",
-      "next_test": "Request source evidence."
+      "finding": "There are no buyer interviews, orders or customer-level receipts.",
+      "impact": "Demand at the proposed price cannot be estimated.",
+      "next_test": "Match purchase orders to invoices and receipts by customer."
     },
     {
       "id": "C03",
@@ -67,9 +67,9 @@
       "support": [],
       "oppose": [],
       "confidence": "unknown",
-      "finding": "No evidence in fixture.",
-      "impact": "Insufficient evidence for decision.",
-      "next_test": "Request source evidence."
+      "finding": "The materials contain no delivery or acceptance records.",
+      "impact": "The product work needed before the next sale is unknown.",
+      "next_test": "Inspect a delivery log and the customer’s acceptance criteria."
     },
     {
       "id": "C04",
@@ -79,9 +79,9 @@
       "support": [],
       "oppose": [],
       "confidence": "unknown",
-      "finding": "No evidence in fixture.",
-      "impact": "Insufficient evidence for decision.",
-      "next_test": "Request source evidence."
+      "finding": "The materials give no evidence of management responsibilities or previous delivery.",
+      "impact": "The operating plan has no verified owner.",
+      "next_test": "Identify who owns delivery and check a comparable project that person led."
     },
     {
       "id": "C05",
@@ -91,9 +91,9 @@
       "support": [],
       "oppose": [],
       "confidence": "unknown",
-      "finding": "No evidence in fixture.",
-      "impact": "Insufficient evidence for decision.",
-      "next_test": "Request source evidence."
+      "finding": "There are no dated offers for competing products or substitutes.",
+      "impact": "An attainable selling price cannot be benchmarked.",
+      "next_test": "Compare quotes for the same buyer, scope and effective date."
     },
     {
       "id": "C06",
@@ -103,9 +103,9 @@
       "support": [],
       "oppose": [],
       "confidence": "unknown",
-      "finding": "No evidence in fixture.",
-      "impact": "Insufficient evidence for decision.",
-      "next_test": "Request source evidence."
+      "finding": "There is no sales or direct-cost ledger for the period.",
+      "impact": "Gross margin and unit contribution cannot be calculated.",
+      "next_test": "Trace recognised sales and their direct costs to the same orders."
     },
     {
       "id": "C07",
@@ -115,9 +115,9 @@
       "support": [],
       "oppose": [],
       "confidence": "unknown",
-      "finding": "No evidence in fixture.",
-      "impact": "Insufficient evidence for decision.",
-      "next_test": "Request source evidence."
+      "finding": "Opening cash, restrictions and monthly payments are unknown.",
+      "impact": "The date at which funding would be needed cannot be estimated.",
+      "next_test": "Reconcile an opening bank statement to a monthly schedule of receipts and payments."
     },
     {
       "id": "C08",
@@ -127,9 +127,9 @@
       "support": [],
       "oppose": [],
       "confidence": "unknown",
-      "finding": "No evidence in fixture.",
-      "impact": "Insufficient evidence for decision.",
-      "next_test": "Request source evidence."
+      "finding": "There is no record of a customer renewing, switching or choosing a competing offer.",
+      "impact": "The forecast has no evidence for how long customers will stay.",
+      "next_test": "Review renewal decisions and interview a customer that switched suppliers."
     },
     {
       "id": "C09",
@@ -139,9 +139,9 @@
       "support": [],
       "oppose": [],
       "confidence": "unknown",
-      "finding": "No evidence in fixture.",
-      "impact": "Insufficient evidence for decision.",
-      "next_test": "Request source evidence."
+      "finding": "The materials omit the agreements needed to deliver to customers.",
+      "impact": "A termination right or single supplier could interrupt delivery.",
+      "next_test": "Review the main supply and customer contracts for dependencies and termination terms."
     },
     {
       "id": "C10",
@@ -151,9 +151,9 @@
       "support": [],
       "oppose": [],
       "confidence": "unknown",
-      "finding": "No evidence in fixture.",
-      "impact": "Insufficient evidence for decision.",
-      "next_test": "Request source evidence."
+      "finding": "There is no supported forecast or price for a comparable transaction.",
+      "impact": "The available evidence cannot establish a valuation range.",
+      "next_test": "Identify dated transactions and reconcile their revenue basis with the business being valued."
     },
     {
       "id": "MF01",
@@ -163,9 +163,9 @@
       "support": [],
       "oppose": [],
       "confidence": "unknown",
-      "finding": "No evidence in fixture.",
-      "impact": "Insufficient evidence for decision.",
-      "next_test": "Request source evidence."
+      "finding": "No shift log records good units, scrap or downtime.",
+      "impact": "Monthly saleable output cannot be estimated.",
+      "next_test": "Obtain gross units, rejects, rework and operating hours by shift."
     },
     {
       "id": "MF02",
@@ -175,9 +175,9 @@
       "support": [],
       "oppose": [],
       "confidence": "unknown",
-      "finding": "No evidence in fixture.",
-      "impact": "Insufficient evidence for decision.",
-      "next_test": "Request source evidence."
+      "finding": "There are no equipment quotes, inventory balances or payment terms.",
+      "impact": "The cash needed between ordering materials and collecting from customers is unknown.",
+      "next_test": "Match equipment payment milestones to inventory days, supplier terms and customer receipts."
     },
     {
       "id": "MF03",
@@ -187,9 +187,9 @@
       "support": [],
       "oppose": [],
       "confidence": "unknown",
-      "finding": "No evidence in fixture.",
-      "impact": "Insufficient evidence for decision.",
-      "next_test": "Request source evidence."
+      "finding": "No supplier commitments, customer orders or warranty records were supplied.",
+      "impact": "The company’s ability to fulfil a delivery schedule is unverified.",
+      "next_test": "Trace an order through material purchase, shipment, acceptance and any warranty return."
     }
   ],
   "research": [
@@ -213,7 +213,7 @@
       "status": "blocked",
       "queries": [],
       "evidence_ids": [],
-      "reason": "Synthetic fixture; no live research performed."
+      "reason": "Only an intake description was available. No operating documents or outside sources were reviewed."
     }
   ],
   "inputs": [],
@@ -251,11 +251,11 @@
       "id": "Q1",
       "severity": "Critical",
       "status": "unresolved",
-      "finding": "No independent verification of cash or commercial thesis.",
+      "finding": "Unrestricted cash has no bank confirmation.",
       "affected": [
         "C07"
       ],
-      "correction": "Request evidence; qualify output.",
+      "correction": "Obtain the statement at the analysis date and reconcile restricted amounts before relying on runway.",
       "gap_ids": [
         "G1"
       ]
@@ -265,11 +265,11 @@
     {
       "id": "G1",
       "priority": "Critical",
-      "item": "Cash statement and financial model",
-      "period": "Current month and full horizon",
-      "why": "Cash and runway are not independently verified.",
-      "conclusion": "Capital needs and viability.",
-      "action": "Reconcile cash and recompute runway.",
+      "item": "Bank statement, restricted balances and monthly cash movements",
+      "period": "At the analysis date and each month of the forecast",
+      "why": "The opening balance and commitments have no independent confirmation.",
+      "conclusion": "Timing and amount of the next financing.",
+      "action": "Reconcile available cash and recalculate the first month below the minimum balance.",
       "availability": "Private",
       "affected_factor_ids": [
         "C07"
@@ -278,12 +278,12 @@
     {
       "id": "G2",
       "priority": "High",
-      "item": "Comparable manufacturers and cash-flow model",
-      "period": "Current month and full horizon",
-      "why": "Independent comparable prices are missing.",
-      "conclusion": "Multiples-based valuation eligibility.",
-      "action": "Verify comparables and forecast stability.",
-      "availability": "Public",
+      "item": "Comparable manufacturers, transaction prices and a cash-flow forecast",
+      "period": "Transactions dated near the proposed financing and annual forecasts thereafter",
+      "why": "The intake contains neither comparable deal terms nor cash-flow drivers.",
+      "conclusion": "Whether an enterprise value can be estimated.",
+      "action": "Check deal scope and revenue definitions, then test forecast cash flows and terminal assumptions.",
+      "availability": "Either",
       "affected_factor_ids": [
         "C10"
       ]
@@ -291,11 +291,11 @@
     {
       "id": "G3",
       "priority": "Critical",
-      "item": "Dated fully diluted ownership and financing terms",
-      "period": "Current month and full horizon",
-      "why": "Cash and runway are not independently verified.",
-      "conclusion": "Capital needs and viability.",
-      "action": "Reconcile signed ownership and issued instruments.",
+      "item": "Dated share register and signed financing instruments",
+      "period": "At the proposed closing, including outstanding options and convertibles",
+      "why": "No record identifies holders, issued shares or conversion rights.",
+      "conclusion": "Who controls the issuer and how much a new round would dilute each holder.",
+      "action": "Reconcile issued shares and conversion terms, then model ownership after closing.",
       "availability": "Private",
       "affected_factor_ids": [
         "C01"
@@ -303,12 +303,12 @@
     }
   ],
   "decision": {
-    "conclusion": "No reliable decision can be made from synthetic evidence.",
-    "limitations": "Not a real evaluation; no actual research.",
+    "conclusion": "Defer sizing the financing until the opening bank balance, monthly commitments and dated ownership register are available.",
+    "limitations": "All figures and records in this example are fictional. No outside confirmation was obtained.",
     "status": "qualified",
     "strengths": [],
     "risks": [
-      "Evidence unavailable"
+      "A proposed closing could fall after cash is exhausted. The timing cannot be estimated from the intake."
     ]
   },
   "financial_model": {

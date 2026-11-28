@@ -28,8 +28,16 @@ renderer = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(renderer)
 
 
+EXAMPLES = {
+    "complete": "report-complete-v1.3.json",
+    "sparse": "report-sparse-v1.3.json",
+    "juniper": "research-early-saas-v1.4.json",
+    "cedar-pilot": "research-pilot-manufacturing-v1.4.json",
+}
+
+
 def benchmark(name):
-    raw = (ROOT / f"benchmarks/report-{name}-v1.3.json").read_bytes()
+    raw = (ROOT / "benchmarks" / EXAMPLES[name]).read_bytes()
     bundle = json.loads(raw)
     return bundle, convert(bundle, hashlib.sha256(raw).hexdigest())
 
@@ -156,10 +164,32 @@ class StructuredReportTests(unittest.TestCase):
             self.assertTrue(data[name]["rows"][0][1]["gap_ids"])
         numeric = {name for name, table in data.items() if any(numeric_rows(table))}
         self.assertEqual(numeric, {"Factor coverage"})
+        matrix = data["Material factors and evidence matrix"]
+        self.assertEqual(matrix["headers"], ["Factor", "Assessment"])
+        self.assertIn("No supporting or opposing evidence", matrix["note"])
         self.assertFalse(report["schedules"])
         page = renderer.report_html(report)
         self.assertNotIn('class="chart"', page)
         self.assertIn("Source records unavailable", page)
+
+    def test_pricing_dispute_links_to_the_two_price_sources(self):
+        _, report = benchmark("complete")
+        difference = exhibits(report)["Thesis differences"]["rows"][0]
+        self.assertEqual(difference[0]["source_ids"], ["E5", "E6"])
+
+    def test_example_findings_and_requests_answer_each_question(self):
+        for path in sorted((ROOT / "benchmarks").glob("*.json")):
+            bundle = json.loads(path.read_bytes())
+            with self.subTest(example=path.name):
+                factors = bundle["factors"]
+                for field in ("finding", "next_test"):
+                    self.assertEqual(len({f[field] for f in factors}), len(factors), field)
+                for gap in bundle["gaps"]:
+                    self.assertNotRegex(gap["conclusion"], r"\b(?:C|MF|ST|SA|OB)\d{2}\b")
+        _, report = benchmark("complete")
+        opening = report["sections"][0]["paragraphs"][0]
+        for measure in ("12 to 22 months", "USD 10", "USD 40"):
+            self.assertIn(measure, opening)
 
     def test_legacy_bundle_default_and_explicit_structured_format(self):
         path = ROOT / "benchmarks" / "reported-saas.json"
@@ -211,14 +241,13 @@ class StructuredReportTests(unittest.TestCase):
             renderer.deny_fetch("https://example.com/a")
 
     def test_reference_html_csv_match_current_render(self):
-        for sample in ("complete", "sparse"):
+        for sample in EXAMPLES:
             _, report = benchmark(sample)
             path = ROOT / "report-kit/reference" / sample
             fresh_html = renderer.report_html(report)
-            self.assertEqual(fresh_html, renderer.report_html(report))
+            self.assertEqual(fresh_html, (path / "assessment.html").read_text(encoding="utf-8"))
             self.assertNotIn("Bundle SHA-256", fresh_html)
             self.assertNotIn("Standard commit", fresh_html)
-            self.assertTrue((path / "assessment.html").is_file())  # historical reference retained
             with TemporaryDirectory() as tmp:
                 output = Path(tmp) / "missing-information.csv"
                 renderer.write_missing(report, output)
@@ -247,6 +276,8 @@ class PDFRenderingTests(unittest.TestCase):
             "complete": ("Harbour Ledger", "Claim evidence matrix", "Maple Relay", "Finance workflow alternatives",
                          "Closing cash by scenario", "Equity value sensitivity", "1,472.73", "1,442.73", "-260",
                          "Downside monthly cash", "Upside monthly cash"),
+            "juniper": ("Juniper Workflows", "Two accounts paid", "signed", "recurring revenue", "G4", "G5"),
+            "cedar-pilot": ("Cedar Components", "one supervised shift", "unit", "equipment", "G2"),
             "sparse": ("Cedar Components", "Monthly cash and runway", "Discounted cash flow", "Unavailable",
                        "Source records unavailable", "G3"),
         }
@@ -265,11 +296,10 @@ class PDFRenderingTests(unittest.TestCase):
                         ).stdout
                         for marker in required:
                             self.assertIn(marker, " ".join(text.split()))
-                        if pdf == fresh:
-                            self.assertIn("Methodology v", text)
-                            self.assertNotIn("\u2014", text)
-                            self.assertNotIn("Bundle SHA-256", text)
-                            self.assertNotIn("Renderer v", text)
+                        self.assertIn("Methodology v", text)
+                        self.assertNotIn("\u2014", text)
+                        self.assertNotIn("Bundle SHA-256", text)
+                        self.assertNotIn("Renderer v", text)
                         self.assertNotIn("\ufffd", text)
                         fonts = [line.split() for line in poppler("pdffonts", pdf).splitlines()[2:] if line.strip()]
                         for name in ("Space-Grotesk", "DM-Sans"):

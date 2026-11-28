@@ -22,3 +22,7 @@ For future releases, a patch preserves accepted formats and intended behavior an
 ## v2.1 publication migration
 
 The v2.1 release keeps the same analytical, financial and report JSON versions. Review an existing bundle under the selected release, preserve the old snapshot, set the new reviewed source commit, and regenerate the reader-facing memo. The original v2.0 artifacts remain available. See the [v2.1 profile](v2.1.0/README.md).
+
+## v2.1.1 evidence review
+
+Use the same JSON formats. Revisit a fully supported factor if an open research result still requests evidence for that factor. Record the narrower finding or complete the missing work before regenerating the memo. [Patch profile](v2.1.1/README.md)

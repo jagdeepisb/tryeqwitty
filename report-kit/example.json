@@ -1,103 +1,117 @@
 {
   "version": "1.0",
-  "company": "Synthetic Example Company (fictional)",
-  "objective": "Demonstrate the report format; not a real evaluation",
+  "company": "Alder Repairs (fictional)",
+  "objective": "Decide whether a small repair shop has enough cash to take on a larger order.",
   "as_of": "2026-11-27",
   "sections": [
     {
       "heading": "Executive assessment",
       "paragraphs": [
-        "This is a synthetic layout fixture. No real company or investment merits are assessed."
+        "Ask for the bank balance and the first order’s cash schedule before committing to the job. The shop would have to buy parts before it collects from the customer."
       ],
       "source_ids": []
     },
     {
       "heading": "Scope and input inventory",
       "paragraphs": [
-        "Not assessed in this synthetic fixture; further evidence would be required."
+        "This fictional intake describes a repair shop with a proposed order. The example includes no bank statement, signed order or accounts."
       ],
-      "source_ids": []
+      "source_ids": [
+        "S1"
+      ]
     },
     {
       "heading": "Business and product",
       "paragraphs": [
-        "Not assessed in this synthetic fixture; further evidence would be required."
+        "The owner describes a repair service that bills after completion. The customer’s price and payment date are unconfirmed."
       ],
-      "source_ids": []
+      "source_ids": [
+        "S1"
+      ]
     },
     {
       "heading": "Team",
       "paragraphs": [
-        "Not assessed in this synthetic fixture; further evidence would be required."
+        "The intake identifies the owner but gives no staffing or subcontractor commitments."
       ],
       "source_ids": []
     },
     {
       "heading": "Market and competition",
       "paragraphs": [
-        "Not assessed in this synthetic fixture; further evidence would be required."
+        "No competing quotes or evidence of customer choice accompany the proposed order."
       ],
       "source_ids": []
     },
     {
       "heading": "Independent thesis and reconciliation",
       "paragraphs": [
-        "Not assessed in this synthetic fixture; further evidence would be required."
+        "The owner expects the order to pay for its parts. A parts deposit could fall due before the customer pays. A signed order and supplier terms would establish the sequence."
       ],
-      "source_ids": []
+      "source_ids": [
+        "S1"
+      ]
     },
     {
       "heading": "Financial analysis and calculations",
       "paragraphs": [
-        "No observed financial data. Do not infer revenue, margin, cash or runway."
+        "Opening cash and the cost of materials are unknown. A cash shortfall or runway cannot be calculated."
       ],
       "source_ids": []
     },
     {
       "heading": "Material factors and evidence coverage",
       "paragraphs": [
-        "Not assessed in this synthetic fixture; further evidence would be required."
+        "The two facts most likely to change the decision are the unrestricted balance and the deposit required to order parts."
       ],
       "source_ids": []
     },
     {
       "heading": "Risks and safeguards",
       "paragraphs": [
-        "Not assessed in this synthetic fixture; further evidence would be required."
+        "If the customer cancels after parts are bought, the shop may have to fund the deposit from its own cash. Cancellation terms are missing."
       ],
       "source_ids": []
     },
     {
       "heading": "Valuation and sensitivity",
       "paragraphs": [
-        "Not estimable: no verified financial or transaction inputs."
+        "Not estimable. The intake contains no earnings history, cash-flow forecast or comparable transaction."
       ],
       "source_ids": []
     },
     {
       "heading": "Management questions",
       "paragraphs": [
-        "Not assessed in this synthetic fixture; further evidence would be required."
+        "What deposit does the supplier require, when is the customer obliged to pay, and how much unrestricted cash is available on the deposit date?"
       ],
       "source_ids": []
     },
     {
       "heading": "Methodology and limitations",
       "paragraphs": [
-        "Not assessed in this synthetic fixture; further evidence would be required."
+        "Only the fictional intake was reviewed. All order terms remain management representations."
       ],
       "source_ids": []
     }
   ],
-  "sources": [],
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Fictional owner intake",
+      "locator": "Owner’s description of the proposed order, 27 November 2026",
+      "url": null,
+      "type": "company material"
+    }
+  ],
   "missing_information": [
     {
       "priority": "Critical",
-      "item": "Historical financial statements and model",
-      "period": "Last three years and forecast horizon",
-      "why": "No observed financial inputs exist in this fixture.",
-      "conclusion": "Financial viability and valuation remain unavailable.",
-      "action": "Reconcile statements; recompute eligible metrics from traceable operands.",
+      "item": "Bank reconciliation, customer order and supplier deposit terms",
+      "period": "At order acceptance and each payment date through collection",
+      "why": "Parts may be payable before the customer settles the invoice.",
+      "conclusion": "Whether the shop can take the order without short-term borrowing.",
+      "action": "Lay out the deposit and collection dates against unrestricted cash.",
       "availability": "Private"
     }
   ]

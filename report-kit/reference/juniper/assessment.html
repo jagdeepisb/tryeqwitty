@@ -1,0 +1,265 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Juniper Workflows (fictional) | Eqwitty assessment</title><style>:root {
+  --ink: #111111;
+  --muted: #555d69;
+  --blue: #3b82f6;
+  --link: #174da5;
+  --line: #e5e5e5;
+  --panel: #f5f5f5;
+  --blue-tint: #eaf2ff;
+}
+@page {
+  size: A4;
+  margin: 15mm 16mm 17mm;
+  @bottom-right {
+    content: counter(page) " / " counter(pages);
+    font: 8pt "Space Grotesk", sans-serif;
+    color: #555d69;
+  }
+}
+body {
+  color: var(--ink);
+  margin: 0;
+  font: 10pt/1.43 "DM Sans", sans-serif;
+  overflow-wrap: anywhere;
+}
+h1, h2, h3, caption, .brand {
+  font-family: "Space Grotesk", sans-serif;
+}
+h1 { font-size: 27pt; line-height: 1.13; margin: 5mm 0 2mm; }
+h2 {
+  font-size: 15pt;
+  margin: 6mm 0 2.5mm;
+  border-bottom: 0.7pt solid var(--line);
+  padding-bottom: 1.5mm;
+  break-after: avoid;
+}
+h3 { font-size: 11pt; margin: 3mm 0 1mm; break-after: avoid; }
+p { margin: 0 0 2.5mm; orphans: 2; widows: 2; white-space: pre-line; }
+header.hero { padding-bottom: 4mm; border-bottom: 2pt solid var(--blue); }
+.brand { font-size: 19pt; font-weight: 700; letter-spacing: -0.5pt; }
+.dot { color: var(--blue); }
+.hero .objective { max-width: 72ch; font-size: 11pt; }
+.notice { color: var(--muted); font-size: 8.5pt; margin: 2mm 0 0; }
+.meta { display: flex; flex-wrap: wrap; gap: 2mm 7mm; margin: 3mm 0 0; }
+.meta span { display: inline-block; padding: 0.7mm 2mm; background: var(--panel); font-size: 8.75pt; }
+a { color: var(--link); text-decoration: underline; }
+a:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+.subtle { color: var(--muted); }
+.table-wrap { margin: 3mm 0 4mm; }
+.print-caption { display: none; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: 8.75pt;
+  line-height: 1.34;
+  overflow-wrap: anywhere;
+}
+caption {
+  text-align: left;
+  font-size: 10.75pt;
+  font-weight: 700;
+  padding: 0 0 1.8mm;
+  break-after: avoid;
+}
+caption .note { font: 8.5pt/1.35 "DM Sans", sans-serif; margin-top: 0.45mm; }
+thead { display: table-header-group; }
+tr { break-inside: avoid; }
+th, td { text-align: left; padding: 1.65mm 1.8mm; border-bottom: 0.55pt solid var(--line); vertical-align: top; }
+thead th { color: #1b3151; background: var(--blue-tint); font-weight: 700; }
+tbody th { font-weight: 700; }
+tbody tr:nth-child(even) { background: #f8f9fb; }
+tbody tr td.emphasis, tbody tr th.emphasis { background: var(--blue-tint); font-weight: 700; }
+.cols-2 th:first-child { width: 49%; }
+.cols-3 th:first-child { width: 32%; }
+.cols-4 th:first-child { width: 25%; }
+.cols-6 th:first-child { width: 20%; }
+.cols-7 th:first-child { width: 28%; }
+.evidence-table th:first-child { width: 28%; }
+.evidence-table.cols-3 thead th:last-child,
+.evidence-table.cols-4 thead th:nth-child(n+3) { width: 12.5%; }
+.cols-7 tbody th, .cols-7 tbody td { padding-top: 1.05mm; padding-bottom: 1.05mm; }
+.number { text-align: right; font-variant-numeric: tabular-nums; }
+.cell-text, .note { white-space: pre-line; }
+.note, .cell-links { display: block; color: var(--muted); margin-top: 0.6mm; font-size: 7.75pt; font-weight: 400; }
+.cell-links a { margin-right: 0.25em; }
+.chart { margin: 4mm 0; padding: 3mm; border: 0.6pt solid var(--line); break-inside: avoid; }
+.chart figcaption { margin-bottom: 1.8mm; font-size: 9.25pt; font-weight: 700; }
+.chart-row { display: flex; align-items: center; gap: 2mm; margin: 1mm 0; font-size: 8pt; }
+.chart-key { flex: 0 0 37%; }
+.chart-plot { flex: 1; height: 2.7mm; background-color: var(--panel); }
+.chart-value { flex: 0 0 17%; text-align: right; }
+.record { margin: 2.7mm 0 3.3mm; border-left: 1.5pt solid var(--line); padding-left: 2.8mm; }
+.record h3 { margin-top: 0; }
+.record p { margin-bottom: 1.3mm; }
+.detail { color: var(--muted); font-size: 8.5pt; }
+.provenance { font-size: 8.5pt; }
+.provenance dt { font-weight: 700; }
+.provenance dd { margin: 0 0 1.7mm; overflow-wrap: anywhere; }
+.skip-link { position: absolute; left: -999em; }
+.skip-link:focus { left: 1rem; top: 1rem; background: white; padding: 0.5rem; }
+@media screen {
+  body { max-width: 67rem; margin: 0 auto; padding: 1.7rem 1rem 3rem; }
+  .table-wrap { overflow-x: auto; }
+  table { min-width: 32rem; }
+  .cols-6, .cols-7 { min-width: 50rem; }
+  .record:target, tr:target { outline: 2px solid var(--blue); outline-offset: 2px; }
+}
+@media print {
+  .skip-link { display: none; }
+  caption { display: none; }
+  .print-caption { display: block; break-after: avoid; padding-bottom: 1mm; }
+  .appendix { break-before: page; }
+  /* Compact source and information-request records without reducing type size. */
+  .record { margin-top: 1.8mm; margin-bottom: 2mm; }
+  .record p { margin-bottom: 0.8mm; }
+  .keep-together, .record, .provenance { break-inside: avoid; }
+}
+@page { @bottom-left { content: "eqwitty. | Open methodology v1.4"; font: 8pt "DM Sans"; color: #555d69; } }</style></head><body><a class="skip-link" href="#assessment">Skip to assessment</a><header class="hero"><div class="brand">eqwitty<span class="dot">.</span></div><h1>Juniper Workflows (fictional)</h1><p class="objective">Determine whether the signed subscription and cash evidence support a defensible valuation basis.</p><div class="meta"><span>As of <time>2026-11-27</time></span><span>Methodology v1.4</span></div><p class="notice">Independent assessment: Eqwitty open methodology (not an official Eqwitty platform report)</p></header><main id="assessment">
+<section><h2>Executive assessment</h2>
+<p>Qualified · Withhold a valuation range. Two customers paid, but their contract terms and recurring billings are unknown. Total annual revenue cannot serve as contracted recurring revenue.</p>
+<p>Reported revenue of USD 100,000 less USD 40,000 in direct costs gives a 60% gross margin (<a href="#source-E1" title="Fictional Juniper | Juniper subscription and cost ledger | Frozen synthetic packet E1">E1</a>).</p>
+</section>
+<section><h2>Scope and input inventory</h2>
+<p>Juniper Workflows Demo Co · Synthetic jurisdiction · Early revenue</p>
+<p>The fictional case includes a sales ledger, a registration extract and three pricing records.</p>
+<div class="table-wrap"><h3 class="print-caption">Documents reviewed</h3><table class="cols-3"><caption>Documents reviewed</caption><thead><tr><th scope="col">Document</th><th scope="col">Review</th><th scope="col">Limitations</th></tr></thead><tbody><tr><th scope="row" class=""><span class="cell-text">Juniper subscription and cost ledger</span><span class="note">packet-1</span></th><td class=""><span class="cell-text">Frozen synthetic packet <a href="#source-E1" title="Fictional Juniper | Juniper subscription and cost ledger | Frozen synthetic packet E1">E1</a></span></td><td class=""><span class="cell-text">Fictional captured evidence used only to exercise the offline assessment.</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">Juniper registration extract</span><span class="note">packet-1</span></th><td class=""><span class="cell-text">Frozen synthetic packet <a href="#source-E2" title="Fictional company registry | Juniper registration extract | Frozen synthetic packet E2">E2</a></span></td><td class=""><span class="cell-text">Fictional captured evidence used only to exercise the offline assessment.</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">Juniper introductory pricing release</span><span class="note">packet-1</span></th><td class=""><span class="cell-text">Frozen synthetic packet <a href="#source-E3" title="Fictional Juniper | Juniper introductory pricing release | Frozen synthetic packet E3">E3</a></span></td><td class=""><span class="cell-text">Fictional captured evidence used only to exercise the offline assessment.</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">Independent review of entry subscription offers</span><span class="note">packet-1</span></th><td class=""><span class="cell-text">Frozen synthetic packet <a href="#source-E4" title="Fictional analyst | Independent review of entry subscription offers | Frozen synthetic packet E4">E4</a></span></td><td class=""><span class="cell-text">Fictional captured evidence used only to exercise the offline assessment.</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">Reprint of Juniper introductory terms</span><span class="note">packet-1</span></th><td class=""><span class="cell-text">Frozen synthetic packet <a href="#source-E5" title="Fictional channel newsletter | Reprint of Juniper introductory terms | Frozen synthetic packet E5">E5</a></span></td><td class=""><span class="cell-text">Fictional captured evidence used only to exercise the offline assessment.</span></td></tr></tbody></table></div>
+</section>
+<section><h2>Business and product</h2>
+<p>Juniper bills for subscriptions. Two accounts have paid. The records do not identify how much each has committed to renew.</p>
+<p>SaaS</p>
+<div class="table-wrap keep-together"><h3 class="print-caption">Claim evidence matrix</h3><table class="cols-4 evidence-table"><caption>Claim evidence matrix</caption><thead><tr><th scope="col">Claim</th><th scope="col">Assessment</th><th scope="col">Supporting</th><th scope="col">Opposing</th></tr></thead><tbody><tr><th scope="row" class=""><span class="cell-text">C1 · The accounting packet reports USD 100,000 in recognised revenue.</span></th><td class=""><span class="cell-text">Historical · Reported</span><span class="note">Company-origin ledger, pending independent reconciliation.</span></td><td class=""><span class="cell-text">Sources</span><span class="cell-links"><a href="#source-E1" aria-label="Evidence E1" title="Fictional Juniper | Juniper subscription and cost ledger | Frozen synthetic packet E1">E1</a></span></td><td class=""><span class="cell-text">None recorded</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">C2 · The entry price is USD 40 per month.</span></th><td class=""><span class="cell-text">Historical · Disputed</span><span class="note">Tiers and effective dates mismatch, so the exact comparable price remains unresolved.</span></td><td class=""><span class="cell-text">Sources</span><span class="cell-links"><a href="#source-E3" aria-label="Evidence E3" title="Fictional Juniper | Juniper introductory pricing release | Frozen synthetic packet E3">E3</a>, <a href="#source-E5" aria-label="Evidence E5" title="Fictional channel newsletter | Reprint of Juniper introductory terms | Frozen synthetic packet E5">E5</a></span></td><td class=""><span class="cell-text">Sources</span><span class="cell-links"><a href="#source-E4" aria-label="Evidence E4" title="Fictional analyst | Independent review of entry subscription offers | Frozen synthetic packet E4">E4</a></span></td></tr></tbody></table></div>
+</section>
+<section><h2>Team</h2>
+<p>None of the five documents identifies who leads sales, product delivery or finance.</p>
+</section>
+<section><h2>Market and competition</h2>
+<p>The ledger identifies two paying accounts. Their use and renewals are undocumented.</p>
+<p>Juniper lists USD 40 per month. An independent review lists USD 55 under different terms. The newsletter repeats Juniper’s release.</p>
+<p>The documents record payments but no reason a customer renewed, switched or stayed.</p>
+<p>Structured competitor comparison unavailable within this assessment.</p>
+</section>
+<section><h2>Independent thesis and reconciliation</h2>
+<p>Management · Subscription demand should translate into a predictable recurring-revenue business.</p>
+<p>Independent · Provisional · Two paid accounts establish initial demand. Their recurring contract value, renewals and Juniper’s cash balance are unknown.</p>
+<p>What would change this view? Independently reconciled paid cohorts that show stable renewal and collectible, comparable prices.</p>
+<p class="detail">Evidence <a href="#source-E1" aria-label="Evidence E1" title="Fictional Juniper | Juniper subscription and cost ledger | Frozen synthetic packet E1">E1</a>, <a href="#source-E4" aria-label="Evidence E4" title="Fictional analyst | Independent review of entry subscription offers | Frozen synthetic packet E4">E4</a></p>
+<div class="table-wrap keep-together"><h3 class="print-caption">Thesis differences</h3><table class="cols-2"><caption>Thesis differences</caption><thead><tr><th scope="col">Finding</th><th scope="col">Implication</th></tr></thead><tbody><tr><th scope="row" class=""><span class="cell-text">The captured price lists disagree.</span><span class="note">C2</span><span class="cell-links"><a href="#source-E3" aria-label="Evidence E3" title="Fictional Juniper | Juniper introductory pricing release | Frozen synthetic packet E3">E3</a>, <a href="#source-E5" aria-label="Evidence E5" title="Fictional channel newsletter | Reprint of Juniper introductory terms | Frozen synthetic packet E5">E5</a>, <a href="#source-E4" aria-label="Evidence E4" title="Fictional analyst | Independent review of entry subscription offers | Frozen synthetic packet E4">E4</a></span></th><td class=""><span class="cell-text">Withhold a matched entry price and any peer inference that depends on it.</span></td></tr></tbody></table></div>
+</section>
+<section><h2>Financial analysis and calculations</h2>
+<p>Juniper Workflows Demo Co · USD in base units · Management accrual</p>
+<div class="table-wrap keep-together"><h3 class="print-caption">Financial and operating metrics</h3><table class="cols-4"><caption>Financial and operating metrics</caption><thead><tr><th scope="col">Calculation</th><th scope="col">Value</th><th scope="col">Basis</th><th scope="col">Rationale</th></tr></thead><tbody><tr><th scope="row" class=""><span class="cell-text">M1 · Gross margin</span><span class="note">gross_margin</span><span class="cell-links"><a href="#source-E1" aria-label="Evidence E1" title="Fictional Juniper | Juniper subscription and cost ledger | Frozen synthetic packet E1">E1</a> · Inputs <a href="#input-I1">I1</a>, <a href="#input-I2">I2</a></span></th><td class="number"><span data-value="0.6">60%</span></td><td class=""><span class="cell-text">Observed · formula v1.2</span></td><td class=""><span class="cell-text">Reported ledger figures.</span><span class="note">revenue I1 · cogs I2</span></td></tr></tbody></table></div>
+</section>
+<section><h2>Material factors and evidence coverage</h2>
+<div class="table-wrap keep-together"><h3 class="print-caption">Factor coverage</h3><table class="cols-2"><caption>Factor coverage</caption><thead><tr><th scope="col">Measure</th><th scope="col">Count</th></tr></thead><tbody><tr><th scope="row" class=""><span class="cell-text">Applicable</span></th><td class="number"><span data-value="14">14</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">Assessed</span></th><td class="number"><span data-value="6">6</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">Fully supported</span></th><td class="number"><span data-value="0">0</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">Unknown</span></th><td class="number"><span data-value="8">8</span></td></tr></tbody></table></div>
+<div class="table-wrap"><h3 class="print-caption">Material factors and evidence matrix</h3><table class="cols-4 evidence-table"><caption>Material factors and evidence matrix</caption><thead><tr><th scope="col">Factor</th><th scope="col">Assessment</th><th scope="col">Supporting</th><th scope="col">Opposing</th></tr></thead><tbody><tr><th scope="row" class=""><span class="cell-text">C01 · Which legal entity owns the product, contracts and securities?</span><span class="note">High priority</span></th><td class=""><span class="cell-text">Partial · low confidence</span><span class="note">The registry identifies Juniper Workflows Demo Co. The extract says nothing about software title, contracting parties or issued shares.
+Implication · A valuation could be assigned to an entity that does not hold the operating rights.
+Next test · Match signed customer contracts and IP assignments to the issuer and reconcile its share register.</span></td><td class=""><span class="cell-text">Sources</span><span class="cell-links"><a href="#source-E2" aria-label="Evidence E2" title="Fictional company registry | Juniper registration extract | Frozen synthetic packet E2">E2</a></span></td><td class=""><span class="cell-text">None recorded</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">C02 · Who has demonstrated demand or willingness to pay for the current offer?</span><span class="note">Medium priority</span></th><td class=""><span class="cell-text">Partial · low confidence</span><span class="note">The ledger identifies two paying accounts. Their use and renewals are undocumented.
+Implication · Those payments establish initial demand from two buyers. Wider adoption is unknown.
+Next test · Review dated usage and renewal decisions for each account.</span></td><td class=""><span class="cell-text">Sources</span><span class="cell-links"><a href="#source-E1" aria-label="Evidence E1" title="Fictional Juniper | Juniper subscription and cost ledger | Frozen synthetic packet E1">E1</a></span></td><td class=""><span class="cell-text">None recorded</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">C03 · What can the team deliver at the evidenced stage?</span><span class="note">Medium priority</span></th><td class=""><span class="cell-text">Unknown</span><span class="note">The invoices identify no feature delivered or accepted by a customer.
+Implication · Revenue alone cannot establish what Juniper can deliver repeatedly.
+Next test · Match an invoice to the product version, delivery record and customer acceptance.</span></td><td class=""><span class="cell-text">None recorded</span></td><td class=""><span class="cell-text">None recorded</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">C04 · Who controls delivery and decisions, and what track record is evidenced?</span><span class="note">Medium priority</span></th><td class=""><span class="cell-text">Unknown</span><span class="note">None of the five documents identifies who leads sales, product delivery or finance.
+Implication · A handover or key-person dependency cannot be evaluated.
+Next test · Request role histories and a reference for a prior delivery.</span></td><td class=""><span class="cell-text">None recorded</span></td><td class=""><span class="cell-text">None recorded</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">C05 · Which alternatives compete for the same buyer and budget?</span><span class="note">High priority</span></th><td class=""><span class="cell-text">Partial · low confidence</span><span class="note">Juniper lists USD 40 per month. An independent review lists USD 55 under different terms. The newsletter repeats Juniper’s release.
+Implication · The two figures cannot establish a like-for-like starting price.
+Next test · Align offer dates, included features and term lengths.</span></td><td class=""><span class="cell-text">Sources</span><span class="cell-links"><a href="#source-E3" aria-label="Evidence E3" title="Fictional Juniper | Juniper introductory pricing release | Frozen synthetic packet E3">E3</a>, <a href="#source-E5" aria-label="Evidence E5" title="Fictional channel newsletter | Reprint of Juniper introductory terms | Frozen synthetic packet E5">E5</a></span></td><td class=""><span class="cell-text">Sources</span><span class="cell-links"><a href="#source-E4" aria-label="Evidence E4" title="Fictional analyst | Independent review of entry subscription offers | Frozen synthetic packet E4">E4</a></span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">C06 · What drives recognised revenue and contribution at the current stage?</span><span class="note">High priority</span></th><td class=""><span class="cell-text">Partial · low confidence</span><span class="note">The ledger reports USD 100,000 revenue and USD 40,000 direct costs. It gives no split between recurring and one-time sales.
+Implication · Reported gross margin is 60%. Contribution per account remains unknown.
+Next test · Reconcile revenue and direct costs by account and charge type.</span></td><td class=""><span class="cell-text">Sources</span><span class="cell-links"><a href="#source-E1" aria-label="Evidence E1" title="Fictional Juniper | Juniper subscription and cost ledger | Frozen synthetic packet E1">E1</a></span></td><td class=""><span class="cell-text">None recorded</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">C07 · Which dated cash and funding constraints affect the next decision?</span><span class="note">High priority</span></th><td class=""><span class="cell-text">Unknown</span><span class="note">The ledger contains sales and costs. It contains no unrestricted cash balance or forward commitments.
+Implication · The funding date and cash available for reinvestment are unknown.
+Next test · Obtain a dated bank reconciliation and monthly cash commitments.</span></td><td class=""><span class="cell-text">None recorded</span></td><td class=""><span class="cell-text">None recorded</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">C08 · What evidence suggests an advantage can survive replication or switching?</span><span class="note">Medium priority</span></th><td class=""><span class="cell-text">Unknown</span><span class="note">The documents record payments but no reason a customer renewed, switched or stayed.
+Implication · The valuation cannot assume high switching costs.
+Next test · Ask both customers about alternatives and check their renewal decisions.</span></td><td class=""><span class="cell-text">None recorded</span></td><td class=""><span class="cell-text">None recorded</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">C09 · Which operational, regulatory or other dependencies could prevent delivery?</span><span class="note">Medium priority</span></th><td class=""><span class="cell-text">Unknown</span><span class="note">No operating agreements identify Juniper’s hosting or delivery dependencies.
+Implication · The cost or interruption caused by a supplier change is unknown.
+Next test · Review the main hosting agreement and service commitments to customers.</span></td><td class=""><span class="cell-text">None recorded</span></td><td class=""><span class="cell-text">None recorded</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">C10 · What observable change would invalidate the independent case or valuation basis?</span><span class="note">High priority</span></th><td class=""><span class="cell-text">Unknown</span><span class="note">There is no supported forecast, cash bridge or priced comparable transaction.
+Implication · A change in renewal assumptions could reverse the valuation case.
+Next test · Reconcile paid renewals and build a forecast that separates existing and new customers.</span></td><td class=""><span class="cell-text">None recorded</span></td><td class=""><span class="cell-text">None recorded</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">OB04 · What is the defendable value basis, method and sensitivity at the cut-off date?</span><span class="note">High priority</span></th><td class=""><span class="cell-text">Unknown</span><span class="note">The records cover operating sales and product prices. They contain no transaction value or supported cash forecast.
+Implication · Neither a transaction multiple nor a discounted cash-flow range is available.
+Next test · Source dated enterprise values with comparable revenues and reconcile the forecast cash flows.</span></td><td class=""><span class="cell-text">None recorded</span></td><td class=""><span class="cell-text">None recorded</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">SA01 · How much contracted recurring revenue is evidenced and reconcilable?</span><span class="note">High priority</span></th><td class=""><span class="cell-text">Partial · low confidence</span><span class="note">Two accounts paid. The ledger gives no signed term, recurring charge or invoice-line split for either.
+Implication · Contracted monthly recurring revenue and ARR are unknown.
+Next test · Match signed subscriptions to recurring invoice lines, excluding one-time charges and credits.</span></td><td class=""><span class="cell-text">Sources</span><span class="cell-links"><a href="#source-E1" aria-label="Evidence E1" title="Fictional Juniper | Juniper subscription and cost ledger | Frozen synthetic packet E1">E1</a></span></td><td class=""><span class="cell-text">None recorded</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">SA02 · What do mature cohort retention and acquisition costs show?</span><span class="note">Medium priority</span></th><td class=""><span class="cell-text">Unknown</span><span class="note">Opening cohorts, renewals and acquisition spend are missing.
+Implication · Customer retention and payback cannot be estimated.
+Next test · Trace both accounts through renewal and match acquisition spend to new accounts.</span></td><td class=""><span class="cell-text">None recorded</span></td><td class=""><span class="cell-text">None recorded</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">ST04 · Is initial revenue collectible and repeatable beyond the first customers?</span><span class="note">High priority</span></th><td class=""><span class="cell-text">Partial · low confidence</span><span class="note">Two accounts made payments. No renewal record shows a second contract term or how collections change beyond these accounts.
+Implication · The receipts establish initial sales. Their repeatability is still open.
+Next test · Check subsequent collections and renewal dates against the two signed agreements.</span></td><td class=""><span class="cell-text">Sources</span><span class="cell-links"><a href="#source-E1" aria-label="Evidence E1" title="Fictional Juniper | Juniper subscription and cost ledger | Frozen synthetic packet E1">E1</a></span></td><td class=""><span class="cell-text">None recorded</span></td></tr></tbody></table></div>
+</section>
+<section><h2>Risks and safeguards</h2>
+<p>The public offers give conflicting entry prices. A cash balance, forward costs and comparable transaction prices are also missing.</p>
+<div class="table-wrap keep-together"><h3 class="print-caption">Safeguards</h3><table class="cols-3"><caption>Safeguards</caption><thead><tr><th scope="col">Check</th><th scope="col">Status</th><th scope="col">Rationale</th></tr></thead><tbody><tr><th scope="row" class=""><span class="cell-text">Input packet scope</span></th><td class=""><span class="cell-text">Pass</span></td><td class=""><span class="cell-text">The scope of this fixture is defined by the supplied packet.</span><span class="cell-links"><a href="#source-E1" aria-label="Evidence E1" title="Fictional Juniper | Juniper subscription and cost ledger | Frozen synthetic packet E1">E1</a></span></td></tr></tbody></table></div>
+</section>
+<section><h2>Valuation and sensitivity</h2>
+<div class="table-wrap keep-together"><h3 class="print-caption">Other valuation methods</h3><table class="cols-4"><caption>Other valuation methods</caption><thead><tr><th scope="col">Calculation</th><th scope="col">Value</th><th scope="col">Basis</th><th scope="col">Rationale</th></tr></thead><tbody><tr><th scope="row" class=""><span class="cell-text">V1 · EV/revenue</span><span class="note">ev_revenue</span></th><td class=""><span class="cell-text">Unavailable</span><span class="cell-links">Gap <a href="#gap-G5">G5</a>, <a href="#gap-G6">G6</a></span></td><td class=""><span class="cell-text">Enterprise</span></td><td class=""><span class="cell-text">There is no comparable enterprise transaction price or matched revenue denominator.</span></td></tr></tbody></table></div>
+</section>
+<section><h2>Management questions</h2>
+<div class="table-wrap"><h3 class="print-caption">Information to request</h3><table class="cols-3"><caption>Information to request</caption><thead><tr><th scope="col">Priority</th><th scope="col">Item</th><th scope="col">Reassessment</th></tr></thead><tbody><tr><th scope="row" class=""><span class="cell-text">High</span></th><td class=""><span class="cell-text">Reconciled cash statement and valuation driver schedule</span><span class="cell-links">Gap <a href="#gap-G1">G1</a></span></td><td class=""><span class="cell-text">Reconcile the cash balance and forecast drivers, and retest method eligibility.</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">High</span></th><td class=""><span class="cell-text">Dated like-for-like subscription offers and tier terms</span><span class="cell-links">Gap <a href="#gap-G2">G2</a></span></td><td class=""><span class="cell-text">Align dates and included features before using pricing in comparables.</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">Medium</span></th><td class=""><span class="cell-text">Dated customer cohorts and churn reconciliation</span><span class="cell-links">Gap <a href="#gap-G3">G3</a></span></td><td class=""><span class="cell-text">Test retention and switching behaviour by customer vintage.</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">High</span></th><td class=""><span class="cell-text">Signed customer agreements, software IP assignments and issued-share register</span><span class="cell-links">Gap <a href="#gap-G4">G4</a></span></td><td class=""><span class="cell-text">Match each agreement and assignment to the registered entity and reconcile the securities.</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">High</span></th><td class=""><span class="cell-text">Subscription terms, invoice lines and credits for the two paying accounts</span><span class="cell-links">Gap <a href="#gap-G5">G5</a></span></td><td class=""><span class="cell-text">Tie recurring charges to enforceable terms, separate one-time items, and reconcile receipts and direct costs.</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">High</span></th><td class=""><span class="cell-text">Dated comparable transaction prices and matched company revenue</span><span class="cell-links">Gap <a href="#gap-G6">G6</a></span></td><td class=""><span class="cell-text">Match enterprise value and revenue period, accounting and business mix before calculating a multiple.</span></td></tr></tbody></table></div>
+</section>
+<section><h2>Methodology and limitations</h2>
+<p>The five fictional documents cover one accounting year and two paid accounts. Web research and outreach were unavailable.</p>
+<p>Determine whether the signed subscription and cash evidence support a defensible valuation basis.</p>
+<p>Dated receipts identify two paying accounts. There is no renewal history.</p>
+<div class="table-wrap keep-together"><h3 class="print-caption">Actual research activity<span class="note">Objective · Valuation. Research attempts used 4 of 4. Corrective reviews used 1. Only frozen synthetic packet records were reviewed. Web research and outreach were unavailable.</span></h3><table class="cols-3"><caption>Actual research activity<span class="note">Objective · Valuation. Research attempts used 4 of 4. Corrective reviews used 1. Only frozen synthetic packet records were reviewed. Web research and outreach were unavailable.</span></caption><thead><tr><th scope="col">Channel</th><th scope="col">Availability</th><th scope="col">Recorded attempts</th></tr></thead><tbody><tr><th scope="row" class=""><span class="cell-text">Web searches</span></th><td class=""><span class="cell-text">Unavailable</span></td><td class="number"><span data-value="0">0</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">Web sources opened</span></th><td class=""><span class="cell-text">Unavailable</span></td><td class="number"><span data-value="0">0</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">Document reviews</span></th><td class=""><span class="cell-text">Available</span></td><td class="number"><span data-value="5">5</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">Private information requests</span></th><td class=""><span class="cell-text">Unavailable</span></td><td class="number"><span data-value="0">0</span></td></tr></tbody></table></div>
+<div class="table-wrap"><h3 class="print-caption">Question and evidence coverage<span class="note">Counts describe scope. Corroboration uses the originating source.</span></h3><table class="cols-2"><caption>Question and evidence coverage<span class="note">Counts describe scope. Corroboration uses the originating source.</span></caption><thead><tr><th scope="col">Measure</th><th scope="col">Count</th></tr></thead><tbody><tr><th scope="row" class=""><span class="cell-text">Completed</span></th><td class="number"><span data-value="0">0</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">Partial</span></th><td class="number"><span data-value="4">4</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">Blocked</span></th><td class="number"><span data-value="3">3</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">Deferred</span></th><td class="number"><span data-value="1">1</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">Evidence records</span></th><td class="number"><span data-value="5">5</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">Distinct origins</span></th><td class="number"><span data-value="4">4</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">Independent origins</span></th><td class="number"><span data-value="2">2</span></td></tr></tbody></table></div>
+<div class="table-wrap keep-together"><h3 class="print-caption">Evidence records from a shared origin</h3><table class="cols-2"><caption>Evidence records from a shared origin</caption><thead><tr><th scope="col">Origin</th><th scope="col">Records</th></tr></thead><tbody><tr><th scope="row" class=""><span class="cell-text">juniper price release</span></th><td class=""><span class="cell-text">Evidence records</span><span class="cell-links"><a href="#source-E3" aria-label="Evidence E3" title="Fictional Juniper | Juniper introductory pricing release | Frozen synthetic packet E3">E3</a>, <a href="#source-E5" aria-label="Evidence E5" title="Fictional channel newsletter | Reprint of Juniper introductory terms | Frozen synthetic packet E5">E5</a></span></td></tr></tbody></table></div>
+<div class="table-wrap"><h3 class="print-caption">Planned questions and recorded outcomes</h3><table class="cols-3"><caption>Planned questions and recorded outcomes</caption><thead><tr><th scope="col">Question</th><th scope="col">Outcome and reason</th><th scope="col">Recorded work</th></tr></thead><tbody><tr><th scope="row" class=""><span class="cell-text">RQ2 · How much contracted recurring revenue is evidenced and reconcilable?</span><span class="note">SA01, C06, ST04</span></th><td class=""><span class="cell-text">Partial · Insufficient evidence</span><span class="note">The ledger identifies two paid accounts and total annual sales and costs. It has no invoice split or contract schedule from which to calculate recurring revenue.</span><span class="cell-links"><a href="#source-E1" aria-label="Evidence E1" title="Fictional Juniper | Juniper subscription and cost ledger | Frozen synthetic packet E1">E1</a> · Gap <a href="#gap-G5">G5</a></span></td><td class=""><span class="cell-text">A1 · Document review · 2026-11-27 · Evidence found</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">RQ3 · Which alternatives compete for the same buyer and budget?</span><span class="note">C05</span></th><td class=""><span class="cell-text">Partial · Contradiction</span><span class="note">The newsletter copies the USD 40 release. The independent USD 55 offer covers different terms.</span><span class="cell-links"><a href="#source-E3" aria-label="Evidence E3" title="Fictional Juniper | Juniper introductory pricing release | Frozen synthetic packet E3">E3</a>, <a href="#source-E4" aria-label="Evidence E4" title="Fictional analyst | Independent review of entry subscription offers | Frozen synthetic packet E4">E4</a>, <a href="#source-E5" aria-label="Evidence E5" title="Fictional channel newsletter | Reprint of Juniper introductory terms | Frozen synthetic packet E5">E5</a> · Gap <a href="#gap-G2">G2</a></span></td><td class=""><span class="cell-text">A3 · Document review · 2026-11-27 · Evidence found
+A4 · Document review · 2026-11-27 · Evidence found
+A5 · Document review · 2026-11-27 · Evidence found</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">RQ1 · Which legal entity owns the product, contracts and securities?</span><span class="note">C01</span></th><td class=""><span class="cell-text">Partial · Insufficient evidence</span><span class="note">The extract confirms the registered name. It contains no share register, IP assignment or signed customer agreement.</span><span class="cell-links"><a href="#source-E2" aria-label="Evidence E2" title="Fictional company registry | Juniper registration extract | Frozen synthetic packet E2">E2</a> · Gap <a href="#gap-G4">G4</a></span></td><td class=""><span class="cell-text">A2 · Document review · 2026-11-27 · Evidence found</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">RQ5 · Who has demonstrated demand or willingness to pay for the current offer?</span><span class="note">C02, C03</span></th><td class=""><span class="cell-text">Partial · Insufficient evidence</span><span class="note">The ledger documents transactions but gives limited evidence of sustained product usage.</span><span class="cell-links"><a href="#source-E1" aria-label="Evidence E1" title="Fictional Juniper | Juniper subscription and cost ledger | Frozen synthetic packet E1">E1</a></span></td><td class=""><span class="cell-text">A1 · Document review · 2026-11-27 · Evidence found</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">RQ8 · Which supplier or operating agreement could restrict customer delivery?</span><span class="note">C09</span></th><td class=""><span class="cell-text">Deferred · Budget limit</span><span class="note">All four ordinary reviews were used on the ledger, registration and price dispute. Supplier terms were outside those documents.</span></td><td class=""><span class="cell-text">No attempts recorded</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">RQ4 · Which dated cash and funding constraints affect the next decision?</span><span class="note">C07, C10, OB04</span></th><td class=""><span class="cell-text">Blocked · Private information</span><span class="note">Cash statements and a supported cash-flow forecast are unavailable in this packet.</span><span class="cell-links">Gap <a href="#gap-G1">G1</a></span></td><td class=""><span class="cell-text">No attempts recorded</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">RQ6 · Who controls delivery and decisions, and what track record is evidenced?</span><span class="note">C04</span></th><td class=""><span class="cell-text">Blocked · Tool unavailable</span><span class="note">Checking employment history requires web access and the packet has no biographies.</span></td><td class=""><span class="cell-text">No attempts recorded</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">RQ7 · What evidence suggests an advantage can survive replication or switching?</span><span class="note">C08, SA02</span></th><td class=""><span class="cell-text">Blocked · Private information</span><span class="note">Current cohorts and churn data must come from the company.</span><span class="cell-links">Gap <a href="#gap-G3">G3</a></span></td><td class=""><span class="cell-text">No attempts recorded</span></td></tr></tbody></table></div>
+<div class="table-wrap keep-together"><h3 class="print-caption">Red-team corrections</h3><table class="cols-3"><caption>Red-team corrections</caption><thead><tr><th scope="col">Review</th><th scope="col">Affected objects</th><th scope="col">Action and recheck</th></tr></thead><tbody><tr><th scope="row" class=""><span class="cell-text">Q1 · Unresolved</span><span class="note">High · Evidence</span></th><td class=""><span class="cell-text">C2, C05</span><span class="note">Company release and independent price review disagree.</span></td><td class=""><span class="cell-text">Retain both sources and request dated plan inclusions.</span><span class="cell-links">Gap <a href="#gap-G2">G2</a></span></td></tr></tbody></table></div>
+</section>
+<section><h2>Missing information</h2>
+<article class="record" id="gap-G1"><h3><a href="#gap-G1" title="Reconciled cash statement and valuation driver schedule">G1</a> · High · Reconciled cash statement and valuation driver schedule</h3><p><strong>Period</strong> At 27 November 2026 and monthly over the forecast</p><p><strong>Why needed</strong> The packet does not establish unrestricted cash, affordable reinvestment or a defensible forecast.</p><p><strong>Conclusion affected</strong> The date Juniper needs funding and the cash flows available for valuation.</p><p><strong>Reassessment action</strong> Reconcile the cash balance and forecast drivers, and retest method eligibility.</p><p><strong>Availability</strong> Private</p></article>
+<article class="record" id="gap-G2"><h3><a href="#gap-G2" title="Dated like-for-like subscription offers and tier terms">G2</a> · High · Dated like-for-like subscription offers and tier terms</h3><p><strong>Period</strong> Both offers in force at 27 November 2026</p><p><strong>Why needed</strong> Recorded pricing disagrees and the copied release is one origin.</p><p><strong>Conclusion affected</strong> Whether USD 40 and USD 55 are comparable entry prices for the same contract.</p><p><strong>Reassessment action</strong> Align dates and included features before using pricing in comparables.</p><p><strong>Availability</strong> Either</p></article>
+<article class="record" id="gap-G4"><h3><a href="#gap-G4" title="Signed customer agreements, software IP assignments and issued-share register">G4</a> · High · Signed customer agreements, software IP assignments and issued-share register</h3><p><strong>Period</strong> As at 27 November 2026</p><p><strong>Why needed</strong> The registry names the company but identifies none of these rights.</p><p><strong>Conclusion affected</strong> Which entity owns the operating assets, earns the contract receipts and issues the shares.</p><p><strong>Reassessment action</strong> Match each agreement and assignment to the registered entity and reconcile the securities.</p><p><strong>Availability</strong> Private</p></article>
+<article class="record" id="gap-G5"><h3><a href="#gap-G5" title="Subscription terms, invoice lines and credits for the two paying accounts">G5</a> · High · Subscription terms, invoice lines and credits for the two paying accounts</h3><p><strong>Period</strong> The reported year and each contract’s current term</p><p><strong>Why needed</strong> Annual recognised sales combine charges with unknown recurrence.</p><p><strong>Conclusion affected</strong> How much contracted revenue can enter the valuation and which sales have been collected or renewed.</p><p><strong>Reassessment action</strong> Tie recurring charges to enforceable terms, separate one-time items, and reconcile receipts and direct costs.</p><p><strong>Availability</strong> Private</p></article>
+<article class="record" id="gap-G6"><h3><a href="#gap-G6" title="Dated comparable transaction prices and matched company revenue">G6</a> · High · Dated comparable transaction prices and matched company revenue</h3><p><strong>Period</strong> Transactions available as at 27 November 2026</p><p><strong>Why needed</strong> Subscription list prices measure what users pay. They do not establish the enterprise price paid for a business.</p><p><strong>Conclusion affected</strong> Whether a revenue multiple can support an enterprise valuation.</p><p><strong>Reassessment action</strong> Match enterprise value and revenue period, accounting and business mix before calculating a multiple.</p><p><strong>Availability</strong> Public</p></article>
+<article class="record" id="gap-G3"><h3><a href="#gap-G3" title="Dated customer cohorts and churn reconciliation">G3</a> · Medium · Dated customer cohorts and churn reconciliation</h3><p><strong>Period</strong> From each account’s first invoice through its latest renewal opportunity</p><p><strong>Why needed</strong> The ledger does not describe renewals or switching.</p><p><strong>Conclusion affected</strong> Whether customers renew and how much growth must come from acquiring new accounts.</p><p><strong>Reassessment action</strong> Test retention and switching behaviour by customer vintage.</p><p><strong>Availability</strong> Private</p></article>
+</section><section><h2>Sources</h2>
+<article class="record" id="source-E1"><h3><a href="#source-E1" title="Fictional Juniper | Juniper subscription and cost ledger | Frozen synthetic packet E1">E1</a> · Juniper subscription and cost ledger</h3><p class="detail">Fictional Juniper · company material · Grade C · Accessed 2026-11-27</p><p class="detail">Frozen synthetic packet <a href="#source-E1" title="Fictional Juniper | Juniper subscription and cost ledger | Frozen synthetic packet E1">E1</a></p><p>Dated invoices and collection records identify two paid subscription users. The synthetic year to cut-off reports revenue of USD 100,000 and COGS of USD 40,000.</p></article>
+<article class="record" id="source-E2"><h3><a href="#source-E2" title="Fictional company registry | Juniper registration extract | Frozen synthetic packet E2">E2</a> · Juniper registration extract</h3><p class="detail">Fictional company registry · authoritative record · Grade A · Accessed 2026-11-27</p><p class="detail">Frozen synthetic packet <a href="#source-E2" title="Fictional company registry | Juniper registration extract | Frozen synthetic packet E2">E2</a></p><p>The registration extract identifies Juniper Workflows Demo Co and the registered name.</p></article>
+<article class="record" id="source-E3"><h3><a href="#source-E3" title="Fictional Juniper | Juniper introductory pricing release | Frozen synthetic packet E3">E3</a> · Juniper introductory pricing release</h3><p class="detail">Fictional Juniper · company public · Grade C · Accessed 2026-11-27</p><p class="detail">Frozen synthetic packet <a href="#source-E3" title="Fictional Juniper | Juniper introductory pricing release | Frozen synthetic packet E3">E3</a></p><p>The preserved release gives a USD 40 entry price, without tier scope or offer end date.</p></article>
+<article class="record" id="source-E4"><h3><a href="#source-E4" title="Fictional analyst | Independent review of entry subscription offers | Frozen synthetic packet E4">E4</a> · Independent review of entry subscription offers</h3><p class="detail">Fictional analyst · independent public · Grade B · Accessed 2026-11-27</p><p class="detail">Frozen synthetic packet <a href="#source-E4" title="Fictional analyst | Independent review of entry subscription offers | Frozen synthetic packet E4">E4</a></p><p>The analyst&#x27;s captured offer lists a USD 55 entry price. The package terms and offer dates differ.</p></article>
+<article class="record" id="source-E5"><h3><a href="#source-E5" title="Fictional channel newsletter | Reprint of Juniper introductory terms | Frozen synthetic packet E5">E5</a> · Reprint of Juniper introductory terms</h3><p class="detail">Fictional channel newsletter · company public · Grade C · Accessed 2026-11-27</p><p class="detail">Frozen synthetic packet <a href="#source-E5" title="Fictional channel newsletter | Reprint of Juniper introductory terms | Frozen synthetic packet E5">E5</a></p><p>This reprint quotes the same USD 40 company release verbatim.</p></article>
+</section>
+<section><h2>Calculation operands</h2><div class="table-wrap"><table class="cols-4"><caption>Reported and assumed input record</caption><thead><tr><th scope="col">Input</th><th scope="col">Value and unit</th><th scope="col">Period and basis</th><th scope="col">Rationale and sources</th></tr></thead><tbody><tr id="input-I1"><th scope="row" class=""><span class="cell-text">I1 · Reported revenue</span><span class="note">Juniper Workflows Demo Co · management_accrual · recognised_revenue</span></th><td class=""><span class="cell-text">100000 USD money</span></td><td class=""><span class="cell-text">2025-11-28/2026-11-27</span><span class="note">Observed</span></td><td class=""><span class="cell-text">Reported in the subscription and cost ledger for the year ended 27 November 2026.
+Claims C1</span><span class="cell-links"><a href="#source-E1" aria-label="Evidence E1" title="Fictional Juniper | Juniper subscription and cost ledger | Frozen synthetic packet E1">E1</a></span></td></tr><tr id="input-I2"><th scope="row" class=""><span class="cell-text">I2 · Reported cost of goods sold</span><span class="note">Juniper Workflows Demo Co · management_accrual · cogs</span></th><td class=""><span class="cell-text">40000 USD money</span></td><td class=""><span class="cell-text">2025-11-28/2026-11-27</span><span class="note">Observed</span></td><td class=""><span class="cell-text">Reported in the subscription and cost ledger for the year ended 27 November 2026.</span><span class="cell-links"><a href="#source-E1" aria-label="Evidence E1" title="Fictional Juniper | Juniper subscription and cost ledger | Frozen synthetic packet E1">E1</a></span></td></tr></tbody></table></div></section>
+</main></body></html>

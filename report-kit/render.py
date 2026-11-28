@@ -326,11 +326,12 @@ def exhibit_html(exhibit, input_links=True):
         rows.append(f"<tr>{cells}</tr>")
     charts = "".join(chart_html(chart, exhibit) for chart in exhibit.get("charts", []))
     grouped = " keep-together" if len(rows) <= 4 else ""
+    evidence = " evidence-table" if headers[:2] in (["Claim", "Assessment"], ["Factor", "Assessment"]) else ""
     contents = "\n".join(rows)
     # Use a heading in print. The tagged PDF layout needs to keep it with the
     # first rows when a long table crosses a page boundary.
     return (f'<div class="table-wrap{grouped}"><h3 class="print-caption">{caption}</h3>'
-            f'<table class="cols-{len(headers)}"><caption>{caption}</caption>'
+            f'<table class="cols-{len(headers)}{evidence}"><caption>{caption}</caption>'
             f'<thead><tr>{headings}</tr></thead><tbody>{contents}</tbody></table></div>{charts}')
 
 
@@ -391,9 +392,9 @@ def structured_html(report, include_operands):
     for section in report["sections"]:
         parts.append(f'<section><h2>{esc(section["heading"])}</h2>')
         parts.extend(f'<p>{esc(p)}</p>' for p in section["paragraphs"])
-        parts.extend(exhibit_html(exhibit, include_operands) for exhibit in section["tables"])
         if section["source_ids"]:
             parts.append(f'<p class="detail">Evidence {source_links(section["source_ids"])}</p>')
+        parts.extend(exhibit_html(exhibit, include_operands) for exhibit in section["tables"])
         if not (section["paragraphs"] or section["tables"]):
             parts.append("<p class=\"subtle\">Unavailable within assessed scope.</p>")
         parts.append("</section>")

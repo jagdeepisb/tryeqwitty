@@ -1,6 +1,6 @@
-# November 2026 cross-agent pilot
+# Repeatability across six Codex sessions
 
-Six fresh Codex sessions ran on 27 November 2026. Three fixed-evidence sessions each evaluated six cases. Three live-retrieval sessions each evaluated the same narrowly scoped Companies House registry task. Raw submissions, masked decisions and the input seal are retained. [Campaign metadata](campaign.json) · [Frozen inputs](frozen.json) · [Raw trial outputs](trials) · [Blinded judgments](judgments)
+On 27 November 2026, three sessions of one Codex configuration each evaluated six fixed cases. Three more sessions repeated one Companies House filing lookup. Two further Codex sessions graded masked responses. The release thresholds were set after the results were known. [Campaign metadata](campaign.json) · [Frozen inputs](frozen.json) · [Raw trial outputs](trials) · [Blinded judgments](judgments)
 
 | Measure | Fixed evidence | Live retrieval |
 |---|---:|---:|
@@ -19,11 +19,11 @@ Six fresh Codex sessions ran on 27 November 2026. Three fixed-evidence sessions 
 | Brier mean with confidence forecasts scored | 0.000048 with 111/111 | 0.000038 with 21/21 |
 | Recorded web actions | 0 | 9 |
 
-Both independent reviewers agreed on all 84 criterion and gate votes across 21 case evaluations. All live logs recorded one query and both approved official source opens. The registry case had seven correct answers in every fixed and live session. [Machine-readable scores](results.json) · [Scoring method](README.md)
+The two reviewers agreed on all 84 criterion and gate votes across 21 case evaluations. All live logs recorded one query and both approved official source opens. The registry case had seven correct answers in every fixed and live session. [Machine-readable scores](results.json) · [Scoring method](README.md)
 
 ## Interpretation and limits
 
-These counts describe six independent runs of one inherited Codex configuration. The exact model build, token use and comparable wall time were unavailable. Claude and Gemini had no configured trial access. The decision reviewers were separate Codex sessions working with masked responses.
+The exact model build, token use and comparable wall time were unavailable. Claude and Gemini had no configured trial access.
 
 The same six packets recur across the three fixed-evidence sessions, so the 111 scored answers are clustered by case and solver. The live evidence covers one public registry case. The priority questions offer a closed set of choices. All forecasted answers were correct in this sample, so the observed Brier means mainly reflect confidence on successful items. The pilot supports a narrow repeatability finding within these tasks. Comparative provider quality, broader case performance and calibration on errors remain unmeasured.
 

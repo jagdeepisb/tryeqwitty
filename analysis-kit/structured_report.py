@@ -66,15 +66,21 @@ def claims_table(claims):
 
 
 def factor_table(caption, factors):
-    return table(caption, ["Factor", "Assessment", "Evidence"], [
-        [cell(f"{f['id']} · {f['question']}", note=f"{f['priority']} priority"),
-         cell(f"{label(f['status'])} · {f['confidence']} confidence",
-              note=f"{f['finding']}\nImplication · {f['impact']}\nNext test · {f['next_test']}"),
-         cell("Supporting " + (", ".join(f["support"]) or "none recorded")
-              + "\nOpposing " + (", ".join(f["oppose"]) or "none recorded"),
-              source_ids=(f["support"] + f["oppose"]))]
-        for f in factors
-    ])
+    directions = (("support", "Supporting"), ("oppose", "Opposing"))
+    columns = {key: heading for key, heading in directions if any(f[key] for f in factors)}
+    rows = []
+    for f in factors:
+        status = label(f["status"])
+        if f["confidence"] != "unknown":
+            status += f" · {f['confidence']} confidence"
+        rows.append([
+            cell(f"{f['id']} · {f['question']}", note=f"{f['priority']} priority"),
+            cell(status, note=f"{f['finding']}\nImplication · {f['impact']}\nNext test · {f['next_test']}"),
+            *(source_cell(f[key]) for key in columns),
+        ])
+    missing = [heading.lower() for key, heading in directions if key not in columns]
+    options = {"note": f"No {' or '.join(missing)} evidence was recorded for these factors."} if missing else {}
+    return table(caption, ["Factor", "Assessment", *columns.values()], rows, **options)
 
 
 def comparisons(comparison_rows):
@@ -372,8 +378,11 @@ def build_report(bundle, digest, validated):
     if not comparison_tables:
         market.append("Structured competitor comparison unavailable within this assessment.")
     thesis = bundle["thesis"]
+    claim_sources = {c["id"]: c["support"] + c["oppose"] for c in bundle["claims"]}
     divergences = [table("Thesis differences", ["Finding", "Implication"], [
-        [cell(row["finding"], note=", ".join(row["claim_ids"]) or None), cell(row["impact"])]
+        [cell(row["finding"], note=", ".join(row["claim_ids"]) or None,
+              source_ids=list(dict.fromkeys(source for claim in row["claim_ids"] for source in claim_sources[claim]))),
+         cell(row["impact"])]
         for row in thesis["divergences"]
     ])] if thesis["divergences"] else []
     safeguards = [table("Safeguards", ["Check", "Status", "Rationale"], [
@@ -416,7 +425,8 @@ def build_report(bundle, digest, validated):
                     [f"Management · {thesis['management'] or 'Unavailable'}",
                      f"Independent · {label(thesis['status'])} · {thesis['independent']}" if research else
                      f"Independent · {thesis['independent']}",
-                     *thesis["falsifiers"]], divergences, thesis["independent_evidence"]),
+                     *[f"What would change this view? {test}" for test in thesis["falsifiers"]]],
+                    divergences, thesis["independent_evidence"]),
             section("Financial analysis and calculations", financial_context, financial),
             section("Material factors and evidence coverage", tables=[coverage, evidence_matrix]),
             section("Risks and safeguards", decision["risks"], safeguards),

@@ -195,6 +195,7 @@ class ResearchAudit:
     def validate_results(self):
         evidence_by_factor = defaultdict(set)
         completed = set()
+        open_gap_factors = set()
         open_statuses = {"unknown", "partial"}
         for key, row in self.results.items():
             question = self.questions[key]
@@ -217,6 +218,8 @@ class ResearchAudit:
                 completed.update(factors)
             else:
                 self.check_stop(key, question, row, attempts, ready, disputed)
+                for gap_id in row["gap_ids"]:
+                    open_gap_factors.update(set(factors).intersection(self.gaps[gap_id]["affected_factor_ids"]))
                 if material:
                     self.require_gap(row["gap_ids"], material, key)
                     self.material_unknown.update(material)
@@ -232,6 +235,8 @@ class ResearchAudit:
             if row["status"] == "contradicted":
                 require(self.origins.usable(row["oppose"]), f"{key}: factor opposition contains only research leads")
             if row["status"] == "supported":
+                require(key not in open_gap_factors,
+                        f"{key}: an open research question still needs evidence for this factor")
                 reconciled = not row["oppose"] or any(
                     item["status"] == "resolved" and item["route"] == "evidence" and key in item["affected"]
                     for item in self.bundle["challenges"]

@@ -1,0 +1,254 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Cedar Components (fictional) | Eqwitty assessment</title><style>:root {
+  --ink: #111111;
+  --muted: #555d69;
+  --blue: #3b82f6;
+  --link: #174da5;
+  --line: #e5e5e5;
+  --panel: #f5f5f5;
+  --blue-tint: #eaf2ff;
+}
+@page {
+  size: A4;
+  margin: 15mm 16mm 17mm;
+  @bottom-right {
+    content: counter(page) " / " counter(pages);
+    font: 8pt "Space Grotesk", sans-serif;
+    color: #555d69;
+  }
+}
+body {
+  color: var(--ink);
+  margin: 0;
+  font: 10pt/1.43 "DM Sans", sans-serif;
+  overflow-wrap: anywhere;
+}
+h1, h2, h3, caption, .brand {
+  font-family: "Space Grotesk", sans-serif;
+}
+h1 { font-size: 27pt; line-height: 1.13; margin: 5mm 0 2mm; }
+h2 {
+  font-size: 15pt;
+  margin: 6mm 0 2.5mm;
+  border-bottom: 0.7pt solid var(--line);
+  padding-bottom: 1.5mm;
+  break-after: avoid;
+}
+h3 { font-size: 11pt; margin: 3mm 0 1mm; break-after: avoid; }
+p { margin: 0 0 2.5mm; orphans: 2; widows: 2; white-space: pre-line; }
+header.hero { padding-bottom: 4mm; border-bottom: 2pt solid var(--blue); }
+.brand { font-size: 19pt; font-weight: 700; letter-spacing: -0.5pt; }
+.dot { color: var(--blue); }
+.hero .objective { max-width: 72ch; font-size: 11pt; }
+.notice { color: var(--muted); font-size: 8.5pt; margin: 2mm 0 0; }
+.meta { display: flex; flex-wrap: wrap; gap: 2mm 7mm; margin: 3mm 0 0; }
+.meta span { display: inline-block; padding: 0.7mm 2mm; background: var(--panel); font-size: 8.75pt; }
+a { color: var(--link); text-decoration: underline; }
+a:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+.subtle { color: var(--muted); }
+.table-wrap { margin: 3mm 0 4mm; }
+.print-caption { display: none; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: 8.75pt;
+  line-height: 1.34;
+  overflow-wrap: anywhere;
+}
+caption {
+  text-align: left;
+  font-size: 10.75pt;
+  font-weight: 700;
+  padding: 0 0 1.8mm;
+  break-after: avoid;
+}
+caption .note { font: 8.5pt/1.35 "DM Sans", sans-serif; margin-top: 0.45mm; }
+thead { display: table-header-group; }
+tr { break-inside: avoid; }
+th, td { text-align: left; padding: 1.65mm 1.8mm; border-bottom: 0.55pt solid var(--line); vertical-align: top; }
+thead th { color: #1b3151; background: var(--blue-tint); font-weight: 700; }
+tbody th { font-weight: 700; }
+tbody tr:nth-child(even) { background: #f8f9fb; }
+tbody tr td.emphasis, tbody tr th.emphasis { background: var(--blue-tint); font-weight: 700; }
+.cols-2 th:first-child { width: 49%; }
+.cols-3 th:first-child { width: 32%; }
+.cols-4 th:first-child { width: 25%; }
+.cols-6 th:first-child { width: 20%; }
+.cols-7 th:first-child { width: 28%; }
+.evidence-table th:first-child { width: 28%; }
+.evidence-table.cols-3 thead th:last-child,
+.evidence-table.cols-4 thead th:nth-child(n+3) { width: 12.5%; }
+.cols-7 tbody th, .cols-7 tbody td { padding-top: 1.05mm; padding-bottom: 1.05mm; }
+.number { text-align: right; font-variant-numeric: tabular-nums; }
+.cell-text, .note { white-space: pre-line; }
+.note, .cell-links { display: block; color: var(--muted); margin-top: 0.6mm; font-size: 7.75pt; font-weight: 400; }
+.cell-links a { margin-right: 0.25em; }
+.chart { margin: 4mm 0; padding: 3mm; border: 0.6pt solid var(--line); break-inside: avoid; }
+.chart figcaption { margin-bottom: 1.8mm; font-size: 9.25pt; font-weight: 700; }
+.chart-row { display: flex; align-items: center; gap: 2mm; margin: 1mm 0; font-size: 8pt; }
+.chart-key { flex: 0 0 37%; }
+.chart-plot { flex: 1; height: 2.7mm; background-color: var(--panel); }
+.chart-value { flex: 0 0 17%; text-align: right; }
+.record { margin: 2.7mm 0 3.3mm; border-left: 1.5pt solid var(--line); padding-left: 2.8mm; }
+.record h3 { margin-top: 0; }
+.record p { margin-bottom: 1.3mm; }
+.detail { color: var(--muted); font-size: 8.5pt; }
+.provenance { font-size: 8.5pt; }
+.provenance dt { font-weight: 700; }
+.provenance dd { margin: 0 0 1.7mm; overflow-wrap: anywhere; }
+.skip-link { position: absolute; left: -999em; }
+.skip-link:focus { left: 1rem; top: 1rem; background: white; padding: 0.5rem; }
+@media screen {
+  body { max-width: 67rem; margin: 0 auto; padding: 1.7rem 1rem 3rem; }
+  .table-wrap { overflow-x: auto; }
+  table { min-width: 32rem; }
+  .cols-6, .cols-7 { min-width: 50rem; }
+  .record:target, tr:target { outline: 2px solid var(--blue); outline-offset: 2px; }
+}
+@media print {
+  .skip-link { display: none; }
+  caption { display: none; }
+  .print-caption { display: block; break-after: avoid; padding-bottom: 1mm; }
+  .appendix { break-before: page; }
+  /* Compact source and information-request records without reducing type size. */
+  .record { margin-top: 1.8mm; margin-bottom: 2mm; }
+  .record p { margin-bottom: 0.8mm; }
+  .keep-together, .record, .provenance { break-inside: avoid; }
+}
+@page { @bottom-left { content: "eqwitty. | Open methodology v1.4"; font: 8pt "DM Sans"; color: #555d69; } }</style></head><body><a class="skip-link" href="#assessment">Skip to assessment</a><header class="hero"><div class="brand">eqwitty<span class="dot">.</span></div><h1>Cedar Components (fictional)</h1><p class="objective">Assess the evidence and capital milestones needed before a financing process.</p><div class="meta"><span>As of <time>2026-11-27</time></span><span>Methodology v1.4</span></div><p class="notice">Independent assessment: Eqwitty open methodology (not an official Eqwitty platform report)</p></header><main id="assessment">
+<section><h2>Executive assessment</h2>
+<p>Qualified · The inspector accepted the prototype during one supervised shift (<a href="#source-E2" title="Fictional independent inspector | Cedar pilot inspection and acceptance | Frozen synthetic packet E2">E2</a>). Obtain repeat production logs, equipment quotations and opening cash before sizing the expansion round.</p>
+<p>The independent inspection corroborates acceptance under the stated trial conditions.</p>
+</section>
+<section><h2>Scope and input inventory</h2>
+<p>Cedar Components Demo Co · Synthetic jurisdiction · Pilot</p>
+<p>The fictional case contains the company’s pilot description and the inspector’s acceptance record.</p>
+<div class="table-wrap keep-together"><h3 class="print-caption">Documents reviewed</h3><table class="cols-3"><caption>Documents reviewed</caption><thead><tr><th scope="col">Document</th><th scope="col">Review</th><th scope="col">Limitations</th></tr></thead><tbody><tr><th scope="row" class=""><span class="cell-text">Cedar pilot status and scope</span><span class="note">packet-1</span></th><td class=""><span class="cell-text">Frozen synthetic packet <a href="#source-E1" title="Fictional Cedar | Cedar pilot status and scope | Frozen synthetic packet E1">E1</a></span></td><td class=""><span class="cell-text">Fictional captured evidence used only to exercise the offline assessment.</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">Cedar pilot inspection and acceptance</span><span class="note">packet-1</span></th><td class=""><span class="cell-text">Frozen synthetic packet <a href="#source-E2" title="Fictional independent inspector | Cedar pilot inspection and acceptance | Frozen synthetic packet E2">E2</a></span></td><td class=""><span class="cell-text">Fictional captured evidence used only to exercise the offline assessment.</span></td></tr></tbody></table></div>
+</section>
+<section><h2>Business and product</h2>
+<p>Cedar is testing a manufactured prototype. Its only inspected run lasted one supervised shift.</p>
+<p>Manufacturing</p>
+</section>
+<section><h2>Team</h2>
+<p>The trial names no manager accountable for running a multi-shift line.</p>
+</section>
+<section><h2>Market and competition</h2>
+<p>Neither record shows a customer order or payment.</p>
+<p>No competing supplier quote or buyer specification accompanies the inspection.</p>
+<p>The inspection reports acceptance but gives no comparison of competing processes or ownership of the design.</p>
+<p>Structured competitor comparison unavailable within this assessment.</p>
+</section>
+<section><h2>Independent thesis and reconciliation</h2>
+<p>Management · The supervised pilot can transition to larger lots.</p>
+<p>Independent · Corroborated · The independent inspection confirms prototype acceptance in one shift. The larger-lot claim remains untested.</p>
+<p>What would change this view? An amended inspection or failed retest under the same conditions would change the acceptance finding. Multi-shift logs would allow a separate conclusion about scale.</p>
+<p class="detail">Evidence <a href="#source-E2" aria-label="Evidence E2" title="Fictional independent inspector | Cedar pilot inspection and acceptance | Frozen synthetic packet E2">E2</a></p>
+</section>
+<section><h2>Financial analysis and calculations</h2>
+<p>Cedar Components Demo Co · USD in base units · Management accrual</p>
+<div class="table-wrap keep-together"><h3 class="print-caption">Capitalisation and dilution</h3><table class="cols-2"><caption>Capitalisation and dilution</caption><thead><tr><th scope="col">Status</th><th scope="col">Reason</th></tr></thead><tbody><tr><th scope="row" class=""><span class="cell-text">Unavailable</span></th><td class=""><span class="cell-text">No verified security register or financing terms.</span><span class="cell-links">Gap <a href="#gap-G4">G4</a></span></td></tr></tbody></table></div>
+<div class="table-wrap keep-together"><h3 class="print-caption">Monthly cash and runway</h3><table class="cols-2"><caption>Monthly cash and runway</caption><thead><tr><th scope="col">Status</th><th scope="col">Reason</th></tr></thead><tbody><tr><th scope="row" class=""><span class="cell-text">Unavailable</span></th><td class=""><span class="cell-text">No opening cash schedule or equipment commitments.</span><span class="cell-links">Gap <a href="#gap-G1">G1</a></span></td></tr></tbody></table></div>
+</section>
+<section><h2>Material factors and evidence coverage</h2>
+<div class="table-wrap keep-together"><h3 class="print-caption">Factor coverage</h3><table class="cols-2"><caption>Factor coverage</caption><thead><tr><th scope="col">Measure</th><th scope="col">Count</th></tr></thead><tbody><tr><th scope="row" class=""><span class="cell-text">Applicable</span></th><td class="number"><span data-value="15">15</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">Assessed</span></th><td class="number"><span data-value="5">5</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">Fully supported</span></th><td class="number"><span data-value="1">1</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">Unknown</span></th><td class="number"><span data-value="10">10</span></td></tr></tbody></table></div>
+<div class="table-wrap"><h3 class="print-caption">Material factors and evidence matrix<span class="note">No opposing evidence was recorded for these factors.</span></h3><table class="cols-3 evidence-table"><caption>Material factors and evidence matrix<span class="note">No opposing evidence was recorded for these factors.</span></caption><thead><tr><th scope="col">Factor</th><th scope="col">Assessment</th><th scope="col">Supporting</th></tr></thead><tbody><tr><th scope="row" class=""><span class="cell-text">C01 · Which legal entity owns the product, contracts and securities?</span><span class="note">High priority</span></th><td class=""><span class="cell-text">Partial · low confidence</span><span class="note">The pilot brief names Cedar. It does not identify the asset owner or securities issuer.
+Implication · Ownership of the proposed financing vehicle is unconfirmed.
+Next test · Match the registered entity to the share register and equipment titles.</span></td><td class=""><span class="cell-text">Sources</span><span class="cell-links"><a href="#source-E1" aria-label="Evidence E1" title="Fictional Cedar | Cedar pilot status and scope | Frozen synthetic packet E1">E1</a></span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">C02 · Who has demonstrated demand or willingness to pay for the current offer?</span><span class="note">Medium priority</span></th><td class=""><span class="cell-text">Unknown</span><span class="note">Neither record shows a customer order or payment.
+Implication · Prototype acceptance has not established a paying buyer.
+Next test · Obtain a purchase order and evidence of the customer’s payment terms.</span></td><td class=""><span class="cell-text">None recorded</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">C03 · What did Cedar deliver during the supervised shift?</span><span class="note">High priority</span></th><td class=""><span class="cell-text">Supported · medium confidence</span><span class="note">The inspector accepted the prototype produced during the supervised shift.
+Implication · Cedar demonstrated delivery under those trial conditions. Output on an ordinary shift is unknown.
+Next test · Repeat the run at normal staffing and record good units and rejects.</span></td><td class=""><span class="cell-text">Sources</span><span class="cell-links"><a href="#source-E1" aria-label="Evidence E1" title="Fictional Cedar | Cedar pilot status and scope | Frozen synthetic packet E1">E1</a>, <a href="#source-E2" aria-label="Evidence E2" title="Fictional independent inspector | Cedar pilot inspection and acceptance | Frozen synthetic packet E2">E2</a></span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">C04 · Who controls delivery and decisions, and what track record is evidenced?</span><span class="note">Medium priority</span></th><td class=""><span class="cell-text">Unknown</span><span class="note">The trial names no manager accountable for running a multi-shift line.
+Implication · Responsibility for staffing and commissioning an expansion is unverified.
+Next test · Identify the operations lead and verify experience commissioning a comparable line.</span></td><td class=""><span class="cell-text">None recorded</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">C05 · Which alternatives compete for the same buyer and budget?</span><span class="note">Medium priority</span></th><td class=""><span class="cell-text">Unknown</span><span class="note">No competing supplier quote or buyer specification accompanies the inspection.
+Implication · An attainable price and buyer preference remain unknown.
+Next test · Compare supplier quotes against the same lot, specification and delivery date.</span></td><td class=""><span class="cell-text">None recorded</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">C06 · What drives recognised revenue and contribution at the current stage?</span><span class="note">High priority</span></th><td class=""><span class="cell-text">Unknown</span><span class="note">The company provided no pilot invoice or collection record.
+Implication · The trial cannot be counted as revenue or used to infer gross margin.
+Next test · Match a signed purchase order to acceptance, billing and receipt.</span></td><td class=""><span class="cell-text">None recorded</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">C07 · Which dated cash and funding constraints affect the next decision?</span><span class="note">High priority</span></th><td class=""><span class="cell-text">Unknown</span><span class="note">The records contain no opening bank balance or committed funding.
+Implication · Cash available for placing equipment orders is unknown.
+Next test · Reconcile bank balances, restrictions and supplier deposit dates.</span></td><td class=""><span class="cell-text">None recorded</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">C08 · What evidence suggests an advantage can survive replication or switching?</span><span class="note">Medium priority</span></th><td class=""><span class="cell-text">Unknown</span><span class="note">The inspection reports acceptance but gives no comparison of competing processes or ownership of the design.
+Implication · A buyer’s switching cost and Cedar’s ability to defend its design are unknown.
+Next test · Review design ownership and compare a rival’s ability to meet the same specification.</span></td><td class=""><span class="cell-text">None recorded</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">C09 · Which operational, regulatory or other dependencies could prevent delivery?</span><span class="note">Medium priority</span></th><td class=""><span class="cell-text">Unknown</span><span class="note">The trial records omit supplier commitments, production permits and warranty obligations.
+Implication · A dependency could delay the first commercial lot.
+Next test · Check lead times, capacity commitments and obligations attached to the first order.</span></td><td class=""><span class="cell-text">None recorded</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">C10 · What observable change would invalidate the independent case or valuation basis?</span><span class="note">Medium priority</span></th><td class=""><span class="cell-text">Unknown</span><span class="note">There is no multi-shift cost record or evidence of an agreed sale price.
+Implication · A valuation based on scaled output cannot yet use a defensible unit margin.
+Next test · Compare cost per saleable unit at production scale with a dated buyer quote.</span></td><td class=""><span class="cell-text">None recorded</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">MF01 · What effective capacity and first-pass yield are demonstrated?</span><span class="note">High priority</span></th><td class=""><span class="cell-text">Partial · low confidence</span><span class="note">One supervised shift met the acceptance criteria. The inspector gives no sustained throughput or cost.
+Implication · Monthly saleable output cannot be extrapolated from this run.
+Next test · Compare good units, rework, scrap and downtime across representative shifts.</span></td><td class=""><span class="cell-text">Sources</span><span class="cell-links"><a href="#source-E2" aria-label="Evidence E2" title="Fictional independent inspector | Cedar pilot inspection and acceptance | Frozen synthetic packet E2">E2</a></span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">MF02 · How much capital and working capital are needed at the planned scale?</span><span class="note">High priority</span></th><td class=""><span class="cell-text">Unknown</span><span class="note">No equipment quote, supplier credit terms or inventory cycle was provided.
+Implication · The expansion cash requirement and deposit dates are unknown.
+Next test · Obtain itemised equipment quotes, supplier milestones and the intended inventory cycle.</span></td><td class=""><span class="cell-text">None recorded</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">MF04 · Which trials or validations establish production readiness?</span><span class="note">High priority</span></th><td class=""><span class="cell-text">Partial · low confidence</span><span class="note">The inspector confirmed prototype acceptance at trial settings. Sustained production has not been demonstrated.
+Implication · The trial establishes a technical milestone. It does not establish a production commitment.
+Next test · Repeat the acceptance test across larger lots at planned staffing and line speed.</span></td><td class=""><span class="cell-text">Sources</span><span class="cell-links"><a href="#source-E1" aria-label="Evidence E1" title="Fictional Cedar | Cedar pilot status and scope | Frozen synthetic packet E1">E1</a>, <a href="#source-E2" aria-label="Evidence E2" title="Fictional independent inspector | Cedar pilot inspection and acceptance | Frozen synthetic packet E2">E2</a></span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">OB02 · Which evidence, use of funds and milestones are needed for fundraising readiness?</span><span class="note">High priority</span></th><td class=""><span class="cell-text">Unknown</span><span class="note">Cedar has a prototype milestone but no funded commissioning schedule.
+Implication · The timing and size of the raise depend on equipment deposits, working capital and delivery lead times.
+Next test · Build a dated uses-of-funds schedule and stress supplier delays.</span></td><td class=""><span class="cell-text">None recorded</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">ST03 · What did the pilot actually prove and what would convert it to commercial use?</span><span class="note">High priority</span></th><td class=""><span class="cell-text">Partial · low confidence</span><span class="note">The prototype met the one-shift test. There is no contract converting acceptance into a commercial order.
+Implication · The next milestone is an accepted paid lot under repeatable conditions.
+Next test · Confirm the buyer’s acceptance and payment terms and test a representative lot.</span></td><td class=""><span class="cell-text">Sources</span><span class="cell-links"><a href="#source-E1" aria-label="Evidence E1" title="Fictional Cedar | Cedar pilot status and scope | Frozen synthetic packet E1">E1</a>, <a href="#source-E2" aria-label="Evidence E2" title="Fictional independent inspector | Cedar pilot inspection and acceptance | Frozen synthetic packet E2">E2</a></span></td></tr></tbody></table></div>
+</section>
+<section><h2>Risks and safeguards</h2>
+<p>A successful prototype run gives no saleable units per month, unit cost or committed sales.</p>
+<div class="table-wrap keep-together"><h3 class="print-caption">Safeguards</h3><table class="cols-3"><caption>Safeguards</caption><thead><tr><th scope="col">Check</th><th scope="col">Status</th><th scope="col">Rationale</th></tr></thead><tbody><tr><th scope="row" class=""><span class="cell-text">Input packet scope</span></th><td class=""><span class="cell-text">Pass</span></td><td class=""><span class="cell-text">The scope of this fixture is defined by the supplied packet.</span><span class="cell-links"><a href="#source-E1" aria-label="Evidence E1" title="Fictional Cedar | Cedar pilot status and scope | Frozen synthetic packet E1">E1</a></span></td></tr></tbody></table></div>
+</section>
+<section><h2>Valuation and sensitivity</h2>
+<p class="subtle">Unavailable within assessed scope.</p>
+</section>
+<section><h2>Management questions</h2>
+<div class="table-wrap keep-together"><h3 class="print-caption">Information to request</h3><table class="cols-3"><caption>Information to request</caption><thead><tr><th scope="col">Priority</th><th scope="col">Item</th><th scope="col">Reassessment</th></tr></thead><tbody><tr><th scope="row" class=""><span class="cell-text">High</span></th><td class=""><span class="cell-text">Cash, equipment quotations and funding milestones</span><span class="cell-links">Gap <a href="#gap-G1">G1</a></span></td><td class=""><span class="cell-text">Stress the forecast with equipment lead times and test downside cash requirements.</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">High</span></th><td class=""><span class="cell-text">Repeat multi-shift production and reject logs</span><span class="cell-links">Gap <a href="#gap-G2">G2</a></span></td><td class=""><span class="cell-text">Compare good units, downtime and rework under representative production conditions.</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">High</span></th><td class=""><span class="cell-text">Invoices, paid status and collections from the pilot</span><span class="cell-links">Gap <a href="#gap-G3">G3</a></span></td><td class=""><span class="cell-text">Verify acceptance obligations, billing dates and actual collection.</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">High</span></th><td class=""><span class="cell-text">Dated legal entity registration and issued securities</span><span class="cell-links">Gap <a href="#gap-G4">G4</a></span></td><td class=""><span class="cell-text">Reconcile company registry, securities register and proposed issuer.</span></td></tr></tbody></table></div>
+</section>
+<section><h2>Methodology and limitations</h2>
+<p>The two fictional records cover one supervised shift. Web research and outreach were unavailable.</p>
+<p>Assess the evidence and capital milestones needed before a financing process.</p>
+<p>An independent inspector accepted one supervised shift. No repeat orders or paid output were documented.</p>
+<div class="table-wrap keep-together"><h3 class="print-caption">Actual research activity<span class="note">Objective · Fundraising readiness. Research attempts used 2 of 8. Corrective reviews used 0. Only frozen synthetic packet records were reviewed. Web research and outreach were unavailable.</span></h3><table class="cols-3"><caption>Actual research activity<span class="note">Objective · Fundraising readiness. Research attempts used 2 of 8. Corrective reviews used 0. Only frozen synthetic packet records were reviewed. Web research and outreach were unavailable.</span></caption><thead><tr><th scope="col">Channel</th><th scope="col">Availability</th><th scope="col">Recorded attempts</th></tr></thead><tbody><tr><th scope="row" class=""><span class="cell-text">Web searches</span></th><td class=""><span class="cell-text">Unavailable</span></td><td class="number"><span data-value="0">0</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">Web sources opened</span></th><td class=""><span class="cell-text">Unavailable</span></td><td class="number"><span data-value="0">0</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">Document reviews</span></th><td class=""><span class="cell-text">Available</span></td><td class="number"><span data-value="2">2</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">Private information requests</span></th><td class=""><span class="cell-text">Unavailable</span></td><td class="number"><span data-value="0">0</span></td></tr></tbody></table></div>
+<div class="table-wrap"><h3 class="print-caption">Question and evidence coverage<span class="note">Counts describe scope. Corroboration uses the originating source.</span></h3><table class="cols-2"><caption>Question and evidence coverage<span class="note">Counts describe scope. Corroboration uses the originating source.</span></caption><thead><tr><th scope="col">Measure</th><th scope="col">Count</th></tr></thead><tbody><tr><th scope="row" class=""><span class="cell-text">Completed</span></th><td class="number"><span data-value="1">1</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">Partial</span></th><td class="number"><span data-value="2">2</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">Blocked</span></th><td class="number"><span data-value="4">4</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">Deferred</span></th><td class="number"><span data-value="1">1</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">Evidence records</span></th><td class="number"><span data-value="2">2</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">Distinct origins</span></th><td class="number"><span data-value="2">2</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">Independent origins</span></th><td class="number"><span data-value="1">1</span></td></tr></tbody></table></div>
+<div class="table-wrap"><h3 class="print-caption">Planned questions and recorded outcomes</h3><table class="cols-3"><caption>Planned questions and recorded outcomes</caption><thead><tr><th scope="col">Question</th><th scope="col">Outcome and reason</th><th scope="col">Recorded work</th></tr></thead><tbody><tr><th scope="row" class=""><span class="cell-text">RQ2 · Did the inspected prototype meet the one-shift trial criteria?</span><span class="note">MF04, ST03, C03</span></th><td class=""><span class="cell-text">Completed · Criteria met</span><span class="note">Cedar’s brief and the inspector describe the same one-shift acceptance. Neither record covers later shifts.</span><span class="cell-links"><a href="#source-E1" aria-label="Evidence E1" title="Fictional Cedar | Cedar pilot status and scope | Frozen synthetic packet E1">E1</a>, <a href="#source-E2" aria-label="Evidence E2" title="Fictional independent inspector | Cedar pilot inspection and acceptance | Frozen synthetic packet E2">E2</a></span></td><td class=""><span class="cell-text">A1 · Document review · 2026-11-27 · Evidence found
+A2 · Document review · 2026-11-27 · Evidence found</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">RQ1 · Which legal entity owns the product, contracts and securities?</span><span class="note">C01</span></th><td class=""><span class="cell-text">Partial · Insufficient evidence</span><span class="note">One document gives the declared identity. The register is still required.</span><span class="cell-links"><a href="#source-E1" aria-label="Evidence E1" title="Fictional Cedar | Cedar pilot status and scope | Frozen synthetic packet E1">E1</a> · Gap <a href="#gap-G4">G4</a></span></td><td class=""><span class="cell-text">A1 · Document review · 2026-11-27 · Evidence found</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">RQ3 · What effective capacity and first-pass yield are demonstrated?</span><span class="note">MF01</span></th><td class=""><span class="cell-text">Partial · Diminishing returns</span><span class="note">Available review covers one shift. More interpretation of this trial cannot establish representative yield.</span><span class="cell-links"><a href="#source-E2" aria-label="Evidence E2" title="Fictional independent inspector | Cedar pilot inspection and acceptance | Frozen synthetic packet E2">E2</a> · Gap <a href="#gap-G2">G2</a></span></td><td class=""><span class="cell-text">A2 · Document review · 2026-11-27 · Evidence found</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">RQ7 · Who controls delivery and decisions, and what track record is evidenced?</span><span class="note">C04, C09</span></th><td class=""><span class="cell-text">Blocked · Prerequisite</span><span class="note">Confirm who owns the manufacturing entity before attributing management or supplier commitments.</span></td><td class=""><span class="cell-text">No attempts recorded</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">RQ8 · What evidence suggests an advantage can survive replication or switching?</span><span class="note">C08, C10</span></th><td class=""><span class="cell-text">Deferred · Low expected value</span><span class="note">Trial records do not resolve durable differentiation.</span></td><td class=""><span class="cell-text">No attempts recorded</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">RQ4 · Which dated cash and funding constraints affect the next decision?</span><span class="note">C07, OB02, MF02</span></th><td class=""><span class="cell-text">Blocked · Private information</span><span class="note">Equipment quotations and a staged funding model were outside the supplied packet.</span><span class="cell-links">Gap <a href="#gap-G1">G1</a></span></td><td class=""><span class="cell-text">No attempts recorded</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">RQ5 · What drives recognised revenue and contribution at the current stage?</span><span class="note">C06</span></th><td class=""><span class="cell-text">Blocked · Private information</span><span class="note">Invoices and collections are unavailable.</span><span class="cell-links">Gap <a href="#gap-G3">G3</a></span></td><td class=""><span class="cell-text">No attempts recorded</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">RQ6 · Who has demonstrated demand or willingness to pay for the current offer?</span><span class="note">C02, C05</span></th><td class=""><span class="cell-text">Blocked · Tool unavailable</span><span class="note">Independent buying alternatives require external search beyond this packet.</span></td><td class=""><span class="cell-text">No attempts recorded</span></td></tr></tbody></table></div>
+<div class="table-wrap keep-together"><h3 class="print-caption">Red-team corrections</h3><table class="cols-3"><caption>Red-team corrections</caption><thead><tr><th scope="col">Review</th><th scope="col">Affected objects</th><th scope="col">Action and recheck</th></tr></thead><tbody><tr><th scope="row" class=""><span class="cell-text">Q1 · Resolved</span><span class="note">Medium · Scope</span></th><td class=""><span class="cell-text">profile</span><span class="note">Initial wording could imply operating capacity beyond pilot scale.</span></td><td class=""><span class="cell-text">Rechecked inspection scope and classified commercial maturity as pilot.</span><span class="note">Rechecked profile</span></td></tr>
+<tr><th scope="row" class=""><span class="cell-text">Q2 · Unresolved</span><span class="note">High · Financial model</span></th><td class=""><span class="cell-text">scenarios</span><span class="note">Opening cash and equipment commitments prevent linked scenarios.</span></td><td class=""><span class="cell-text">Withhold forecast and reconcile cash and capital commitments when supplied.</span><span class="cell-links">Gap <a href="#gap-G1">G1</a></span></td></tr></tbody></table></div>
+</section>
+<section><h2>Missing information</h2>
+<article class="record" id="gap-G1"><h3><a href="#gap-G1" title="Cash, equipment quotations and funding milestones">G1</a> · High · Cash, equipment quotations and funding milestones</h3><p><strong>Period</strong> At 27 November 2026 and each proposed equipment payment date</p><p><strong>Why needed</strong> Current resources and supplier financing capacity are unknown.</p><p><strong>Conclusion affected</strong> How much cash Cedar needs before equipment can be commissioned and when a round must close.</p><p><strong>Reassessment action</strong> Stress the forecast with equipment lead times and test downside cash requirements.</p><p><strong>Availability</strong> Private</p></article>
+<article class="record" id="gap-G2"><h3><a href="#gap-G2" title="Repeat multi-shift production and reject logs">G2</a> · High · Repeat multi-shift production and reject logs</h3><p><strong>Period</strong> Representative shifts and lots at the intended staffing and line speed</p><p><strong>Why needed</strong> The one-shift trial does not establish sustainable throughput or yield.</p><p><strong>Conclusion affected</strong> How many saleable units Cedar can promise per month and whether the line is ready for larger orders.</p><p><strong>Reassessment action</strong> Compare good units, downtime and rework under representative production conditions.</p><p><strong>Availability</strong> Private</p></article>
+<article class="record" id="gap-G3"><h3><a href="#gap-G3" title="Invoices, paid status and collections from the pilot">G3</a> · High · Invoices, paid status and collections from the pilot</h3><p><strong>Period</strong> From the pilot order through acceptance, invoicing and collection</p><p><strong>Why needed</strong> There is no reconciliation between trial work and recognised commercial activity.</p><p><strong>Conclusion affected</strong> Whether the trial generated revenue or secured a paid commercial order.</p><p><strong>Reassessment action</strong> Verify acceptance obligations, billing dates and actual collection.</p><p><strong>Availability</strong> Private</p></article>
+<article class="record" id="gap-G4"><h3><a href="#gap-G4" title="Dated legal entity registration and issued securities">G4</a> · High · Dated legal entity registration and issued securities</h3><p><strong>Period</strong> At the proposed financing date</p><p><strong>Why needed</strong> The company brief gives the name but ownership and issued shares are unconfirmed.</p><p><strong>Conclusion affected</strong> Which entity can issue shares and who would be diluted by the round.</p><p><strong>Reassessment action</strong> Reconcile company registry, securities register and proposed issuer.</p><p><strong>Availability</strong> Private</p></article>
+</section><section><h2>Sources</h2>
+<article class="record" id="source-E1"><h3><a href="#source-E1" title="Fictional Cedar | Cedar pilot status and scope | Frozen synthetic packet E1">E1</a> · Cedar pilot status and scope</h3><p class="detail">Fictional Cedar · company material · Grade C · Accessed 2026-11-27</p><p class="detail">Frozen synthetic packet <a href="#source-E1" title="Fictional Cedar | Cedar pilot status and scope | Frozen synthetic packet E1">E1</a></p><p>The company records a supervised one-shift manufacturing pilot without documented sales or committed funding.</p></article>
+<article class="record" id="source-E2"><h3><a href="#source-E2" title="Fictional independent inspector | Cedar pilot inspection and acceptance | Frozen synthetic packet E2">E2</a> · Cedar pilot inspection and acceptance</h3><p class="detail">Fictional independent inspector · independent public · Grade B · Accessed 2026-11-27</p><p class="detail">Frozen synthetic packet <a href="#source-E2" title="Fictional independent inspector | Cedar pilot inspection and acceptance | Frozen synthetic packet E2">E2</a></p><p>The inspector confirmed prototype acceptance under the one-shift trial criteria. There is insufficient evidence on sustained line throughput or manufacturing cost.</p></article>
+</section>
+
+</main></body></html>

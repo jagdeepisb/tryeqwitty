@@ -22,7 +22,7 @@ class ReportTests(unittest.TestCase):
         self.data["company"]="<script>alert(1)</script>"
         self.assertNotIn("<script>",render.report_html(self.data))
     def test_missing_ref(self):
-        self.data["sections"][0]["source_ids"]=["S1"]
+        self.data["sections"][0]["source_ids"]=["S999"]
         with self.assertRaises(ValueError): render.validate(self.data)
     def test_order(self):
         self.data["sections"].reverse()

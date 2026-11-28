@@ -11,8 +11,8 @@
     "models": [
       "manufacturing"
     ],
-    "model_rationale": "Fictional manufacturing case at the stated operating stage.",
-    "scope": "Fictional one-shift trial. No production expansion or priced finance is assumed."
+    "model_rationale": "Cedar is testing a manufactured prototype. Its only inspected run lasted one supervised shift.",
+    "scope": "The fictional case contains the company’s pilot description and the inspector’s acceptance record."
   },
   "documents": [
     {
@@ -57,7 +57,7 @@
   "claims": [],
   "thesis": {
     "management": "The supervised pilot can transition to larger lots.",
-    "independent": "The independent inspection corroborates the stated one-shift pilot and prototype acceptance.",
+    "independent": "The independent inspection confirms prototype acceptance in one shift. The larger-lot claim remains untested.",
     "status": "corroborated",
     "question_ids": [
       "RQ2"
@@ -66,7 +66,7 @@
       "E2"
     ],
     "falsifiers": [
-      "Representative larger lots show materially lower first-pass yield or unplanned downtime."
+      "An amended inspection or failed retest under the same conditions would change the acceptance finding. Multi-shift logs would allow a separate conclusion about scale."
     ],
     "divergences": []
   },
@@ -91,9 +91,9 @@
         "E1"
       ],
       "oppose": [],
-      "finding": "The pilot brief names the operating entity. Registration and ownership are unresolved.",
-      "impact": "Establish the entity, ownership, and transaction eligibility.",
-      "next_test": "Check similarly named entities, former names and mismatch between invoices, product and fundraising entity."
+      "finding": "The pilot brief names Cedar. It does not identify the asset owner or securities issuer.",
+      "impact": "Ownership of the proposed financing vehicle is unconfirmed.",
+      "next_test": "Match the registered entity to the share register and equipment titles."
     },
     {
       "id": "C02",
@@ -103,24 +103,24 @@
       "confidence": "unknown",
       "support": [],
       "oppose": [],
-      "finding": "Unresolved within the supplied synthetic packet.",
-      "impact": "Test demand and reachable customer segments.",
-      "next_test": "Find inactive users, rejected offers, unpaid pilots and alternatives purchasers already use."
+      "finding": "Neither record shows a customer order or payment.",
+      "impact": "Prototype acceptance has not established a paying buyer.",
+      "next_test": "Obtain a purchase order and evidence of the customer’s payment terms."
     },
     {
       "id": "C03",
-      "question": "What can the team deliver at the evidenced stage?",
+      "question": "What did Cedar deliver during the supervised shift?",
       "priority": "High",
       "status": "supported",
-      "confidence": "low",
+      "confidence": "medium",
       "support": [
         "E1",
         "E2"
       ],
       "oppose": [],
-      "finding": "A supervised pilot demonstrated prototype acceptance within stated conditions.",
-      "impact": "Qualify claims about product maturity and delivery risk.",
-      "next_test": "Check failed tests, unavailable features, manual workarounds and delivery dependencies."
+      "finding": "The inspector accepted the prototype produced during the supervised shift.",
+      "impact": "Cedar demonstrated delivery under those trial conditions. Output on an ordinary shift is unknown.",
+      "next_test": "Repeat the run at normal staffing and record good units and rejects."
     },
     {
       "id": "C04",
@@ -130,9 +130,9 @@
       "confidence": "unknown",
       "support": [],
       "oppose": [],
-      "finding": "Unresolved within the supplied synthetic packet.",
-      "impact": "Assess execution, governance and key-person dependencies.",
-      "next_test": "Check contradictory biographies, conflicts and departures that change who can deliver."
+      "finding": "The trial names no manager accountable for running a multi-shift line.",
+      "impact": "Responsibility for staffing and commissioning an expansion is unverified.",
+      "next_test": "Identify the operations lead and verify experience commissioning a comparable line."
     },
     {
       "id": "C05",
@@ -142,9 +142,9 @@
       "confidence": "unknown",
       "support": [],
       "oppose": [],
-      "finding": "Unresolved within the supplied synthetic packet.",
-      "impact": "Assess market access, price position and adoption alternatives.",
-      "next_test": "Look for private or manual substitutes, old price lists and scope mismatches."
+      "finding": "No competing supplier quote or buyer specification accompanies the inspection.",
+      "impact": "An attainable price and buyer preference remain unknown.",
+      "next_test": "Compare supplier quotes against the same lot, specification and delivery date."
     },
     {
       "id": "C06",
@@ -154,9 +154,9 @@
       "confidence": "unknown",
       "support": [],
       "oppose": [],
-      "finding": "Unresolved within the supplied synthetic packet.",
-      "impact": "Set revenue quality and defensible unit-economics assumptions.",
-      "next_test": "Look for refundable deposits, free pilots, bookings and pass-through amounts presented as earned revenue."
+      "finding": "The company provided no pilot invoice or collection record.",
+      "impact": "The trial cannot be counted as revenue or used to infer gross margin.",
+      "next_test": "Match a signed purchase order to acceptance, billing and receipt."
     },
     {
       "id": "C07",
@@ -166,9 +166,9 @@
       "confidence": "unknown",
       "support": [],
       "oppose": [],
-      "finding": "Unresolved within the supplied synthetic packet.",
-      "impact": "Determine funding needs, liquidity exposure and timing.",
-      "next_test": "Test restricted cash, delayed collections and conditional finance against the same timeline."
+      "finding": "The records contain no opening bank balance or committed funding.",
+      "impact": "Cash available for placing equipment orders is unknown.",
+      "next_test": "Reconcile bank balances, restrictions and supplier deposit dates."
     },
     {
       "id": "C08",
@@ -178,9 +178,9 @@
       "confidence": "unknown",
       "support": [],
       "oppose": [],
-      "finding": "Unresolved within the supplied synthetic packet.",
-      "impact": "Test durability and the persistence of value drivers.",
-      "next_test": "Identify reproducible features, weak IP coverage, multi-homing and low switching costs."
+      "finding": "The inspection reports acceptance but gives no comparison of competing processes or ownership of the design.",
+      "impact": "A buyer’s switching cost and Cedar’s ability to defend its design are unknown.",
+      "next_test": "Review design ownership and compare a rival’s ability to meet the same specification."
     },
     {
       "id": "C09",
@@ -190,9 +190,9 @@
       "confidence": "unknown",
       "support": [],
       "oppose": [],
-      "finding": "Unresolved within the supplied synthetic packet.",
-      "impact": "Identify conditions that could block operations or invalidate the decision.",
-      "next_test": "Check scope limits, expired or conditional permissions, and any reliance on an uncommitted third party."
+      "finding": "The trial records omit supplier commitments, production permits and warranty obligations.",
+      "impact": "A dependency could delay the first commercial lot.",
+      "next_test": "Check lead times, capacity commitments and obligations attached to the first order."
     },
     {
       "id": "C10",
@@ -202,9 +202,9 @@
       "confidence": "unknown",
       "support": [],
       "oppose": [],
-      "finding": "Unresolved within the supplied synthetic packet.",
-      "impact": "Qualify the thesis, valuation and final decision.",
-      "next_test": "Test whether plausible adverse data changes the recommended decision or disqualifies the method."
+      "finding": "There is no multi-shift cost record or evidence of an agreed sale price.",
+      "impact": "A valuation based on scaled output cannot yet use a defensible unit margin.",
+      "next_test": "Compare cost per saleable unit at production scale with a dated buyer quote."
     },
     {
       "id": "MF01",
@@ -216,9 +216,9 @@
         "E2"
       ],
       "oppose": [],
-      "finding": "One-shift inspection documents performance only under trial conditions.",
-      "impact": "Test deliverable volume and direct cost assumptions.",
-      "next_test": "Compare rated capacity with downtime, scrap, rework and changeovers."
+      "finding": "One supervised shift met the acceptance criteria. The inspector gives no sustained throughput or cost.",
+      "impact": "Monthly saleable output cannot be extrapolated from this run.",
+      "next_test": "Compare good units, rework, scrap and downtime across representative shifts."
     },
     {
       "id": "MF02",
@@ -228,24 +228,24 @@
       "confidence": "unknown",
       "support": [],
       "oppose": [],
-      "finding": "Equipment and trade-credit records are missing. At this fundraising decision, they can change the amount and timing of the raise.",
-      "impact": "Stress cash conversion and required financing.",
-      "next_test": "Check maintenance spend, slow inventory, long receivable cycles and unsupported purchase credit."
+      "finding": "No equipment quote, supplier credit terms or inventory cycle was provided.",
+      "impact": "The expansion cash requirement and deposit dates are unknown.",
+      "next_test": "Obtain itemised equipment quotes, supplier milestones and the intended inventory cycle."
     },
     {
       "id": "MF04",
       "question": "Which trials or validations establish production readiness?",
       "priority": "High",
-      "status": "supported",
+      "status": "partial",
       "confidence": "low",
       "support": [
         "E1",
         "E2"
       ],
       "oppose": [],
-      "finding": "A supervised pilot demonstrated prototype acceptance within stated conditions.",
-      "impact": "Determine whether projected production can be supported.",
-      "next_test": "Compare prototype conditions, rework, incomplete approvals and factory constraints."
+      "finding": "The inspector confirmed prototype acceptance at trial settings. Sustained production has not been demonstrated.",
+      "impact": "The trial establishes a technical milestone. It does not establish a production commitment.",
+      "next_test": "Repeat the acceptance test across larger lots at planned staffing and line speed."
     },
     {
       "id": "OB02",
@@ -255,24 +255,24 @@
       "confidence": "unknown",
       "support": [],
       "oppose": [],
-      "finding": "Unresolved within the supplied synthetic packet.",
-      "impact": "Determine which evidence or operational work should precede fundraising.",
-      "next_test": "Test whether proposed funds cover the downside and whether headline traction survives reconciliation."
+      "finding": "Cedar has a prototype milestone but no funded commissioning schedule.",
+      "impact": "The timing and size of the raise depend on equipment deposits, working capital and delivery lead times.",
+      "next_test": "Build a dated uses-of-funds schedule and stress supplier delays."
     },
     {
       "id": "ST03",
       "question": "What did the pilot actually prove and what would convert it to commercial use?",
       "priority": "High",
-      "status": "supported",
+      "status": "partial",
       "confidence": "low",
       "support": [
         "E1",
         "E2"
       ],
       "oppose": [],
-      "finding": "A supervised pilot demonstrated prototype acceptance within stated conditions.",
-      "impact": "Qualify pilot evidence and the next commercial milestone.",
-      "next_test": "Test free or subsidised use, selection bias and conditions unlikely to hold in production."
+      "finding": "The prototype met the one-shift test. There is no contract converting acceptance into a commercial order.",
+      "impact": "The next milestone is an accepted paid lot under repeatable conditions.",
+      "next_test": "Confirm the buyer’s acceptance and payment terms and test a representative lot."
     }
   ],
   "research": [
@@ -306,7 +306,7 @@
         "E2"
       ],
       "gap_ids": [],
-      "reason": "Compared the reported performance with the recorded inspection and its limited conditions."
+      "reason": "Cedar’s brief and the inspector describe the same one-shift acceptance. Neither record covers later shifts."
     },
     {
       "id": "R3",
@@ -427,9 +427,9 @@
       "id": "G1",
       "priority": "High",
       "item": "Cash, equipment quotations and funding milestones",
-      "period": "At cut-off and the next operating period",
+      "period": "At 27 November 2026 and each proposed equipment payment date",
       "why": "Current resources and supplier financing capacity are unknown.",
-      "conclusion": "Decision, timing or valuation implications for C07, OB02, MF02.",
+      "conclusion": "How much cash Cedar needs before equipment can be commissioned and when a round must close.",
       "action": "Stress the forecast with equipment lead times and test downside cash requirements.",
       "availability": "Private",
       "affected_factor_ids": [
@@ -442,35 +442,37 @@
       "id": "G2",
       "priority": "High",
       "item": "Repeat multi-shift production and reject logs",
-      "period": "At cut-off and the next operating period",
+      "period": "Representative shifts and lots at the intended staffing and line speed",
       "why": "The one-shift trial does not establish sustainable throughput or yield.",
-      "conclusion": "Decision, timing or valuation implications for MF01.",
+      "conclusion": "How many saleable units Cedar can promise per month and whether the line is ready for larger orders.",
       "action": "Compare good units, downtime and rework under representative production conditions.",
       "availability": "Private",
       "affected_factor_ids": [
-        "MF01"
+        "MF01",
+        "MF04"
       ]
     },
     {
       "id": "G3",
       "priority": "High",
       "item": "Invoices, paid status and collections from the pilot",
-      "period": "At cut-off and the next operating period",
+      "period": "From the pilot order through acceptance, invoicing and collection",
       "why": "There is no reconciliation between trial work and recognised commercial activity.",
-      "conclusion": "Decision, timing or valuation implications for C06.",
+      "conclusion": "Whether the trial generated revenue or secured a paid commercial order.",
       "action": "Verify acceptance obligations, billing dates and actual collection.",
       "availability": "Private",
       "affected_factor_ids": [
-        "C06"
+        "C06",
+        "ST03"
       ]
     },
     {
       "id": "G4",
       "priority": "High",
       "item": "Dated legal entity registration and issued securities",
-      "period": "At cut-off and the next operating period",
+      "period": "At the proposed financing date",
       "why": "The company brief gives the name but ownership and issued shares are unconfirmed.",
-      "conclusion": "Decision, timing or valuation implications for C01.",
+      "conclusion": "Which entity can issue shares and who would be diluted by the round.",
       "action": "Reconcile company registry, securities register and proposed issuer.",
       "availability": "Private",
       "affected_factor_ids": [
@@ -480,13 +482,13 @@
   ],
   "decision": {
     "status": "qualified",
-    "conclusion": "Raise readiness remains qualified until financing, throughput and ownership records are reconciled.",
-    "limitations": "Synthetic offline exercise of recorded research and blocking conditions.",
+    "conclusion": "The inspector accepted the prototype during one supervised shift (E2). Obtain repeat production logs, equipment quotations and opening cash before sizing the expansion round.",
+    "limitations": "The two fictional records cover one supervised shift. Web research and outreach were unavailable.",
     "strengths": [
-      "An independently reviewed trial supports the stated pilot scope."
+      "The independent inspection corroborates acceptance under the stated trial conditions."
     ],
     "risks": [
-      "Pilot acceptance does not establish production capacity or collected revenue."
+      "A successful prototype run gives no saleable units per month, unit cost or committed sales."
     ]
   },
   "financial_model": {
@@ -511,7 +513,7 @@
   "research_plan": {
     "objective": "fundraising_readiness",
     "objective_rationale": "Assess the evidence and capital milestones needed before a financing process.",
-    "stage_rationale": "Classify from dated records of realised activity in the synthetic packet.",
+    "stage_rationale": "An independent inspector accepted one supervised shift. No repeat orders or paid output were documented.",
     "stage_evidence_ids": [
       "E1"
     ],
@@ -557,10 +559,10 @@
           "C03"
         ],
         "claim_ids": [],
-        "question": "Which trials or validations establish production readiness?",
-        "evidence_required": "Dated production trial, yield and acceptance conditions, plus funded scale-up gates.",
-        "counter_test": "Compare prototype conditions, rework, incomplete approvals and factory constraints.",
-        "decision_use": "Determine whether projected production can be supported.",
+        "question": "Did the inspected prototype meet the one-shift trial criteria?",
+        "evidence_required": "The dated trial description and the inspector’s acceptance under the same operating conditions.",
+        "counter_test": "Check whether the inspection covered a single shift, rework or any subsequent production lots.",
+        "decision_use": "Determine whether prototype acceptance can count as a completed fundraising milestone.",
         "evidence_route": "provided",
         "uncertainty": 3,
         "answerability": 3,

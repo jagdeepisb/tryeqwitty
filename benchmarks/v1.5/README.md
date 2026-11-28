@@ -1,6 +1,6 @@
-# v1.5 controlled benchmark
+# v1.5 diligence benchmark and Codex repeatability pilot
 
-This suite tests evidence reading, numerical accuracy, scope judgment and repeatability on bounded private-company diligence questions. It includes five synthetic companies and a limited public corporate-register case. The registry metadata is attributed to Companies House. [Source provenance](sources.md) · [Companies House reuse policy](https://www.gov.uk/government/publications/companies-house-accreditation-to-information-fair-traders-scheme/public-task-copyright-and-crown-copyright)
+This suite tests evidence reading, numerical accuracy, scope judgment and repeatability on bounded private-company diligence questions. It includes five synthetic companies and a limited public corporate-register case. The recorded campaign used one Codex configuration across six sessions and two further Codex sessions as reviewers. The registry metadata is attributed to Companies House. [Source provenance](sources.md) · [Companies House reuse policy](https://www.gov.uk/government/publications/companies-house-accreditation-to-information-fair-traders-scheme/public-task-copyright-and-crown-copyright)
 
 ## Frozen cases
 

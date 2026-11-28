@@ -2,54 +2,41 @@
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="assets/banner-dark.svg">
     <source media="(prefers-color-scheme: light)" srcset="assets/banner-light.svg">
-    <img src="assets/banner-light.svg" alt="eqwitty. — Open Diligence Standard" width="900">
+    <img src="assets/banner-light.svg" alt="eqwitty. | Open Diligence Standard" width="900">
   </picture>
 </p>
 
 # Eqwitty Open Diligence Standard
 
-Open, tool-agnostic methodology and offline report generation for private companies. Maintained by [Eqwitty](https://tryeqwitty.com), distinct from the hosted platform.
+Use this standard to assess a private company from a pitch deck, financial records or public sources. It connects each conclusion to evidence, calculates the financial measures the inputs support and identifies the records needed for the next decision. Eqwitty maintains the standard and a separate [hosted platform](https://tryeqwitty.com).
 
-[Website](https://tryeqwitty.com) · [Run an evaluation](prompts/evaluate.md) · [Evaluation protocol](evaluation-protocol.md) · [Latest release](https://github.com/jagdeepisb/tryeqwitty/releases/latest) · [Contribute](CONTRIBUTING.md)
+[Evaluation prompt](prompts/evaluate.md) · [Published release](https://github.com/jagdeepisb/tryeqwitty/releases/latest) · [Code license](LICENSE) · [Methodology license](NOTICE.md)
 
-| RELEASE | CODE | METHODOLOGY |
-| :--- | :--- | :--- |
-| [v2.0.0](https://github.com/jagdeepisb/tryeqwitty/releases/tag/v2.0.0) | [MIT](LICENSE) | [CC BY 4.0](NOTICE.md) |
+## Start an assessment
 
-## Start here
-
-|  | RESOURCE |
-| :--- | :--- |
-| **01 / EVALUATE** | [Canonical agent prompt](prompts/evaluate.md) · [Agent instructions](AGENT.md) |
-| **02 / METHODOLOGY** | [Evaluation protocol](evaluation-protocol.md) · [Detailed execution gates](methodology/execution.md) |
-| **03 / REPORTS** | [Report specification](report-spec.md) · [Offline renderer and reference reports](report-kit/README.md) |
-| **04 / VERIFY** | [v2.0 release profile and conformance](release/v2.0.0/README.md) · [Compatibility and migration](release/COMPATIBILITY.md) |
-
-## From information to independent insight
+Give an AI agent the [evaluation prompt](prompts/evaluate.md), the decision you need to make and the company records you have permission to share. Use the commit attached to the latest published release throughout the assessment. Research and evidence review happen before the offline tools validate the inputs, calculate eligible metrics and render the memo.
 
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="assets/workflow-dark.svg">
     <source media="(prefers-color-scheme: light)" srcset="assets/workflow-light.svg">
-    <img src="assets/workflow-light.svg" alt="Conceptual overview: understand the business, investigate material evidence, reconcile financials, challenge findings and validate the report." width="900">
+    <img src="assets/workflow-light.svg" alt="Identify the business, investigate evidence, reconcile financials, challenge findings and verify the report." width="900">
   </picture>
 </p>
 
-This is an introductory overview, not a substitute for the [canonical execution gates](methodology/execution.md). Research depth and analytical scope depend on the evaluation objective and the evidence available.
+[Agent instructions](AGENT.md) · [Evaluation protocol](evaluation-protocol.md) · [Execution and evidence requirements](methodology/execution.md)
 
-## Run an evaluation
+## Read a sample assessment
 
-For a published-standard assessment, resolve the [latest release](https://github.com/jagdeepisb/tryeqwitty/releases/latest) to its exact source commit and pin all files to it. An explicitly selected development commit is suitable for experimental work but is not the published release. Attach authorised company materials to an AI agent, specify the decision and give it the [canonical prompt](prompts/evaluate.md). Require actual research, evidence registers, calculation operands, qualified conclusions, challenges and missing information. Use the validator, bridge and renderer when tools permit; preserve the bundle. The kit does not itself conduct web research or guarantee factual accuracy.
+These companies and figures are fictional. Each example answers a different financing question.
 
-## Reference reports
+| Case | What the evidence supports | Read the example |
+|---|---|---|
+| Harbour Ledger | A proposed USD 50 round extends base-case runway from 12 to 22 months. The company still finishes USD 10 below its minimum cash balance. | [PDF](report-kit/reference/complete/assessment.pdf) · [Missing records](report-kit/reference/complete/missing-information.csv) |
+| Juniper Workflows | Two accounts paid. Annual sales are recorded, but the contract terms and invoice detail needed to calculate recurring revenue are missing. | [PDF](report-kit/reference/juniper/assessment.pdf) · [Missing records](report-kit/reference/juniper/missing-information.csv) |
+| Cedar Components | An inspector accepted a prototype in one shift. More shifts, equipment quotes and opening cash are needed to size an expansion. | [PDF](report-kit/reference/cedar-pilot/assessment.pdf) · [Missing records](report-kit/reference/cedar-pilot/missing-information.csv) |
 
-Explore real, fictional-company example outputs from the existing report kit. These are reference artifacts, not assessments of actual businesses.
-
-| REFERENCE | EXISTING OUTPUTS |
-| :--- | :--- |
-| Complete assessment | [PDF](report-kit/reference/complete/assessment.pdf) · [HTML source](report-kit/reference/complete/assessment.html) · [Missing information](report-kit/reference/complete/missing-information.csv) |
-| Sparse-evidence assessment | [PDF](report-kit/reference/sparse/assessment.pdf) · [HTML source](report-kit/reference/sparse/assessment.html) · [Missing information](report-kit/reference/sparse/missing-information.csv) |
-| v2.0.0 release references | [Download all three reproducible reference reports and evidence](https://github.com/jagdeepisb/tryeqwitty/releases/download/v2.0.0/eqwitty-v2.0.0-reference.zip) · [PDF review](release/v2.0.0/PDF-REVIEW.md) |
+The [report kit](report-kit/README.md) links each example to its input records, HTML and missing-information list. The [release page](https://github.com/jagdeepisb/tryeqwitty/releases/latest) also includes the reference archive, calculation outputs and checksums.
 
 ## Technical reference
 
@@ -62,15 +49,14 @@ Explore real, fictional-company example outputs from the existing report kit. Th
 | Analytical contract | [Analytical bundle schema v1.4](schemas/analysis-bundle-v1.4.json) · [Validator and report bridge](analysis-kit/README.md) |
 | Structured reporting | [Report specification](report-spec.md) · [Offline renderer v1.3](report-kit/README.md) |
 | Benchmarks | [Synthetic benchmarks](benchmarks/README.md) · [Cross-agent acceptance rubric](benchmarks/acceptance-rubric.md) |
-| Release | [Conformance profile](release/v2.0.0/README.md) · [Compatibility and migration](release/COMPATIBILITY.md) · [Change history](CHANGELOG.md) |
+| Release | [Release conformance](release/v2.1.1/README.md) · [Compatibility and migration](release/COMPATIBILITY.md) · [Change history](CHANGELOG.md) |
 
 ## Evidence and reproducibility
 
-The v1.5 benchmark includes sealed case packets, independent reference checks and a measured fixed-evidence and live-retrieval pilot. [Benchmark methodology](benchmarks/v1.5/README.md) · [Pilot results and limitations](benchmarks/v1.5/pilot-results.md).
+Six sessions of one Codex configuration took part in the November 2026 repeatability pilot. Three evaluated the same six fixed cases. Three repeated one live Companies House lookup. Two other Codex sessions reviewed masked answers. The scores describe those tasks. Performance across models and on live financing decisions remains unmeasured. [Pilot results and limitations](benchmarks/v1.5/pilot-results.md) · [Reproduce the scores](benchmarks/v1.5/README.md)
 
-The [v2.1.0 release candidate](release/v2.1.0/README.md) adds mandatory editorial rules and clickable evidence throughout the report. Until publication, v2.0.0 remains the latest published standard. The v2.0.0 release publishes pinned contracts, a release manifest, checksums and reproducible reference reports. See the [release acceptance and limitations](release/v2.0.0/README.md) before interpreting the benchmark results.
+## Run the manufacturing example
 
-## Execute a v1.4 research benchmark
 ```sh
 python -m pip install -r report-kit/requirements.txt
 python -m unittest discover -s tests
@@ -79,13 +65,13 @@ python analysis-kit/validate.py benchmarks/research-pilot-manufacturing-v1.4.jso
 python analysis-kit/to_report.py benchmarks/research-pilot-manufacturing-v1.4.json /tmp/eqwitty-report.json
 python report-kit/render.py /tmp/eqwitty-report.json --out /tmp/eqwitty-report --bundle benchmarks/research-pilot-manufacturing-v1.4.json
 ```
-The renderer bundles its licensed fonts. Install the platform dependencies in the report kit instructions to create PDFs. Both example assessments are fictional. To use a v1.1 or v1.2 bundle with the structured renderer, pass `--report-version 1.3` to the report bridge. [Report kit](report-kit/README.md)
+The renderer bundles its licensed fonts. Install the platform dependencies in the report kit instructions to create PDFs. To use a v1.1 or v1.2 bundle with the structured renderer, pass `--report-version 1.3` to the report bridge. [Report kit](report-kit/README.md)
 
 Recompute the stored v1.5 pilot results offline with `python analysis-kit/benchmark.py`. The pilot uses the existing v1.4 analytical contract.
 
 ## Governance and licensing
 
-Original code is available under MIT; original methodology under CC BY 4.0. Third-party materials and brand rights are subject to the applicable notices.
+MIT covers the original code. CC BY 4.0 covers the original methodology. Third-party materials and brand rights are subject to the applicable notices.
 
 [Licensing and attribution](NOTICE.md) · [Contributing](CONTRIBUTING.md) · [Governance](GOVERNANCE.md)
 
