@@ -4,14 +4,16 @@ Generate an independent branded PDF, accessible HTML and a missing-information C
 
 ## Reference reports
 
-Both historical reference assessments use fictional companies and figures. For current publication-quality references, consult the selected release's reference archive.
+All four examples use fictional companies. The two Cedar cases deliberately start from different evidence. The manufacturing pilot includes an inspection. The intake-only case has no source records.
 
-| Case | PDF | HTML | Missing information | Input bundle |
+| Example | PDF | HTML | Missing records | Input |
 |---|---|---|---|---|
-| Harbour Ledger, full financial exhibits | [PDF](reference/complete/assessment.pdf) | [HTML](reference/complete/assessment.html) | [CSV](reference/complete/missing-information.csv) | [Bundle](../benchmarks/report-complete-v1.3.json) |
-| Cedar Components, sparse evidence | [PDF](reference/sparse/assessment.pdf) | [HTML](reference/sparse/assessment.html) | [CSV](reference/sparse/missing-information.csv) | [Bundle](../benchmarks/report-sparse-v1.3.json) |
+| Harbour Ledger, conditional financing | [PDF](reference/complete/assessment.pdf) | [HTML](reference/complete/assessment.html) | [CSV](reference/complete/missing-information.csv) | [Bundle](../benchmarks/report-complete-v1.3.json) |
+| Juniper Workflows, recurring revenue | [PDF](reference/juniper/assessment.pdf) | [HTML](reference/juniper/assessment.html) | [CSV](reference/juniper/missing-information.csv) | [Bundle](../benchmarks/research-early-saas-v1.4.json) |
+| Cedar Components, one-shift pilot | [PDF](reference/cedar-pilot/assessment.pdf) | [HTML](reference/cedar-pilot/assessment.html) | [CSV](reference/cedar-pilot/missing-information.csv) | [Bundle](../benchmarks/research-pilot-manufacturing-v1.4.json) |
+| Cedar Components, intake only | [PDF](reference/sparse/assessment.pdf) | [HTML](reference/sparse/assessment.html) | [CSV](reference/sparse/missing-information.csv) | [Bundle](../benchmarks/report-sparse-v1.3.json) |
 
-Download the HTML file and open it in a browser for table navigation, linked evidence, linked gaps and the full operand register. The PDF includes source links, embedded Space Grotesk and DM Sans, and the monthly cash appendix when data supports it. The synthetic example bundles use a zero commit sentinel. Real assessments should use the reviewed standard's commit.
+Download the HTML for linked evidence and financial inputs. The [published release](https://github.com/jagdeepisb/tryeqwitty/releases/latest) packages the financing, subscription and pilot examples with the actual release commit. In-tree example inputs use a zero commit sentinel.
 
 ## Generate a report
 

@@ -11,8 +11,8 @@
     "models": [
       "saas"
     ],
-    "model_rationale": "Fictional saas case at the stated operating stage.",
-    "scope": "Early-revenue subscription business. Use the fictional captures as provided records."
+    "model_rationale": "Juniper bills for subscriptions. Two accounts have paid. The records do not identify how much each has committed to renew.",
+    "scope": "The fictional case includes a sales ledger, a registration extract and three pricing records."
   },
   "documents": [
     {
@@ -137,7 +137,7 @@
   ],
   "thesis": {
     "management": "Subscription demand should translate into a predictable recurring-revenue business.",
-    "independent": "Initial paid activity is documented. The sustainable revenue base and comparable pricing remain unresolved.",
+    "independent": "Two paid accounts establish initial demand. Their recurring contract value, renewals and Juniper’s cash balance are unknown.",
     "status": "provisional",
     "question_ids": [
       "RQ1",
@@ -145,7 +145,7 @@
       "RQ3"
     ],
     "independent_evidence": [
-      "E2",
+      "E1",
       "E4"
     ],
     "falsifiers": [
@@ -176,15 +176,15 @@
       "id": "C01",
       "question": "Which legal entity owns the product, contracts and securities?",
       "priority": "High",
-      "status": "supported",
+      "status": "partial",
       "confidence": "low",
       "support": [
         "E2"
       ],
       "oppose": [],
-      "finding": "Dated registration supports the stated legal name.",
-      "impact": "Establish the entity, ownership, and transaction eligibility.",
-      "next_test": "Check similarly named entities, former names and mismatch between invoices, product and fundraising entity."
+      "finding": "The registry identifies Juniper Workflows Demo Co. The extract says nothing about software title, contracting parties or issued shares.",
+      "impact": "A valuation could be assigned to an entity that does not hold the operating rights.",
+      "next_test": "Match signed customer contracts and IP assignments to the issuer and reconcile its share register."
     },
     {
       "id": "C02",
@@ -196,9 +196,9 @@
         "E1"
       ],
       "oppose": [],
-      "finding": "Two paying accounts are recorded. Wider adoption is unknown.",
-      "impact": "Test demand and reachable customer segments.",
-      "next_test": "Find inactive users, rejected offers, unpaid pilots and alternatives purchasers already use."
+      "finding": "The ledger identifies two paying accounts. Their use and renewals are undocumented.",
+      "impact": "Those payments establish initial demand from two buyers. Wider adoption is unknown.",
+      "next_test": "Review dated usage and renewal decisions for each account."
     },
     {
       "id": "C03",
@@ -208,9 +208,9 @@
       "confidence": "unknown",
       "support": [],
       "oppose": [],
-      "finding": "Unresolved within the supplied synthetic packet.",
-      "impact": "Qualify claims about product maturity and delivery risk.",
-      "next_test": "Check failed tests, unavailable features, manual workarounds and delivery dependencies."
+      "finding": "The invoices identify no feature delivered or accepted by a customer.",
+      "impact": "Revenue alone cannot establish what Juniper can deliver repeatedly.",
+      "next_test": "Match an invoice to the product version, delivery record and customer acceptance."
     },
     {
       "id": "C04",
@@ -220,9 +220,9 @@
       "confidence": "unknown",
       "support": [],
       "oppose": [],
-      "finding": "Unresolved within the supplied synthetic packet.",
-      "impact": "Assess execution, governance and key-person dependencies.",
-      "next_test": "Check contradictory biographies, conflicts and departures that change who can deliver."
+      "finding": "None of the five documents identifies who leads sales, product delivery or finance.",
+      "impact": "A handover or key-person dependency cannot be evaluated.",
+      "next_test": "Request role histories and a reference for a prior delivery."
     },
     {
       "id": "C05",
@@ -237,23 +237,23 @@
       "oppose": [
         "E4"
       ],
-      "finding": "Offers point to different starting prices with unmatched terms.",
-      "impact": "Assess market access, price position and adoption alternatives.",
-      "next_test": "Look for private or manual substitutes, old price lists and scope mismatches."
+      "finding": "Juniper lists USD 40 per month. An independent review lists USD 55 under different terms. The newsletter repeats Juniper’s release.",
+      "impact": "The two figures cannot establish a like-for-like starting price.",
+      "next_test": "Align offer dates, included features and term lengths."
     },
     {
       "id": "C06",
       "question": "What drives recognised revenue and contribution at the current stage?",
       "priority": "High",
-      "status": "supported",
+      "status": "partial",
       "confidence": "low",
       "support": [
         "E1"
       ],
       "oppose": [],
-      "finding": "The supplied records support initial reported sales. The finding applies to the evidenced periods and customers.",
-      "impact": "Set revenue quality and defensible unit-economics assumptions.",
-      "next_test": "Look for refundable deposits, free pilots, bookings and pass-through amounts presented as earned revenue."
+      "finding": "The ledger reports USD 100,000 revenue and USD 40,000 direct costs. It gives no split between recurring and one-time sales.",
+      "impact": "Reported gross margin is 60%. Contribution per account remains unknown.",
+      "next_test": "Reconcile revenue and direct costs by account and charge type."
     },
     {
       "id": "C07",
@@ -263,9 +263,9 @@
       "confidence": "unknown",
       "support": [],
       "oppose": [],
-      "finding": "Unresolved within the supplied synthetic packet.",
-      "impact": "Determine funding needs, liquidity exposure and timing.",
-      "next_test": "Test restricted cash, delayed collections and conditional finance against the same timeline."
+      "finding": "The ledger contains sales and costs. It contains no unrestricted cash balance or forward commitments.",
+      "impact": "The funding date and cash available for reinvestment are unknown.",
+      "next_test": "Obtain a dated bank reconciliation and monthly cash commitments."
     },
     {
       "id": "C08",
@@ -275,9 +275,9 @@
       "confidence": "unknown",
       "support": [],
       "oppose": [],
-      "finding": "Unresolved within the supplied synthetic packet.",
-      "impact": "Test durability and the persistence of value drivers.",
-      "next_test": "Identify reproducible features, weak IP coverage, multi-homing and low switching costs."
+      "finding": "The documents record payments but no reason a customer renewed, switched or stayed.",
+      "impact": "The valuation cannot assume high switching costs.",
+      "next_test": "Ask both customers about alternatives and check their renewal decisions."
     },
     {
       "id": "C09",
@@ -287,9 +287,9 @@
       "confidence": "unknown",
       "support": [],
       "oppose": [],
-      "finding": "Unresolved within the supplied synthetic packet.",
-      "impact": "Identify conditions that could block operations or invalidate the decision.",
-      "next_test": "Check scope limits, expired or conditional permissions, and any reliance on an uncommitted third party."
+      "finding": "No operating agreements identify Juniper’s hosting or delivery dependencies.",
+      "impact": "The cost or interruption caused by a supplier change is unknown.",
+      "next_test": "Review the main hosting agreement and service commitments to customers."
     },
     {
       "id": "C10",
@@ -299,9 +299,9 @@
       "confidence": "unknown",
       "support": [],
       "oppose": [],
-      "finding": "Unresolved within the supplied synthetic packet.",
-      "impact": "Qualify the thesis, valuation and final decision.",
-      "next_test": "Test whether plausible adverse data changes the recommended decision or disqualifies the method."
+      "finding": "There is no supported forecast, cash bridge or priced comparable transaction.",
+      "impact": "A change in renewal assumptions could reverse the valuation case.",
+      "next_test": "Reconcile paid renewals and build a forecast that separates existing and new customers."
     },
     {
       "id": "OB04",
@@ -311,23 +311,23 @@
       "confidence": "unknown",
       "support": [],
       "oppose": [],
-      "finding": "Unresolved within the supplied synthetic packet.",
-      "impact": "Support a conditional range or withhold valuation.",
-      "next_test": "Disqualify methods when comparables, sustainable flows, rights or financing terms are unsupported."
+      "finding": "The records cover operating sales and product prices. They contain no transaction value or supported cash forecast.",
+      "impact": "Neither a transaction multiple nor a discounted cash-flow range is available.",
+      "next_test": "Source dated enterprise values with comparable revenues and reconcile the forecast cash flows."
     },
     {
       "id": "SA01",
       "question": "How much contracted recurring revenue is evidenced and reconcilable?",
       "priority": "High",
-      "status": "supported",
+      "status": "partial",
       "confidence": "low",
       "support": [
         "E1"
       ],
       "oppose": [],
-      "finding": "The supplied records support initial reported sales. The finding applies to the evidenced periods and customers.",
-      "impact": "Set the recurring revenue base for valuation and growth.",
-      "next_test": "Trace churn, pauses, reclassifications and annualisation of non-recurring receipts."
+      "finding": "Two accounts paid. The ledger gives no signed term, recurring charge or invoice-line split for either.",
+      "impact": "Contracted monthly recurring revenue and ARR are unknown.",
+      "next_test": "Match signed subscriptions to recurring invoice lines, excluding one-time charges and credits."
     },
     {
       "id": "SA02",
@@ -337,53 +337,57 @@
       "confidence": "unknown",
       "support": [],
       "oppose": [],
-      "finding": "Unresolved within the supplied synthetic packet.",
-      "impact": "Test repeatability and acquisition sustainability.",
-      "next_test": "Test newer cohorts, excluded churn and incentives omitted from acquisition cost."
+      "finding": "Opening cohorts, renewals and acquisition spend are missing.",
+      "impact": "Customer retention and payback cannot be estimated.",
+      "next_test": "Trace both accounts through renewal and match acquisition spend to new accounts."
     },
     {
       "id": "ST04",
       "question": "Is initial revenue collectible and repeatable beyond the first customers?",
       "priority": "High",
-      "status": "supported",
+      "status": "partial",
       "confidence": "low",
       "support": [
         "E1"
       ],
       "oppose": [],
-      "finding": "The supplied records support initial reported sales. The finding applies to the evidenced periods and customers.",
-      "impact": "Separate initial trading from repeatable revenue assumptions.",
-      "next_test": "Reconcile discounted, related-party or one-off sales and delayed collections."
+      "finding": "Two accounts made payments. No renewal record shows a second contract term or how collections change beyond these accounts.",
+      "impact": "The receipts establish initial sales. Their repeatability is still open.",
+      "next_test": "Check subsequent collections and renewal dates against the two signed agreements."
     }
   ],
   "research": [
     {
       "id": "R1",
       "question_id": "RQ1",
-      "status": "completed",
-      "stop_reason": "criteria_met",
+      "status": "partial",
+      "stop_reason": "insufficient_evidence",
       "attempt_ids": [
         "A2"
       ],
       "evidence_ids": [
         "E2"
       ],
-      "gap_ids": [],
-      "reason": "Reviewed legal names and the registry's historical alias field."
+      "gap_ids": [
+        "G4"
+      ],
+      "reason": "The extract confirms the registered name. It contains no share register, IP assignment or signed customer agreement."
     },
     {
       "id": "R2",
       "question_id": "RQ2",
-      "status": "completed",
-      "stop_reason": "criteria_met",
+      "status": "partial",
+      "stop_reason": "insufficient_evidence",
       "attempt_ids": [
         "A1"
       ],
       "evidence_ids": [
         "E1"
       ],
-      "gap_ids": [],
-      "reason": "Reviewed the ledger for paid deliveries, and checked for free trials and pass-through revenue."
+      "gap_ids": [
+        "G5"
+      ],
+      "reason": "The ledger identifies two paid accounts and total annual sales and costs. It has no invoice split or contract schedule from which to calculate recurring revenue."
     },
     {
       "id": "R3",
@@ -403,7 +407,7 @@
       "gap_ids": [
         "G2"
       ],
-      "reason": "Reviewed report against the offer. Both original prices remain visible."
+      "reason": "The newsletter copies the USD 40 release. The independent USD 55 offer covers different terms."
     },
     {
       "id": "R4",
@@ -461,7 +465,7 @@
       "attempt_ids": [],
       "evidence_ids": [],
       "gap_ids": [],
-      "reason": "The ordinary effort allowance was used. The remaining topic requires a new scope review."
+      "reason": "All four ordinary reviews were used on the ledger, registration and price dispute. Supplier terms were outside those documents."
     }
   ],
   "inputs": [
@@ -479,7 +483,7 @@
       "evidence_ids": [
         "E1"
       ],
-      "rationale": "Synthetic captured ledger row.",
+      "rationale": "Reported in the subscription and cost ledger for the year ended 27 November 2026.",
       "claim_ids": [
         "C1"
       ]
@@ -498,7 +502,7 @@
       "evidence_ids": [
         "E1"
       ],
-      "rationale": "Synthetic captured ledger row.",
+      "rationale": "Reported in the subscription and cost ledger for the year ended 27 November 2026.",
       "claim_ids": []
     }
   ],
@@ -524,11 +528,11 @@
       "status": "unavailable",
       "operands": {},
       "value": null,
-      "rationale": "Comparable pricing and cash evidence remain unresolved.",
+      "rationale": "There is no comparable enterprise transaction price or matched revenue denominator.",
       "scenario": "standalone",
       "gap_ids": [
-        "G1",
-        "G2"
+        "G5",
+        "G6"
       ]
     }
   ],
@@ -561,9 +565,9 @@
       "id": "G1",
       "priority": "High",
       "item": "Reconciled cash statement and valuation driver schedule",
-      "period": "At cut-off and the next operating period",
+      "period": "At 27 November 2026 and monthly over the forecast",
       "why": "The packet does not establish unrestricted cash, affordable reinvestment or a defensible forecast.",
-      "conclusion": "Decision, timing or valuation implications for C07, C10, OB04.",
+      "conclusion": "The date Juniper needs funding and the cash flows available for valuation.",
       "action": "Reconcile the cash balance and forecast drivers, and retest method eligibility.",
       "availability": "Private",
       "affected_factor_ids": [
@@ -576,9 +580,9 @@
       "id": "G2",
       "priority": "High",
       "item": "Dated like-for-like subscription offers and tier terms",
-      "period": "At cut-off and the next operating period",
+      "period": "Both offers in force at 27 November 2026",
       "why": "Recorded pricing disagrees and the copied release is one origin.",
-      "conclusion": "Decision, timing or valuation implications for C05.",
+      "conclusion": "Whether USD 40 and USD 55 are comparable entry prices for the same contract.",
       "action": "Align dates and included features before using pricing in comparables.",
       "availability": "Either",
       "affected_factor_ids": [
@@ -589,26 +593,68 @@
       "id": "G3",
       "priority": "Medium",
       "item": "Dated customer cohorts and churn reconciliation",
-      "period": "At cut-off and the next operating period",
+      "period": "From each account’s first invoice through its latest renewal opportunity",
       "why": "The ledger does not describe renewals or switching.",
-      "conclusion": "Decision, timing or valuation implications for SA02, C08.",
+      "conclusion": "Whether customers renew and how much growth must come from acquiring new accounts.",
       "action": "Test retention and switching behaviour by customer vintage.",
       "availability": "Private",
       "affected_factor_ids": [
         "SA02",
         "C08"
       ]
+    },
+    {
+      "id": "G4",
+      "priority": "High",
+      "availability": "Private",
+      "affected_factor_ids": [
+        "C01"
+      ],
+      "item": "Signed customer agreements, software IP assignments and issued-share register",
+      "period": "As at 27 November 2026",
+      "why": "The registry names the company but identifies none of these rights.",
+      "conclusion": "Which entity owns the operating assets, earns the contract receipts and issues the shares.",
+      "action": "Match each agreement and assignment to the registered entity and reconcile the securities."
+    },
+    {
+      "id": "G5",
+      "priority": "High",
+      "availability": "Private",
+      "affected_factor_ids": [
+        "SA01",
+        "C06",
+        "ST04"
+      ],
+      "item": "Subscription terms, invoice lines and credits for the two paying accounts",
+      "period": "The reported year and each contract’s current term",
+      "why": "Annual recognised sales combine charges with unknown recurrence.",
+      "conclusion": "How much contracted revenue can enter the valuation and which sales have been collected or renewed.",
+      "action": "Tie recurring charges to enforceable terms, separate one-time items, and reconcile receipts and direct costs."
+    },
+    {
+      "id": "G6",
+      "priority": "High",
+      "availability": "Public",
+      "affected_factor_ids": [
+        "C10",
+        "OB04"
+      ],
+      "item": "Dated comparable transaction prices and matched company revenue",
+      "period": "Transactions available as at 27 November 2026",
+      "why": "Subscription list prices measure what users pay. They do not establish the enterprise price paid for a business.",
+      "conclusion": "Whether a revenue multiple can support an enterprise valuation.",
+      "action": "Match enterprise value and revenue period, accounting and business mix before calculating a multiple."
     }
   ],
   "decision": {
     "status": "qualified",
-    "conclusion": "Withhold a valuation range pending cash, forecast and comparable offer evidence.",
-    "limitations": "Synthetic offline exercise of recorded research and blocking conditions.",
+    "conclusion": "Withhold a valuation range. Two customers paid, but their contract terms and recurring billings are unknown. Total annual revenue cannot serve as contracted recurring revenue.",
+    "limitations": "The five fictional documents cover one accounting year and two paid accounts. Web research and outreach were unavailable.",
     "strengths": [
-      "The recorded ledger supports a reproducible reported gross margin."
+      "Reported revenue of USD 100,000 less USD 40,000 in direct costs gives a 60% gross margin (E1)."
     ],
     "risks": [
-      "Pricing is disputed and comparable tiers are unresolved."
+      "The public offers give conflicting entry prices. A cash balance, forward costs and comparable transaction prices are also missing."
     ]
   },
   "financial_model": {
@@ -619,7 +665,7 @@
   "research_plan": {
     "objective": "valuation",
     "objective_rationale": "Determine whether the signed subscription and cash evidence support a defensible valuation basis.",
-    "stage_rationale": "Classify from dated records of realised activity in the synthetic packet.",
+    "stage_rationale": "Dated receipts identify two paying accounts. There is no renewal history.",
     "stage_evidence_ids": [
       "E1"
     ],
@@ -658,9 +704,7 @@
       {
         "id": "RQ2",
         "parent_id": null,
-        "depends_on": [
-          "RQ1"
-        ],
+        "depends_on": [],
         "factor_ids": [
           "SA01",
           "C06",

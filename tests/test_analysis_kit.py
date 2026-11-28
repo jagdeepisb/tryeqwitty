@@ -16,7 +16,7 @@ class ContractTests(unittest.TestCase):
     def test_sparse(self):
         self.assertEqual(validate(self.sparse)["assessed"],0)
     def test_full(self):
-        self.assertEqual(validate(self.full)["assessed"],1)
+        self.assertEqual(validate(self.full)["assessed"],2)
     def test_bridge(self):
         spec=importlib.util.spec_from_file_location("renderer",ROOT/"report-kit/render.py")
         r=importlib.util.module_from_spec(spec);spec.loader.exec_module(r)

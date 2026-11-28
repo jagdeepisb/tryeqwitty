@@ -58,7 +58,8 @@ def convert(b, digest, report_version=None):
     def fs(head,ids):
         rows=selected(ids)
         return section(head,[fac(f) for f in rows],[i for f in rows for i in f["support"]+f["oppose"]])
-    gaps=[{**{k:g[k] for k in ("priority","item","period","why","conclusion","action","availability")},"conclusion":g["conclusion"]+(" | Factors: "+", ".join(g["affected_factor_ids"]) if g["affected_factor_ids"] else "")} for g in b["gaps"]]
+    gaps = [{field: gap[field] for field in ("priority", "item", "period", "why", "conclusion", "action", "availability")}
+            for gap in b["gaps"]]
     limits=[d["limitations"],"Open standard v"+b["version"]+"; source commit "+b["standard_commit"]+"; bundle SHA-256 "+digest,"Coverage (count, not performance score): "+json.dumps(coverage), *[r["id"]+" | "+r["status"]+" | "+r["reason"] for r in b["research"]],*[q["id"]+" | "+q["severity"]+" | "+q["status"]+" | "+q["finding"]+" | "+q["correction"] for q in b["challenges"]]]
     if research is not None:
         limits.extend([research["limitations"], "Recorded attempts "+json.dumps(research["attempts_by_channel"]),

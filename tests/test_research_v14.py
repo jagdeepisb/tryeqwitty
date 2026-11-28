@@ -97,7 +97,7 @@ class ResearchValidationTests(unittest.TestCase):
         saas = validate(self.saas)
         pilot = validate(self.pilot)
         a, b = saas["research_coverage"], pilot["research_coverage"]
-        self.assertEqual(a["question_counts"], {"completed": 2, "partial": 2, "blocked": 3, "deferred": 1})
+        self.assertEqual(a["question_counts"], {"completed": 0, "partial": 4, "blocked": 3, "deferred": 1})
         self.assertEqual(b["question_counts"], {"completed": 1, "partial": 2, "blocked": 4, "deferred": 1})
         self.assertEqual((a["source_records"], a["source_origins"], a["independent_origins"]), (5, 4, 2))
         self.assertEqual(a["origin_groups"]["juniper price release"], ["E3", "E5"])
@@ -110,7 +110,7 @@ class ResearchValidationTests(unittest.TestCase):
         self.assertEqual(a["unresolved_material_challenges"], ["Q1"])
         self.assertEqual(b["unresolved_material_challenges"], ["Q2"])
         self.assertEqual(saas["financial_model"]["metrics"]["M1"]["value"], "0.6")
-        self.assertEqual(b["unresolved_material_factors"], ["C01", "C06", "C07", "MF01", "MF02", "OB02"])
+        self.assertEqual(b["unresolved_material_factors"], ["C01", "C06", "C07", "MF01", "MF02", "MF04", "OB02", "ST03"])
 
     def test_priority_is_exact_and_ties_are_stable(self):
         results = validate(self.saas)["research_coverage"]["priorities"]
@@ -167,11 +167,26 @@ class ResearchValidationTests(unittest.TestCase):
         self.reject(self.saas, "opened URL and evidence URL disagree")
 
     def test_research_cannot_claim_completion_without_a_real_counter_test(self):
-        row(self.saas, "research_attempts", "A2")["intent"] = "support"
-        self.reject(self.saas, "completed research lacks an executed counter-evidence test")
-        row(self.saas, "research_attempts", "A2")["intent"] = "both"
+        for attempt in self.pilot["research_attempts"]:
+            attempt["intent"] = "support"
+        self.reject(self.pilot, "completed research lacks an executed counter-evidence test")
         row(self.saas, "research", "R1")["attempt_ids"] = []
         self.reject(self.saas, "result cites evidence absent from its recorded attempts")
+
+    def test_paid_accounts_and_registered_name_leave_open_questions(self):
+        for factor, gap in (("C01", "G4"), ("SA01", "G5"), ("ST04", "G5")):
+            self.assertEqual(row(self.saas, "factors", factor)["status"], "partial")
+            self.assertIn(factor, row(self.saas, "gaps", gap)["affected_factor_ids"])
+        for key in ("R1", "R2"):
+            self.assertEqual(row(self.saas, "research", key)["status"], "partial")
+        self.assertEqual([r["formula"] for r in self.saas["metrics"]], ["gross_margin"])
+        self.assertIsNone(self.saas["valuations"][0]["value"])
+
+    def test_narrow_completed_question_does_not_override_outstanding_material_gap(self):
+        # The supervised shift was accepted. Output across shifts is still being investigated.
+        question(self.pilot, "RQ3")["factor_ids"].append("MF04")
+        row(self.pilot, "factors", "MF04")["status"] = "supported"
+        self.reject(self.pilot, "open research question still needs evidence for this factor")
 
     def test_origins_cannot_be_split_by_tracking_url_or_title_aliases(self):
         evidence = {e["id"]: copy.deepcopy(e) for e in self.saas["evidence"]}
@@ -209,8 +224,8 @@ class ResearchValidationTests(unittest.TestCase):
                 case = copy.deepcopy(self.saas)
                 question(case, "RQ1")[field] = value
                 self.reject(case, expected)
-        question(self.saas, "RQ2")["depends_on"] = ["RQ6"]
-        self.reject(self.saas, "completed research has an unresolved prerequisite")
+        question(self.pilot, "RQ2")["depends_on"] = ["RQ1"]
+        self.reject(self.pilot, "completed research has an unresolved prerequisite")
 
     def test_stop_reasons_and_reserve_cannot_be_gamed(self):
         limited = copy.deepcopy(self.saas)
@@ -291,6 +306,8 @@ class ResearchValidationTests(unittest.TestCase):
         for factor in bundle["factors"]:
             factor.update(status="unknown", confidence="unknown", support=[], oppose=[])
         material = [r["id"] for r in bundle["factors"] if r["priority"] == "High"]
+        for gap in bundle["gaps"]:
+            gap["affected_factor_ids"] = ["ST07" if key == "ST03" else key for key in gap["affected_factor_ids"]]
         row(bundle, "gaps", "G1")["affected_factor_ids"] = material
         for result in bundle["research"]:
             result.update(status="blocked", stop_reason="tool_unavailable", attempt_ids=[], evidence_ids=[], gap_ids=["G1"])

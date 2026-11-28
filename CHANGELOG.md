@@ -1,9 +1,13 @@
 # Changelog
-## 2.1.0 release candidate: editorial and publication quality
+## 2.1.1 | Reference assessments and evidence scope
 
-Adds mandatory reader-facing editorial rules, zero em dashes in visible reports, linked inline evidence references, separate technical provenance and publication regression checks. The analytical contracts and immutable v2.0.0 release remain unchanged. Publication requires regenerated references, conformance checks and final visual review.
+Corrects Juniper’s ownership and recurring-revenue findings, leads the Harbour Ledger memo with the remaining funding gap, and distinguishes Cedar’s inspected prototype from sustained production. The checked-in PDFs, HTML and request lists are generated from the revised examples. The v1.4 validator flags a fully supported factor when an open research result still requests evidence for that factor. Existing JSON formats and financial formulas are retained. The pilot description identifies its single Codex configuration and repeated registry task. [Correction record](https://github.com/jagdeepisb/tryeqwitty/issues/18)
 
-## Unreleased — audit corrections
+## 2.1.0 | Editorial and publication quality
+
+Adds mandatory reader-facing editorial rules, zero em dashes in visible reports, linked inline evidence references, separate technical provenance and publication regression checks. The analytical contracts and immutable v2.0.0 release remain unchanged. The release includes regenerated examples and conformance checks.
+
+### Source provenance and export corrections included in v2.1.0
 
 Clarifies published-release pinning, rejects dirty tracked source checkouts when establishing conformance provenance, and prevents an export from mixing newly generated files with existing report artifacts. Adds regression tests. The immutable v2.0.0 release is unchanged.
 
@@ -11,7 +15,7 @@ Clarifies published-release pinning, rejects dirty tracked source checkouts when
 
 Pins the analytical, financial, research, reporting and evidence contracts in a release profile. Adds analytical-bundle and reconciled-report checks, compatibility and migration guidance, and an evidence package with reproducible reports, benchmark gates and source and artifact hashes. Records maintainer-approved MIT and CC BY 4.0 licensing, contribution procedures and governance. [Release profile](release/v2.0.0/README.md)
 
-## 1.5 — benchmarks and independent cross-agent evaluation
+## 1.5 | Benchmarks and the Codex repeatability pilot
 
 Adds closed, synthetic and public corporate-record cases with independently checked keys, raw trial outputs, a blinded review rubric and reproducible scores. The pilot runs fixed-evidence and live-retrieval tracks with separate denominators and stated limits. Adds seeded failure-gate tests and report-to-bundle reconciliation before rendering. The underlying analytical bundle remains v1.4.
 

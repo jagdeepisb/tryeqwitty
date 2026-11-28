@@ -1,10 +1,13 @@
 # Benchmarks
-These are fictional structural/arithmetical fixtures, not company research. Sparse manufacturing: applicable factors unknown, zero assessed, no runway or valuation. Reported SaaS: gross margin 0.6 and runway 6 months from synthetic reported inputs, one partially assessed factor, qualified decision. Negative tests mutate fixtures to catch unsupported verification, missing factor, false zero, wrong calculation, wrong currency, assumed observed inputs, unresolved challenge and broken valuation range. Extend with real permissioned or synthetic adversarial datasets with known financial statements and independent research answer keys. Cross-agent trials should use identical documents, frozen date, search budget/depth, blind scoring and record claim accuracy, arithmetic, coverage, missed material risks, calibration and cost/time. No cross-agent performance claim until such trials are run.
+The financial examples exercise arithmetic and missing-data handling. The separate [November 2026 pilot](v1.5/pilot-results.md) measures repeatability on a fixed set of questions.
 
-Conflicting revenue: synthetic deck claims 100,000 versus independent fixture 80,000. Preserve dispute, withhold gross margin and qualify decision. Arbitrary illustrative 2×/3×/4× multiples on 80,000 yield 160,000/240,000/320,000 enterprise scenario values, not a market valuation. All fixture commit fields are zero sentinels; real runs must use the reviewed Git commit.
+| Early contract example | Expected result |
+|---|---|
+| [Manufacturing intake](sparse-manufacturing.json) | No source records. Runway and enterprise value are unavailable. |
+| [Reported SaaS accounts](reported-saas.json) | Reported gross margin of 60% and six months of runway at the stated burn. Cash and revenue quality are partially assessed. |
+| [Conflicting revenue](conflicting-revenue.json) | The company reports USD 100,000 and the second sales record gives USD 80,000. Gross margin is withheld. Illustrative multiples of 2, 3 and 4 on the latter amount give scenarios of USD 160,000, 240,000 and 320,000. |
 
-
-Use [acceptance-rubric.md](acceptance-rubric.md) for future independent cross-agent adjudication. The known-answer formula test covers all implemented calculator IDs. These tests establish deterministic arithmetic on synthetic operands only; no factual benchmark performance is claimed.
+Example bundles use zeroes in the source-commit field. Use the reviewed commit for a company assessment. [Evaluation rubric](acceptance-rubric.md)
 
 ## v1.2 deterministic fixtures
 
@@ -23,11 +26,11 @@ The complete fixture exercises a disputed claim, a partially known competitor co
 
 | Case | Differentiation and known result |
 |---|---|
-| [Early-revenue SaaS valuation](research-early-saas-v1.4.json) | Prioritises subscription economics and valuation eligibility. Eight planned questions yield two completed, two partial, three blocked and one deferred. Five captured evidence records represent four originating sources. The pricing dispute remains open and the valuation is unavailable. |
+| [Early-revenue SaaS valuation](research-early-saas-v1.4.json) | Prioritises subscription economics and valuation eligibility. Four questions are partially answered, three are blocked and one is deferred. Neither the ownership question nor the recurring-revenue question is complete. Five captured evidence records represent four originating sources. The pricing dispute remains open and the valuation is unavailable. |
 | [Manufacturing pilot fundraising](research-pilot-manufacturing-v1.4.json) | Prioritises pilot conditions, production readiness, capex and funding. Eight questions yield one completed, two partial, four blocked and one deferred. Independent inspection corroborates the scoped pilot. Cash and operating records remain open. |
 
 Both cases use frozen synthetic documents and disclose zero web searches. Tests cover stage changes within a model, hybrid routes, exact priorities, shared attempts, false completion, duplicate origins, prerequisite cycles and priority-matched information requests. These cases test the contract under fixed conditions. [Cross-agent evaluation rubric](acceptance-rubric.md)
 
-## v1.5 cross-agent evaluation
+## v1.5 Codex repeatability pilot
 
-Six sealed cases cover SaaS, manufacturing, marketplace, lending, deeptech and a public corporate-register check. The measured pilot records independent Codex sessions, raw answers and blinded judgments under fixed-evidence and live-retrieval conditions. [Methodology and cases](v1.5/README.md) · [Measured pilot](v1.5/pilot-results.md)
+Six sealed cases cover SaaS, manufacturing, marketplace, lending, deeptech and a public corporate-register check. Six sessions of one Codex configuration produced the submissions. Two other Codex sessions reviewed masked responses. [Methodology and cases](v1.5/README.md) · [Measured pilot](v1.5/pilot-results.md)

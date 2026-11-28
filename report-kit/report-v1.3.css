@@ -75,6 +75,9 @@ tbody tr td.emphasis, tbody tr th.emphasis { background: var(--blue-tint); font-
 .cols-4 th:first-child { width: 25%; }
 .cols-6 th:first-child { width: 20%; }
 .cols-7 th:first-child { width: 28%; }
+.evidence-table th:first-child { width: 28%; }
+.evidence-table.cols-3 thead th:last-child,
+.evidence-table.cols-4 thead th:nth-child(n+3) { width: 12.5%; }
 .cols-7 tbody th, .cols-7 tbody td { padding-top: 1.05mm; padding-bottom: 1.05mm; }
 .number { text-align: right; font-variant-numeric: tabular-nums; }
 .cell-text, .note { white-space: pre-line; }

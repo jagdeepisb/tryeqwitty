@@ -15,7 +15,7 @@ from to_report import verify_projection
 from validate import validate
 
 ROOT = Path(__file__).resolve().parents[1]
-PROFILE = ROOT / "release/v2.1.0/profile.json"
+PROFILE = ROOT / "release/v2.1.1/profile.json"
 COMMIT = re.compile(r"[0-9a-f]{40}")
 
 

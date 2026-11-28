@@ -29,6 +29,6 @@ Freeze the stated commercial stage, objective, model routes and resource allowan
 
 Use the sealed solver brief, answer keys, evidence and blinded review criteria for each track. Track planned denominators, admitted citations, decision quality, separate hard failure flags, confidence-forecast coverage and agreement within each configuration. Archive original submissions and independently score outputs. Use seeded failure controls to check the scorer and report reconciliation while keeping the measured pilot inputs and outputs frozen. [Benchmark methodology](v1.5/README.md) · [Pilot results](v1.5/pilot-results.md)
 
-## Reader-facing publication acceptance (unreleased)
+## Reader-facing publication acceptance
 
 For new trials only, apply the [mandatory publication rules](../report-spec.md#reader-facing-publication-quality-mandatory). Inspect the actual memo for clear decision-focused writing, professional layout, supported figures and readable tables. Fail publication acceptance for any visible em dash, unlinked evidence ID, broken reference target, technical implementation commentary in the memo, hidden material limitations or false claims of verification. Report editorial acceptance separately from analytical quality; do not retroactively alter the sealed benchmark results.
