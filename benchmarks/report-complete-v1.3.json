@@ -18,20 +18,20 @@
     {
       "name": "Reported accounts and recurring-revenue ledger",
       "version": "1",
-      "reviewed": "Cutoff balances and historical measures",
-      "limitations": "Fictional synthetic data."
+      "reviewed": "Cutoff cash, monthly burn, annual revenue and costs, recurring revenue and November churn.",
+      "limitations": "The ledger reports balances. Bank reconciliation and later collection records are unavailable."
     },
     {
       "name": "Operating and capital plan",
       "version": "1",
-      "reviewed": "24 monthly drivers and minimum liquidity",
-      "limitations": "Fictional synthetic data."
+      "reviewed": "24 months of operating assumptions and the USD 40 minimum cash balance.",
+      "limitations": "Collections, operating cash flows and future financing dates are assumptions."
     },
     {
       "name": "Opening ownership and proposed financing terms",
       "version": "1",
-      "reviewed": "Fully diluted share register and terms",
-      "limitations": "Fictional synthetic data."
+      "reviewed": "Opening shareholdings, the proposed option-pool increase and the terms of both rounds.",
+      "limitations": "Cash arrives only if the rounds close. The terms do not document a closing."
     }
   ],
   "evidence": [

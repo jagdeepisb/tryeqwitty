@@ -18,8 +18,8 @@
     {
       "name": "Synthetic financial table",
       "version": "1",
-      "reviewed": "One synthetic row",
-      "limitations": "Unverified company statement"
+      "reviewed": "Reported revenue, direct costs, cash and monthly burn.",
+      "limitations": "Only the company’s figures appear in this table."
     }
   ],
   "evidence": [

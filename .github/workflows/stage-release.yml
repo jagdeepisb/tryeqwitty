@@ -47,6 +47,25 @@ jobs:
               --notes-file release/v2.1.1/RELEASE-NOTES.md
             current=$(gh release view "$tag" --json targetCommitish,isDraft,assets)
           fi
+          prior=$(jq -r '.targetCommitish' <<< "$current")
+          if [[ "$prior" != "$GITHUB_SHA" ]]; then
+            # Restage an unpublished draft when review changes its source.
+            jq --exit-status --arg zip "eqwitty-$tag-reference.zip" \
+              '.isDraft and all(.assets[]; .name == $zip or .name == "release-manifest.json" or .name == "SHA256SUMS.txt")' \
+              <<< "$current" >/dev/null
+            [[ "$prior" =~ ^[0-9a-f]{40}$ ]]
+            test "$(gh api "repos/$GH_REPO/compare/$prior...$GITHUB_SHA" --jq .status)" = ahead
+            tag_ref=$(git ls-remote --tags origin "refs/tags/$tag")
+            test -z "$tag_ref"
+            # Keep the old target until every replacement has been verified.
+            gh release upload "$tag" "$assets/eqwitty-$tag-reference.zip" \
+              "$assets/release-manifest.json" "$assets/SHA256SUMS.txt" --clobber
+            verified="$RUNNER_TEMP/eqwitty-replacement"
+            gh release download "$tag" --dir "$verified"
+            for file in "$assets"/*; do cmp "$file" "$verified/${file##*/}"; done
+            gh release edit "$tag" --draft --target "$GITHUB_SHA" --notes-file release/v2.1.1/RELEASE-NOTES.md
+            current=$(gh release view "$tag" --json targetCommitish,isDraft,assets)
+          fi
           jq --exit-status --arg commit "$GITHUB_SHA" '.targetCommitish == $commit' <<< "$current" >/dev/null
           missing=()
           downloaded="$RUNNER_TEMP/eqwitty-check"
