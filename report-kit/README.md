@@ -4,7 +4,7 @@ Generate an independent branded PDF, accessible HTML and a missing-information C
 
 ## Reference reports
 
-All four examples use fictional companies. The two Cedar cases deliberately start from different evidence. The manufacturing pilot includes an inspection. The intake-only case has no source records.
+All four examples are synthetic regression fixtures, not professional opinions or economically calibrated operating models. Harbour Ledger deliberately uses small cash and equity operands. For a separate commercially plausible illustrative decision note, see [financing decision](../examples/financing-decision.md). The two Cedar cases deliberately start from different evidence. The manufacturing pilot includes an inspection. The intake-only case has no source records.
 
 | Example | PDF | HTML | Missing records | Input |
 |---|---|---|---|---|
@@ -32,6 +32,10 @@ The output contains `assessment.pdf`, `assessment.html` and `missing-information
 Pass `--bundle` when the validated analytical bundle is available. The renderer checks the versioned projection and its disclosures against the original bundle before writing files. The bundle check uses the analysis kit from the same checkout. Standalone report input can still be rendered with schema validation.
 
 The structured report uses deterministic results from the validated bundle and preserves the exact decimal strings. Money displays up to two decimal places and ratios and percentages up to four. The report shows very small nonzero values in scientific notation. The HTML exposes raw exhibit values and retains the complete operand register, while the PDF shows the associated input IDs. For v1.1 and v1.2 bundles, `--report-version 1.3` opts into this format. [v1.3 schema](schema-v1.3.json) · [v1.0 schema](schema.json) · [Report specification](../report-spec.md)
+
+## Optional decision brief
+
+For a structured report, add `--brief` to generate `decision-brief.html` and, unless `--html-only` is used, `decision-brief.pdf` alongside the unchanged full assessment and CSV. The brief removes exact repeated paragraphs and lower-priority unknown factor rows, and omits the detailed research-attempt table and monthly schedules. It retains the executive conclusion, coverage counts, all assessed and high-priority factors, risks, research limitations, financial summaries, requests and source records. Read it with the full assessment; it is not a substitute for the complete analytical record. No figures or evidence statuses are recalculated.
 
 ## Verify the export
 

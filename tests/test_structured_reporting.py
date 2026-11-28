@@ -140,6 +140,26 @@ class StructuredReportTests(unittest.TestCase):
         self.assertEqual(renderer.number_display("0.00000002", "amount"), "2.000E-8")
         self.assertEqual(renderer.number_display("-0.02", "percentage_points"), "-2 pp")
 
+    def test_optional_brief_preserves_material_information_and_full_output(self):
+        _, report = benchmark("juniper")
+        snapshot = copy.deepcopy(report)
+        full = renderer.report_html(report)
+        brief = renderer.report_html(report, brief=True)
+        self.assertEqual(report, snapshot)
+        self.assertEqual(renderer.report_html(report), full)
+        self.assertIn("Decision brief.", brief)
+        self.assertIn("lower-priority unknown factors", brief)
+        self.assertIn("Factor coverage", brief)
+        self.assertIn("Red-team corrections", brief)
+        self.assertNotIn("Planned questions and recorded outcomes", brief)
+        self.assertNotIn("Calculation operands", brief)
+        self.assertLess(len(brief), len(full))
+        for source in report["sources"]:
+            self.assertIn(f'id="source-{source["id"]}"', brief)
+        for gap in report["missing_information"]:
+            self.assertIn(f'id="gap-{gap["id"]}"', brief)
+        self.assertNotIn("\u2014", brief)
+
     def test_reader_publication_links_and_punctuation(self):
         _, report = benchmark("complete")
         original = copy.deepcopy(report)

@@ -160,10 +160,12 @@ a { text-decoration: underline; overflow-wrap: anywhere; }
 .source { break-inside: avoid; margin-bottom: 8pt; }
 """
 
-def report_html(report, *, include_operands=True):
+def report_html(report, *, include_operands=True, brief=False):
     validate(report)
+    if brief and report["version"] != "1.3":
+        raise ValueError("Decision briefs require structured report v1.3")
     if report["version"] == "1.3":
-        return publication_html(structured_html(report, include_operands), report)
+        return publication_html(structured_html(report, include_operands, brief=brief), report)
     parts = ['<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Independent company assessment</title><style>', CSS, '</style></head><body>',
         '<header><div class="brand">eqwitty<span class="dot">.</span></div><h1>', esc(report["company"]), '</h1><p>', esc(report["objective"]), '</p><p class="muted">As of ', esc(report["as_of"]), '</p><p class="notice">', esc(LABEL), '</p></header>']
     for section in report["sections"]:
@@ -372,7 +374,7 @@ def operands_html(operands):
     return "".join(parts) + "</tbody></table></div></section>"
 
 
-def structured_html(report, include_operands):
+def structured_html(report, include_operands, *, brief=False):
     meta = report["methodology"]
     title = esc(report["company"])
     method = esc(meta["version"])
@@ -389,12 +391,30 @@ def structured_html(report, include_operands):
         f'<span>Methodology v{method}</span></div>'
         f'<p class="notice">{esc(LABEL)}</p></header><main id="assessment">'
     ]
+    if brief:
+        parts.append('<p class="notice">Decision brief. Read with the full assessment, which retains the detailed factor and research registers and cash schedules.</p>')
+    seen = set()
     for section in report["sections"]:
         parts.append(f'<section><h2>{esc(section["heading"])}</h2>')
-        parts.extend(f'<p>{esc(p)}</p>' for p in section["paragraphs"])
+        for paragraph in section["paragraphs"]:
+            if not brief or paragraph not in seen:
+                parts.append(f"<p>{esc(paragraph)}</p>")
+                seen.add(paragraph)
         if section["source_ids"]:
             parts.append(f'<p class="detail">Evidence {source_links(section["source_ids"])}</p>')
-        parts.extend(exhibit_html(exhibit, include_operands) for exhibit in section["tables"])
+        for exhibit in section["tables"]:
+            if brief and exhibit["caption"] == "Planned questions and recorded outcomes":
+                continue
+            if brief and exhibit["caption"] == "Material factors and evidence matrix":
+                rows = [row for row in exhibit["rows"] if not (
+                    row[1]["text"] == "Unknown" and row[0].get("note", "").lower() in {"medium priority", "low priority"})]
+                omitted = len(exhibit["rows"]) - len(rows)
+                if omitted:
+                    parts.append(f"<p>{omitted} lower-priority unknown factors are detailed in the full assessment. Coverage counts include them.</p>")
+                if not rows:
+                    continue
+                exhibit = {**exhibit, "rows": rows}
+            parts.append(exhibit_html(exhibit, include_operands and not brief))
         if not (section["paragraphs"] or section["tables"]):
             parts.append("<p class=\"subtle\">Unavailable within assessed scope.</p>")
         parts.append("</section>")
@@ -411,11 +431,11 @@ def structured_html(report, include_operands):
     else:
         parts.append("<p>Source records unavailable.</p>")
     parts.append("</section>")
-    if report["schedules"]:
+    if report["schedules"] and not brief:
         parts.append('<section class="appendix"><h2>Monthly cash schedules</h2>')
         parts.extend(exhibit_html(exhibit, include_operands) for exhibit in report["schedules"])
         parts.append("</section>")
-    if include_operands:
+    if include_operands and not brief:
         parts.append(operands_html(report["operands"]))
     elif report["operands"]:
         parts.append('<p class="detail">The complete calculation record is available separately.</p>')
@@ -423,7 +443,7 @@ def structured_html(report, include_operands):
     return "\n".join(parts)
 
 
-def pdf_bytes(report):
+def pdf_bytes(report, *, brief=False):
     from weasyprint import CSS, HTML
     from weasyprint.text.fonts import FontConfiguration
     from weasyprint.urls import URLFetcherResponse
@@ -449,7 +469,7 @@ def pdf_bytes(report):
     fonts = FontConfiguration()
     font_css = CSS(string="".join(rules), font_config=fonts, url_fetcher=fetch_font)
     options = {"pdf_variant": "pdf/ua-1"} if report["version"] == "1.3" else {}
-    document = HTML(string=report_html(report, include_operands=False), url_fetcher=deny_fetch)
+    document = HTML(string=report_html(report, include_operands=False, brief=brief), url_fetcher=deny_fetch)
     rendered = document.render(stylesheets=[font_css], font_config=fonts)
     anchors = {anchor for page in rendered.pages for anchor in page.anchors}
     for page in rendered.pages:
@@ -485,6 +505,7 @@ def main():
     p.add_argument("--out",type=pathlib.Path,required=True)
     p.add_argument("--bundle", type=pathlib.Path, help="Check the report against this analytical bundle before rendering")
     p.add_argument("--html-only",action="store_true",help="Create HTML and CSV only; not a PDF")
+    p.add_argument("--brief", action="store_true", help="Also create a concise decision brief for a structured report")
     a=p.parse_args()
     size = a.input.stat().st_size
     if size > 10_000_000:
@@ -502,14 +523,23 @@ def main():
         verify_bundle(report, a.bundle)
     output = report_html(report)
     pdf = pdf_bytes(report) if not a.html_only else None
+    brief_html = report_html(report, brief=True) if a.brief else None
+    brief_pdf = pdf_bytes(report, brief=True) if a.brief and not a.html_only else None
     a.out.mkdir(parents=True,exist_ok=True)
-    for name in ("assessment.pdf", "assessment.html", "missing-information.csv"):
+    names = ("assessment.pdf", "assessment.html", "missing-information.csv")
+    if a.brief:
+        names += ("decision-brief.html", "decision-brief.pdf")
+    for name in names:
         if (a.out / name).exists() or (a.out / name).is_symlink():
             raise ValueError("Output artifacts already exist; use a fresh output directory")
     if pdf is not None:
         (a.out/"assessment.pdf").write_bytes(pdf)
     (a.out/"assessment.html").write_text(output,encoding="utf-8")
     write_missing(report,a.out/"missing-information.csv")
+    if brief_html is not None:
+        (a.out/"decision-brief.html").write_text(brief_html, encoding="utf-8")
+    if brief_pdf is not None:
+        (a.out/"decision-brief.pdf").write_bytes(brief_pdf)
     print("HTML and missing-information CSV written" if a.html_only else "PDF, HTML and missing-information CSV written")
 if __name__=="__main__":
     main()
