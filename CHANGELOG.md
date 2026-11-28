@@ -1,4 +1,8 @@
 # Changelog
+## 2.2.0 | Decision briefs and benchmark scope
+
+Adds an optional concise decision brief with plain-language calculation and round labels, without changing the full assessment or analytical contracts. Adds automated PDF verification of both formats to the release archive. Distinguishes a commercially plausible fictional financing note from numerical regression fixtures and records requirements for prospective external evaluation. The archived pilot and earlier releases are unchanged. No external expert validation is claimed.
+
 ## 2.1.1 | Reference assessments and evidence scope
 
 Corrects Juniper’s ownership and recurring-revenue findings, leads the Harbour Ledger memo with the remaining funding gap, and distinguishes Cedar’s inspected prototype from sustained production. The checked-in PDFs, HTML and request lists are generated from the revised examples. The v1.4 validator flags a fully supported factor when an open research result still requests evidence for that factor. Existing JSON formats and financial formulas are retained. The pilot description identifies its single Codex configuration and repeated registry task. [Correction record](https://github.com/jagdeepisb/tryeqwitty/issues/18)

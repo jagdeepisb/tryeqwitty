@@ -374,6 +374,35 @@ def operands_html(operands):
     return "".join(parts) + "</tbody></table></div></section>"
 
 
+def brief_exhibit(exhibit):
+    """Use reader-friendly labels without altering figures or the report JSON."""
+    caption = exhibit["caption"]
+    view = {**exhibit}
+    view["caption"] = re.sub(r"^RND([1-9][0-9]*) ", r"Financing round \1: ", caption)
+    if caption in {"Financial and operating metrics", "Other valuation methods"}:
+        rows = []
+        for original in exhibit["rows"]:
+            row = [dict(cell) for cell in original]
+            row[0]["text"] = re.sub(r"^[MV][0-9]+ · ", "", row[0]["text"])
+            row[0].pop("note", None)
+            row[2]["text"] = re.sub(r" · formula v[0-9.]+$", "", row[2]["text"])
+            if row[2]["text"] == "Observed":
+                row[2]["text"] = "Reported inputs"
+            elif row[2]["text"] == "Assumed":
+                row[2]["text"] = "Assumed inputs"
+            rows.append(row)
+        view["rows"] = rows
+    return view
+
+
+def brief_paragraph(paragraph, heading):
+    if heading == "Executive assessment":
+        paragraph = re.sub(r"^Qualified · ", "Decision subject to further evidence: ", paragraph)
+    if paragraph == "Structured competitor comparison unavailable within this assessment.":
+        return "The available records did not support a like-for-like competitor comparison."
+    return paragraph
+
+
 def structured_html(report, include_operands, *, brief=False):
     meta = report["methodology"]
     title = esc(report["company"])
@@ -398,7 +427,8 @@ def structured_html(report, include_operands, *, brief=False):
         parts.append(f'<section><h2>{esc(section["heading"])}</h2>')
         for paragraph in section["paragraphs"]:
             if not brief or paragraph not in seen:
-                parts.append(f"<p>{esc(paragraph)}</p>")
+                display = brief_paragraph(paragraph, section["heading"]) if brief else paragraph
+                parts.append(f"<p>{esc(display)}</p>")
                 seen.add(paragraph)
         if section["source_ids"]:
             parts.append(f'<p class="detail">Evidence {source_links(section["source_ids"])}</p>')
@@ -414,6 +444,8 @@ def structured_html(report, include_operands, *, brief=False):
                 if not rows:
                     continue
                 exhibit = {**exhibit, "rows": rows}
+            if brief:
+                exhibit = brief_exhibit(exhibit)
             parts.append(exhibit_html(exhibit, include_operands and not brief))
         if not (section["paragraphs"] or section["tables"]):
             parts.append("<p class=\"subtle\">Unavailable within assessed scope.</p>")
