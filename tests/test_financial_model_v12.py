@@ -456,6 +456,27 @@ class ModelMetricTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, pattern):
                 validate(bundle)
 
+    def test_model_metric_boundary_values_and_operand_binding(self):
+        for formula in ("marketplace_match_rate", "manufacturing_first_pass_yield",
+                        "consumer_repeat_purchase_rate", "services_billable_utilisation"):
+            for endpoint in ("0", "1"):
+                with self.subTest(formula=formula, endpoint=endpoint):
+                    bundle, row = self.make_metric(formula)
+                    bundle["inputs"][0]["value"] = "0" if endpoint == "0" else bundle["inputs"][1]["value"]
+                    row["value"] = endpoint
+                    self.assertEqual(validate(bundle)["financial_model"]["metrics"]["M1"]["value"], endpoint)
+        for field, value, pattern in (
+            ("entity", "Other entity", "incompatible entity"),
+            ("accounting_basis", "ifrs", "incompatible entity or accounting basis"),
+            ("currency", "EUR", "incompatible currency"),
+            ("evidence_ids", ["E9999"], "Unknown reference in financial operand"),
+        ):
+            with self.subTest(field=field):
+                bundle, _ = self.make_metric("saas_arr")
+                bundle["inputs"][0][field] = value
+                with self.assertRaisesRegex(ValueError, pattern):
+                    validate(bundle)
+
     def test_metric_periods_and_basis_and_negative_net_charge_off(self):
         bundle, row = self.make_metric("lending_net_charge_off_rate")
         bundle["inputs"][1]["value"] = "13"
