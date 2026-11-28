@@ -428,11 +428,14 @@ def structured_html(report, include_operands, *, brief=False):
         parts.append(f'<section><h2>{esc(section["heading"])}</h2>')
         section_seen = set()
         for paragraph in section["paragraphs"]:
-            if paragraph not in section_seen and (not brief or paragraph not in seen):
+            # Cross-section suppression in the brief is safe only when the
+            # evidence context is identical. Never merge merely similar claims.
+            identity = (paragraph, tuple(sorted(section["source_ids"])))
+            if paragraph not in section_seen and (not brief or identity not in seen):
                 display = reader_paragraph(paragraph, section["heading"])
                 section_seen.add(paragraph)
                 parts.append(f"<p>{esc(display)}</p>")
-                seen.add(paragraph)
+                seen.add(identity)
         if section["source_ids"]:
             parts.append(f'<p class="detail">Evidence {source_links(section["source_ids"])}</p>')
         for exhibit in section["tables"]:

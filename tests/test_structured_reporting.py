@@ -168,6 +168,19 @@ class StructuredReportTests(unittest.TestCase):
             self.assertIn(f'id="gap-{gap["id"]}"', brief)
         self.assertNotIn("\u2014", brief)
 
+    def test_duplicate_paragraphs_do_not_erase_distinct_evidence_contexts(self):
+        _, report = benchmark("juniper")
+        phrase = "The same observation has different supporting records."
+        report["sections"][2]["paragraphs"] = [phrase, phrase]
+        report["sections"][2]["source_ids"] = ["E1"]
+        report["sections"][3]["paragraphs"] = [phrase]
+        report["sections"][3]["source_ids"] = ["E2"]
+        original = copy.deepcopy(report)
+        for brief in (False, True):
+            page = renderer.report_html(report, brief=brief)
+            self.assertEqual(page.count(phrase), 2)
+            self.assertEqual(report, original)
+
     def test_financing_brief_retains_figures_with_plain_labels(self):
         _, report = benchmark("complete")
         before = copy.deepcopy(report)

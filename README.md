@@ -60,6 +60,8 @@ python analysis-kit/validate.py benchmarks/research-pilot-manufacturing-v1.4.jso
 python analysis-kit/to_report.py benchmarks/research-pilot-manufacturing-v1.4.json /tmp/eqwitty-report.json
 python report-kit/render.py /tmp/eqwitty-report.json --out /tmp/eqwitty-report --bundle benchmarks/research-pilot-manufacturing-v1.4.json
 ```
+For development-checkout release verification, use `python release/verify_release.py --help`. This is an automated maintainer check, not independent certification. The legacy command remains supported.
+
 The renderer bundles its licensed fonts. Install the platform dependencies in the report kit instructions to create PDFs. To use a v1.1 or v1.2 bundle with the structured renderer, pass `--report-version 1.3` to the report bridge. [Report kit](report-kit/README.md)
 
 Recompute the stored v1.5 pilot results offline with `python analysis-kit/benchmark.py`. The pilot uses the existing v1.4 analytical contract.
