@@ -26,3 +26,7 @@ The v2.1 release keeps the same analytical, financial and report JSON versions. 
 ## v2.1.1 evidence review
 
 Use the same JSON formats. Revisit a fully supported factor if an open research result still requests evidence for that factor. Record the narrower finding or complete the missing work before regenerating the memo. [Patch profile](v2.1.1/README.md)
+
+## v2.2 decision briefs
+
+No JSON format or financial formula changes. The optional `--brief` output is an additional presentation of the validated report, not a new analytical contract. Keep the full assessment and prior snapshots. See the [v2.2 profile](v2.2.0/README.md).

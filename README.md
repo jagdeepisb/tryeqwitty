@@ -28,9 +28,7 @@ Give an AI agent the [evaluation prompt](prompts/evaluate.md), the decision you 
 
 ## Read a sample assessment
 
-[Start with a financing decision example](examples/financing-decision.md): a fictional subscription business with commercially plausible revenue, cash and financing amounts. The PDFs below are contract test outputs, not representative full-scale company finances.
-
-The downloadable PDFs use fictional test inputs. Harbour Ledger deliberately mixes small arithmetic operands with larger accounting figures to exercise the renderer; do not interpret those inputs as a commercially coherent operating model.
+[Start with a financing decision example](examples/financing-decision.md): a fictional subscription business with commercially plausible revenue, cash and financing amounts. The downloadable PDFs below are regression test outputs, not representative full-scale company finances. Harbour Ledger deliberately mixes small arithmetic operands with larger accounting figures to exercise the renderer; do not interpret those inputs as a commercially coherent operating model.
 
 | Case | What the evidence supports | Read the example |
 |---|---|---|
@@ -38,7 +36,7 @@ The downloadable PDFs use fictional test inputs. Harbour Ledger deliberately mix
 | Juniper Workflows | Two accounts paid. Annual sales are recorded, but the contract terms and invoice detail needed to calculate recurring revenue are missing. | [PDF](report-kit/reference/juniper/assessment.pdf) · [Missing records](report-kit/reference/juniper/missing-information.csv) |
 | Cedar Components | An inspector accepted a prototype in one shift. More shifts, equipment quotes and opening cash are needed to size an expansion. | [PDF](report-kit/reference/cedar-pilot/assessment.pdf) · [Missing records](report-kit/reference/cedar-pilot/missing-information.csv) |
 
-The [report kit](report-kit/README.md) links each example to its input records, HTML and missing-information list. The [release page](https://github.com/jagdeepisb/tryeqwitty/releases/latest) also includes the reference archive, calculation outputs and checksums.
+The [report kit](report-kit/README.md) links each example to its input records, HTML and missing-information list. The [release page](https://github.com/jagdeepisb/tryeqwitty/releases/latest) also includes the reference archive, calculation outputs and checksums. Starting with v2.2.0, the archive includes shorter decision briefs alongside the full assessments.
 
 ## Technical reference
 
@@ -51,7 +49,7 @@ The [report kit](report-kit/README.md) links each example to its input records, 
 | Analytical contract | [Analytical bundle schema](schemas/analysis-bundle-v1.4.json) · [Validator and report bridge](analysis-kit/README.md) |
 | Structured reporting | [Report specification](report-spec.md) · [Offline renderer](report-kit/README.md) |
 | Benchmarks | [Synthetic benchmarks](benchmarks/README.md) · [Cross-agent acceptance rubric](benchmarks/acceptance-rubric.md) |
-| Release | [Release conformance](release/v2.1.1/README.md) · [Compatibility and migration](release/COMPATIBILITY.md) · [Change history](CHANGELOG.md) |
+| Release | [Release conformance](release/v2.2.0/README.md) · [Compatibility and migration](release/COMPATIBILITY.md) · [Change history](CHANGELOG.md) |
 
 ## Evidence and reproducibility
 

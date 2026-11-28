@@ -1,4 +1,4 @@
-"""Build or verify a v2.1 release evidence package from a pinned source revision."""
+"""Build or verify a v2.2 release evidence package from a pinned source revision."""
 
 import argparse
 from decimal import Decimal
@@ -139,7 +139,13 @@ def build_reference(base, case, commit, profile, render):
     pdf.write_bytes(render.pdf_bytes(report))
     (directory / "assessment.html").write_bytes(render.report_html(report).encode())
     render.write_missing(report, directory / "missing-information.csv")
-    return {"bundle_version": bundle["version"], **review_pdf(pdf, report, case["pdf_markers"], commit)}
+    full_review = review_pdf(pdf, report, case["pdf_markers"], commit)
+    brief = directory / "decision-brief.pdf"
+    brief.write_bytes(render.pdf_bytes(report, brief=True))
+    (directory / "decision-brief.html").write_bytes(render.report_html(report, brief=True).encode())
+    brief_review = review_pdf(brief, report, case["brief_markers"], commit)
+    require(brief_review["pages"] <= full_review["pages"], "Decision brief has more pages than full assessment")
+    return {"bundle_version": bundle["version"], **full_review, "decision_brief": brief_review}
 
 
 def artifact_name(profile):
@@ -217,6 +223,11 @@ def verify(output, profile, commit):
         require(results == stored.read_bytes(), "Release benchmark results differ from the archived baseline")
         check_pilot(json.loads(results), profile["benchmark"])
         checks = json.loads(archive.read(REVIEW))
+        for case in profile["references"]:
+            require(f"reference/{case['id']}/decision-brief.pdf" in names and
+                    f"reference/{case['id']}/decision-brief.html" in names and
+                    checks["pdf_checks"][case["id"]]["decision_brief"]["text_and_bounds"] == "pass",
+                    "Decision brief verification is incomplete")
         require(checks["benchmark_replay"] == checks["benchmark_thresholds"] == "pass" and
                 checks["pdf_checks"].keys() == {case["id"] for case in profile["references"]},
                 "Release verification record is incomplete")

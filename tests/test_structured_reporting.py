@@ -148,6 +148,10 @@ class StructuredReportTests(unittest.TestCase):
         self.assertEqual(report, snapshot)
         self.assertEqual(renderer.report_html(report), full)
         self.assertIn("Decision brief.", brief)
+        self.assertIn("Decision subject to further evidence:", brief)
+        self.assertIn("The available records did not support a like-for-like competitor comparison.", brief)
+        self.assertNotIn("Observed · formula v1.2", brief)
+        self.assertIn("Reported inputs", brief)
         self.assertIn("lower-priority unknown factors", brief)
         self.assertIn("Factor coverage", brief)
         self.assertIn("Red-team corrections", brief)
@@ -159,6 +163,19 @@ class StructuredReportTests(unittest.TestCase):
         for gap in report["missing_information"]:
             self.assertIn(f'id="gap-{gap["id"]}"', brief)
         self.assertNotIn("\u2014", brief)
+
+    def test_financing_brief_retains_figures_with_plain_labels(self):
+        _, report = benchmark("complete")
+        before = copy.deepcopy(report)
+        full = renderer.report_html(report)
+        brief = renderer.report_html(report, brief=True)
+        self.assertIn("Financing round 1: financing terms", brief)
+        self.assertNotIn("RND1 financing terms", brief)
+        self.assertIn("1,472.73", brief)
+        self.assertIn("Closing cash by scenario", brief)
+        self.assertNotIn("Monthly cash schedules</h2>", brief)
+        self.assertEqual(report, before)
+        self.assertEqual(renderer.report_html(report), full)
 
     def test_reader_publication_links_and_punctuation(self):
         _, report = benchmark("complete")
