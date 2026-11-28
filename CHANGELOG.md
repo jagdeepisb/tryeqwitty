@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased | Governance and recovery hardening
+
+Adds standard agent discovery, relative documentation link checks, financial boundary tests, explicit offline release-publication status and same-artifact draft recovery checks. Documents the required live repository controls. Published releases are unchanged.
+
 ## 2.2.1 | Editorial quality and public examples
 
 Adds a scoped public-source Monzo case, separates regression snapshots from the public showcase and clarifies release verification and uses business-language labels in both structured formats without changing the analytical record. Archived pilot results remain unchanged. No new independent validation is claimed.

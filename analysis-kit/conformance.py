@@ -55,7 +55,10 @@ def check(bundle_path, report_path, commit):
     require(bundle.get("standard_commit") == commit, "Bundle standard_commit differs from the source commit")
 
     result = {
-        "standard_release": profile["release"],
+        # The profile number alone does not establish that this checkout is a published tag.
+        "standard_release": profile["release"],  # retained compatibility field
+        "release_profile_version": profile["release"],
+        "publication_status": "not_verified",
         "profile_sha256": profile_hash,
         "source_commit": commit,
         "level": "analytical-bundle",
